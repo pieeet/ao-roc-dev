@@ -1,0 +1,29 @@
+
+body{
+   font-family: verdana, arial;
+   
+}
+#zoeken h2 {
+   background-color: black;
+   color: white;
+   
+}
+#merk h2{
+   background-color: black;
+   color: white;
+   
+}
+
+table th{
+   background-color: gray;
+   padding: 5px;
+   width: 200px;
+}
+#box1{
+   display: inline;
+}
+img{
+   
+   display: block;
+}
+

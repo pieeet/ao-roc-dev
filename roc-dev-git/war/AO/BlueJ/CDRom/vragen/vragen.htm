@@ -1,0 +1,1643 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./vragen_bestanden/filelist.xml">
+<link rel=Edit-Time-Data href="./vragen_bestanden/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Antwoorden op de vragen uit Datastructuren in Java</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Gertjan Laan</o:Author>
+  <o:LastAuthor>Gertjan Laan</o:LastAuthor>
+  <o:Revision>44</o:Revision>
+  <o:TotalTime>857</o:TotalTime>
+  <o:Created>2002-11-30T21:53:00Z</o:Created>
+  <o:LastSaved>2005-04-04T19:53:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>1677</o:Words>
+  <o:Characters>9560</o:Characters>
+  <o:Company>Oostzaan</o:Company>
+  <o:Lines>79</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>11740</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>115</w:Zoom>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:DrawingGridHorizontalSpacing>2,85 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>2,85 pt</w:DrawingGridVerticalSpacing>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="..\intro\algemeen.css">
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"ITC Officina Serif Book";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+h1
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:13.5pt;
+	font-family:Arial;
+	color:navy;
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:13.5pt;
+	font-family:Arial;
+	color:#CC3300;
+	font-weight:bold;}
+h3
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:Arial;
+	color:navy;
+	font-weight:bold;}
+h4
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:#CC3300;
+	font-weight:bold;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{mso-style-update:auto;
+	mso-style-next:Standaard;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-12.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Standaard;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 8.0cm right 16.0cm;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.MsoIndexHeading, li.MsoIndexHeading, div.MsoIndexHeading
+	{mso-style-next:"Index 1";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-next:Standaard;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;
+	font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-update:auto;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:17.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-17.0pt;
+	mso-pagination:widow-orphan;
+	mso-list:l0 level1 lfo3;
+	tab-stops:list 18.0pt;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:navy;}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	color:windowtext;}
+p.rood12, li.rood12, div.rood12
+	{mso-style-name:rood12;
+	margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#0000A1;
+	font-weight:bold;}
+p.selecter, li.selecter, div.selecter
+	{mso-style-name:selecter;
+	margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.roodklein, li.roodklein, div.roodklein
+	{mso-style-name:roodklein;
+	margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#CC3300;}
+p.date, li.date, div.date
+	{mso-style-name:date;
+	margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#CC3300;}
+p.m, li.m, div.m
+	{mso-style-name:m;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	tab-stops:2.0cm 70.75pt 84.9pt 99.05pt 113.2pt 127.35pt 141.5pt 155.65pt 169.8pt 183.95pt 198.1pt 212.25pt 226.4pt 240.55pt 254.7pt 268.85pt 283.0pt 297.15pt 311.3pt 325.45pt 339.6pt;
+	layout-grid-mode:char;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:windowtext;}
+p.hk, li.hk, div.hk
+	{mso-style-name:hk;
+	mso-style-parent:"Kop 1";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:42.5pt;
+	margin-left:21.6pt;
+	text-indent:-21.6pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	tab-stops:list 21.6pt;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:20.0pt;
+	font-family:"ITC Officina Serif Book";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-bidi-font-weight:bold;}
+p.k, li.k, div.k
+	{mso-style-name:k;
+	mso-style-parent:"Kop 2";
+	mso-style-next:Standaard;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	tab-stops:right 1.0cm left 36.85pt 42.5pt;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	border:none;
+	mso-border-bottom-alt:solid windowtext .25pt;
+	padding:0cm;
+	mso-padding-alt:0cm 0cm 0cm 0cm;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:windowtext;
+	mso-bidi-font-weight:bold;
+	font-style:italic;}
+p.listing, li.listing, div.listing
+	{mso-style-name:listing;
+	mso-style-parent:m;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	tab-stops:2.0cm 70.75pt 84.9pt 99.05pt 113.2pt 127.35pt 141.5pt 155.65pt 169.8pt 183.95pt 198.1pt 212.25pt 226.4pt 240.55pt 254.7pt 268.85pt 283.0pt 297.15pt 311.3pt 325.45pt 339.6pt;
+	layout-grid-mode:char;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:blue;}
+p.kader, li.kader, div.kader
+	{mso-style-name:kader;
+	margin-top:0cm;
+	margin-right:14.2pt;
+	margin-bottom:0cm;
+	margin-left:56.65pt;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	border:none;
+	mso-border-top-alt:solid windowtext .25pt;
+	mso-border-bottom-alt:solid windowtext .25pt;
+	padding:0cm;
+	mso-padding-alt:0cm 0cm 0cm 0cm;
+	font-size:9.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.ri, li.ri, div.ri
+	{mso-style-name:ri;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:65.15pt;
+	margin-bottom:.0001pt;
+	text-indent:-65.15pt;
+	mso-pagination:none;
+	tab-stops:right 2.0cm left 65.2pt;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+p.hr, li.hr, div.hr
+	{mso-style-name:hr;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.55pt;
+	margin-bottom:.0001pt;
+	mso-line-height-alt:5.0pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+span.Frag
+	{mso-style-name:Frag;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:9.0pt;
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	color:blue;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:325322602;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1300509890 1390942200 68354051 68354053 68354049 68354051 68354053 68354049 68354051 68354053;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-style-link:"Lijst opsom\.teken";
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:17.0pt;
+	text-indent:-17.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:401098577;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-484682404 762193186 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l1:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:546838118;
+	mso-list-type:hybrid;
+	mso-list-template-ids:323934542 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l2:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:806509488;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1763734944 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l3:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1048605821;
+	mso-list-type:hybrid;
+	mso-list-template-ids:198604048 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l4:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l5
+	{mso-list-id:1402826121;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-19907562 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l5:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l6
+	{mso-list-id:1516767534;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1003338730 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l6:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l7
+	{mso-list-id:1675450875;
+	mso-list-type:hybrid;
+	mso-list-template-ids:794485942 -749555026 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l7:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l8
+	{mso-list-id:1817842379;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1471565154 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l8:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l9
+	{mso-list-id:2141529401;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1985069702 68354063 68354073 68354075 68354063 68354073 68354075 68354063 68354073 68354075;}
+@list l9:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1141"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+   <o:entry new="2" old="0"/>
+   <o:entry new="3" old="0"/>
+   <o:entry new="4" old="3"/>
+   <o:entry new="5" old="0"/>
+   <o:entry new="6" old="5"/>
+   <o:entry new="7" old="6"/>
+   <o:entry new="8" old="6"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=NL link=blue vlink=blue style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<h2>Antwoorden op de vragen uit:</h2>
+
+<h2><i>Programmeermodule BlueJ</i>, Gertjan Laan<i><o:p></o:p></i></h2>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial;color:navy'><a
+href="#Vragen_hoofdstuk_1">Vragen hoofdstuk 1</a><br>
+<a href="#Vragen_hoofdstuk_2">Vragen hoofdstuk 2</a><br>
+<a href="#Vragen_hoofdstuk_3">Vragen hoofdstuk 3</a><br>
+<a href="#Vragen_hoofdstuk_4">Vragen hoofdstuk 4</a><br>
+<a href="#Vragen_hoofdstuk_5">Vragen hoofdstuk 5</a><br>
+<a href="#Vragen_hoofdstuk_6">Vragen hoofdstuk 6</a><br>
+<a href="#Vragen_hoofdstuk_7">Vragen hoofdstuk 7</a><br>
+</span><b><span style='font-size:13.5pt;font-family:Arial;color:navy'><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></b></p>
+
+<p><a name="Vragen_hoofdstuk_1"></a><b>Vragen hoofdstuk 1<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een ander woord voor object?<br>
+<br>
+Instantie.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een constructor?<br>
+<br>
+Een constructor is een gedeelte van een klasse waarmee je een object maakt. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een klasse?<br>
+<br>
+Een klasse is de definitie voor objecten die je ervan kunt maken. Een klasse
+bestaat doorgaans uit gegevens en methoden.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Hoeveel instanties kun je van een klasse maken?<br>
+<br>
+Net zo veel als je wilt (en als het geheugen van je computer toelaat).<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Naar een instantie van <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>Lamp</span></span>
+kun je vier verschillende berichten sturen. Hoe reageert een lamp-object na het
+sturen van elk van deze berichten?<br>
+<br>
+Door het bericht <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>aan()</span></span> gaat de lamp aan.<br>
+Door het bericht <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>uit()</span></span> gaat de lamp uit.<br>
+Door het bericht <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>maakZichtbaar()</span></span> wordt de
+lamp zichtbaar gemaakt in een apart venster.<br>
+Door het bericht <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>isAan()</span></span> geeft de lamp
+antwoord op de vraag of hij aan is (<span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>true</span></span> als
+dat zo is, en anders <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>false</span></span>).<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat geeft het woord <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>boolean</span></span>
+aan?<br>
+<br>
+Het woord <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>boolean</span></span> geeft aan dat het om een waarde gaat
+die alleen <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>false</span></span> of <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>true</span></span>
+kan zijn. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat geeft het woord <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>void</span></span> aan?<br>
+<br>
+Het woord <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>void</span></span> geeft aan dat een methode geen waarde
+aflevert.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat geeft het woord <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>int</span></span> aan?<br>
+<br>
+Het woord <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>int</span></span> geeft aan dat het om een geheel getal
+gaat. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is de toestand van een object?<br>
+<br>
+De verzameling van de waarden die in een object zitten. Als een van de waarden
+van een object verandert, verandert de toestand van dat object.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l4 level1 lfo5;
+tab-stops:list 18.0pt'><![if !supportLists]>10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span><![endif]>Wat geeft het woord <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>private</span></span>
+aan?<br>
+<br>
+Het woord <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>private</span></span> geeft aan dat het om een privé-gegeven
+van een object gaat.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><a name="Vragen_hoofdstuk_2"></a><b>Vragen hoofdstuk 2<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat verstaan we onder de interface van een object?<br>
+<br>
+De lijst met namen van alle berichten (methoden) die je naar dat object kunt
+sturen.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat betekent &quot;een methode aanroepen&quot;?<br>
+<br>
+Is hetzelfde als een bericht naar een object sturen.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is de retourwaarde van een methode?<br>
+<br>
+Een waarde die een methode aflevert als je hem hebt aangeroepen. Niet alle
+methoden leveren een waarde af, in dat geval staat er <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>void</span></span>
+voor de methode. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Hoe kun je in BlueJ de broncode van een klasse zien?<br>
+<br>
+Door met de rechter muisknop op een klasse te klikken en Open Editor te kiezen.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat betekent compileren?<br>
+<br>
+Compileren is het laten vertalen van broncode naar code die door de computer
+begrepen wordt.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Waarom is compileren noodzakelijk?<br>
+<br>
+Omdat een computer de broncode niet begrijpt.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is overloading?<br>
+<br>
+Het verschijnsel dat een klasse een of meer methoden met dezelfde naam heeft.
+De methoden moeten dan wel een verschillend aantal
+argumenten hebben, of hun argumenten moeten van een verschillend type zijn.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l3 level1 lfo7;
+tab-stops:list 18.0pt'><![if !supportLists]>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Geef bij elk van onderstaande uitdrukkingen het type aan: <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>String</span></span>,
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>int</span></span> of geen van beide.<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&quot;lichtblauw&quot;<span style='mso-tab-count:1'>   </span>String</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>123<span style='mso-tab-count:2'>            </span>int</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&quot;456&quot;<span style='mso-tab-count:2'>          </span></span></span><span
+class=Frag><span style='mso-bidi-font-size:10.0pt;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;color:navy'>geen van beide</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>d66<span style='mso-tab-count:2'>            </span></span></span><span
+class=Frag><span style='mso-bidi-font-size:10.0pt;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;color:navy'>geen van beide</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&quot;hotmail&quot;<span style='mso-tab-count:1'>      </span>String</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>geel<span style='mso-tab-count:2'>           </span></span></span><span
+class=Frag><span style='mso-bidi-font-size:10.0pt;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;color:navy'>geen van beide</span></span></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><a name="Vragen_hoofdstuk_3"></a><b>Vragen hoofdstuk 3<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een attribuut?<br>
+<br>
+Een attribuut is een gegeven van een klasse. Omdat objecten gemaakt worden op
+grond van de code in een klasse beschikt elk object over dezelfde attributen
+als in de klasse zijn gedefinieerd.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat plaats je in de drie gedeelten van het diagram van een
+klasse?<br>
+<br>
+In het bovenste gedeelte de naam van de klasse, in het midden de attributen, en
+in het onderste de methoden.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Welke van de volgende benamingen zijn geldige namen in Java?<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>Java</span></span><span style='mso-bidi-font-size:9.0pt;
+font-family:"Courier New";mso-bidi-font-family:"Times New Roman";color:blue'><br>
+<span class=Frag>U2</span><br>
+<span class=Frag>AZ67</span><br>
+<span class=Frag>8088</span><br>
+<span class=Frag>H&amp;M</span><br>
+<span class=Frag>get saldo</span><br>
+<span class=Frag>get_saldo</span><br>
+<span class=Frag>getSaldo</span><br>
+</span><br>
+Alleen <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>8088</span></span>, <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>H&amp;M</span></span><span
+style="mso-spacerun: yes">  </span>en <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>get saldo</span></span>
+zijn niet geldig. <br>
+De schrijfwijze van <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>get_saldo</span></span> is
+ongebruikelijk. Beter is <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>getSaldo</span></span>.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Welk type gebruik je in Java voor een stukje tekst? Voor een
+geheel getal? Voor een gebroken getal?<br>
+<br>
+Achtereenvolgens <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>String</span></span>, <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>int</span></span>
+en <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>double</span></span>. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat betekent case-sensitive?<br>
+<br>
+Dat er onderscheid gemaakt wordt tussen hoofd- en kleine letters.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een constructor? Welke naam heeft een constructor
+altijd?<br>
+<br>
+Een constructor is een soort methode die je aanroept als je een nieuw object
+maakt. Een constructor heeft altijd dezelfde naam als de klasse.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Met welk teken geef je <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>private</span></span>
+aan in een klassendiagram? En met welk teken <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>public</span></span>?<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>private</span></span> geef je met een minteken aan en <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>public</span></span>
+met een plusteken.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een getter? En wat is een setter?<br>
+<br>
+Een getter is een methode die als retourwaarde de waarde van een attribuut
+heeft. De naam van een dergelijke methode begint met het woord <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>get</span></span>,
+en wordt gevolgd door de naam van het attribuut. Bijvoorbeeld:<br>
+Als er een attribuut <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>int lengte</span></span> is, dan is de
+bijbehorende getter:<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>public int getLengte()</span></span><br>
+Een setter is een methode waarmee je de waarde van een attribuut kunt
+veranderen. De naam van een dergelijke methode begint met het woord <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>get</span></span>,
+en wordt gevolgd door de naam van het attribuut. Een setter heeft een argument
+van hetzelfde type als het attribuut.<br>
+Bijvoorbeeld:<br>
+Als er een attribuut <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>int lengte</span></span> is, dan is de
+bijbehorende setter:<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>public void setLengte( int lengte )</span></span><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo9;
+tab-stops:list 18.0pt'><![if !supportLists]>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Gegeven is het diagram van de klasse CD, zie figuur.</p>
+
+<p><!--[if gte vml 1]><v:group id="_x0000_s1132" style='position:absolute;
+ margin-left:-1.5pt;margin-top:4.5pt;width:130.65pt;height:86.4pt;z-index:1'
+ coordorigin="1387,12577" coordsize="2613,1728">
+ <v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s1129" type="#_x0000_t202" style='position:absolute;
+  left:1387;top:12577;width:2613;height:1728;mso-position-horizontal:absolute;
+  mso-position-vertical:absolute' filled="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1129'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal align=center style='text-align:center'><span
+     class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:9.0pt;
+     font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>CD<o:p></o:p></span></span></p>
+     <p class=listing style='mso-pagination:widow-orphan;tab-stops:.25pt 2.0cm 70.75pt 84.9pt 99.05pt 113.2pt 127.35pt 141.5pt 155.65pt 169.8pt 183.95pt 198.1pt 212.25pt 226.4pt 240.55pt 254.7pt 268.85pt 283.0pt 297.15pt 311.3pt 325.45pt 339.6pt'><span
+     style='mso-bidi-font-size:9.0pt'><br>
+     <span class=Frag>-titel: String<o:p></o:p></span></span></p>
+     <p class=listing style='mso-pagination:widow-orphan;tab-stops:.25pt 2.0cm 70.75pt 84.9pt 99.05pt 113.2pt 127.35pt 141.5pt 155.65pt 169.8pt 183.95pt 198.1pt 212.25pt 226.4pt 240.55pt 254.7pt 268.85pt 283.0pt 297.15pt 311.3pt 325.45pt 339.6pt'><span
+     class=Frag>-artiest:String<o:p></o:p></span></p>
+     <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;
+     mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+     "Times New Roman"'>-nummer:int<o:p></o:p></span></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1130" style='position:absolute' from="1387,12931"
+  to="4000,12931"/>
+ <v:line id="_x0000_s1131" style='position:absolute;mso-position-horizontal:absolute;
+  mso-position-vertical:absolute' from="1387,13837" to="4000,13837"/>
+</v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:0;margin-left:-3px;margin-top:6px;width:178px;height:118px'><img
+width=178 height=118 src="./vragen_bestanden/image001.gif" v:shapes="_x0000_s1132 _x0000_s1129 _x0000_s1130 _x0000_s1131"></span><![endif]><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p>Schrijf de broncode voor de klasse CD. Geef de klasse een constructor met
+drie argumenten waarmee de attributen een waarde kunnen krijgen. Geef de
+klasse drie getters en setters waarmee je de waarden van de attributen kunt
+opvragen en wijzigen.</p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'>public class CD {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>private
+String titel;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>private
+String artiest;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>private int
+nummer;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public CD(
+String titel, String artiest, int nummer ) {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span>this.titel
+= titel;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">   
+</span>this.artiest = artiest;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span>this.nummer
+= nummer;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public String
+getTitel() {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span>return
+titel;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span><span
+style="mso-spacerun: yes"> </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public String
+getArtiest() {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span>return
+artiest;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public int
+getNummer() {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span>return
+nummer;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public void
+setTitel( String titel ) {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span></span></span><span
+class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:9.0pt;font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>this.titel = titel;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">  </span></span></span><span class=Frag><span
+lang=EN-GB style='font-size:10.0pt;mso-bidi-font-size:9.0pt;font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-GB'>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">  </span>public void
+setArtiest( String artiest ) {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'><span style="mso-spacerun: yes">    </span></span></span><span
+class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:9.0pt;font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>this.artiest = artiest;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">  </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">  </span>public void setNummer( int nummer ) {<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">    </span>this.nummer = nummer;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun: yes">  </span>}<o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>}</span></span><br>
+<br>
+<br>
+<a name="Vragen_hoofdstuk_4"></a><b><span style='font-size:10.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman";color:navy'>Vragen hoofdstuk 4<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Arial;
+mso-bidi-font-family:"Times New Roman";color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo11;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een associatie?<br>
+<br>
+Een associatie is een relatie tussen klassen, dat wil zeggen dat de instanties
+van die klassen op een of andere manier met elkaar te maken hebben.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo11;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een referentie?<br>
+<br>
+Een referentie is een naam die verwijst naar een object. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo11;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Welk teken gebruik je voor de concatenatie van strings?<br>
+<br>
+Het plusteken.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo11;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Hoe ziet de uitvoer van het volgende stukje broncode er
+precies uit?<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>String naam1 = &quot;Ana&quot;;</span></span><span
+style='mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman";color:blue'><br>
+<span class=Frag>String naam2 = &quot;Bea&quot;;</span><br>
+<span class=Frag>int leeftijd = 18;</span><br>
+<br>
+<span class=Frag>System.out.print( naam1 + &quot; is &quot; );</span><br>
+<span class=Frag>System.out.println( leeftijd );</span><br>
+<span class=Frag>System.out.println( naam2 + &quot; is &quot; + (leeftijd + 10
+) );</span><br>
+<br>
+<br>
+</span><span class=Frag><span style='mso-bidi-font-size:10.0pt;mso-ascii-font-family:
+Arial;mso-hansi-font-family:Arial;color:navy'>De uitvoer:</span></span><br>
+<span style='mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman";color:blue'><br>
+<span class=Frag>Ana is 18</span><br>
+<span class=Frag>Bea is 28<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></span></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo11;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een <i>test fixture</i>? Waarom kan dat handig zijn?<br>
+<br>
+Een test fixture is een vaste verzameling objecten die je na het wijzigen van
+de broncode steeds automatisch opnieuw kunt laten maken. Dat is handig omdat je
+dan de objecten niet steeds met de hand hoeft te maken.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="Vragen_hoofdstuk_5"></a><b>Vragen hoofdstuk 5<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo13;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een collectie? Wanneer gebruik je een collectie? Welke
+klasse kun je in Java voor een collectie gebruiken?<br>
+Een collectie is een object waaraan je net zoveel objecten kunt toevoegen als
+je wilt.<br>
+Een collectie gebruik je als je veel (of een onbekend aantal) objecten wilt
+kunnen opbergen.<br>
+Voor een collectie kun je de klasse <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>ArrayList</span></span>
+gebruiken.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo13;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Waarom mag je niet definiëren<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>ArrayList&lt;double&gt; lijst;</span></span><br>
+maar wel<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>ArrayList&lt;Double&gt; lijst</span></span>;<br>
+<br>
+In een <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>ArrayList</span></span> kun je alleen objecten opbergen. Getallen
+van het type <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>double</span></span> zijn geen
+objecten. Getallen van het type <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>Double</span></span> zijn dat wel.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo13;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Stel dat de volgende lijst gevuld is met getallen:<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>ArrayList&lt;Double&gt; cijferlijst;</span></span><br>
+Op welke manier kun je de inhoud van de lijst op het scherm zetten?<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>for( double cijfer : cijferlijst ) </span></span><span
+style='mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman";color:blue'><br>
+<span class=Frag><span style="mso-spacerun: yes">  </span>System.out.println(
+cijfer );</span><br>
+</span><br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo13;
+tab-stops:list 18.0pt'><![if !supportLists]><span class=Frag><span
+style='mso-bidi-font-size:10.0pt;mso-ascii-font-family:Arial;mso-hansi-font-family:
+Arial;color:navy'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Stel dat de volgende variabelen gegeven zijn:.<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>int i = 65536;</span></span><span style='mso-bidi-font-size:
+9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:blue'><br>
+<span class=Frag>String s = &quot;Z80&quot;;</span><br>
+<span class=Frag>double pi = 3.1415726;</span><br>
+<span class=Frag>double bedrag = 2.5;</span></span><br>
+<br>
+Op welke manier krijg je onderstaande uitvoer?<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun: yes">     </span>65536<span
+style="mso-spacerun: yes">      </span>3,14</span></span><span
+style='mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman";color:blue'><br>
+<span class=Frag><span style="mso-spacerun: yes">       </span>Z80<span
+style="mso-spacerun: yes">      </span>2,50<br>
+</span></span><br>
+Met:<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><br>
+<br>
+System.out.printf( &quot;%10d%10.2f%n&quot;, i, pi );<br>
+System.out.printf( &quot;%10s%10.2f%n&quot;, s, bedrag );<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></span><span class=Frag><span style='mso-bidi-font-size:10.0pt;
+mso-ascii-font-family:Arial;mso-hansi-font-family:Arial;color:navy'><o:p></o:p></span></span></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo13;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Zelfde vraag voor onderstaande uitvoer:<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>65536<span style="mso-spacerun: yes">          </span>3,142</span></span><span
+style='mso-bidi-font-size:9.0pt;font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman";color:blue'><br>
+<span class=Frag>Z80<span style="mso-spacerun: yes">            </span>2,500<br>
+</span></span><br>
+Met:<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><br>
+System.out.printf( &quot;%-10d%10.3f%n&quot;, i, pi );<br>
+System.out.printf( &quot;%-10s%10.3f%n&quot;, s, bedrag );</span></span></p>
+
+<p style='margin-left:36.0pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>&nbsp;</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="Vragen_hoofdstuk_6"></a><b>Vragen hoofdstuk 6<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Hoe kan de kop van een <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>for</span></span>-statement
+eruit zien waarvan de body 10 keer wordt uitgevoerd?<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>for( int i = 1; i &lt;= 10; i++ )</span></span><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Gegeven is een instantie van <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>Schildpad</span></span>
+met de naam <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>schildpad</span></span>. <br>
+Welke figuur wordt hier getekend?<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>for( int i = 1; i &lt;= 3; i++ ) {<br>
+<span style="mso-spacerun: yes">  </span>schildpad.vooruit( 100 );<br>
+<span style="mso-spacerun: yes">  </span>schildpad.draaiRechts( 45 );<br>
+}</span></span><br>
+<br>
+<br>
+Zie figuur.<br>
+<br>
+<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><!--[if gte vml 1]><v:group id="_x0000_s1140" style='position:absolute;
+ margin-left:41.1pt;margin-top:-51pt;width:60.7pt;height:66.9pt;z-index:2'
+ coordorigin="2239,1597" coordsize="1214,1338">
+ <v:line id="_x0000_s1136" style='position:absolute;flip:y;
+  mso-position-horizontal:absolute;mso-position-vertical:absolute' from="2239,2215"
+  to="2239,2935" coordsize="21600,21600"/>
+ <v:line id="_x0000_s1138" style='position:absolute;rotation:-45;flip:y;
+  mso-position-horizontal:absolute;mso-position-vertical:absolute' from="2497,1597"
+  to="2497,2317" coordsize="21600,21600"/>
+ <v:line id="_x0000_s1139" style='position:absolute;rotation:-90;flip:y;
+  mso-position-horizontal:absolute;mso-position-vertical:absolute' from="3093,1355"
+  to="3093,2075" coordsize="21600,21600"/>
+</v:group><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+relative;z-index:4;left:54px;top:-62px;width:84px;height:85px'><img width=84
+height=85 src="./vragen_bestanden/image002.gif" v:shapes="_x0000_s1140 _x0000_s1136 _x0000_s1138 _x0000_s1139"></span><![endif]><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Welke vergelijkingsoperatoren zijn er in Java en hoe noteer je
+ze?<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>kleiner dan</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&gt;<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>groter dan</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&lt;=<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>kleiner dan of gelijk aan</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border-top:none;border-left:
+  solid windowtext .5pt;border-bottom:none;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&gt;=<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border:none;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>groter dan of gelijk aan</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>==<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>is gelijk aan (dubbel is-gelijk-teken)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=38 valign=top style='width:28.75pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span class=Frag><span style='font-size:10.0pt;mso-bidi-font-size:
+  9.0pt;font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>!=<o:p></o:p></span></span></p>
+  </td>
+  <td width=252 valign=top style='width:189.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>is ongelijk aan</p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Hoe vergelijk je twee strings met elkaar?<br>
+<br>
+<span lang=EN-GB style='mso-ansi-language:EN-GB'>Met </span><span class=Frag><span
+lang=EN-GB style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'>equals()</span></span><span lang=EN-GB
+style='mso-ansi-language:EN-GB'> of met </span><span class=Frag><span
+lang=EN-GB style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB'>equalsIgnoreCase</span></span><span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>()</span></span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Gegeven is de string <span class=Frag><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>antwoord</span></span>,
+die de waarde <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>&quot;ja&quot;</span></span> of <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&quot;nee&quot;</span></span>
+kan hebben.<br>
+Schrijf een stukje broncode dat de tekst <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&quot;Bedankt
+voor uw bestelling</span></span>&quot; op het scherm zet als het antwoord <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>&quot;ja&quot;</span></span>
+is, en de tekst <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>&quot;Wij hopen u graag nog eens terug
+te zien&quot;</span></span><span style="mso-spacerun: yes">  </span>als het
+antwoord <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&quot;nee&quot;</span></span> is.<br>
+<br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>if( antwoord.equals( &quot;ja&quot; )<br>
+<span style="mso-spacerun: yes">  </span>System.out.println( &quot;Bedankt voor
+uw bestelling&quot; );<br>
+else<br>
+<span style="mso-spacerun: yes">  </span>System.out.println( &quot;Wij hopen u
+graag nog eens terug te zien&quot; <span style="mso-spacerun: yes"> </span>);<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></span></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Met welke methode kun je toevalsgetallen genereren?<br>
+<br>
+Met <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>Math.random()</span></span>.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Als je in een <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>ArrayList</span></span> getallen van
+het type <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>int</span></span> wilt opbergen kan dat niet in een <span
+class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>ArrayList&lt;int&gt;</span></span>.
+Hoe moet het dan wel?<br>
+<br>
+In een <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>ArrayList&lt;Integer&gt;</span></span>. <br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is overloading?<br>
+<br>
+Het verschijnsel dat een klasse een of meer methoden met dezelfde naam heeft.
+De methoden moeten dan wel <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style="mso-spacerun: yes"> </span>XE
+&quot;overloading&quot; <![endif]--><!--[if supportFields]><span
+style='mso-element:field-end'></span><![endif]-->een verschillend aantal
+argumenten hebben, of hun argumenten moeten van een verschillend type zijn.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l8 level1 lfo15;
+tab-stops:list 18.0pt'><![if !supportLists]><span style='font-size:12.0pt;
+font-family:"Times New Roman";color:windowtext'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Schrijf de volgende uitdrukkingen in de vorm van een
+conditie die je in een <span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>if</span></span>-statement zou kunnen
+gebruiken:<br>
+a. leeftijd &lt; 16 of leeftijd &gt; 24<br>
+b. leeftijd &gt; 15 en leeftijd &lt; 25<br>
+c. 16 &lt;= leeftijd &lt;= 24<br>
+d. leeftijd niet jonger dan 16<br>
+<br>
+<br>
+a. <span style="mso-spacerun: yes"> </span><span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>( leeftijd
+&lt; 16 || leeftijd &gt; 24 )</span></span><br>
+b.<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'> ( leeftijd &gt; 15 &amp;&amp; leeftijd &lt; 25 )</span></span><br>
+c. <span style="mso-spacerun: yes"> </span><span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>( leeftijd
+&gt;= 16 &amp;&amp; leeftijd &lt;= 24 )<br>
+</span></span>d.<span class=Frag><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'> !( leeftijd &lt; 16 )</span></span><br>
+of<br>
+d. <span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>( leeftijd &gt;= 16 )</span></span><br>
+<span class=Frag><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><br>
+</span></span>&nbsp;<span style='font-size:12.0pt;font-family:"Times New Roman";
+color:windowtext'><o:p></o:p></span></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="Vragen_hoofdstuk_7"></a><b>Vragen hoofdstuk 7<o:p></o:p></b></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is Swing?<br>
+<br>
+Swing is de naam van een library (een verzameling klassen) voor het maken van
+een gebruikersinterface.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Over welke methode moet een applicatie beschikken?<br>
+<br>
+In elk geval over een statische methode met de naam <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>main().</span></span><br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een statische methode?<br>
+<br>
+Een statische methode is een methode waar het woord <span class=Frag><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>static</span></span>
+voor staat. Een statische methode kun je aanroepen zonder dat je een instantie
+van de klasse gemaakt hebt.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een gebruikersinterface?<br>
+<br>
+Een gebruikersinterface is het geheel van knoppen, invoervakken, et cetera via
+welke de gebruiker en een programma met elkaar communiceren.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een component?<br>
+<br>
+Een van de onderdelen van een gebruikersinterface, bijvoorbeeld een knop, een
+label of een tekstvak.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is het verschil tussen een applicatie en een applet?<br>
+<br>
+Een applicatie is een zelfstandig programma. Een applet is een Java-programma
+dat in een webpagina draait.<br>
+<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo17;
+tab-stops:list 18.0pt'><![if !supportLists]>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Wat is een event? Wat is event handling?<br>
+<br>
+Een event (gebeurtenis) is een actie van de gebruiker die invloed heeft op een
+programma, bijvoorbeeld het klikken op een knop, of het invoeren van tekst in
+een tekstvak.<br>
+<a name="Vragen_hoofdstuk_12">Event handling is het afhandelen van een event,
+dat wil zeggen: de reactie van het programma op de actie van de gebruiker.</a></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-bookmark:Vragen_hoofdstuk_12'><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></span></p>
+
+<p align=center style='text-align:center'><span style='mso-bookmark:Vragen_hoofdstuk_12'><span
+style='font-size:7.5pt;color:#CC0000'>© 2005, Gertjan Laan. Alle rechten
+voorbehouden. </span></span><span style='font-size:7.5pt;color:#CC0000'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

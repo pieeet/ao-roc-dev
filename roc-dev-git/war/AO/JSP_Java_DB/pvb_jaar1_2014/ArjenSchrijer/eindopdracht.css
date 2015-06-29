@@ -1,0 +1,19 @@
+th{
+    background-color: lime;
+    text-align: left;
+    
+}
+
+body{
+    background-image: url("Flower-Patterns-Lines-Light.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+    background-color: #ff1703;
+    color: white;
+}
+
+h3{
+    background-color: lime;
+    text-align: left;
+}

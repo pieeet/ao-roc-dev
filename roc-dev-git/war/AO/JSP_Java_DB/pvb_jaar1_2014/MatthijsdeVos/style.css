@@ -1,0 +1,30 @@
+.h1{
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.h11{
+    font-family: sans-serif;
+}
+
+#Fmerk{
+    width: 30%;
+}
+
+#Fprijs{
+    width: 30%;
+}
+
+.th{
+    background-color: grey;
+    color: black;
+    font-family: sans-serif;
+}
+
+
+.td{
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+}

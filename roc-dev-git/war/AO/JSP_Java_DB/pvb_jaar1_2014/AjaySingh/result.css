@@ -1,0 +1,50 @@
+#wrapper
+{
+    width: 800px;
+    height: auto;
+}
+
+#column1
+{
+    background-color: gray;
+    
+    
+    float: left;
+    width: 60%;
+    height: auto;
+}
+#column2
+{
+    background-color: lightblue;
+    height: 30px;
+    float: left;
+    width: 30%;
+    height: auto;
+}
+.result
+{
+    background-color: bisque;
+    width: 90%;
+}
+
+#result1
+{
+    height: auto;
+    width: 60%;
+}
+
+#result2
+{
+    height: auto;
+    width: 30%;
+}
+#result2 img
+{
+    width: 100px;
+    height: auto;
+}
+
+table
+{
+    width: 100%;
+}

@@ -1,0 +1,21 @@
+div.automerk,div.autoprijs{
+    width: 400px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+table.autolijstje{
+    border: 1px solid black;
+    width: 500px;
+}
+th{
+background: cadetblue;
+padding-top: 0.5em;
+padding-bottom:  0.5em;
+}
+
+h3{
+    background-color: midnightblue ;
+    padding: 0.5em;
+    color: white;
+}
+

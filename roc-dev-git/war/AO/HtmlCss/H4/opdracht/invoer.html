@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Invoerscherm</title>
+<style type="text/css">
+	legend {
+	color: blue;
+	}
+</style>
+</head>
+<body>
+<h2>Lid worden van de EU startpagina</h2>
+<h3>Wat houdt het in om lid te zijn:</h3>
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+</ul>
+<form action="">
+	<fieldset>
+		<legend>Inschrijven</legend>
+		<table>
+			<tr>
+				<td>Roepnaam*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Achternaam*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Adres*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Woonplaats*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Postcode*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Telefoon*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>E-mail adres*:</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>geslacht*:</td>
+				<td><input type="radio" name="geslacht" value="Man">Man<input type="radio" name="geslacht" value="Vrouw">Vrouw</td>
+			</tr>
+			<tr>
+				<td>Leeftijd*:</td>
+				<td>
+					<select>
+						<option selected></option>
+						<option>Jonger dan 20 jaar</option>
+						<option>10 t/m 20 jaar</option>
+						<option>21 t/m 30 jaar</option>
+						<option>31 t/m .. jaar</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Nationaliteit</td>
+				<td>
+					<select>
+						<option selected>Nederlands</option>
+						<option>Buitenlands</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">De organisatie zal er alles aan doen om zo veel mogelijk rekening te houden met uw voorkeurswensen.</td>
+			</tr>
+			<tr>
+				<td>Overige opmerkingen</td>
+				<td><textarea rows="6" cols="40"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2">U ontvangt binnen enkele dagen via e-mail een bevestiging van uw inschrijving</td>
+			</tr>
+			<tr>
+				<td colspan="2">*Verplichte velden</td>
+			</tr>
+		</table>
+	</fieldset>
+	<input type="submit" name="submit" value="Verzenden" onclick="return ControleerVelden(this.form)" tabindex="1">
+	<input type="reset" name="reset" value="Wissen" onclick="return confirm('Weet u zeker dat het formulier geschoond moet worden?')" tabindex="2">		
+</form>
+
+</body>
+</html>

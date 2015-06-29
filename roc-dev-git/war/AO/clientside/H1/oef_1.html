@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>oefening 1</title>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+    <script>
+    //voer uit als document gereed is
+    $(document).ready(function () {
+    	var i = 0;
+        // voeg event handling aan de knop toe
+        $("#knop_1").click(
+            // beschrijf wat er moet gebeuren
+            function() {
+            	if (i%2 == 0) {
+            		$("#knop_1").html("<button type=\"button\">Terug</button>");
+            		$("#knop_1").html("<button type=\"button\">Verander tekst</button>");
+	        		$("h1, p").css({ 
+		                'color': 'red', 
+		                'font-size': '200%',
+		                'font-family': "'Comic Sans MS', cursive, sans-serif" 
+                	});
+                	$("p").text("it just works!!!!");
+            	} else {
+	        		$("#knop_1").html("<button type=\"button\">Verander tekst</button>");
+	        		$("h1, p").css({ 
+	                    'color': '', 
+	                    'font-size': '',
+	                    'font-family': "" 
+                	});
+                	$("p").text("Een willekeurig stukje tekst");
+                }
+             	i++; 
+            } //einde functie tekst veranderen
+        ); //einde click event
+    }); //einde doc ready
+    </script>
+    
+    <h1>Oefening 1</h1>
+    <p>Een willekeurig stukje tekst</p>
+    <p>Een ander stukje tekst</p>
+    <div id="knop_1">
+    <button type="button">Verander tekst</button>
+    </div>
+</body>
+</html>

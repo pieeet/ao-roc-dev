@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-May-2014, 12:44:31
+    Author     : Xyliosius
+*/
+
+@charset "utf-8";
+body {
+    font-family: sans-serif;
+}
+h2 {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+th {
+    background-color: #ccc;
+    color: black;
+    padding: 5px;
+    text-align: left;
+}
+td, th {
+    padding: 10px 5px;
+}
+.modelkolom {
+    min-width: 300px;
+}

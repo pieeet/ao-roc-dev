@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-mei-2014, 13:58:01
+    Author     : kevin
+*/
+
+*{
+   font-family: arial; 
+   margin: auto;
+   margin-top: 2px;
+}
+
+#hoofdbox {
+    height: 20px;
+    width: 100%;
+    padding-left: 135px;
+    background-color: #D1D1D1;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+.box1 {
+    height: auto;
+    width: 100%;
+    border-bottom: solid 1px;
+    overflow: auto;
+    background-color: white;
+    float: left;
+}
+.links{
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-top: auto;
+    float: left;
+}
+.rechts{
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 3px;
+    float: left;
+}
+.wrapper {
+    width: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+
+}
+.links img{
+    width: 200px;
+    height: auto;
+    padding: 2px;
+    margin-left: 3px;
+}
+.img label{
+    margin-left: 10px;
+}
+#hoofdbox label{
+    padding-right: 100px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+h1{
+    padding: 10px;
+}

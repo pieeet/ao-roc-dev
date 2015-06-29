@@ -1,0 +1,82 @@
+*{     
+    margin: auto;
+    margin-top: 2px;
+    font-family: Verdana;
+}
+#wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 400px;
+    border: solid black 1px;
+}
+h1{
+    padding: 5px;
+}
+#hoofdbox{
+    margin-top: 5px;
+    height: 15px;
+    float: left;
+    background-color: #D1D1D1;
+    padding: 10px;    
+    width: 248px;
+    margin-left: 10px;
+    margin-bottom: -3px;
+}
+#hoofdbox2{
+    margin-top: 5px;
+    height: 15px;
+    background-color: #D1D1D1;
+    padding: 10px;    
+    width: 100px;
+    float: right;
+    
+    margin-bottom: -3px;
+}
+#hoofdbox p { 
+    display: inline; 
+    margin-right: 180px;
+    font-weight:bold;
+}
+#hoofdbox2 p { 
+    display: inline; 
+    margin-right: 180px;
+    font-weight:bold;
+}
+.box img{
+    border: 3px solid #FFFFFF;
+    width: 185px;
+    margin-right: 50px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: -8px;
+   margin-bottom: -8px;
+}
+.box label{
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 30px;
+}
+.box{
+    margin-left: 20px;
+}
+#content{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#zoek-balk{
+    font-weight:bold;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-top: 5px;
+    margin: 5px;
+}
+#content p{
+    margin-left: 2px;
+}
+#content button{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	color: white;
+	background-color: red;
+	height: 3em;
+}
+
+#menu1, #content, #menu2 {
+	margin: 0;
+}
+
+#menu1, #menu2 {
+	position: absolute;
+	width: 200px;
+	top: 0;
+	height: 100%;
+	background-color: #F28500;
+}
+
+#menu1 {
+	left: 0;
+}
+
+#menu2 {
+	right: 0;
+}
+
+#content {
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+#content {
+	padding-left: 2em;
+	padding-right: 2em;
+	background-color: grey;
+}
+
+#header,#footer, h2 {
+	text-align: center;
+}
+
+#footer {
+	color: white;
+	background-color: blue;
+	line-height: 3em;
+	clear: both;
+}
+
+#menu1 .image {
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main {
+	position: relative;
+}
+

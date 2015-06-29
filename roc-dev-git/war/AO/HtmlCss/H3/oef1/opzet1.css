@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	color: white;
+	background-color: red;
+	line-height: 3em;
+}
+
+#menu1, #content, #menu2 {
+	float: left;
+}
+
+#menu1, #menu2 {
+	width: 15%;
+	background-color: #F28500;
+}
+
+#content {
+	width: 64%;
+	padding-left: 3%;
+	padding-right: 3%;
+	background-color: grey;
+}
+
+
+
+#header,#footer, h2 {
+	text-align: center;
+}
+
+#footer {
+	color: white;
+	background-color: blue;
+	line-height: 3em;
+	clear: both;
+}
+
+#menu1 .image {
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+

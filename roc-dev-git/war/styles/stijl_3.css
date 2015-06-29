@@ -1,0 +1,1098 @@
+@charset "utf-8";
+/* CSS Document */
+
+p, li {
+	max-width: 700px;
+}
+
+
+
+#menu a {
+	color: #800000;
+	text-decoration: none;
+}
+
+
+#footer {
+	background-color: #F7F7F7;
+	color: #FFF8DC;
+	clear: all;
+	text-align: right;
+	margin: 0;
+	height: 4em;
+	padding-top: 0.5em;
+	border-top: 1px solid #800000;
+	
+}
+
+
+.code {
+	font-family: 'Source Code Pro', monospace;
+	color: black;
+	background-color: #F7F7F7;
+	padding: 1em;
+	width: auto;
+	max-width: 700px;
+/* 	overflow-x: scroll; */
+	margin: 1em;
+	border: 1px solid #DDDDDD;
+	border-radius: 1px;
+	
+	
+    overflow: auto;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+}
+
+.codeplus {
+	background-color: #FFF300;
+}
+
+.jsp, .html {
+	color: red;
+}
+
+.jsp {
+	font-weight: bold;
+} 
+
+.css {
+	background-color: #F3F3EA;
+}
+
+.comment, .javadoc {
+	color: green;
+}
+
+table {
+	font-family: Sans-serif;
+	padding: 0.5em;
+	margin: 2em;
+	border: 1px solid black;
+}
+
+
+
+td, th {
+	padding :0.5em;
+}
+
+.imgfullwidth {
+	max-width: 90%;
+}
+
+
+.klassendiagram td {
+	border-top: 1px solid black;
+}
+
+.klassendiagram th {
+	text-align: center;
+}
+
+
+
+.opdrachten {
+	border-bottom: 1px solid #800000;
+	max-width:750px;
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+
+
+
+
+.opdrachten h2, .uitwerking h2 {
+	margin: 0;
+	background-color: #F7F7F7;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	padding: .4em;
+	max-width:1000px;
+}
+
+
+.toonknop {
+	background-color: #F7F7F7;
+	box-shadow: 5px 5px 30px #888888;
+	padding: 2em;
+	margin: 0;
+	border-radius: 10px;
+}
+
+.toonknopcontainer {
+	margin: 0;
+	margin-bottom: 2em;
+	max-width: 1000px;
+	clear: both;
+	text-align: center;
+	margin-top: 2em;
+}
+
+.uitwerking {
+	display: none;
+}
+
+table#schaakbord {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#schaakbord td {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+#schaakbord td.zwart {
+	background-color: black;
+	
+}
+
+#schaakbord td.wit {
+	background-color: white;
+}
+
+table#xtabel {
+	border: 1px solid black;
+	border-collapse: collapse;
+	background-color: white; 
+	max-width: 400px;
+	
+}
+
+table#xtabel th, table#xtabel td {
+	border: 1px solid black;
+	text-align: center;
+	width: 10%;
+	height: 10%;
+}
+
+table#xtabel th {
+	background-color: #F3F3F3;
+	
+	
+}
+
+.fout_inline {
+	display: inline;
+	width: 35em;
+	color: red;
+	font-size: 0.8em;
+}
+
+.fout {
+	width: 35em;
+	color: red;
+	font-size: 0.8em;
+}
+
+.input {
+	margin-left: 5em;
+}
+
+.alert {
+	display: none;
+	color: red;
+	
+}
+
+
+
+.projectstatus {
+	width: 50%;
+	background-color: #E5E5E5;
+	padding: 2em;
+	margin-left: 2em;
+	margin-bottom: 2em;
+}
+
+#ccfooter {
+	float: right;
+	margin: 1em;
+}
+
+
+
+
+.bijlage {
+	margin-top: 3em;
+	border-top: 2px solid black;
+	
+}
+
+.letop {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+div.introplaatje { 
+	float: left;
+}
+
+/***************** AUTOS *********************/
+
+div.autokader {
+	float: left;
+	margin: 1em;
+	width: 220px;
+	height: 120px;
+	border: 1px solid black;
+	border-radius: 5px;
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+    background: -webkit-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, rgba(127,127,127,0), rgba(127,127,127,1)); /* Standard syntax (must be last) */
+
+}
+div.autokader img {
+	width: 120px;
+	margin:0;
+	position:absolute;
+	bottom: 0;
+	left: 0;
+}
+
+div.autokader p.merktype {
+	color: #FFF8DC;
+	background-color: #800000;
+	text-align: center;
+}
+div.autokader p.prijs {
+	color: #800000;
+	text-align: right;
+	margin-right: 1em;
+}
+div#autoselectie {
+	max-width: 1200px;
+}
+
+div.studentkader {
+	color: #800000;
+	float: left;
+	margin: 1em;
+	width: 200px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-family: helvetica, verdana, arial, sans-serif;
+	text-decoration: none;
+	
+	background: -webkit-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(127,127,127,0), rgba(127,127,127,1)); /* Standard syntax (must be last) */
+}
+
+div.studentkadercontainer {
+	margin-left: 13em;
+}
+.ninja_level_uitleg {
+	clear: left;
+	margin-bottom: 2em;
+	overflow: hidden;
+	
+}
+
+.col-md-10 img.ninja_img_uitleg {
+	width: 120px;
+	padding: 20px;
+	margin: 0;
+}
+div#ninja_pics {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+}
+
+div.ninja_paar {
+	float: left;
+}
+
+
+.ninja_level_uitleg h4, .ninja_level_uitleg ul, .ninja_level_uitleg img {
+	float: left;
+	
+}
+
+div.studentkader img {
+	margin: 0;
+	float: right;
+	width: 50px;
+	padding: 5px;
+	overflow: hidden;
+}
+div.studentkader p {
+	text-decoration: none;
+	padding: 0.5em;
+	line-height: 100%
+}
+
+div.studentkader:hover {
+	background-color: #800000;	
+	color: #FFF8DC;
+}
+
+
+div#ninjalevels {
+	float: left;
+	width: 10em;
+}
+
+div#ninjalevels img {
+	float: left;
+	height: 100px;
+	clear: left;
+	margin-bottom: 1em;
+}
+
+div#studenten {
+	clear: both;
+	overflow: hidden;
+	max-width: 1200px;
+}
+
+div#ledenoverzicht {
+	width: 100%;
+}
+
+#tabs_sport .ui-tabs-anchor:hover
+{
+color: #eceadf;
+background-color: #654b24
+}
+
+div.sporttabel {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	margin-top: 2em;
+	margin-right: 1em;
+	margin-bottom: 2em;
+	float: left;
+}
+div.scrolltabel {
+	height: 200px;
+	overflow: auto;
+}
+
+div.scrolltabel img.thumb_lid {
+	margin: 0;
+	padding: 0;
+}
+
+div#tabs_sport {
+	float:left;
+ 	width: 100%;
+ 	color: #654b24;
+}
+
+div#sport_lid_teams img {
+	margin-left: 0;
+	width: 80%;
+}
+div#tabs_sport td, div#tabs_sport h3,, div#tabs_sport h3, div#tabs_sport p, div#tabs_sport label,
+ div#tabs_sport input, div#tabs_sport li a, div#tabs_sport td {
+ 	color: #654b24;
+}
+
+
+table#team_scherm, table#team_leden, table#lid_scherm {
+	margin: 0;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	margin-right: 2em;
+}
+
+
+/* vervangt tables hierboven */
+div#team_scherm, div#team_leden, div#lid_scherm {
+	width:100%;
+	/* max-width: 320px; */
+	margin: 0;
+	padding: 1em 1em 1em 0;
+	margin-bottom: 2em;
+	margin-right: 2em;
+	/* border: 1px solid black; */
+}
+
+div#sport_lid_info {
+	max-width: 100%;
+}
+
+div#sport_team_spelers, div#sport_team_info {
+/* 	float: left;
+	overflow: hidden;
+	margin-bottom: 2em; */
+}
+
+div.sport_info {
+	float: left;
+	overflow: hidden;
+	padding-right: 1em;
+}
+
+div#sport_lid_teams {
+	float: right;
+}
+
+img.sport_foto_lid {
+	width: 90%;
+	max-width: 300px;
+	min-width: 120px;
+} 
+
+table#ledentabel, table#teamlijst {
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.8em;
+}
+
+div.sporttabel button {
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border-radius: 4px;
+	border: 1px solid #d3d3d3;
+	background-color: #F8F7F6;
+	color: #654b24
+ 
+}
+
+div.sporttabel button:hover {
+	background-color: #654b24;
+	color: #F8F7F6;
+ 
+}
+
+img#loading_spinner {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 120px;
+}
+
+div.sport_content {
+	min-height: 300px;
+}
+
+table#ledentabel td, table#ledentabel th, table#teamlijst td,  table#teamlijst th {
+    padding: 0.5 em;
+   
+}
+
+#nieuw_lid_form ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #654b24;
+    opacity: 0.5;
+}
+#nieuw_lid_form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    red;
+   opacity:  1;
+}
+#nieuw_lid_form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    red;
+   opacity:  1;
+}
+#nieuw_lid_form :-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    red;
+}
+
+div.voegtoeknop {
+	width: 10em;
+	margin: 1em auto 1em auto;
+	
+}
+
+iframe {
+	max-width: 1100px;
+}
+
+iframe#frame2048 {
+	width: 50%;
+	height: 1500px;
+	margin-top: 2em;
+	margin-left: 1em;
+	border: 0;
+}
+
+div#googleevent {
+	width: 300px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: bold;
+	font-size: 0.7em;
+}
+div.bericht {
+	padding: 1em;
+	background-color: #F5F5F5;
+	width: 40%;
+	border: 2px solid #427FED;
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 0.8em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	margin-top: 2em;
+	
+}
+
+div#appengine_datastore_uitleg {
+	clear: both;
+	margin-top: 2em;
+
+}
+
+div#voorbeeld_sport {
+	overflow: hidden;
+	max-width: 800px;
+}
+
+
+/****************************************************html/css cursus******************/
+#opdrachtframe2_1 {
+	width: 80%;
+	border: 1px solid black;
+	background-color: white;
+	margin: 5em;
+	margin-top: 2em;
+	padding: 2em;
+}
+#opdrachtframe2_2 {
+	width: 80%;
+	max-width: 1100px;
+	border: 2px solid white;
+	background-color: black;
+	margin: 1em;
+	margin-top: 2em;
+	padding: 0;
+	overflow: hidden;
+}
+
+#opdrachtframe2_2 #postzegel_titel {
+	color: white;
+	text-align: center;
+}
+        
+.opdrachten #opdrachtframe2_2 h2, #opdrachtframe2_2 h1, #opdrachtframe2_2 p, #opdrachtframe2_2 img {
+	color: white;
+	background-color: black;
+	padding: 0;
+	margin: 0;
+	padding-top: 0.5em;
+}
+
+.postzegel {
+	background-color: black;
+	float: left;
+	margin-left: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	height: 250px;
+	width: 200px;
+	text-align: center;
+	border: 1px solid white;
+	overflow: hidden;
+
+}
+
+#artikel iframe {
+	width: 90%;
+	frameborder: 0;
+	border: 0;
+}
+#frame31, #frame32 {
+	height: 40em;
+	width: 80%;
+	max-width: 1000px;
+}
+
+#frame42, #frame43, #frame44 {
+	height: 70em;
+	
+}
+
+#frame21 {
+	background-color: white;
+	height: 900px;
+	frameborder: 1;
+	border: 1;
+	width: 900px;
+}
+
+.postzegel h2, .postzegel h2 {
+	font-size: 20px;
+	color: white;
+}
+
+
+.textmetfoto {
+	overflow: hidden;
+}
+
+.fotointext {
+	
+	margin: 1em;;
+	padding-right: 1em;;
+	border: 1px solid black;
+	float: right;
+	text-align: center;
+	font-size: smaller;
+	font-weight: bold;
+	
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', helvetica, verdana, arial, sans-serif;
+	background-color: #F9F9F9;
+	
+}
+#header{
+	float:left;
+	width:100%;
+	margin:0,0,0,0;
+}
+#logo {
+	width:13%;
+	height:70px;
+}
+#heading{
+	width: 75%;
+	heigth: 70px;
+	
+}
+.loguit {
+	margin-top:30px;
+	heigth: 70px;
+}
+img#rocdevlogo {
+	height: 70px;
+}
+
+#header h1 {
+	color: #333;
+	margin-top:14px;
+}
+#nav-horz{
+	float:left;
+	width:100%;
+	height:40px;
+	background-color:#333;
+	text-align:center;	
+}
+#nav-horz ul{
+	margin-top:8px;
+}
+#nav-horz li{
+	display: inline;
+	padding-left:5px;
+	padding-right:5px;	
+}
+#nav-horz a{
+	color:#FFF;
+	text-decoration: none;
+}
+#nav-horz a:hover{
+	color:#F00;
+}
+.bs-callout {
+border:1px solid #eee;
+border-left-width:5px;
+border-radius:3px;
+margin:20px 0;
+padding:20px;
+}
+
+.bs-callout code {
+border-radius:3px;
+}
+
+.bs-callout+.bs-callout {
+margin-top:-5px;
+}
+
+.bs-callout-danger {
+border-left-color:#d9534f;
+}
+
+.bs-callout-danger h4 {
+color:#d9534f;
+}
+
+.bs-callout-danger h4.danger {
+color:#d9534f;
+}
+
+.bs-callout-warning {
+border-left-color:#f0ad4e;
+}
+
+.bs-callout-warning h4 {
+color:#f0ad4e;
+}
+
+.bs-callout-info {
+border-left-color:#5bc0de;
+}
+
+.bs-callout-info h4 {
+color:#5bc0de;
+}
+
+
+.bs-callout-succes {
+border-left-color:#688B37;
+}
+
+
+
+.bs-callout-succes h4 {
+color:#688B37;
+}
+
+.bs-callout-succes h4.succes {
+color:#688B37;
+}
+
+img#sport_logo {
+	max-width: 90%;
+}
+
+.col-md-10 img{
+	margin: 1em; 
+	max-width: 90%;
+	/* max-width: 500px; */
+	height: auto;
+}
+
+
+
+
+/****************************************************css pdv******************/
+
+
+#footer {
+	background-color: #F7F7F7;
+	color: #FFF8DC;
+	clear: all;
+	text-align: right;
+	margin: 0;
+	height: 4em;
+	padding-top: 0.5em;
+	border-top: 1px solid #800000;
+	
+}
+
+iframe#frame2048 {
+	
+	height: 1200px;
+	margin-top: 2em;
+	margin-left: 1em;
+	border: 0;
+}
+
+table.kalender {
+	/* background-color:green; */
+}
+
+div#kalender_tabel {
+	min-height:280px;
+}
+
+table.kalender td, table.kalender th {
+	width:50px;
+	text-align:center;
+}
+
+table.kalender td.data_bezet {
+	background-color: red;
+}
+
+table.kalender td.rest {
+	background-color: #BABABA;
+	color: grey;
+}
+
+
+div#jsp_mvc_kalender_app {
+	margin-bottom: 5em;
+}
+table#studentenoverzicht th {
+	text-align: center;
+	padding: 0.5em;
+}
+
+table#studentenoverzicht td {
+	padding: 0.5em;
+}
+table#portfolio_summary label {
+	padding: 0.5em;
+}
+div#portfolios {
+	overflow: hidden;
+	margin-bottom: 5em;
+}
+
+div#spel_result {
+	min-height: 500px;
+}
+
+div#spel_result img.lucifer {
+	margin: 1em;
+}
+
+
+div#spel_result p.spel_foutmelding {
+	color: red;
+}
+
+div#spel_result img.lucifer {
+	width: 40px;
+}
+
+div#spel_result img#einde_spel {
+	width: 200px;
+}
+
+/* 2048 */
+.container_2048 {
+	color: #354b59;
+  font-family: "Whitney SSm A","Whitney SSm B","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  
+}
+
+#t2048 .container_2048 h1 {
+	font-size: 55px;
+	color: #354b59;
+	font-family: "Whitney SSm A","Whitney SSm B","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+#t2048 .scores-container {
+  float: right;
+  text-align: right; }
+
+#t2048 .score-container, .best-container {
+  position: relative;
+  display: inline-block;
+  background: #0c92bf;
+  padding: 15px 25px;
+  font-size: 25px;
+  /* height: 25px; */
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+  text-align: center; }
+
+div.jemeppe_kamer {
+	width: 230px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 25px;
+	border: 1px solid #654b24;
+	border-radius: 5px;
+	padding: 0.5em;
+	
+}
+
+div.jemeppe_kamer .beschrijving_kamer {
+	height: 180px;
+	margin-left: 1em;
+}
+
+div.jemeppe_kamer .beschrijving_kamer h3{
+	margin-top: 5px;
+}
+
+
+
+
+div#jemeppe_kamers_container sup{
+	color: red;
+	font-size: 100%;
+}
+
+div.jemeppe_bijlage {
+	background-color: white;
+	width: 80%;
+	min-width: 320px;
+	position: relative;
+	padding: 20px;
+}
+
+div.jemeppe_bijlage img#jemeppe_logo {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 100px;
+}
+
+div.table_wrapper {
+	overflow: auto;
+	margin-right:0.5em;
+	margin-bottom: 1em;
+	width: 90%;
+}
+
+div.table_wrapper table, div.table_wrapper td, div.table_wrapper th {
+	border: 1px solid black;
+	
+}
+
+div.table_wrapper table {
+	margin: 0;
+}
+
+div.jemeppe_kamer  table {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	margin-top: 1em;
+	margin-bottom:0.5em;
+	background-color: white;
+}
+
+div.table_wrapper th {
+	background-color: lightgrey;
+}
+
+
+p.jemeppe_voetnoot {
+	clear: both;
+	font-size: 80%;
+}
+
+
+div.table_wrapper table#graden th {
+	background-color: #800000;
+	color: #FFF8DC;
+}
+
+div.table_wrapper table#graden th,   div.table_wrapper table#graden td {
+	border: none;
+}
+
+div#rekenmachine {
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 5px;
+	overflow: hidden;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+div#rekenmachine #rekenmachine_naam {
+	width: 100%;
+	background-color: blue;
+	color: yellow;
+	line-height: 2em;
+	background-color: #800000;
+	color: #FFF8DC;
+	font-weight: bold;
+}
+
+div#rekenmachine .invoer_arg {
+	width: 50%;
+	float: left;
+	margin-bottom: 1em;
+	
+}
+
+
+div#rekenmachine div#reken_knoppen {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+
+div#rekenmachine .knop_container_2 {
+	width: 25%;
+	float: left;
+}
+
+div#rekenmachine .knop_container_2 input[type="submit"],
+div#rekenmachine .knop_container_2 button {
+	width: 32px;
+	height: 32px;
+	font-size: 18px;
+}
+
+div#rekenmachine .foutboodschap {
+	color: #800000;
+	font-size: 0.8em;
+}
+
+div.formulier {
+	width: 100%;
+	max-width: 320px;
+	margin-top: 2em;
+	margin-right: 5px;
+}
+
+
+
+div.formulier .formulier_regel {
+	width: 100%;
+	/* max-width: 280px; */
+	clear: both;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+
+div.formulier .formulier_regel label {
+	margin-right: 1em;
+}
+
+div.formulier .formulier_regel #spelerscode_label {
+	margin-right: 0;
+}
+
+
+div.formulier .formulier_label {
+	float: left;
+	clear: left;
+	font-weight: bold;
+}
+
+div.formulier .formulier_input {
+	float: right;
+	clear: right;
+	font-weight: normal;
+}
+
+div.formulier .formulier_input_marge {
+	margin-right: 2em;
+}
+
+div#inl_java_spel_plaatjes {
+	max-width: 320px;
+}
+
+div.img_met_bijschrift {
+	width: 250px;
+	max-width: 95%;
+	text-align: center;
+	font-weight: bold;
+	float: left;
+	overflow: hidden;
+	margin: 1em 0 2em 0;
+	
+}
+
+div.img_met_bijschrift p, div.img_met_bijschrift img {
+	margin: 0;
+}
+
+

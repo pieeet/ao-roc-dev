@@ -1,0 +1,38 @@
+    #zoekprijs{
+        background-color: darkslategrey;
+        color: white;
+        width: 380px;
+        padding:5px 5px;
+        border-radius:5px;
+    }
+    #balk{
+        font-weight: bold;
+        background-color: darkslategrey;
+        color: white;
+        width: 410px;
+        padding:5px 5px;
+        border-radius:5px;
+    }
+    #terug{
+        color: white;
+        font-weight: bold;
+    }
+    #alles{
+        border-style: solid;
+        color: darkslategrey;
+        padding:5px 5px;
+        border-radius:5px;
+        height: 340px;
+        width: 390px;
+        box-shadow: 10px 10px 30px #888888;
+        
+        background-image:url('images/pattern.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        background-size: 400px 350px;
+    }
+    #autocellen{
+        -webkit-column-count:4;
+        -moz-column-count:4;
+        column-count:4;
+    }

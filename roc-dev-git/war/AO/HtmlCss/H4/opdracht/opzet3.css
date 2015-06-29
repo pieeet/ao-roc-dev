@@ -1,0 +1,109 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	position: relative;
+	color: white;
+	background-color: red;
+	height: 8em;
+}
+#header h1, #footer h2 {
+	margin: 0;
+	padding: 0;
+	line-height: 4em;
+}
+
+#menu1, #content, #menu2 {
+	margin: 0;
+	padding: 0;
+}
+
+#menu1, #menu2 {
+	position: absolute;
+	width: 200px;
+	top: 0;
+	height: 100%;
+	background-color: #F28500;
+}
+
+#menu1 {
+	left: 0;
+	width: 170px
+}
+
+#menu1 .vlag {
+	width: 170px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#menu2 {
+	right: 0;
+	width: 250px;
+}
+
+#content {
+	margin: 0 250px 0 170px;
+	height: 100%;
+	min-height: 45em;
+	padding: 0;
+}
+
+#header, #footer, h2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#footer {
+	color: white;
+	background-color: blue;
+	height: 5em;
+	clear: both;
+}
+
+#menu1 .vlag {
+	width: 80px;
+	margin: 1em auto 1em auto;
+	
+}
+
+#menu1 img {
+	width: 80px;
+	height: 45px;
+	
+}
+
+#main {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#header img {
+	position: absolute;
+	left: 1em;
+	top: 1em;
+}
+
+iframe {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 50em;
+}
+
+#inlog label {
+	color: white;
+}
+
+
+#signknop {
+	width: 40%;
+	margin: 1em auto 1em auto;
+}
+
+
+

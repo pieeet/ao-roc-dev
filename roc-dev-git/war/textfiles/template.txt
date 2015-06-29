@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>......</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" >
+	<meta name="description" content="............" >
+	<link href="stijl_1.css" type="text/css" rel="stylesheet" >
+	
+	
+</head>
+<body>
+	<!--Titelbalk pagina -->
+	<div id="header">
+		<h1>Naam titelbalk</h1>	
+	</div>
+		
+	<!--Main sectie -->
+	<div id="main">
+	
+		
+		<!--Zijmenu -->
+		<div id="menu">
+			<h2>Inhoud cursus</h2>
+			<ul>
+				<li></li>
+			</ul>
+			
+			
+			<h2>Web Links</h2>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			
+			<h2>Navigatie</h2>
+			<ul>
+				<li><a href="/Welkom.jsp">homepagina</a></li>
+			</ul>
+		
+		
+		</div>
+			
+			
+
+
+		<!--Inhoud -->
+			
+		<div id="content">
+			
+			<!-- Kader leerdoelen en studeeraanwijzingen -->
+			
+			<div id="leerdoelen">
+				<h2>Leerdoelen</h2>
+				<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat je: </p>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+							
+				</ul>
+
+			</div>
+			
+			
+			<div id="studeeraanwijzingen">
+				<h2>Studeeraanwijzingen</h2>
+				
+						
+			</div>
+				
+			<!-- Introductie hoofdstuk   -->	
+			<div class="introductie">
+				<h2>titel leereenheid</h2>
+				<p>
+				
+				
+						
+							
+			</div>
+				
+				
+			<!-- Hier komt de inhoud -->				
+			<div id="artikel">
+				
+
+			</div>
+				
+				
+			<!-- Vragen  -->
+			<div class="vragen">
+				
+				
+			
+			</div>
+			
+			
+			<!-- Opdrachten -->	
+			<div class="opdrachten">
+			
+				<h2>Opdracht ...</h2>
+				
+				<p></p>
+				
+				
+				
+				
+
+				
+				
+
+			<!-- Knop om uitwerking te tonen -->
+			<div class="toonknopcontainer">
+				<button class="toonknop" id="toon..." onclick="toon('uitw1.1')">Toon uitwerking</button>
+			</div>
+			
+		
+		
+			
+			<!-- Uitwerking opdracht -->
+			<div class="uitwerking" id="uitw1.1">
+				<h2>Uitwerking opdracht ....  </h2>
+				<p></p>
+
+
+<!-- code blok -->			
+<pre class="code">
+
+
+</pre>
+					
+					
+					
+
+					
+			<!-- evt bijlages -->				
+			<div class="bijlage">
+				<h3>Bijlage opdracht ...</h3>
+
+					
+			</div>
+				
+				
+				
+				
+				<!--  Knop om uitwerking te verbergen -->
+			<div class="toonknopcontainer">
+					<button class="toonknop" id="toon1.1" onclick="verberg('....')">Verberg uitwerking</button>
+			</div>
+				
+					
+
+			
+				
+					
+
+			
+			
+		
+		</div>
+		
+	<!-- Voetbalk -->
+	<div id="footer">
+		<img src="/images/ccSmall.png" id="ccfooter" alt="Creative Commons logo">
+		<h1>}</h1>
+		
+	</div>
+
+
+</body>
+
+</html>
+
+		
+
+		
+	
+
+
+

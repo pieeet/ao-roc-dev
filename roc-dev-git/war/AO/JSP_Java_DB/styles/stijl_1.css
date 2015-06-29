@@ -1,0 +1,364 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFF8DC;
+	font-family: helvetica, verdana, arial, sans-serif;
+}
+#header {
+	background-color: #800000;
+	color: #FFF8DC;
+	margin: 0;
+	padding: 0;
+	height: 4em;
+	vertical-align: bottom;
+}
+
+h1, h2 {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	line-height: 2em;
+	margin-left: 5em;
+}
+
+#main {
+	position: relative;
+}
+
+#leerdoelen, #studeeraanwijzingen {
+	float: right;
+	width: 30%;
+	clear: right;
+	border: 1px solid black;
+	padding: 1em;
+	margin-left: 3em;
+	background-color: #DEB887;
+}
+
+#leerdoelen h2, #studeeraanwijzingen h2, #menu h2, h1 {
+	text-align: center;
+	margin-left: 0;
+}
+
+#leerdoelen {
+	margin-top: 2em;
+}
+
+#studeeraanwijzingen {
+	margin-bottom: 2em;
+}
+
+
+
+#artikel {
+	clear: right;
+}
+
+#content, #menu {
+	margin: 0;
+}
+
+#menu {
+	position: absolute;
+	width: 200px;
+	top: 0;
+	height: 100%;
+	left: 0;
+	background-color: #BDB76B;
+}
+
+#menu a {
+	color: #800000;
+}
+
+#content {
+	margin-left: 200px;
+	background-color: #FFF8DC;
+	min-height: 750px;
+	padding: 2em;
+	overflow: hidden;
+}
+
+#content p {
+	max-width: 1200px;
+}
+
+#footer {
+	background-color: #556B2F;
+	color: #FFF8DC;
+	clear: all;
+	margin: 0;
+	height: 4em;
+	padding-top: 0.5em;
+	
+}
+
+
+#footer img {
+	float: right;
+	margin: 1em;
+}
+
+
+.datum {
+	background-color: white;
+	padding: 1em;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-size: small;
+}
+
+.loguit {
+	text-align: right;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 1em;
+	right: 2em;
+}
+
+.letop {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.imgfullwidth {
+	max-width: 70%;
+}
+
+.code {
+	font-family: 'Source Code Pro',monospace;
+	font-size: larger;
+	color: white;
+	background-color: black;
+	padding: 1em;
+	width: 50em;
+	margin-left: 2em;
+	border: 4px solid #800000;
+}
+
+table {
+	font-family: Sans-serif;
+	background-color: white;
+	padding: 1em;
+	margin-left: 2em;
+	border: 1px solid black;
+}
+
+td, th {
+	padding : 0.5em;
+}
+
+.klassendiagram td {
+	border-top: 1px solid black;
+}
+
+.klassendiagram th {
+	text-align: center;
+}
+
+div.opdrachten h2, div.uitwerking h2 {
+	margin: 0;
+	background-color: #E5E5E5;
+	text-align: center;
+	margin-top: 2em;
+	clear: both;
+}
+.toonknop {
+	background-color: #800000;
+	color: #FFF8DC;
+	padding: 2em;
+	margin: 0;
+	border-radius: 10px;
+}
+
+.toonknop:hover {
+	background-color: #FFF8DC;			
+	color: #800000;
+	
+}
+	
+
+.toonknopcontainer {
+	margin: 25px auto 25px;
+	width: 20em;
+	clear: both;
+}
+
+.uitwerking {
+	display: none;
+}
+
+.jsp {
+	color: red;
+}
+
+table#schaakbord {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#schaakbord td {
+	width: 30px;
+	height: 30px
+}
+
+#schaakbord td.zwart {
+	background-color: black;
+	
+}
+
+#schaakbord td.wit {
+	background-color: white;
+}
+
+.fout {
+	display: inline;
+	width: 35em;
+	color: red;
+	font-size: 0.8em;
+}
+
+.codeplus {
+	background-color: #000080;
+}
+
+.comment {
+	color: #BDB76B;
+}
+
+table#rekenmachine {
+	text-align: center;
+	background-color: #E5E5E5;
+	margin-left: 10em;
+}
+table#rekenmachine td.foutboodschap {
+	colspan: 4;
+	color: #800000;
+	font-size: 0.8em;
+}
+table#rekenmachine td.getallabels {
+	border-top: 1px solid #800000;
+	border-bottom: 1px solid #800000;
+}
+table#rekenmachine thead {
+	background-color: #800000;
+	color: #FFF8DC;
+}
+
+table#rekenmachine .knopcontainer input {
+	font-size: 1.5em;
+	background-color: #FFF8DC;
+}
+
+.javadoc {
+	color: #BDB76B;
+}
+
+div.autokader {
+	float: left;
+	margin: 1em;
+	width: 350px;
+	height: 150px;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.autokader img {
+	float: left;
+	width: 150px;
+	margin-top: 0.7em;
+	padding: 1em;
+	overflow: hidden;
+}
+
+div.autokader p.merktype {
+	color: #FFF8DC;
+	background-color: #800000;
+}
+div.autokader p.prijs {
+	color: #800000;
+	text-align: right;
+	margin-right: 1em;
+}
+
+div.studentkader {
+	color: #800000;
+	float: left;
+	margin: 1em;
+	width: 175px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+div.studentkadercontainer {
+	margin-left: 13em;
+}
+
+div.studentkader img {
+	float: right;
+	width: 50px;
+	padding: 5px;
+	overflow: hidden;
+}
+div.studentkader p {
+	text-decoration: none;
+	margin-left: 0.5em;
+}
+
+div.studentkader:hover {
+	background-color: #800000;	
+	color: #FFF8DC;
+}
+
+
+div#ninjalevels {
+	float: left;
+	width: 10em;
+}
+
+div#ninjalevels img {
+	float: left;
+	height: 110px;
+	clear: left;
+	margin-bottom: 1em;
+}
+
+div#studenten {
+	clear: both;
+	overflow: hidden;
+}
+
+div.sporttabel {
+	margin-top: 2em;
+	margin-right: 1em;
+	float: left;
+	
+}
+
+table#ledentabel, table#teamlijst {
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.8em;
+	
+}
+
+table#ledentabel td, table#ledentabel th, table#teamlijst td,  table#teamlijst th {
+    padding: 0;
+    padding-left: 0.5em;
+}
+
+div.voegtoeknop {
+	width: 10em;
+	margin: 1em auto 1em auto;
+	
+}
+
+
+
+
+

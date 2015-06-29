@@ -1,0 +1,127 @@
+<pre class="code">
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;
+    android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;
+    tools:context=&quot;.FooiCalculatorActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/rekeningBedragLabel&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:padding=&quot;10dp&quot;
+        android:text=&quot;@string/rekening_bedrag_label&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+    
+    <span class="comment">&lt;!--het invoerveld--&gt;</span>
+    
+    &lt;EditText
+        android:id=&quot;@+id/rekeningBedragEditText&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignBaseline=&quot;@+id/rekeningBedragLabel&quot;
+        android:layout_marginLeft=&quot;5dp&quot;
+        android:layout_toRightOf=&quot;@+id/rekeningBedragLabel&quot;
+        android:ems=&quot;8&quot;
+        android:inputType=&quot;numberDecimal&quot;
+        android:text=&quot;@string/rekening_bedrag&quot;
+        android:textSize=&quot;20sp&quot; &gt;
+
+        &lt;requestFocus /&gt;
+    &lt;/EditText&gt;
+
+    <span class="comment">&lt;!-- fooi percentage --&gt;</span>
+
+    &lt;TextView
+        android:id=&quot;@+id/procentLabel&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignLeft=&quot;@+id/rekeningBedragLabel&quot;
+        android:layout_below=&quot;@+id/rekeningBedragLabel&quot;
+        android:padding=&quot;10dp&quot;
+        android:text=&quot;@string/fooi_percentage_label&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/procentTextView&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignBaseline=&quot;@+id/procentLabel&quot;
+        android:layout_toRightOf=&quot;@+id/rekeningBedragLabel&quot;
+        android:padding=&quot;5dp&quot;
+        android:text=&quot;@string/fooi_percentage&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/procentMinButton&quot;
+        android:layout_width=&quot;45dp&quot;
+        android:layout_height=&quot;45dp&quot;
+        android:layout_alignBaseline=&quot;@+id/procentTextView&quot;
+        android:layout_toRightOf=&quot;@+id/procentTextView&quot;
+        android:layout_marginLeft=&quot;25dp&quot;
+        android:text=&quot;@string/min_knop&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/procentPlusButton&quot;
+        android:layout_width=&quot;45dp&quot;
+        android:layout_height=&quot;45dp&quot;
+        android:layout_alignBaseline=&quot;@+id/procentMinButton&quot;
+        android:layout_toRightOf=&quot;@+id/procentMinButton&quot;
+        android:text=&quot;@string/plus_knop&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    <span class="comment">&lt;!-- fooi bedrag --&gt;</span>
+
+    &lt;TextView
+        android:id=&quot;@+id/fooiLabel&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignLeft=&quot;@+id/procentLabel&quot;
+        android:layout_below=&quot;@+id/procentLabel&quot;
+        android:padding=&quot;10dp&quot;
+        android:text=&quot;@string/fooi_bedrag_label&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/fooiTextView&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignBaseline=&quot;@+id/fooiLabel&quot;
+        android:layout_alignLeft=&quot;@id/rekeningBedragEditText&quot;
+        android:padding=&quot;5dp&quot;
+        android:text=&quot;@string/fooi_bedrag&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+    <span class="comment">&lt;!-- totaal bedrag --&gt;</span>
+
+    &lt;TextView
+        android:id=&quot;@+id/totaalLabel&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignLeft=&quot;@+id/fooiLabel&quot;
+        android:layout_below=&quot;@+id/fooiLabel&quot;
+        android:padding=&quot;10dp&quot;
+        android:text=&quot;@string/totaal_bedrag_label&quot;
+        android:textSize=&quot;20sp&quot;
+        android:textStyle=&quot;bold&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/totaalTextView&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignBaseline=&quot;@+id/totaalLabel&quot;
+        android:layout_alignLeft=&quot;@+id/fooiTextView&quot;
+        android:padding=&quot;5dp&quot;
+        android:text=&quot;@string/totaal_bedrag&quot;
+        android:textSize=&quot;20sp&quot; /&gt;
+
+&lt;/RelativeLayout&gt;
+</pre>					

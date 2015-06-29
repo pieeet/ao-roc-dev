@@ -1,0 +1,623 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', helvetica, verdana, arial, sans-serif;
+/*	background-color: #E5E5E5; */
+	/* background-color: #FFFFFF; */
+	background-color: #F9F9F9
+	
+}
+#header {
+	background-color: #F3F3F3;
+	color: 868686;
+	margin: 0;
+	padding: 0;
+	height: 4em;
+	vertical-align: bottom;
+	border-bottom: 1px solid #800000;
+}
+
+div#logo {
+	position: absolute;
+	height: 4em;
+	padding: 0.5em;
+	top: -3.2em;
+}
+
+img#rocdevlogo {
+	height: 4.5em;
+}
+
+#header h1 {
+	color: #868686;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	line-height: 2em;
+	margin-left: 1em;
+	color: #868686;
+}
+
+.introductie {
+	width: 600px;
+	overflow: hidden;
+}
+
+.introductie img {
+	max-width: 500px;
+}
+
+#main {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+
+
+
+
+#leerdoelen, #studeeraanwijzingen {
+	float: right;
+	width: 30%;
+	min-width: 300px;
+	clear: right;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 1em;
+	margin-left: 3em;
+	background-color: #F8F8F8;
+	box-shadow: 5px 5px 30px #888888;
+	
+	
+}
+
+#leerdoelen h2, #studeeraanwijzingen h2, #menu h2, h1 {
+	text-align: center;
+	margin-left: 0;
+}
+
+#leerdoelen {
+	margin-top: 2em;
+}
+
+#studeeraanwijzingen {
+	margin-top:1em;
+	margin-bottom: 2em;
+} 
+
+#artikel {
+	clear: both;
+	
+}
+
+#content, #menu {
+	margin: 0;
+}
+
+#menu {
+	position: absolute;
+	width: 250px;
+	top: 0;
+	height: 100%;
+	left: 0;
+	padding-top:2em;
+/*	background-color: #BDB76B; */
+}
+
+#menu ol {
+	counter-reset: item;
+	
+}
+
+#menu ol li:before {
+	content: counter(item) ". "; 
+	counter-increment: item;
+    color: #800000;
+}
+
+#menu a {
+	color: #800000;
+	text-decoration: none;
+}
+
+#menu li {
+	list-style-type: none;
+	
+	line-height: 110%;
+	margin-bottom: 0.4em;
+}
+
+#content {
+	margin-left: 250px;
+	min-height: 750px;
+	padding: 2em;
+	
+	
+}
+
+p, li {
+	max-width: 800px;
+	line-height: 130%;
+}
+
+#footer {
+	background-color: #F7F7F7;
+	color: #FFF8DC;
+	clear: all;
+	text-align: right;
+	margin: 0;
+	height: 4em;
+	padding-top: 0.5em;
+	border-top: 1px solid #800000;
+	
+}
+
+
+.code {
+	font-family: 'Source Code Pro', monospace;
+	color: black;
+	background-color: #F7F7F7;
+	padding: 1em;
+	width: 800px;
+	margin-left: 2em;
+	border: 1px solid #DDDDDD;
+	border-radius: 1px;
+	/* box-shadow: 5px 5px 30px #888888; */
+}
+
+.codeplus {
+	background-color: #FFF300;
+}
+
+.jsp, .html {
+	color: red;
+}
+
+.css {
+	background-color: #F3F3EA;
+}
+
+.comment, .javadoc {
+	color: green;
+}
+
+table {
+	font-family: Sans-serif;
+	padding: 0.5em;
+	margin-left: 2em;
+	border: 1px solid black;
+}
+
+
+
+td, th {
+	padding :0.5em;
+}
+
+.imgfullwidth {
+	max-width: 70%;
+}
+
+.klassendiagram td {
+	border-top: 1px solid black;
+}
+
+.klassendiagram th {
+	text-align: center;
+}
+
+img {
+	margin: 2.5em;
+}
+
+.opdrachten {
+	border-bottom: 1px solid #800000;
+	max-width:1000px;
+	margin-bottom: 2em;
+}
+
+.opdrachten h2, .uitwerking h2 {
+	margin: 0;
+	background-color: #F7F7F7;
+	text-align: center;
+	margin-top: 2em;
+	max-width:1000px;
+}
+
+#appengine_datestore_uitleg {
+	
+}
+
+.toonknop {
+	background-color: #F7F7F7;
+	box-shadow: 5px 5px 30px #888888;
+	padding: 2em;
+	margin: 0;
+	border-radius: 10px;
+}
+
+.toonknopcontainer {
+	margin: 0;
+	margin-bottom: 2em;
+	max-width: 1000px;
+	clear: both;
+	text-align: center;
+	margin-top: 2em;
+}
+
+.uitwerking {
+	display: none;
+}
+
+table#schaakbord {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#schaakbord td {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+#schaakbord td.zwart {
+	background-color: black;
+	
+}
+
+#schaakbord td.wit {
+	background-color: white;
+}
+
+table#xtabel {
+	border: 1px solid black;
+	border-collapse: collapse;
+	background-color: white; 
+	
+}
+
+table#xtabel th, table#xtabel td {
+	border: 1px solid black;
+	text-align: center;
+}
+
+table#xtabel th {
+	background-color: #F3F3F3;
+	
+	
+}
+
+.fout {
+	display: inline;
+	width: 35em;
+	color: red;
+	font-size: 0.8em;
+}
+
+.input {
+	margin-left: 5em;
+}
+
+.alert {
+	display: none;
+	color: red;
+	
+}
+
+.datum {
+	background-color: white;
+	padding: 1em;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-size: small;
+}
+
+
+.projectstatus {
+	width: 50%;
+	background-color: #E5E5E5;
+	padding: 2em;
+	margin-left: 2em;
+	margin-bottom: 2em;
+}
+
+#ccfooter {
+	float: right;
+	margin: 1em;
+}
+
+.loguit {
+	text-align: right;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 1em;
+	right: 2em;
+}
+
+
+.bijlage {
+	margin-top: 3em;
+	border-top: 2px solid black;
+}
+
+.letop {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+table#rekenmachine {
+	text-align: center;
+	background-color: #E5E5E5;
+	margin-left: 10em;
+}
+table#rekenmachine td.foutboodschap {
+	colspan: 4;
+	color: #800000;
+	font-size: 0.8em;
+}
+table#rekenmachine td.getallabels {
+	border-top: 1px solid #800000;
+	border-bottom: 1px solid #800000;
+}
+table#rekenmachine thead {
+	background-color: #800000;
+	color: #FFF8DC;
+}
+
+table#rekenmachine .knopcontainer input {
+	font-size: 1.5em;
+	background-color: #FFF8DC;
+}
+
+
+div.introplaatje {
+	float: left;
+}
+
+div.autokader {
+	float: left;
+	margin: 1em;
+	width: 360px;
+	height: 150px;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.autokader img {
+	float: left;
+	width: 150px;
+	margin:0;
+	margin-top: 0.7em;
+	padding: 1em;
+	overflow: hidden;
+}
+
+div.autokader p.merktype {
+	color: #FFF8DC;
+	background-color: #800000;
+}
+div.autokader p.prijs {
+	color: #800000;
+	text-align: right;
+	margin-right: 1em;
+}
+div#autoselectie {
+	max-width: 1200px;
+}
+
+div.studentkader {
+	color: #800000;
+	float: left;
+	margin: 1em;
+	width: 200px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-family: helvetica, verdana, arial, sans-serif;
+	
+	text-decoration: none;
+}
+
+div.studentkadercontainer {
+	margin-left: 13em;
+}
+
+div.studentkader img {
+	margin: 0;
+	float: right;
+	width: 50px;
+	padding: 5px;
+	overflow: hidden;
+}
+div.studentkader p {
+	text-decoration: none;
+	margin-left: 0.5em;
+	line-height: 100%
+}
+
+div.studentkader:hover {
+	background-color: #800000;	
+	color: #FFF8DC;
+}
+
+
+div#ninjalevels {
+	float: left;
+	width: 10em;
+}
+
+div#ninjalevels img {
+	float: left;
+	height: 120px;
+	clear: left;
+	margin-bottom: 1em;
+}
+
+div#studenten {
+	clear: both;
+	overflow: hidden;
+	max-width: 1200px;
+}
+
+div.sporttabel {
+	margin-top: 2em;
+	margin-right: 1em;
+	float: left;
+	
+}
+
+table#ledentabel, table#teamlijst {
+	padding: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.8em;
+	
+}
+
+table#ledentabel td, table#ledentabel th, table#teamlijst td,  table#teamlijst th {
+    padding: 0;
+    padding-left: 0.5em;
+}
+
+div.voegtoeknop {
+	width: 10em;
+	margin: 1em auto 1em auto;
+	
+}
+
+iframe {
+	max-width: 1100px;
+}
+
+iframe#frame2048 {
+	width: 50%;
+	height: 1500px;
+	margin-top: 2em;
+	margin-left: 1em;
+	border: 0;
+}
+
+div#googleevent {
+	width: 300px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: bold;
+	font-size: 0.7em;
+}
+div.bericht {
+	padding: 1em;
+	background-color: #F5F5F5;
+	width: 40%;
+	border: 2px solid #427FED;
+	font-family: 'Open Sans', sans-serif; 
+	font-size: 0.8em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	margin-top: 2em;
+	
+}
+
+div#appengine_datastore_uitleg {
+	clear: both;
+	margin-top: 2em;
+
+}
+
+div#voorbeeld_sport {
+	overflow: hidden;
+}
+
+
+/****************************************************html/css cursus******************/
+#opdrachtframe2_1 {
+	width: 80%;
+	border: 1px solid black;
+	background-color: white;
+	margin: 5em;
+	margin-top: 2em;
+	padding: 2em;
+}
+#opdrachtframe2_2 {
+	width: 80%;
+	max-width: 1100px;
+	border: 2px solid white;
+	background-color: black;
+	margin: 1em;
+	margin-top: 2em;
+	padding: 0;
+	overflow: hidden;
+}
+        
+.opdrachten #opdrachtframe2_2 h2, #opdrachtframe2_2 h1, #opdrachtframe2_2 p, #opdrachtframe2_2 img {
+	color: white;
+	background-color: black;
+	padding: 0;
+	margin: 0;
+	padding-top: 0.5em;
+}
+
+.postzegel {
+	background-color: black;
+	float: left;
+	margin-left: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	height: 250px;
+	width: 200px;
+	text-align: center;
+	border: 1px solid white;
+	overflow: hidden;
+
+}
+
+#artikel iframe {
+	width: 90%;
+	frameborder: 0;
+	border: 0;
+}
+#frame31, #frame32 {
+	height: 40em;
+	width: 80%;
+	max-width: 1000px;
+}
+
+#frame42, #frame43, #frame44 {
+	height: 70em;
+	
+}
+
+#frame21 {
+	background-color: white;
+	height: 900px;
+	frameborder: 1;
+	border: 1;
+}
+
+
+.textmetfoto {
+	overflow: hidden;
+}
+
+.fotointext {
+	
+	margin: 1em;;
+	padding-right: 1em;;
+	border: 1px solid black;
+	float: right;
+	text-align: center;
+	font-size: smaller;
+	font-weight: bold;
+	
+}
+
+/****************************************************html/css cursus******************/
+
+

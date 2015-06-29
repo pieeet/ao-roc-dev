@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-mei-2014, 12:29:07
+    Author     : Pascal
+*/
+
+.wrapper{
+    width: 450px;
+    border: solid black 2px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+td {
+    width: 450px;
+    background-color: Grey;
+}
+.banner{
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: Grey;   
+}
+.links{
+    
+    width: 295px;
+    padding: 10px;
+}
+
+.rechts{
+    
+    width: 100px;
+    padding: 10px;
+    
+}

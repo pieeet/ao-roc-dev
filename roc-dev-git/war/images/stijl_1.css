@@ -1,0 +1,168 @@
+
+body {
+	margin: 0;
+	padding: 0;
+}
+#header {
+	background-color: #800000;
+	color: #FFF8DC;
+	margin: 0;
+	padding: 0;
+	height: 4em;
+	vertical-align: bottom;
+}
+
+h1, h2 {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	line-height: 2em;
+	margin-left: 5em;
+}
+
+#main {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#leerdoelen, #studeeraanwijzingen {
+	float: right;
+	width: 30%;
+	clear: right;
+	border: 1px solid black;
+	padding: 1em;
+	margin-left: 3em;
+	background-color: #DEB887;
+}
+
+#leerdoelen h2, #studeeraanwijzingen h2, #menu h2, h1 {
+	text-align: center;
+	margin-left: 0;
+}
+
+#leerdoelen {
+	margin-top: 2em;
+}
+
+#artikel {
+	clear: right;
+}
+
+#content, #menu {
+	margin: 0;
+}
+
+#menu {
+	position: absolute;
+	width: 200px;
+	top: 0;
+	height: 100%;
+	left: 0;
+	background-color: #BDB76B;
+}
+
+#menu a {
+	color: #800000;
+}
+
+#content {
+	margin-left: 200px;
+	background-color: #FFF8DC;
+	min-height: 750px;
+	padding: 2em;
+	
+	
+}
+
+#content p {
+	max-width: 1200px;
+}
+
+#footer {
+	background-color: #556B2F;
+	color: #FFF8DC;
+	clear: all;
+	text-align: right;
+	margin: 0;
+	height: 4em;
+	padding-top: 0.5em;
+}
+
+.code {
+	font-family: Sans-serif;
+	font-size: small;
+	background-color: white;
+	padding: 1em;
+	width: 40em;
+	margin-left: 2em;
+	
+}
+
+img {
+	margin-left: 2em;
+	margin-top: 2em;
+}
+
+.opdrachten h2, .uitwerking h2 {
+	margin: 0;
+	background-color: #E5E5E5;
+	text-align: center;
+	margin-top: 2em;
+}
+.toonknop {
+	background-color: #800000;
+	color: #FFF8DC;
+	padding: 2em;
+	margin: 0;
+	
+}
+.toonknopcontainer {
+	margin: 25px auto 25px;
+	width: 20em;
+}
+
+.uitwerking {
+	display: none;
+}
+
+.input {
+	margin-left: 5em;
+}
+
+.alert {
+	display: none;
+	color: red;
+	
+}
+
+.datum {
+	background-color: white;
+	padding: 1em;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-size: small;
+}
+
+
+.projectstatus {
+	width: 50%;
+	background-color: #E5E5E5;
+	padding: 2em;
+	margin-left: 2em;
+	margin-bottom: 2em;
+}
+
+#ccfooter {
+	float: right;
+	margin: 1em;
+}
+
+.loguit {
+	text-align: right;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 1em;
+	right: 2em;
+}
+

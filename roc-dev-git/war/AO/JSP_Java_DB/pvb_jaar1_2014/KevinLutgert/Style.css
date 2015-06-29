@@ -1,0 +1,24 @@
+.th{
+    width: 50%;
+    border: 2px solid black;
+    background-color: gray;
+}
+.td{
+    padding: 10px;
+    width: 50%;
+    border: 2px solid black;
+    background-color: beige;
+}
+.table{
+    width: 50%;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+h1{
+    
+   font-family: fantasy;
+   font-style: italic;
+}
+body{
+    background-color: antiquewhite;
+}

@@ -1,0 +1,29 @@
+*{
+    font-family: calibri;
+}
+.box{
+    height: 45px;
+    background-color: black;
+}
+.header{
+    color: white;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.zoek{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+th{
+    background-color: lightgreen;
+    font-size: 20px;
+    height: 30px;
+    text-align: left;
+    margin-left: 15px;
+}
+.rij1{
+    width: 500px;
+}
+.rij2{
+    width: 100px;
+}
