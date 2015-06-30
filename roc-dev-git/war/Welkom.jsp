@@ -57,7 +57,7 @@
     
     <div class="col-md-6">
       <div id="heading">
-        <h1>Applicatie-ontwikkelaar</h1>
+        <h1>ApplicatieOntwikkelaar</h1>
       </div>
     </div>
     
