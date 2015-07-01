@@ -47,8 +47,8 @@
 					uitvoeren, zoals twee getallen in het werkgeheugen plaatsen en deze vervolgens bij elkaar optellen.</p>
 								
 <pre class="code">
-a = 5;<br>
-b = 6;<br> 
+a = 5;
+b = 6;
 c = a + b; 
 </pre>
 					
