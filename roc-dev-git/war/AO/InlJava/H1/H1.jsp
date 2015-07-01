@@ -46,9 +46,11 @@
 					instructies krijgen. Het hart van een computer is de processor die eenvoudige opdrachten kan 
 					uitvoeren, zoals twee getallen in het werkgeheugen plaatsen en deze vervolgens bij elkaar optellen.</p>
 								
-					<p class="code">a = 5;<br>
-					b = 6;<br> 
-					c = a + b; </p>
+<pre class="code">
+a = 5;<br>
+b = 6;<br> 
+c = a + b; 
+</pre>
 					
 					<div id="artikel">
 					<h2>Wat heb je nodig om een programma te maken?</h2>
