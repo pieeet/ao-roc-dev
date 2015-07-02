@@ -1,9 +1,7 @@
 <%@ include file="/AO/android/includes/pagetop.jsp" %>
 
-
 <%	if (user != null) { %>
 
-      
       <div class="col-md-10">
       <h2>1 Ontwikkelomgeving</h2>
   
@@ -148,5 +146,6 @@ protected void onCreate(Bundle savedInstanceState) {
     </div>
   </div>
 </div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>
