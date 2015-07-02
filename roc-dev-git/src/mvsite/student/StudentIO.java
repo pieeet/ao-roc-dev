@@ -29,7 +29,6 @@ public class StudentIO {
 		ent.setProperty("cohort", student.getCohort());
 		ent.setProperty("email", student.getEmail());
 		datastore.put(ent);
-		
 	}
 	
 	public Student getStudent(String email) throws EntityNotFoundException {
@@ -49,7 +48,6 @@ public class StudentIO {
 		student.setCohort((int) coh);
 		student.setEmail((String) e.getProperty("email"));
 		return student;
-		
 	}
 	
 	public ArrayList<Student> getStudentenLijst() {
@@ -70,7 +68,6 @@ public class StudentIO {
 			String email = (String) e.getProperty("email");
 			Student student = new Student(voornaam, tussenvoegsels, achternaam, 
 					level, webpage, cohort, email);
-			
 			lijst.add(student);
 		}
 		return lijst;

@@ -665,7 +665,10 @@ body {
 #heading{
 	width: 75%;
 	heigth: 70px;
-	
+}
+
+#heading h1 {
+	font-size: 28px;
 }
 .loguit {
 	margin-top:30px;
@@ -1094,6 +1097,8 @@ div.img_met_bijschrift {
 div.img_met_bijschrift p, div.img_met_bijschrift img {
 	margin: 0;
 }
+
+
 
 
 
