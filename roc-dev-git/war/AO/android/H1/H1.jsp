@@ -14,20 +14,9 @@
 				<li>De SDK Manager kunt gebruiken</li>
 				<li>Een beeld hebt van de structuur van een Android project</li>
 				<li>Een virtual device en/of een Android telefoon kunt gebruiken om te testen</li>
-				
-				
 			</ul>
-	    	
-	    
-	       
-	          
         </div>
-        
-        
-       
-        
-        
-        
+
         <!-- inhoud -->
         
 		<img src="AndroidStudio.png" alt="Android Logo" width="300">
