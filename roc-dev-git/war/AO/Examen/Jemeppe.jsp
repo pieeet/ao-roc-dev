@@ -1,10 +1,6 @@
 <%@ include file="includes/pagetop.jsp" %>
 
-
-
 <%	if (user != null) { %>
-
-
 
       <!-- inhoud -->
 		<div class="col-md-10">
@@ -380,21 +376,8 @@
 						<td>H.A. Hansen</td><td>Rode kamer</td><td>22-06-2015 / 24-06-2015</td><td>&euro;&nbsp;100,-</td><td>&euro;&nbsp;200,-</td>
 					</tr>
 					</table></div>
-				
 				</div>
-			
 			</div>
-			
 		</div>
-		
-
-	<!-- 3 afsluitdivs uit include file -->
-    </div>
-  </div>
-</div>
-</body>	
-<!-- <script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>
-<script src="/AO/JSP_Java_DB/includes/jsp.js" type="text/javascript"></script> -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<%@ include file="/includes/bottom.html" %>
 <% } %>
