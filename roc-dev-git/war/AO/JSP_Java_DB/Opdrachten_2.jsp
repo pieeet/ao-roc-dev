@@ -858,20 +858,6 @@ finally {
 						
 				</div>
 		</div>
-
-    </div>
-  </div>
-</div>
-
-<!-- <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto' rel='stylesheet' type='text/css'>
-Latest compiled and minified Bootstrap CSS
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-Optional theme
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-<link href="/styles/stijl_3.css" type="text/css" rel="stylesheet"> -->
-<script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>
-<script src="/AO/JSP_Java_DB/includes/jsp.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<%@ include file="/includes/bottom.html" %>
 
 <% } %>

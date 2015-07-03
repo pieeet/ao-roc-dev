@@ -1,4 +1,10 @@
 <%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp" %>
+
+    <!-- JQuery stylesheets voor sport app -->
+	<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.css" type="text/css" rel="stylesheet">
+   	<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.structure.min.css" type="text/css" rel="stylesheet">
+   	<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.theme.min.css" type="text/css" rel="stylesheet">
+   	
 <%@ page import="jspcursus.sport.vereniging.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
@@ -11,6 +17,8 @@
 		pageContext.setAttribute("user", user);
 
 %>	
+      
+
       
       <div class="col-md-10">
       <h2>Databases</h2>
@@ -261,34 +269,13 @@ int aantalRijenToegevoegd = ps.executeUpdate();
 			
 				
 		</div>
+<%@ include file="/includes/bottom.html" %>
 
-
-	
-    </div>
-  </div>
-</div>
-	<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto' rel='stylesheet' type='text/css'>
-<!-- Latest compiled and minified Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-<script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>
-<script src="/AO/JSP_Java_DB/includes/jsp.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<!-- JQuery stylesheets voor sport app -->
-<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.css" type="text/css" rel="stylesheet">
-   	<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.structure.min.css" type="text/css" rel="stylesheet">
-   	<link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.theme.min.css" type="text/css" rel="stylesheet">
-   	<link href="/styles/stijl_3.css" type="text/css" rel="stylesheet">
-   
    	<!-- JQuery UI JavaScript voor sportapp -->
     <script src="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.js"></script>
     
     <!-- JQuery voor sportapp UNDER CONSTRUCTION -->
     <script src="/AO/JSP_Java_DB/includes/sportapp.js"></script>
-</body>
 
 <!-- afsluiters user && leden != null -->
 <% }  %>
