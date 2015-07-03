@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Inl Java</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<meta name="description" content="Opleiding Applicatieontwikkelaar en Mediavormgever ROC Flevoland" >
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto' rel='stylesheet' type='text/css'>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-<link href="/styles/stijl_3.css" type="text/css" rel="stylesheet">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="keywords" content="HTML,CSS,Javascript,Make your own 2048,Play 2048">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-<meta name="format-detection" content="telephone=no" />
-
+<%@ include file="/includes/top.html" %>
 </head>
 
 

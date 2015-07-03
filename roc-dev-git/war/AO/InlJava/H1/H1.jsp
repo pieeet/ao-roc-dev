@@ -177,24 +177,10 @@ public class HalloWereld {
 					<p>Voor deze opdracht is (nog) geen uitwerking beschikbaar</p>
 					
 				</div>
-       
-       
-       
-       
-       
-       
+
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- Voetbalk -->
-
-<!-- Latest compiled and minified JavaScript --> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>
+<%@ include file="/includes/bottom.html" %>
 </body>
 
 <% } %>

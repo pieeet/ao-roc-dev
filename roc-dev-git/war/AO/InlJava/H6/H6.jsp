@@ -348,23 +348,8 @@ public class Reken extends Applet {
 					van double en int kun je afkappen. Je moet het gemiddelde met 10 vermenigvuldigen en daarna converteren naar een int. Vervolgens 
 					terugconverteren naar een double en door 10 delen.</p>
 						
-						</div>
-					
-					
-					
-					
-					
-					</div>
-					
-					
-						
-				
+				</div>
 
-	
-    </div>
-  </div>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>	
+			</div>
+<%@ include file="/includes/bottom.html" %>
 <% } %>

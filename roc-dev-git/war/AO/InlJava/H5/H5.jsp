@@ -105,25 +105,9 @@ public class Show extends Applet{
 							leesbaarder wordt en je alleen de waardes van de variabelen hoeft te wijzigen als je iets wilt veranderen.</p>	
 						
 						</div>
-					
-					
-					
-					
-					
 					</div>
-					
-					
-						
 				</div>
 				
 		</div>
-
-
-	
-    </div>
-  </div>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>
+<%@ include file="/includes/bottom.html" %>
 <% } %>
