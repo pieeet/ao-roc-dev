@@ -1,6 +1,5 @@
 <%@ include file="/AO/htmlCss/includes/pagetop.jsp" %>
 
-
 <%	if (user != null) { %>
 
       
@@ -473,14 +472,7 @@
 									
 							</table>
 					</div>
-				
-				
-		</div>
-
-
 	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

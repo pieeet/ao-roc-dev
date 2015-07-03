@@ -1,7 +1,8 @@
 <%@ include file="/AO/htmlCss/includes/pagetop.jsp" %>
 
 
-<%	if (user != null) { %>
+<%	
+	if (user != null) { %>
 
       
       <div class="col-md-10">
@@ -458,17 +459,8 @@
 &lt;/html&gt;
 
 </pre>		
-									
-	
-				</div>
-		
-				
+
+				</div>	
 		</div>
-
-
-	
-    </div>
-  </div>
-</div>
-	
+<%@ include file="/includes/bottom.html" %>
 <% } %>

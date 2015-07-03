@@ -416,11 +416,5 @@ body {
 				</div>	
 				
 		</div>
-
-
-	
-    </div>
-  </div>
-</div>
-	
+<%@ include file="/includes/bottom.html" %>
 <% } %>
