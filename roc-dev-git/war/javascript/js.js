@@ -1,6 +1,7 @@
 /**
- * methoden om uitwerkingen te tonen/verbergen
+ * 
  */
+
 
 function toon(element) {
 	if (document.getElementById(element).style.display != "block") {
@@ -14,4 +15,5 @@ function toon(element) {
 function verberg(element) {
 	document.getElementById(element).style.display = "none";
 }
+
 

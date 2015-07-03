@@ -594,8 +594,6 @@ public class InstellingenFragment extends PreferenceFragment
     	
   </div>
 </div>
-</div>
-</div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

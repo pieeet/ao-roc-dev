@@ -977,8 +977,6 @@ startActivity(belIntent);
           	<p>Je hebt nu alle componenten om de RSS reader te maken. </p>
           </div>
       </div>
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

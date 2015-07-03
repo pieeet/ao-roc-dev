@@ -132,9 +132,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 
 	
-    </div>
-  </div>
-</div>
+
 <%@ include file="/includes/bottom.html" %>
 	
 <% } %>

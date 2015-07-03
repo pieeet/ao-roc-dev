@@ -347,8 +347,6 @@ public void onResume() {
 
 
 	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>
