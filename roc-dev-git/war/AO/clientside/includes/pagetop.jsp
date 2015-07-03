@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>jquery</title>
-<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" >
-<meta name="description" content="Opleiding Applicatieontwikkelaar en Mediavormgever ROC Flevoland" >
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto' rel='stylesheet' type='text/css'>
-
-<!-- 2048 stylesheet -->
-<link href="/AO/clientside/H1/2048/style/main.css" rel="stylesheet" type="text/css">
-
-<!-- Latest compiled and minified Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
-<link href="/styles/stijl_3.css" type="text/css" rel="stylesheet">
-
-
-
-<!-- Latest compiled and minified Bootstrap JavaScript --> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-<link rel="shortcut icon" href="/favicon.ico">
-  <!-- <link rel="apple-touch-icon" href="meta/apple-touch-icon.png"> -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="keywords" content="HTML,CSS,Javascript,Make your own 2048,Play 2048">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="format-detection" content="telephone=no" />
-
-  <!-- <meta property="og:title" content="2048 game"/>
-  <meta property="og:site_name" content="2048 game"/>
-  <meta property="og:description" content="Play Udacity 2048. Then, make your own 2048 game in Udacity's 2 hour mini course for programming beginners!"/>
-  <meta property="og:image" content="http://gabrielecirulli.github.io/2048/meta/og_image.png"/> -->
-
-
+<%@ include file="/includes/top.html" %>
 </head>
-
 
 <body>
 

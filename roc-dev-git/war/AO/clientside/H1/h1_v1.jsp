@@ -1,6 +1,4 @@
 <%@ include file="/AO/clientside/includes/pagetop.jsp" %>
-  
-
 
 <%	if (user != null) { 
 		if (request.getAttribute("check") == null) {
@@ -203,28 +201,6 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
   
   
 </div> 
-
-	    
-
-  
-	
-  </div>
- </div>
-</div>
-  <!-- <script src="/AO/clientside/H1/2048/js/bind_polyfill.js"></script>
-  <script src="/AO/clientside/H1/2048/js/classlist_polyfill.js"></script>
-  <script src="/AO/clientside/H1/2048/js/animframe_polyfill.js"></script>
-  <script src="/AO/clientside/H1/2048/js/keyboard_input_manager.js"></script>
-  <script src="/AO/clientside/H1/2048/js/html_actuator.js"></script>
-  <script src="/AO/clientside/H1/2048/js/grid.js"></script>
-  <script src="/AO/clientside/H1/2048/js/tile.js"></script>
-  <script src="/AO/clientside/H1/2048/js/local_storage_manager.js"></script>
-  <script src="/AO/clientside/H1/2048/js/game_manager.js"></script>
-  <script src="/AO/clientside/H1/2048/js/application.js"></script>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
- -->
-
-</body>
-
+<%@ include file="/includes/bottom.html" %>
 <% } } %>
 </html>	
