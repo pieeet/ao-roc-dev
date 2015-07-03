@@ -143,11 +143,6 @@ lamp1.uit();
 					<img class="imgfullwidth" src="/AO/BlueJ/images/H1Lamp.jpg" alt="screenshot klasse lamp">
 				
 		</div>
-
-
-	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

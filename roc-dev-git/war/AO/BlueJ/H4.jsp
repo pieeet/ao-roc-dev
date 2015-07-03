@@ -42,11 +42,6 @@ Speler speler1 = new Speler(arg0, arg1, arg2)
 					
 					
 	</div>
-
-
-	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

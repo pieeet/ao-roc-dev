@@ -61,11 +61,6 @@ for <span class="codeplus">(Leerling leerling: leerlingen)</span> {
 					</p>
 					
 	</div>
-
-
-	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

@@ -24,9 +24,7 @@
 					</ul>
 		          
 	        </div>
-	        
-	       
-					
+	
 			<p>In dit hoofdstuk ga je aan de slag met de <i>klasse</i> Schildpad. Deze kun je vinden in de voorbeelden. 
 			De klasse Schildpad is gebaseerd op het programma Logo dat in 1967 werd ontwikkeld door Seymour Papert. Hiermee raak je 
 			spelenderwijs vertrouwd met de begrippen die in de leerdoelen worden benoemd</p>
@@ -37,11 +35,6 @@
 			<img class="imgfullwidth" src="/AO/BlueJ/images/tekendorp.jpg" alt="resultaat dorp">
 					
 	</div>
-
-
-	
-    </div>
-  </div>
-</div>
+<%@ include file="/includes/bottom.html" %>
 	
 <% } %>

@@ -398,11 +398,7 @@ public class Overzicht extends Applet {
 					
 				</div>
 		
-	<!-- Afsluiter div uit include file -->	
-	</div>
-	</div>
-	</div>
-		
+<%@ include file="/includes/bottom.html" %>
 <%
 	}
  %>
