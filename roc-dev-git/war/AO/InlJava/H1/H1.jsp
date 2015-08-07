@@ -163,9 +163,8 @@ public class HalloWereld {
 				<div class="opdrachten">	
 					<h2>Opdracht 1.3</h2>
 					<p>Installeer een zogenaamde Integrated Development Environment (IDE) waarmee je Java code kunt schrijven. Een IDE is een 
-					programma waarmee je code kunt schrijven. Een gratis versie van JCreator (Windows) kun je 
-					<a href="https://drive.google.com/a/roc-dev.com/folderview?id=0B3XneerL-ZIcUmhFazdMWXZaOU0&usp=sharing" target="_blank">hier</a> vinden. 
-					Een (wat ingewikkelder) alternatief is het veelgebruikte <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>.</p>
+					programma waarmee je code kunt schrijven. In deze cursus gebruiken we het veelgebruikte <a href="http://www.eclipse.org/downloads/" 
+					target="_blank">Eclipse</a>.</p>
 					
 					<!-- <div class="toonknopcontainer">
 						<button class="toonknop" id="toon1.3" onclick="toon('uitw1.3')">Toon uitwerking</button>
