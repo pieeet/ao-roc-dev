@@ -11,9 +11,14 @@
 	        <h3>Leerdoelen</h3>
 	        <p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat je:</p>
 			<ul>
-				<li>De benodigde software hebt ge&iuml;nstalleerd om Java programma's
+				<li>de benodigde software hebt ge&iuml;nstalleerd om Java programma's
 				te ontwikkelen en uit te voeren</li>
-				<li>Een &quot;Integrated Development Environment&quot; (IDE) hebt ge&iuml;nstalleerd</li>
+				<li>een &quot;Integrated Development Environment&quot; (IDE) hebt ge&iuml;nstalleerd en 
+				een java project kunt maken</li>
+				<li>een GitHub project kunt forken en clonen naar je computer</li>
+				<li>wijzigingen in een repository kunt committen en synchroniseren naar GitHub of 
+				naar je lokale repository</li>
+				
 			</ul>
         </div>
         
