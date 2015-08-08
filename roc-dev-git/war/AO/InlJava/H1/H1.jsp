@@ -103,23 +103,111 @@ c = a + b;
 
 			<div class="opdrachten">	
 				<h2>Opdracht 1.2 Installeer Eclipse IDE</h2>
-				<p>Installeer een zogenaamde Integrated Development Environment (IDE) waarmee je Java code kunt schrijven. Een IDE is een 
-				programma waarmee je code kunt schrijven. In deze cursus gebruiken we het veelgebruikte 
+				<p>Installeer een zogenaamde Integrated Development Environment (IDE) waarmee je Java code kunt schrijven. 
+				In deze cursus gebruiken we  
 				<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>. Nadat je Eclipese hebt 
-				gedownload kun je de map eventueel naar een andere lokatie verplaatsen, 
-				de map openen en eclipse starten door op het toepassingsbestand met het Eclipse icoon te dubbelklikken.</p>
+				gedownload kun je de map eventueel naar een andere lokatie verplaatsen/uitpakken, 
+				de map openen en eclipse starten door op het toepassingsbestand (met het Eclipse icoontje) te dubbelklikken.</p>
 			</div>
 			
 			<div class="opdrachten">
 				<h2>Opdracht 1.3 Maak een project</h2>
-				<p>Open Eclipse en klik eventueel het welkom scherm weg. Klik op File en 
-				kies new &#8594; Project... In het New Project scherm kies je Java Project.</p>
-				<p>Standaard staat Use default location aangevinkt. Dit zorgt er voor dat Eclipse het project opslaat in de 
+				<p>Open Eclipse en klik eventueel het welkom scherm weg. Klik op <em>File</em> en 
+				kies <em>New</em> &#8594; <em>Project...</em> In het New Project scherm kies je Java Project.</p>
+				<p>Standaard staat <em>Use default location</em> aangevinkt. Dit zorgt er voor dat Eclipse het project opslaat in de 
 				huidige workspace map. Dit kun je eventueel veranderen als je je project op een andere 
 				lokatie (Bijvoorbeeld Google Drive of Dropbox) wilt opslaan.</p>
+				<p>Open het project in de explorer en klik met je rechtse muisknop op de src map, kies <em>New</em> &#8594; 
+				<em>Class</em>. Geef 
+				je klasse een naam die begint met een hoofdletter. Je mag geen leestekens of spaties gebruiken. Een nieuw woord in de naam 
+				begin je met een hoofdletter. Je zou  bijvoorbeeld de naam MijnEersteJavaKlasse kunnen gebruiken. Kopieer 
+				de volgende (gearceerde) code in je klasse en klik op het <em>Run</em> icoontje in de menubalk:<br>
+<pre class="code">
+public class MijnEersteJavaKlasse {
+	
+    <span class="codeplus">public static void main(String[] args) {</span>
+        <span class="codeplus">System.out.println(&quot;Dit is mijn eerste java klasse!&quot;);</span>
+    <span class="codeplus">}</span>
+}
+</pre>				
+				<p>Als het goed is zie je tekst <em>Dit is mijn eerste java klasse</em> in je console verschijnen</p>
+				<img class="gewoon_plaatje" src="images/console.png">
 				
 			</div>
-				
+			<div class="opdrachten">
+				<h2>Opdracht 1.4 Git(Hub)</h2>
+				<p>We gaan onze projecten voor deze en volgende cursussen met elkaar delen via 
+				<a href="https://github.com/" target="_blank">GitHub</a>, de grootste online <em>Open 
+				Source</em> community waar sofware ontwikkelaars hun code met elkaar delen en samenwerken aan 
+				projecten met behulp van het <a href="https://nl.wikipedia.org/wiki/Git_(software)" target="_blank">
+				git</a> versiebeheersysteem. Maak een account aan als je dat nog niet hebt.</p>
+				<p><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Installeer</a> 
+				<em>git</em> op je computer. Open een <em>terminal</em> venster en typ het volgende commando om te testen 
+				of het werkt:</p>
+<pre class="code">
+git version
+</pre>
+				<p>Als git goed ge&iuml;nstalleerd is, wordt het huidige versienummer weergegeven. Als het commando in 
+				Windows niet wordt 
+				herkend moet je waarschijnlijk een <a href="https://technet.microsoft.com/nl-nl/library/Cc736637(v=WS.10).aspx" 
+				target="_blank">omgevingsvariabele toevoegen</a>.</p>
+				<p>Om je op weg te helpen hebben we op GitHub een repository voor je gemaakt die je kunt gebruiken 
+				voor de uitwerking van de opdrachten die je in deze cursus gaat maken. Ga als volgt te werk:
+				<ol>
+					<li>ga naar de <a href="https://github.com/ROC-DEV/inleiding-java" 
+					target="_blank">repository</a> en <em>fork</em> hem. Hiermee maak je een eigen kopie van de repo die je 
+					kunt gaan gebruiken</li>
+					<li>open de terminal en ga met cd (change directory) naar de map waar je het project lokaal wilt 
+					opslaan. Kopieer op GitHub de https link naar je repo. Als je de repo opent vind je de link in het 
+					rechter zij-menu. (https://github.com/[je gebruikersnaam]/inleiding-java.git)</li>
+					<li>voer in je terminal het volgend commando uit:<br>
+<pre class="code">
+git clone https://github.com/[je gebruikersnaam]/inleiding-java.git
+</pre>				
+					De repo wordt naar je computer gekopieerd en is automatisch gelinkt met je online repository.
+					</li>
+					<li>in eclipse kun je het project nu importeren met <em>File</em> &#8594; <em>Import...</em> &#8594; 
+					<em>Existing project 
+					into workspace</em>. Browse naar de map waar het project zich bevindt (de map direct boven de src map) 
+					en importeer het project. Als het goed is ziet Eclipse automatisch dat het een git repo is; achter 
+					de projectnaam staat [inleiding-java master].</li>
+					<li>Open de src map in de explorer. Hierin zie je een <em>package</em>. Java klassen zitten altijd in 
+					packages. In de package h01 vind je een java klasse. Open deze en klik op het 
+					groene pijltje in 
+					de menu balk om het programma uit te voeren. Als het goed is zie je in de Eclipse <em>console</em> 
+					de uitvoer:<br>
+<pre class="code">
+Hallo roc-dev!
+</pre>				
+					</li>
+					<li>De uitvoer wordt gemaakt met de regel:<br>
+<pre class="code">
+System.out.println(&quot;Hallo roc-dev!&quot;);
+</pre>						
+					</li>
+					<li>wijzig nu de tekst van de uitvoer en test of het werkt. Sla de wijzigingen op. In de Eclipse 
+					explorer (links) zie je nu als het goed is een &gt; teken voor de projectnaam verschijnen. Dit 
+					betekent dat er wijzigingen zijn die nog niet door git zijn verwerkt. Om de wijzigingen in git op  
+					te slaan moet je ze <em>committen</em>. Klik met je rechtse muisknop op je project en kies <em>Team</em> 
+					&#8594; <em>Commit...</em> Er verschijnt nu een scherm waarin je een commit message moet maken. Dit is er 
+					voor bedoeld om veranderingen gemakkelijk te kunnen terugvinden. De eerste regel is een 
+					korte beschrijving. Volgende regels zijn voor een eventueel uitgebreider beschrijving. Nadat je 
+					je wijzigingen hebt doorgevoerd is je <em>lokale</em> repo up to date.</li>
+					<li>de volgende stap is om je repo te synchroniseren met je online repo op GitHub. Ga opnieuw naar 
+					<em>Team</em> en kies nu <em>Push to upstream</em>. Als het goed is worden je wijzigingen nu naar GitHub 
+					ge&uuml;pload. Open je project op GitHub en check of de wijzigingen zijn doorgevoerd.</li>
+					<li>je kunt ook op GitHub zelf online wijzigingen in je code aanbrengen en committen. Open het java bestand 
+					online en klik op het <em>edit icoontje</em>, 
+					wijzig iets aan de tekst en commit de wijziging. Om de wijziging met je lokale repo te synchroniseren ga 
+					je weer naar Team, kies <em>Fetch from upstream</em>. Dit haalt de evt wijzigingen die aangebracht zijn in 
+					je online repo op. Om 
+					de wijzigingen in je lokale git repo op te nemen ga je nogmaals naar <em>Team</em> en kies je voor <em>Pull</em>.</li>
+					
+				</ol>
+				<p>Je kunt de repository gebruiken voor de opdrachten van deze cursus. Om het overzichtelijk te houden 
+				kun je per hoofdstuk een package maken. Als je in je repository een nieuw bestand maakt, moet die eerst 
+				aan de index worden toegevoegd met <em>Team</em> &#8594; <em>Add to index</em> voor je de wijzigingen commit.</p>
+			</div>
 		</div>
 	</div>
 		
