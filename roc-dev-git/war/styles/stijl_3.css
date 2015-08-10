@@ -1103,6 +1103,60 @@ div.img_met_bijschrift p, div.img_met_bijschrift img {
 }
 
 
+/*************YAHTZEE********************/
+div#yahtzee_scherm {
+	width: 370px;
+	background-color: #E6E6E7;
+	
+}
+
+div.dobbelveld {
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	float: left;
+	margin: 20px 0px 20px 20px;
+}
+
+div#gooi_knop, div#nieuw_spel_knop {
+	text-align: center;
+}
+
+div#scores {
+	overflow: hidden;
+}
+
+div#scores_links, div#scores_rechts {
+	width: 50%;
+	padding: 10px;
+	float: left;
+	
+}
+
+button.score_button {
+	width: 70%;
+}
+
+input.score {
+	width: 25%;
+	background-color: white;
+	
+}
+
+button.score_button:disabled {
+	color: #FFC2E0;
+}
+
+label#totaal_score, input#score_totaal {
+	width: 40%;
+	margin: 10px 0px 10px 0px;
+}
+
+div#scores_links input.score {
+	float: right;
+}
+
+
 
 
 
