@@ -1107,56 +1107,78 @@ div.img_met_bijschrift p, div.img_met_bijschrift img {
 div#yahtzee_scherm {
 	width: 370px;
 	background-color: #E6E6E7;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10em;
 	
 }
 
-div.dobbelveld {
+div#yahtzee_scherm div.dobbelveld {
 	width: 50px;
 	height: 50px;
-	background-color: white;
 	float: left;
-	margin: 20px 0px 20px 20px;
+	margin: 20px 20px 20px 0px;
 }
 
-div#gooi_knop, div#nieuw_spel_knop {
+div#yahtzee_scherm div#gooi_knop, 
+div#yahtzee_scherm div#nieuw_spel_knop, 
+div#yahtzee_scherm div#submit_score_knop {
+	clear: both;
 	text-align: center;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
 }
 
-div#scores {
+div#yahtzee_scherm div#scores {
 	overflow: hidden;
 }
 
-div#scores_links, div#scores_rechts {
+div#yahtzee_scherm div#scores_links, div#yahtzee_scherm div#scores_rechts {
 	width: 50%;
 	padding: 10px;
 	float: left;
 	
 }
 
-button.score_button {
+div#yahtzee_scherm button.score_button, div#yahtzee_scherm label.score_label {
 	width: 70%;
 }
 
-input.score {
+div#yahtzee_scherm input.score {
 	width: 25%;
 	background-color: white;
-	
 }
 
-button.score_button:disabled {
+div#yahtzee_scherm button:disabled {
 	color: #FFC2E0;
 }
 
-label#totaal_score, input#score_totaal {
-	width: 40%;
-	margin: 10px 0px 10px 0px;
+div#yahtzee_scherm div#totaal_score {
+	width: 50%;
+	
 }
 
-div#scores_links input.score {
+div#yahtzee_scherm div#scores_links  input.score {
 	float: right;
 }
 
 
+div#yahtzee_scherm div#scores_rechts button.score_button {
+	float: right;
+}
 
+div#yahtzee_scherm label#totaal_label, div#yahtzee_scherm input#score_totaal {
+	width: 5em;
+	float: left;
+	color: red;
+	margin-bottom: 0.5em;
+}
+
+div#yahtzee_scherm div#yahtzee_scherm img.dobbelsteen {
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+}
 
 
