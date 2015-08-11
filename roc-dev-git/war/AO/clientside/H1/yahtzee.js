@@ -22,6 +22,7 @@ $(document).ready(function() {
 		$('#gooi_button').prop('disabled', false);
 		if (aantalBeurten == 13) {
 			$('#submit_score_button').prop('disabled', false);
+			$('#gooi_button').prop('disabled', true);
 		}
 		
 	}
@@ -293,10 +294,11 @@ $(document).ready(function() {
 		$('.score_button').prop('disabled', false);
 		$('.score').val("");
 		resetBeurt();
-		aantalWorpen = 0;
+		aantalBeurten = 0;
 		bonuspunten = 0;
 		bonus = 0;
 		totaalscore = 0;
+		$('#submit_score_button').prop('disabled', true);
 		
 	});
 	
