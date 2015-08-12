@@ -1105,19 +1105,28 @@ div.img_met_bijschrift p, div.img_met_bijschrift img {
 
 /*************YAHTZEE********************/
 div#yahtzee_scherm {
-	width: 370px;
-	background-color: #E6E6E7;
+	border: 4px groove #007A00;
+	width: 310px;
+	background-color: #FFF5EB;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 2em;
 	margin-bottom: 10em;
+	padding: 3px;
+	
 	
 }
+
+div#yahtzee_scherm button {
+	background-color: #FFEBC2;
+}
+
 
 div#yahtzee_scherm div.dobbelveld {
 	width: 50px;
 	height: 50px;
 	float: left;
-	margin: 20px 20px 20px 0px;
+	margin: 20px 0px 20px 8px;
 }
 
 div#yahtzee_scherm div#gooi_knop, 
@@ -1135,13 +1144,14 @@ div#yahtzee_scherm div#scores {
 
 div#yahtzee_scherm div#scores_links, div#yahtzee_scherm div#scores_rechts {
 	width: 50%;
-	padding: 10px;
+	padding: 5px;
 	float: left;
 	
 }
 
 div#yahtzee_scherm button.score_button, div#yahtzee_scherm label.score_label {
 	width: 70%;
+	
 }
 
 div#yahtzee_scherm input.score {
@@ -1154,31 +1164,29 @@ div#yahtzee_scherm button:disabled {
 }
 
 div#yahtzee_scherm div#totaal_score {
-	width: 50%;
+	margin: 5px;
 	
 }
 
-div#yahtzee_scherm div#scores_links  input.score {
-	float: right;
-}
 
-
-div#yahtzee_scherm div#scores_rechts button.score_button {
-	float: right;
-}
 
 div#yahtzee_scherm label#totaal_label, div#yahtzee_scherm input#score_totaal {
-	width: 5em;
+	width: 4.5em;
 	float: left;
 	color: red;
 	margin-bottom: 0.5em;
 }
 
-div#yahtzee_scherm div#yahtzee_scherm img.dobbelsteen {
+div#yahtzee_scherm  img.dobbelsteen {
 	width: 50px;
 	height: 50px;
 	margin: 0;
 	padding: 0;
 }
 
+div#yahtzee_scherm img#yahtzee_logo {
+	display: block;
+	width: 214px;
+	margin: auto;
+}
 

@@ -206,6 +206,7 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
   	<p>Maak het spel YAHTZEE! in JQuery/JavaScript volgens onderstaande uitwerking. Om een dobbelsteen opnieuw te 
   	gooien, kun je er op klikken.</p>
   	<div id="yahtzee_scherm">
+  		<img id="yahtzee_logo" src="/AO/clientside/H1/Yahtzee_present_logo.png">
 	        	
     	<div id="dobbelvelden">
     		
