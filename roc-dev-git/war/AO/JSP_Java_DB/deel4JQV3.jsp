@@ -434,7 +434,7 @@ public Lid getLid(String spelerscode)  {
     Lid lid = null;
     <span class="codeplus">Key k = KeyFactory.createKey("Lid", spelerscode)</span>;
     try {
-        <span class="codeplus">Entity res = datastore.get(k)</span>;
+        <span class="codeplus">Entity ent = datastore.get(k)</span>;
         lid = new Lid();
         lid.setRoepnaam( <span class="codeplus">(String)</span> ent.getProperty(&quot;roepnaam&quot;) );
         lid.setTussenvoegsels( (String) ent.getProperty(&quot;tussenvoegsels&quot;) );
