@@ -302,5 +302,39 @@ $(document).ready(function() {
 		
 	});
 	
+	$(document).on('click', '#submit_score_button', function() {
+		var user = $('#user_email').val();
+		var score = $('#score_totaal').val();
+		$.get('/jquery?submit_score_button=&user=' + user + '&score=' + score, function(resp) {
+			$("#yahtzee_scores_lijst").html(resp);
+		})
+		$(this).prop('disabled', true);
+	});
 	
+	//experiment preload images in browser cache 
+	function preloadImages(array) {
+	    if (!preloadImages.list) {
+	        preloadImages.list = [];
+	    }
+	    var list = preloadImages.list;
+	    for (var i = 0; i < array.length; i++) {
+	        var img = new Image();
+	        img.onload = function() {
+	            var index = list.indexOf(this);
+	            if (index !== -1) {
+	                // remove image from the array once it's loaded
+	                // for memory consumption reasons
+	                list.splice(index, 1);
+	            }
+	        }
+	        list.push(img);
+	        img.src = array[i];
+	    }
+	}
+	var imgArray = [];
+	for (var i = 1; i <= 6; i++) {
+		imgArray.push("/AO/clientside/H1/dobbel" + i + ".jpg")
+	}
+
+	preloadImages(imgArray);
 });

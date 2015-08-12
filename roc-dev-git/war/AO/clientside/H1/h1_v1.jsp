@@ -1,14 +1,16 @@
 <%@ include file="/AO/clientside/includes/pagetop.jsp" %>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script src="/AO/clientside/H1/yahtzee.js"></script>
 
-<%	if (user != null) { 
-		if (request.getAttribute("check") == null) {
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="jquery.yahtzee.Yahtzee" %>
+
+<%	
+	if (user != null) { 
+		if (request.getAttribute("scorelijst") == null) {
 			response.sendRedirect("/jquery");
-		} else {
-
+		} else {		
 %>
-
+	<input type="hidden" id="user_email" value="<%= user.getNickname() %>">
       
 	<div class="col-md-10">
 		<h2>Introductie</h2>
@@ -203,8 +205,11 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
   
   <div class="opdrachten">
   	<h2>Praktijkopdracht: YAHTZEE!</h2>
-  	<p>Maak het spel YAHTZEE! in JQuery/JavaScript volgens onderstaande uitwerking. Om een dobbelsteen opnieuw te 
-  	gooien, kun je er op klikken.</p>
+  	<p>Maak het spel YAHTZEE! in JQuery/JavaScript volgens onderstaande uitwerking. Als je een 
+  	dobbelsteen opnieuw wilt gooien, kun je er op klikken.</p>
+  	
+  	
+  	
   	<div id="yahtzee_scherm">
   		<img id="yahtzee_logo" src="/AO/clientside/H1/Yahtzee_present_logo.png">
 	        	
@@ -212,13 +217,12 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
     		
     		<%for (int i = 0; i < 5; i++) {%>
     			<div class="dobbelveld" id="dobbel_<%= i %>" data-nr="<%= i %>">
-    			
     			</div>
     		<% } %>
     	
     	</div>
     	<div id="gooi_knop">
-    		<button type="button" id="gooi_button">Gooi</button>
+    		<button type="button" id="gooi_button" class="button_actie">Gooi</button>
     	</div>
     	
     	<div id="scores">
@@ -256,25 +260,25 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
     		</div>
     	</div>
     	<div id="totaal_score">
-     	<label class="score_label" id="totaal_label">Totaal</label>
-     	<input type="text" class="score" value="" id="score_totaal" disabled>
+	     	<label class="score_label" id="totaal_label">Totaal</label>
+	     	<input type="text" class="score" value="" id="score_totaal" disabled>
     	</div>
     	<div id="submit_score_knop">
-    		<button type="button" id="submit_score_button" disabled>Submit score</button>
+    		<button type="button" id="submit_score_button" class="button_actie" disabled>plaats score</button>
     	</div>
     	<div id="nieuw_spel_knop">
-    		<button type="button" id="nieuw_spel_button">Nieuw spel</button>
+    		<button type="button" id="nieuw_spel_button" class="button_actie">nieuw spel</button>
     	</div>
-    	
     </div>
-  	
-  	
-  	
+    <h2>Hoogste scores</h2>
+    <div id="yahtzee_scores_lijst">
+    	${scorelijst}
+    </div>
   </div>
-  
-  
 </div> 
-<%@ include file="/includes/bottom.html" %>
 
+<%@ include file="/includes/bottom.html" %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="/AO/clientside/H1/yahtzee.js"></script>
 <% } } %>
 </html>	
