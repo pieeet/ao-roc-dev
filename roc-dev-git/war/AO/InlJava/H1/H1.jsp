@@ -5,13 +5,13 @@
 <%	if (user != null) { %>
 
       <div class="col-md-10">
-        <h2>H1 Introductie</h2>
+        <h2>H1 installeren ontwikkelomgeving</h2>
         <!-- Leerdoelen -->
         <div class="bs-callout bs-callout-warning">
 	        <h3>Leerdoelen</h3>
 	        <p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat je:</p>
 			<ul>
-				<li>de benodigde software hebt ge&iuml;nstalleerd om Java programma's
+				<li>de benodigde software hebt ge&iuml;nstalleerd om Java programma&#39;s
 				te ontwikkelen en uit te voeren</li>
 				<li>een &quot;Integrated Development Environment&quot; (IDE) hebt ge&iuml;nstalleerd en 
 				een java project kunt maken</li>
@@ -55,7 +55,7 @@ c = a + b;
 </pre>
 					
 				
-			<h2>Wat heb je nodig om een programma te maken?</h2>
+			<h2>Wat heb je nodig?</h2>
 						
 			<P>Allereerst heb je een tekstverwerker nodig om de broncode in te schrijven. 
 			De broncode is geschreven in een programmeertaal. In ons geval is dat de programmeertaal Java. Er zijn 
@@ -77,9 +77,9 @@ c = a + b;
 			ware een stukje code uit de bibliotheek en zet dat in jouw programma. Het gaat per klasse om ongeveer 1500 definities en het is heel 
 			moeilijk. To link in het Engels betekent letterlijk verbinden.</p>
 						
-			<p>Vroeger had de programmeur inderdaad drie verschillende programma&lsquo;s nodig. 
+			<p>Vroeger had de programmeur inderdaad drie verschillende programma&#39;s nodig. 
 			Nu zijn deze drie onderdelen gebundeld in een zogenaamde Integrated Development Environment en werken 
-			daardoor beter samen. Jcreator, Jbuilder, NetBeans en Eclipse zijn voorbeelden van dergelijke IDE&lsquo;s.</p>
+			daardoor beter samen. IntelliJ, NetBeans en Eclipse zijn voorbeelden van dergelijke IDE&#39;s.</p>
 			<h3 id="fouten">Fouten</h3>
 			<p>Iedere programmeur maakt fouten. Het testen van applicaties en het opsporen van fouten (debuggen) is zelfs 
 			een specialisme binnen 
@@ -100,17 +100,44 @@ c = a + b;
 
 			<div class="opdrachten">
 				<h2>Opdracht 1.1 Installeer Java JDK</h2>
-				<p>Om een java programma op een computer te compileren en uit te voeren moet de nodige software ge&iuml;nstalleerd
-				zijn. Check in je program-files of er een recente versie van de Java Development Kit (jdk) ge&iuml;nstalleerd is. Als 
-				dat niet het geval is, download en installeer deze (zie web links).</p>
+				<p>De JDK is de java development kit. Om een java programma op een computer te compileren en uit te voeren moet de nodige software 
+				ge&iuml;nstalleerd
+				zijn. In andere cursussen gaan we met Google App Engine werken. App Engine werkt 
+				met <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" 
+				target="_blank">java versie 7</a>, dus het is wel zo handig om deze meteen te installeren. Installeer 
+				een voor jouw computer geschikte versie. Voor de meeste computers kun je de 64 bits versie kiezen.</p>
+				
 				<img src="images/java_install.jpg" alt="screenshot"><br>
+				<h3>Systeem-variabelen (Windows)</h3>
+				<p>Als je op een Windows machine werkt, is het raadzaam om een systeem variabele aan te maken 
+				die het systeem vertelt waar java zich bevindt. 
+				Dit doe je als volgt:</p>
+				<ul>
+					<li>Ga naar je systeem instellingen (bijvoorbeeld met <em>windows-toets</em> + x &#8594; 
+					<em>Systeem</em>), en klik in het linker zijmenu op <em>geavanceerde systeeminstellingen</em>. 
+					Klik onderin het 
+					scherm op <em>Omgevingsvariabelen</em>. Klik onder <em>Systeemvariabelen</em> op nieuw. Geef 
+					de variabele de naam JAVA_HOME en voer als waarde het pad in naar je java installatie (bijvoorbeeld 
+					C:\Program Files\Java\jdk1.7.0_51).</li>
+					<li>Zorg er voor dat java vanuit iedere directory te benaderen is. Dit doe je door de JAVA_HOME 
+					variabele aan de PATH variabele toe te voegen. Check in je omgevingsvariabelen of er een variable met 
+					de naam PATH (met hoofdletters) bestaat, zo niet maak een nieuwe variable aan. Open het invoerscherm door op de 
+					variabele te dubbelklikken. Voeg nu de lokatie van java toe met: %JAVA_HOME%\bin. Als er al waardes 
+					in PATH stonden kun je het voor of achter de bestaande waardes invoegen. Let wel op dat je dan een 
+					scheiding tussen de waardes aan moet brengen met een puntkomma (;).</li>
+					<li>Als je later een andere jdk wilt installeren, dan kun je volstaan met het aanpassen van de 
+					JAVA_HOME variabele.</li>
+				
+				</ul>
 			</div>
 
 			<div class="opdrachten">	
 				<h2>Opdracht 1.2 Installeer Eclipse IDE</h2>
 				<p>Installeer een zogenaamde Integrated Development Environment (IDE) waarmee je Java code kunt schrijven. 
 				In deze cursus gebruiken we  
-				<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>. Nadat je Eclipese hebt 
+				<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>. Kies <em>Eclpipse IDE 
+				for java EE developers</em>. Let op dat als je een 64 bit jdk hebt ge&iuml;nstalleerd, je ook 
+				een 64 bit versie van Eclipse moet installeren. Nadat je Eclipese hebt 
 				gedownload kun je de map eventueel naar een andere lokatie verplaatsen/uitpakken, 
 				de map openen en eclipse starten door op het toepassingsbestand (met het Eclipse icoontje) te dubbelklikken.</p>
 			</div>
@@ -120,7 +147,7 @@ c = a + b;
 				<p>Open Eclipse en klik eventueel het welkom scherm weg. Klik op <em>File</em> en 
 				kies <em>New</em> &#8594; <em>Project...</em> In het New Project scherm kies je Java Project.</p>
 				<p>Standaard staat <em>Use default location</em> aangevinkt. Dit zorgt er voor dat Eclipse het project opslaat in de 
-				huidige workspace map. Dit kun je eventueel veranderen als je je project op een andere 
+				huidige <em>workspace</em> map. Dit kun je eventueel veranderen als je je project op een andere 
 				lokatie (Bijvoorbeeld Google Drive of Dropbox) wilt opslaan.</p>
 				<p>Open het project in de explorer en klik met je rechtse muisknop op de src map, kies <em>New</em> &#8594; 
 				<em>Class</em>. Geef 
@@ -135,17 +162,19 @@ public class MijnEersteJavaKlasse {
     <span class="codeplus">}</span>
 }
 </pre>				
-				<p>Als het goed is zie je tekst <em>Dit is mijn eerste java klasse</em> in je console verschijnen</p>
+				<p>Als het goed is zie je tekst <em>Dit is mijn eerste java klasse!</em> in je console verschijnen.</p>
 				<img class="gewoon_plaatje" src="images/console.png">
 				
 			</div>
 			<div class="opdrachten">
 				<h2>Opdracht 1.4 Git(Hub)</h2>
 				<p>We gaan onze projecten voor deze en volgende cursussen met elkaar delen via 
-				<a href="https://github.com/" target="_blank">GitHub</a>, de grootste online <em>Open 
-				Source</em> community waar sofware ontwikkelaars hun code met elkaar delen en samenwerken aan 
+				<a href="https://github.com/" target="_blank">GitHub</a>, de grootste online 
+				<a href="https://nl.wikipedia.org/wiki/Open_source" target="_blank">Open 
+				Source</a> community waar sofware ontwikkelaars hun code met elkaar delen en samenwerken aan 
 				projecten met behulp van het <a href="https://nl.wikipedia.org/wiki/Git_(software)" target="_blank">
 				git</a> versiebeheersysteem. Maak een account aan als je dat nog niet hebt.</p>
+				<h3> Installeer git</h3>
 				<p><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Installeer</a> 
 				<em>git</em> op je computer. Open een <em>terminal</em> venster en typ het volgende commando om te testen 
 				of het werkt:</p>
@@ -154,8 +183,13 @@ git version
 </pre>
 				<p>Als git goed ge&iuml;nstalleerd is, wordt het huidige versienummer weergegeven. Als het commando in 
 				Windows niet wordt 
-				herkend moet je waarschijnlijk een <a href="https://technet.microsoft.com/nl-nl/library/Cc736637(v=WS.10).aspx" 
-				target="_blank">omgevingsvariabele toevoegen</a>.</p>
+				herkend moet je waarschijnlijk een omgevingsvariabele toevoegen (zie installatie JDK) 
+				Voeg in dat geval het volgende pad toe <em>achter</em> de waarde van je PATH. 
+				Check of git daadwerkelijk in deze map is ge&iuml;nstalleerd en let op de puntkomma!</p>
+<pre class="code">
+<span class="codeplus">;</span>C:\Program Files (x86)\Git\cmd
+</pre>				
+				<h3>Forken en clonen</h3>
 				<p>Om je op weg te helpen hebben we op GitHub een repository voor je gemaakt die je kunt gebruiken 
 				voor de uitwerking van de opdrachten die je in deze cursus gaat maken. Ga als volgt te werk:
 				<ol>
@@ -169,7 +203,8 @@ git version
 <pre class="code">
 git clone https://github.com/[je gebruikersnaam]/inleiding-java.git
 </pre>				
-					De repo wordt naar je computer gekopieerd en is automatisch gelinkt met je online repository.
+					De repo wordt naar je computer gekopieerd en is automatisch gelinkt met je online (remote) 
+					repository op GitHub. 
 					</li>
 					<li>in eclipse kun je het project nu importeren met <em>File</em> &#8594; <em>Import...</em> &#8594; 
 					<em>Existing project 
@@ -190,9 +225,9 @@ Hallo roc-dev!
 System.out.println(&quot;Hallo roc-dev!&quot;);
 </pre>						
 					</li>
-					<li>wijzig nu de tekst van de uitvoer en test of het werkt. Sla de wijzigingen op. In de Eclipse 
+					<li>wijzig nu de tekst van de uitvoer en test of het werkt. Sla de wijzigingen op (ctrl/cmd + s). In de Eclipse 
 					explorer (links) zie je nu als het goed is een &gt; teken voor de projectnaam verschijnen. Dit 
-					betekent dat er wijzigingen zijn die nog niet door git zijn verwerkt. Om de wijzigingen in git op  
+					betekent dat er wijzigingen zijn die nog niet in git zijn verwerkt. Om de wijzigingen in git op  
 					te slaan moet je ze <em>committen</em>. Klik met je rechtse muisknop op je project en kies <em>Team</em> 
 					&#8594; <em>Commit...</em> Er verschijnt nu een scherm waarin je een commit message moet maken. Dit is er 
 					voor bedoeld om veranderingen gemakkelijk te kunnen terugvinden. De eerste regel is een 
@@ -204,14 +239,15 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
 					<li>je kunt ook op GitHub zelf online wijzigingen in je code aanbrengen en committen. Open het java bestand 
 					online en klik op het <em>edit icoontje</em>, 
 					wijzig iets aan de tekst en commit de wijziging. Om de wijziging met je lokale repo te synchroniseren ga 
-					je weer naar Team, kies <em>Fetch from upstream</em>. Dit haalt de evt wijzigingen die aangebracht zijn in 
+					je in Eclipse weer naar Team, kies <em>Fetch from upstream</em>. Dit haalt de evt wijzigingen die aangebracht zijn in 
 					je online repo op. Om 
 					de wijzigingen in je lokale git repo op te nemen ga je nogmaals naar <em>Team</em> en kies je voor <em>Pull</em>.</li>
 					
 				</ol>
 				<p>Je kunt de repository gebruiken voor de opdrachten van deze cursus. Om het overzichtelijk te houden 
 				kun je per hoofdstuk een package maken. Als je in je repository een nieuw bestand maakt, moet die eerst 
-				aan de index worden toegevoegd met <em>Team</em> &#8594; <em>Add to index</em> voor je de wijzigingen commit.</p>
+				aan de index worden toegevoegd met <em>Team</em> &#8594; <em>Add to index</em> voor je de wijzigingen 
+				kunt committen.</p>
 			</div>
 		</div>
 	</div>

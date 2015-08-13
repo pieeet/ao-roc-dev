@@ -96,7 +96,7 @@
         <div id="menu">
           <h3>Inhoud</h3>
           <ol>
-			<li><a href="/AO/InlJava/H1/H1.jsp">Introductie</a></li>
+			<li><a href="/AO/InlJava/H1/H1.jsp">Ontwikkel-omgeving</a></li>
 			<li><a href="/AO/InlJava/H2/H2.jsp">Applets</a></li>
 			<li><a href="/AO/InlJava/H3/H3.jsp">Theorie</a></li>
 			<li><a href="/AO/InlJava/H4/H4.jsp">Tekenen</a></li>
