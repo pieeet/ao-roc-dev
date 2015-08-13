@@ -3,6 +3,7 @@
  */
 
 $(document).ready(function() {
+	//initialiseer benodigde globale variabelen
 	var aantalBeurten = 0;
 	var aantalWorpen = 0;
 	var bonuspunten = 0;
@@ -27,7 +28,7 @@ $(document).ready(function() {
 		
 	}
 	
-	/* enen, tweeen etc */
+	//telt enen, tweeen etc bij elkaar op
 	function telOp(n) {
 		var score = 0;
 		$.each(beurtscores, function(index, value) {
@@ -37,6 +38,7 @@ $(document).ready(function() {
 		});
 		totaalscore += score;
 		bonuspunten += score;
+		//check of de bonus gehaald is
 		if (bonus === 0 && bonuspunten > 62) {
 			bonus = 35;
 			totaalscore += bonus;
@@ -48,6 +50,9 @@ $(document).ready(function() {
 		return score;
 	}
 	
+	/*
+	 * n = aantal dat hetzelfde moet zijn (bijv. 4 voor carre)
+	 */
 	function nDezelfde(n) {
 		var aantalDezelfde = 0;
 		var som = 0;
@@ -68,6 +73,9 @@ $(document).ready(function() {
 		return som;
 	}
 	
+	/*
+	 * telt waardes in worp bij elkaar op
+	 */
 	function somWorp() {
 		var som = 0;
 		$.each(beurtscores, function(index, value) {
@@ -78,7 +86,10 @@ $(document).ready(function() {
 
 	
 	/************event handlers**************/
-	
+	/*
+	 * gooit dobbelstenen allleen als hun waarde 0 is en er nog niet 
+	 * 3 keer gegooid is in de beurt
+	 */
 	$(document).on('click', '#gooi_button', function() {
 		aantalWorpen++;
 		$(this).prop('disabled', true)
@@ -87,14 +98,22 @@ $(document).ready(function() {
 				
 				if (beurtscores[i] == 0) {
 					var random = Math.floor((Math.random() * 6) + 1);
-					beurtscores[i] = random
+					beurtscores[i] = random;
+					$("#dobbel_" + i).html("<img src=\"/AO/clientside/H1/dobbel" + beurtscores[i] + 
+					".jpg\" class=\"dobbelsteen\">");
 				}
-				$("#dobbel_" + i).html("<img src=\"/AO/clientside/H1/dobbel" + beurtscores[i] +".jpg\" class=\"dobbelsteen\">");
 			}
-			
 		}
 	});
 	
+	/*
+	 * Als nog niet 3 keer is gegooid.
+	 * wanneer op een van de dobbelstenen wordt geklikt
+	 * bepaal welk plaatje het is met data attribuut
+	 * verwijder score uit beurt (zet op 0) en
+	 * haal het plaatje weg. Gooi knop wordt opnieuw geactiveerd 
+	 * zodra een plaatje is weggehaald
+	 */
 	$(document).on('click', '.dobbelveld', function() {
 		if (aantalWorpen < 3) {
 			var nr = $(this).data('nr');
@@ -105,7 +124,9 @@ $(document).ready(function() {
 	});
 	
 	
-	
+	/*
+	 * score button enen
+	 */
 	$(document).on('click', '#button_enen', function() {
 		var score = telOp(1);
 		$('#score_enen').val(score);
@@ -113,12 +134,18 @@ $(document).ready(function() {
 		
 	});
 	
+	/*
+	 * score button tweeen
+	 */
 	$(document).on('click', '#button_tweeen', function() {
 		var score = telOp(2);
 		$('#score_tweeen').val(score);
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * score button drieen
+	 */
 	$(document).on('click', '#button_drieen', function() {
 		var score = telOp(3);
 		$('#score_drieen').val(score);
@@ -126,6 +153,9 @@ $(document).ready(function() {
 		
 	});
 	
+	/*
+	 * score button vieren
+	 */
 	$(document).on('click', '#button_vieren', function() {
 		var score = telOp(4);
 		$('#score_vieren').val(score);
@@ -133,13 +163,18 @@ $(document).ready(function() {
 		
 	});
 	
+	/*
+	 * score button vijven
+	 */
 	$(document).on('click', '#button_vijven', function() {
 		var score = telOp(5);
 		$('#score_vijven').val(score);
 		$(this).prop('disabled', true);
 		
 	});
-	
+	/*
+	 * score button zessen
+	 */
 	$(document).on('click', '#button_zessen', function() {
 		var score = telOp(6);
 		$('#score_zessen').val(score);
@@ -147,6 +182,9 @@ $(document).ready(function() {
 		
 	});
 	
+	/*
+	 * score button 3 dezelfde
+	 */
 	$(document).on('click', '#button_3dezelfde', function() {
 		var score = nDezelfde(3);
 		$('#score_3dezelfde').val(score);
@@ -156,6 +194,9 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * score button carre
+	 */
 	$(document).on('click', '#button_carre', function() {
 		var score = nDezelfde(4);
 		$('#score_carre').val(score);
@@ -165,6 +206,9 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * score button full house
+	 */
 	$(document).on('click', '#button_full_house', function() {
 		var score = 0;
 		var drieDezelfde = false;
@@ -199,6 +243,9 @@ $(document).ready(function() {
 
 	});
 	
+	/*
+	 * score button kleine straat
+	 */
 	$(document).on('click', '#button_kl_straat', function() {
 		var score = 0;
 		//3 mogelijke kleine straten
@@ -238,6 +285,9 @@ $(document).ready(function() {
 
 	});
 	
+	/*
+	 * score button grote straat
+	 */
 	$(document).on('click', '#button_gr_straat', function() {
 		var straat = false;
 		var score = 0;
@@ -268,6 +318,9 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * score button yahtzee
+	 */
 	$(document).on('click', '#button_yahtzee', function() {
 		var score = 0;
 		var v = nDezelfde(5);
@@ -281,6 +334,9 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * score button chance
+	 */
 	$(document).on('click', '#button_chance', function() {
 		var score = somWorp();
 		$('#score_chance').val(score);
@@ -290,6 +346,9 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
+	/*
+	 * zet alles terug
+	 */
 	$(document).on('click', '#nieuw_spel_button', function() {
 		$('.score_button').prop('disabled', false);
 		$('.score').val("");
@@ -311,7 +370,11 @@ $(document).ready(function() {
 		$(this).prop('disabled', true);
 	});
 	
-	//experiment preload images in browser cache 
+	
+	/*
+	 * experiment preload images in browser cache
+	 * code gevonden op Stack Overflow
+	 */
 	function preloadImages(array) {
 	    if (!preloadImages.list) {
 	        preloadImages.list = [];

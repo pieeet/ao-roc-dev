@@ -216,6 +216,7 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
     	<div id="dobbelvelden">
     		
     		<%for (int i = 0; i < 5; i++) {%>
+    			<!-- attr data om te identificeren voor weghalen -->
     			<div class="dobbelveld" id="dobbel_<%= i %>" data-nr="<%= i %>">
     			</div>
     		<% } %>
