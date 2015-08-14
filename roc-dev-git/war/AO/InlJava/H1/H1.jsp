@@ -135,9 +135,9 @@ c = a + b;
 				<h2>Opdracht 1.2 Installeer Eclipse IDE</h2>
 				<p>Installeer een zogenaamde Integrated Development Environment (IDE) waarmee je Java code kunt schrijven. 
 				In deze cursus gebruiken we  
-				<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>. Kies <em>Eclpipse IDE 
+				<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse</a>. Kies <em>Eclipse IDE 
 				for java EE developers</em>. Let op dat als je een 64 bit jdk hebt ge&iuml;nstalleerd, je ook 
-				een 64 bit versie van Eclipse moet installeren. Nadat je Eclipese hebt 
+				een 64 bit versie van Eclipse moet installeren. Nadat je Eclipse hebt 
 				gedownload kun je de map eventueel naar een andere lokatie verplaatsen/uitpakken, 
 				de map openen en eclipse starten door op het toepassingsbestand (met het Eclipse icoontje) te dubbelklikken.</p>
 			</div>
@@ -206,7 +206,7 @@ git clone https://github.com/[je gebruikersnaam]/inleiding-java.git
 					De repo wordt naar je computer gekopieerd en is automatisch gelinkt met je online (remote) 
 					repository op GitHub. 
 					</li>
-					<li>in eclipse kun je het project nu importeren met <em>File</em> &#8594; <em>Import...</em> &#8594; 
+					<li>in Eclipse kun je het project nu importeren met <em>File</em> &#8594; <em>Import...</em> &#8594; 
 					<em>Existing project 
 					into workspace</em>. Browse naar de map waar het project zich bevindt (de map direct boven de src map) 
 					en importeer het project. Als het goed is ziet Eclipse automatisch dat het een git repo is; achter 
