@@ -2,6 +2,7 @@ package jquery;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,7 +21,6 @@ import jquery.yahtzee.Yahtzee;
 @SuppressWarnings("serial")
 public class JQueryServlet extends HttpServlet {
 	DatastoreIO io; 
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -58,11 +58,13 @@ public class JQueryServlet extends HttpServlet {
 			html = "<p id=\"yahtzee_leaderboard\">Er zijn nog geen scores</p>";
 		} else {
 			html = "<table id=\"yahtzee_leaderboard\">";
-			html += "<tr><th>nr</th><th>speler</th><th>score</th></tr>";
+			html += "<tr><th>nr</th><th>speler</th><th>score</th><th>datum</th></tr>";
 			int teller = 1;
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			for (Yahtzee y: scores) {
+				String datum = sdf.format(y.getDatumTijd());
 				html += "<tr><td>" + teller + "</td></td><td>" + 
-						y.getGebruikersnaam() + "</td><td>" + y.getScore() + "</td></tr>";
+						y.getGebruikersnaam() + "</td><td>" + y.getScore() + "</td><td>" + datum + "</td></tr>";
 				teller++;
 			}
 			html += "</table>";
@@ -83,8 +85,4 @@ public class JQueryServlet extends HttpServlet {
 	        return ret;
 	    }
 	}
-	
-	
-	
-
 }
