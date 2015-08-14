@@ -52,13 +52,6 @@ public class JQueryServlet extends HttpServlet {
 	
 	private String maakScoreLijst() {
 		ArrayList<Yahtzee> scores = io.getAlleScores();
-		ArrayList<Yahtzee> hoogsteScores = new ArrayList<Yahtzee>();
-		for (Yahtzee y: scores) {
-			ArrayList<Yahtzee> scoresSpeler = new ArrayList<Yahtzee>();
-			String naam = y.getGebruikersnaam();
-			
-		}
-		
 		Collections.sort(scores, new YahtzeeComparator());
 		String html = "";
 		if (scores.isEmpty()) {
