@@ -68,8 +68,8 @@
 					
 					
 					
-					Nadat de pakketten zijn ge&iuml;nstalleerd keer je terug naar het start scherm (Quick Start menu) en kies je &quot;New 
-					Project&quot;. Kies desgevraagd voor &quot;Blank Activity&quot; en kies als minimum-sdk de minimum API die je net hebt 
+					Nadat de pakketten zijn ge&iuml;nstalleerd keer je terug naar het start scherm (Quick Start menu) en kies je <code>New 
+					Project</code>. Kies desgevraagd voor &quot;Blank Activity&quot; en kies als minimum-sdk de minimum API die je net hebt 
 					ge&iuml;nstalleerd. Als het goed is krijg je het volgende scherm te zien. </p>
 					<img src="studio_start.jpg" width="800">
 					<h2>Projectstructuur</h2>
