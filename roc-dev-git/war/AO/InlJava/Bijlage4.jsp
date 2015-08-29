@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
      	<h2>Bijlage 3 Tabellen logische operatoren</h2>
 					<p> de en-tabel</p>
 					<table>

@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
       <h2>2 Fooi Calculator</h2>
   
         <!-- Leerdoelen -->

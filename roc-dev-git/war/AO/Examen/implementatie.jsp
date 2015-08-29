@@ -7,7 +7,7 @@
 
 
       <!-- inhoud -->
-		<div class="col-md-10">
+		<div class="col-md-9">
 		
 			<h2>Kerntaak 3: Implementatie</h2>
       		<h3>Situatie</h3>

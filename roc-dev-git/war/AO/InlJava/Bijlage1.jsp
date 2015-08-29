@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
    		<h2>Bijlage 1 Kleuren</h2>
 					<p>Er zijn in Java standaard 13 kleuren: </p>
 					<table>

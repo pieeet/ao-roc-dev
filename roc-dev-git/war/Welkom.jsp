@@ -78,7 +78,7 @@
     <!--Main sectie == alles onder titelbalk -->
     
     <div id="main">
-      <div class="col-md-2"> 
+      <div class="col-md-3"> 
         <!--Zijmenu -->
         <div id="menu">
           <h3>Cursussen</h3>
@@ -98,7 +98,7 @@
         </div>
       </div>
       
-      <div class="col-md-10">
+      <div class="col-md-9">
         
         <h2>Welkom ${fn:escapeXml(user.nickname)}!</h2>
         <div class="bs-callout bs-callout-warning">

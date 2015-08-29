@@ -5,7 +5,7 @@
 	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
       <h2>H1 Introductie</h2>
   
         <!-- Leerdoelen -->

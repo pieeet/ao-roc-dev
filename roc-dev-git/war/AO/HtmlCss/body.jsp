@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
       
   
         <!-- Leerdoelen -->

@@ -300,7 +300,7 @@ div.studentkadercontainer {
 	
 }
 
-.col-md-10 img.ninja_img_uitleg {
+.ninja_paar .ninja_img_uitleg {
 	width: 120px;
 	padding: 20px;
 	margin: 0;
@@ -771,7 +771,7 @@ img#sport_logo {
 	max-width: 90%;
 }
 
-.col-md-10 img{
+.col-md-10 img, .col-md-9 img{
 	margin: 1em; 
 	max-width: 90%;
 	/* max-width: 500px; */
@@ -1200,3 +1200,4 @@ div#yahtzee_scherm img#yahtzee_logo {
 /* ul.navbar-nav li#home {
 	font-size: larger;
 } */
+

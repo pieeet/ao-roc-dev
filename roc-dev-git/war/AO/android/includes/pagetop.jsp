@@ -88,7 +88,7 @@
     
     <div id="main">
     
-      <div class="col-md-2"> 
+      <div class="col-md-3"> 
         <!--Zijmenu -->
         <div id="menu">
           <h3>Inhoud</h3>

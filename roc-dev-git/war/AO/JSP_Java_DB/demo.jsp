@@ -42,7 +42,7 @@ if (request.getParameter("kies_knop") != null) {
 %>
 
       <!-- inhoud -->
-      <div class="col-md-10">
+      <div class="col-md-9">
  
         <!-- oranje border links -->
         <div class="bs-callout bs-callout-warning">

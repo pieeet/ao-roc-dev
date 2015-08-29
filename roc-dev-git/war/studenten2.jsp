@@ -44,7 +44,7 @@
     </div>
     
     
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div id="heading">
         <h1>Portfolio&#39;s studenten</h1>
       </div>
@@ -89,7 +89,7 @@
     <!--Main sectie == alles onder titelbalk -->
     
     <div id="main">
-      <div class="col-md-2"> 
+      <div class="col-md-3"> 
         <!--Zijmenu -->
         <div id="menu">
           <h3>Cursussen</h3>
@@ -109,7 +109,7 @@
         </div>
       </div>
       
-      <div class="col-md-10">
+      <div class="col-md-9">
      
        <div class="bs-callout bs-callout-info">
        	<h2>Code-Ninja levels</h2>

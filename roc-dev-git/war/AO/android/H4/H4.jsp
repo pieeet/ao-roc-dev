@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
       <h2>4 Thema&#39;s &amp; stijlen</h2>
   
         <!-- Leerdoelen -->

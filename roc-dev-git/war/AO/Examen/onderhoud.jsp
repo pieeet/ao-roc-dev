@@ -3,7 +3,7 @@
 <%	if (user != null) { %>
 
       <!-- inhoud -->
-		<div class="col-md-10">
+		<div class="col-md-9">
 		
 	  		<h2>Kerntaak 4: Onderhoud</h2>
 	  		<h3>Situatie</h3>

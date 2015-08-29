@@ -4,7 +4,7 @@
 <%	if (user != null) { %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
         <h2>Objecten in BlueJ</h2>
         <!-- Leerdoelen -->
         <div class="bs-callout bs-callout-warning">

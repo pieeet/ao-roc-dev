@@ -2,7 +2,7 @@
 <%	if (user != null) { %>
 
 
-<div class="col-md-10">
+<div class="col-md-9">
 
 	<h2>Inleiding SQL</h2>
 	<div class="bs-callout bs-callout-warning">

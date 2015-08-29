@@ -15,7 +15,7 @@ if (request.getAttribute("check") == null) {
 %>
 
       
-      <div class="col-md-10">
+      <div class="col-md-9">
       <h2>Java klassen</h2>
   
         <!-- Leerdoelen -->

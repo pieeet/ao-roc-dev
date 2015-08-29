@@ -6,7 +6,7 @@
 
 	
 
-      <div class="col-md-10">
+      <div class="col-md-9">
       <h2>MVC en Servlets</h2>
   
         <!-- Leerdoelen -->

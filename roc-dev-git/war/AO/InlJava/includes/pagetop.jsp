@@ -39,14 +39,14 @@
     
     
     <!-- Titel -->
-    <div class="col-md-6">
+    <div class="col-md-5">
       <div id="heading">
         <h1>Inleiding Java</h1>
       </div>
     </div>
     
     
-    <div class="col-md-2"> 
+    <div class="col-md-3"> 
       <!-- gebruikersnaam en log uit -->
       <p class="loguit">${fn:escapeXml(user.nickname)}: <a href="http://ao.roc-dev.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://ao.roc-dev.com/Welkom.jsp%26service%3Dah">afmelden</a></p>
     </div>
@@ -91,12 +91,12 @@
     
     <div id="main">
     
-      <div class="col-md-2"> 
+      <div class="col-md-3"> 
         <!--Zijmenu -->
         <div id="menu">
           <h3>Inhoud</h3>
           <ol>
-			<li><a href="/AO/InlJava/H1/H1.jsp">Ontwikkel-omgeving</a></li>
+			<li><a href="/AO/InlJava/H1/H1.jsp">Ontwikkelomgeving</a></li>
 			<li><a href="/AO/InlJava/H2/H2.jsp">Applets</a></li>
 			<li><a href="/AO/InlJava/H3/H3.jsp">Theorie</a></li>
 			<li><a href="/AO/InlJava/H4/H4.jsp">Tekenen</a></li>
