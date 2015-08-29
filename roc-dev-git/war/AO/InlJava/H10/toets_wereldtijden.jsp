@@ -77,55 +77,51 @@ div#lijst_wereldtijden {
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-      	<script type="text/javascript">
-      		
-      		$(document).ready (function () {
-      			var london = 0;
-          		var newYork = 0;
-          		var tokyo = 0;
-          		var sydney = 0;
-      			$("#knop_toon_wereldsteden").on("click", function() {
-          			var invoer = parseInt( $("#invoer_tijd_input").val() );
-          			if (invoer >= 0 && invoer <= 23) {
-          				london = invoer - 1;
-              			if (london < 0) {
-              				london += 24;
-              			}
-              			$("#london_tijd").html(london  + ":00 uur");
-              			
-              			newYork = invoer - 5;
-              			if (newYork < 0) {
-              				newYork += 24;
-              			}
-              			$("#newyork_tijd").html(newYork + ":00 uur");
-              			
-              			tokyo = invoer + 9;
-              			if (tokyo > 23) {
-              				tokyo -= 24;
-              			}
-              			$("#tokyo_tijd").html(tokyo  + ":00 uur");
-              			
-              			sydney = invoer + 12;
-              			if (sydney > 23) {
-              				sydney -= 24;
-              			}
-              			$("#sydney_tijd").html(sydney  + ":00 uur");
-              			
-              			$("#foute_invoer_boodschap").html("");
-              			$("#lijst_wereldtijden").css("visibility", "visible");
-          			} else {
-          				$("#foute_invoer_boodschap").html("Ongeldige invoer");
-          				$("#london_tijd").html("");
-          				$("#newyork_tijd").html("");
-          				$("#tokyo_tijd").html("");
-          				$("#sydney_tijd").html("");
-          				$("#lijst_wereldtijden").css("visibility", "hidden");
-          				
-          				
-          			}
-          		});
-      		});
-      		
- 
-      	</script>
+<script type="text/javascript">
+	
+$(document).ready (function () {
+	$("#knop_toon_wereldsteden").on("click", function() {
+		var invoer = parseInt( $("#invoer_tijd_input").val() );
+		if (invoer >= 0 && invoer <= 23) {
+   			$("#london_tijd").html(converteer_london(invoer)  + ":00 uur");
+   			$("#newyork_tijd").html(converteer_newYork(invoer) + ":00 uur");
+   			$("#tokyo_tijd").html(converteer_tokyo(invoer)  + ":00 uur");
+   			$("#sydney_tijd").html(converteer_sydney(invoer)  + ":00 uur");
+   			$("#foute_invoer_boodschap").html("");
+   			$("#lijst_wereldtijden").css("visibility", "visible");
+		} else {
+			$("#foute_invoer_boodschap").html("Ongeldige invoer");
+			$("#lijst_wereldtijden").css("visibility", "hidden");
+		}
+	});
+	function converteer_london(invoer) {
+		var tijdLondon = invoer - 1;
+		if (tijdLondon < 0) {
+			tijdLondon += 24;
+		}
+		return tijdLondon;
+	}
+	function converteer_newYork(invoer) {
+		var tijdNewYork = invoer - 5;
+		if (tijdNewYork < 0) {
+			tijdNewYork += 24;
+		}
+		return tijdNewYork;
+	}
+	function converteer_tokyo(invoer) {
+		var tijdTokyo = invoer + 9;
+		if (tijdTokyo > 23) {
+			tijdTokyo -= 24;
+		}
+		return tijdTokyo;
+	}
+	function converteer_sydney(invoer) {
+		var tijdSydney = invoer + 12;
+		if (tijdSydney > 23) {
+			tijdSydney -= 24;
+		}
+		return tijdSydney;
+	}
+});
+</script>
 <% } %>
