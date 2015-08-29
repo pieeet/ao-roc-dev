@@ -300,7 +300,8 @@ div.studentkadercontainer {
 	
 }
 
-.ninja_paar .ninja_img_uitleg {
+.ninja_paar .ninja_img_uitleg, .ninja_level_uitleg .ninja_img_uitleg, 
+#kalenderopdracht .ninja_img_uitleg {
 	width: 120px;
 	padding: 20px;
 	margin: 0;
