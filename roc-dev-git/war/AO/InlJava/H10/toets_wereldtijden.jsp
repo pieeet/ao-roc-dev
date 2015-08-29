@@ -78,6 +78,18 @@ div#lijst_wereldtijden {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){function n(n){var t=n-1;return 0>t&&(t+=24),t}function t(n){var t=n-5;return 0>t&&(t+=24),t}function i(n){var t=n+9;return t>23&&(t-=24),t}function e(n){var t=n+12;return t>23&&(t-=24),t}$("#knop_toon_wereldsteden").on("click",function(){var r=parseInt($("#invoer_tijd_input").val());r>=0&&23>=r?($("#london_tijd").html(n(r)+":00 uur"),$("#newyork_tijd").html(t(r)+":00 uur"),$("#tokyo_tijd").html(i(r)+":00 uur"),$("#sydney_tijd").html(e(r)+":00 uur"),$("#foute_invoer_boodschap").html(""),$("#lijst_wereldtijden").css("visibility","visible")):($("#foute_invoer_boodschap").html("Ongeldige invoer"),$("#lijst_wereldtijden").css("visibility","hidden"))})});
+$(document).ready(function(){function n(n){var t=n-1;return 0>t&&(t+=24),t}function 
+	t(n){var t=n-5;return 0>t&&(t+=24),t}function i(n){var t=n+9;return t>23&&(t-=24),t}
+	function e(n){var t=n+12;return t>23&&(t-=24),t}$("#knop_toon_wereldsteden").on("click",
+			function(){var r=parseInt($("#invoer_tijd_input").val());
+			r>=0&&23>=r?($("#london_tijd")
+			.html(n(r)+":00 uur"),$("#newyork_tijd")
+			.html(t(r)+":00 uur"),$("#tokyo_tijd")
+			.html(i(r)+":00 uur"),$("#sydney_tijd")
+			.html(e(r)+":00 uur"),$("#foute_invoer_boodschap")
+			.html(""),$("#lijst_wereldtijden")
+			.css("visibility","visible")):($("#foute_invoer_boodschap")
+			.html("Ongeldige invoer"),$("#lijst_wereldtijden")
+			.css("visibility","hidden"))})});
 </script>
 <% } %>
