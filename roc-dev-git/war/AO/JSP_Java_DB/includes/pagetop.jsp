@@ -76,7 +76,7 @@
             <li><a href="/AO/InlJava/H1/H1.jsp">Inleiding Java</a></li>
             <li><a href="/AO/HtmlCss/H1/H1.jsp">HTML/CSS</a></li>
             <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
-            <li class="dropdown">
+            <li class="dropdown active">
             	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
             	aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a>
             	<ul class="dropdown-menu">
