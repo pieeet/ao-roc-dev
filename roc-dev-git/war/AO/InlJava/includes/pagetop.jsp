@@ -71,8 +71,10 @@
             <li><a href="/AO/HtmlCss/H1/H1.jsp">HTML/CSS</a></li>
             <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
             <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a><ul class="dropdown-menu">
-            		 <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP/Databases</a></li>
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+            	aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+            		 <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP</a></li>
             		 <li><a href="/AO/PHP/php.jsp">PHP</a></li>
             	</ul>
 			</li>

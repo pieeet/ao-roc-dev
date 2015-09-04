@@ -70,7 +70,14 @@
             <li><a href="/AO/InlJava/H1/H1.jsp">Inleiding Java</a></li>
             <li><a href="/AO/HtmlCss/H1/H1.jsp">HTML/CSS</a></li>
             <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
-            <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP/Databases</a></li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+            	aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+            		 <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP</a></li>
+            		 <li><a href="/AO/PHP/php.jsp">PHP</a></li>
+            	</ul>
+			</li>
             <li><a href="/jquery">JQuery</a></li>
             <li><a href="/AO/android/H1/H1.jsp">Android</a></li>
             <li><a href="/AO/Examen/Jemeppe.jsp">Examen</a></li>
