@@ -1,38 +1,32 @@
 <%@ include file="/includes/top.html" %>
 </head>
-<body>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%
+
+
 	UserService userService = UserServiceFactory.getUserService();
 	User user = userService.getCurrentUser();
 	
+	
 	if (user == null) { %>
 		<h2>Hallo, voor deze site moet je zijn ingelogd</h2>
-		<p>Log in met een <a href="<%= userService.createLoginURL("/AO/Examen/Jemeppe.jsp") %>">roc-dev Account</a> voor toegang tot de site</p>
-	
-	
-	<!-- als gebruiker ingelogd is... -->
-	
+		<p>Log in met een <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">roc-dev Account</a> voor toegang tot de site</p>
 		
 	<% } else {
-		pageContext.setAttribute("user", user); 
-		
-	} %>
-	
+		pageContext.setAttribute("user", user); } %>
 
-	
-	<% if (user != null) { 
-		
-	
-	%>
-		
+
+	<!-- als gebruiker ingelogd is...-->
+	<% if (user != null) { %>
+<body>
 		<!--Titelbalk pagina -->
 <div id="header">
   <div class="container">
@@ -44,7 +38,7 @@
     <!-- Titel -->
     <div class="col-md-5">
       <div id="heading">
-        <h1>Examen</h1>
+        <h1>Web Apps</h1>
       </div>
     </div>
     
@@ -81,9 +75,9 @@
 			</li>
             <li><a href="/jquery">JQuery</a></li>
             <li><a href="/AO/android/H1/H1.jsp">Android</a></li>
-           <li class="active"><a href="/AO/Examen/Jemeppe.jsp">Examen</a></li> 
+           <li><a href="/AO/Examen/Jemeppe.jsp">Examen</a></li> 
           </ul>
-        <!-- /.navbar-collapse --> 
+        </div>        <!-- /.navbar-collapse --> 
       </div>
       <!-- /.container-fluid --> 
     </div>
@@ -101,28 +95,25 @@
         <!--Zijmenu -->
         <div id="menu">
           <h3>Inhoud</h3>
-			<ul>
-				<li><a href="/AO/Examen/Jemeppe.jsp">Jemeppe</a></li>
-				<li>Kerntaak 1<br>
-					<a href="/AO/Examen/ontwerpen.jsp">Ontwerpen</a>
-				</li>
-				<li>Kerntaak 2<br>
-					<a href="/AO/Examen/realisatie.jsp">Realisatie</a>
-				</li>
-				<li>Kerntaak 3<br>
-					<a href="/AO/Examen/implementatie.jsp">Implementatie</a>
-				<li>Kerntaak 4<br>
-					<a href="/AO/Examen/onderhoud.jsp">Onderhoud</a>
-				</li>
-			</ul>
-			
-			
-			<h3>Web Links</h3>
-			<ul>
-				<li><a href="hulpdocs/Jemeppe_project-2015-05-07.zip">bestanden (zip 3MB)</a></li>
+				<ol>
+					<li><a href="/AO/android/H1/H1.jsp">Ontwikkel-omgeving</a></li>
+					<li><a href="/AO/android/H2/H2.jsp">Fooi Calculator</a></li>
+					<li><a href="/AO/android/H3/H3.jsp">Layouts &amp; widgets</a></li>
+					<li><a href="/AO/android/H4/H4.jsp">Thema&#39;s en stijlen</a></li>
+					<li><a href="/AO/android/H5/H5.jsp">Menu&#39;s en instellingen</a></li>
+					<li><a href="/AO/android/H6/H6.jsp">RSS Reader</a></li>
+					<li><a href="/AO/android/H7/H7.jsp">Services en notificaties</a></li>
+				</ol>
 				
-			</ul>
+				
+				<h3>Web Links</h3>
+				<ul>
+					<li><a href="https://developer.android.com/sdk/installing/studio.html" target="_blank">Android Studio</a></li>
+					<li><a href="http://developer.android.com/index.html" target="_blank">Android developers</a></li>
+					<li><a href="http://developer.android.com/reference/packages.html" target="_blank">Android API</a></li>
+					<li><a href="https://developer.android.com/design/downloads/index.html" target="_blank">Iconen downloads</a></li>
+				</ul>
         </div>
       </div>
       
-<% } %>
+      <% } %>
