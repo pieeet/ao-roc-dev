@@ -709,6 +709,9 @@ img#rocdevlogo {
 #nav-horz a:hover{
 	color:#F00;
 }
+.navbar-brand {
+	font-size:15px;
+}
 .bs-callout {
 border:1px solid #eee;
 border-left-width:5px;
