@@ -47,7 +47,7 @@
     <!-- Titel -->
     <div class="col-md-5">
       <div id="heading">
-        <h1>web apps</h1>
+        <h1>Web Apps</h1>
       </div>
     </div>
     
@@ -76,12 +76,16 @@
             <li><a href="/AO/InlJava/H1/H1.jsp">Inleiding Java</a></li>
             <li><a href="/AO/HtmlCss/H1/H1.jsp">HTML/CSS</a></li>
             <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
-            <li class="active"><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP/Databases<span class="sr-only">(current)</span></a></li>
+            <li class="dropdown active">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a><ul class="dropdown-menu">
+            		 <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP/Databases</a></li>
+            		 <li><a href="/AO/PHP/php.jsp">PHP</a></li>
+            	</ul>
+			</li>
             <li><a href="/jquery">JQuery</a></li>
             <li><a href="/AO/android/H1/H1.jsp">Android</a></li>
-            <li><a href="/AO/Examen/Jemeppe.jsp">Examen</a></li>
+           <li><a href="/AO/Examen/Jemeppe.jsp">Examen</a></li> 
           </ul>
-        </div>
         <!-- /.navbar-collapse --> 
       </div>
       <!-- /.container-fluid --> 
