@@ -244,6 +244,24 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
 					de wijzigingen in je lokale git repo op te nemen ga je nogmaals naar <code>Team</code> en kies je voor <code>Pull</code>.</li>
 					
 				</ol>
+				
+				<div class="embed-responsive embed-responsive-16by9">
+  					<iframe width="560" height="315" src="https://www.youtube.com/embed/i7RAd0n-P3c" 
+  					frameborder="0" allowfullscreen></iframe>
+				</div>
+				
+				<h3>Zelf een repository maken</h3>
+				<p>Als je op GitHub zelf een repository maakt, moet je een .readme bestand toevoegen. Hierin 
+				staan de bestanden en bestandstypen die niet gesynchroniseerd moeten worden. Op GitHub vind 
+				je veel voorgedefinieerde .readme bestanden die je kunt gebruiken. Nadat je op GitHub een 
+				lege repo hebt aangemaakt kun je hem clonen naar je computer. In de lege map kun je nu een 
+				project aanmaken of een bestaand project kopi&euml;ren.</p>
+				
+				<div class="embed-responsive embed-responsive-16by9"> 
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Nfiuh314zZc" 
+					frameborder="0" allowfullscreen></iframe>
+				</div>
+				
 				<p>Je kunt de repository gebruiken voor de opdrachten van deze cursus. Om het overzichtelijk te houden 
 				kun je per hoofdstuk een package maken. Als je in je repository een nieuw bestand maakt, moet die eerst 
 				aan de index worden toegevoegd met <code>Team</code> &#8594; <code>Add to index</code> voor je de wijzigingen 

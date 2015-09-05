@@ -119,7 +119,7 @@
 	          voor het vak Applicatie-ontwikkelaar en geeft je toeganng tot een HBO vervolgstudie. Wat je precies aan het eind van de studie 
 	          moet kennen en kunnen wordt uitgebreid beschreven in de landelijk vastgestelde <a href="/AO/kd_ao.pdf" target="_blank">kwalificatiebeschrijving</a> Applicatie- en 
 	          mediaontwikkeling.</p>
-	          <div class="table_wrapper">
+	          <<div class="embed-responsive embed-responsive-16by9">
 	            <iframe width="480" height="360" src="//www.youtube.com/embed/EAkQejGAMoo" frameborder="0" allowfullscreen></iframe>
         	  </div>
         </div>
