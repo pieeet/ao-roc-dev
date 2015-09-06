@@ -19,7 +19,16 @@
 	    	<h2>Leerdoelen</h2>
 			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat je:</p>
 			<ul>
-				<li></li>
+				<li>weet hoe je JQuery in een HTML document importeert via een 
+				content delivery network (cdn) </li>
+				<li>weet hoe je functies binnen events plaatst</li>
+				<li>weet hoe je met inspringen je code overzichtelijk houdt</li>
+				<li>weet hoe je  html elementen met tag, id of klasse kunt aanroepen</li>
+				<li>weet hoe je met de functies .text(), .html() en .val() waardes van 
+				html elemnten kunt opvragen en deze waardes aan JavaScript variabelen 
+				toekent</li>
+				<li>weet hoe je met de functies text('waarde'), html('waarde') en 
+				val('waarde') de inhoud van html elementen kunt wijzigen</li>
 			</ul>
 		</div>
 	
@@ -202,6 +211,49 @@ $(document).ready <span class="codeplus">(</span>function () <span class="codepl
   <p>Binnen de ready functie wordt de click functie ge&iuml;nitialiseerd. Deze zorg er voor dat een functie wordt uitgevoerd 
   als gebruiker op de knop klikt.</p>
   <h3>Elementen selecteren</h3>
+  <p>Elementen in JQuery selecteren werkt met dezelfde systematiek als elementen met CSS selecteren:</p>
+  
+<pre class="code">
+<span class="codeplus">$(&quot;p&quot;)</span> <span class="comment">// selecteert alle &lt;p&gt; tags</span>
+<span class="codeplus">$(&quot;#id&quot;)</span> <span class="comment">// selecteer element met id ...</span>
+<span class="codeplus">$(&quot;.class&quot;)</span> <span class="comment">// selecteer elementen van klasse ...</span>
+<span class="codeplus">$(&quot;#id p&quot;)</span> <span class="comment">// selecteer p elementen binnen element met id ...</span>
+</pre>  
+  <p>Zie <a href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp" 
+  target="_blank">w3schools</a> voor een uitgebreide lijst met selectors .</p>
+  <h3>Waarde van elementen opvragen</h3>
+  <p>De volgende codefragmenten vragen een waarde van een element op en kennen ze toe aan een 
+  variabele van het type var:</p>
+
+<pre class="code">
+<span class="codeplus"> var tekst = $(&quot;#id&quot;).text();</span>  <span class="comment">//vraagt de tekst van element met id ...</span>
+<span class="codeplus"> var html = $(&quot;#id&quot;).html();</span>  <span class="comment">//vraagt de html van element met id ...</span>
+<span class="codeplus"> var waarde = $(&quot;#id&quot;).val();</span>  <span class="comment">//vraagt de &quot;value&quot; van element met id ...</span>
+</pre>
+  <p>Met de derde regel code zou je bijvoorbeeld de waarde die een gebruiker in een input veld 
+  met een bepaald id heeft ingevoerd 
+  kunnen opvragen.</p>
+  
+  <p>Je krijgt altijd een string terug als je op deze manier waardes opvraagt. Hoewel 
+  JavaScript vrij flexibel met verschillende typen gegevens omgaat is het toch raadzaam om de 
+  string te parsen met parsInt(&quot;nummer&quot;) of parsFloat(&quot;nummer&quot;) voor 
+  je ermee gaat rekenen.</p>  
+
+  
+  <h3>Waarde van elementen veranderen</h3>
+  <p>De volgende code fragmenten veranderen de waarde van een element:</p>
+
+<pre class="code">
+var tekst = &quot;Hallo Wereld!&quot;
+<span class="codeplus">$(&quot;#id&quot;).text(tekst);</span>  <span class="comment">//verandert de tekst van element met id ...</span>
+
+var htmlCode = &quot;&lt;p&gt;Een stukje tekst&lt;/p&gt;&quot;;
+<span class="codeplus">$(&quot;#id&quot;).html(htmlCode);</span>  <span class="comment">//verandert de html van element met id ...</span>
+
+var waarde = 25;
+<span class="codeplus">$(&quot;#id&quot;).val(waarde);</span>  <span class="comment">//verandert de &quot;value&quot; van element met id ...</span>
+</pre>  
+  
   
   <div class="opdrachten">
   	<h2>Praktijkopdracht: YAHTZEE!</h2>
