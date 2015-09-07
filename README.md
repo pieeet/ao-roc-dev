@@ -1,7 +1,7 @@
 # ao-roc-dev
 web site ao.roc-dev.com
 
-Je kunt het project clonen en importeren in Eclipse (Met git en App Engine plugin).
+Je kunt het project forken, clonen en importeren in Eclipse (Met git en App Engine plugin).
 
 Als je een leuk idee hebt uitgewerkt of verbeteringen aan hebt gebracht op een onderdeel kun je een pull
 request doen.
