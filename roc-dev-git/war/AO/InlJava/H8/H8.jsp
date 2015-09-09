@@ -447,6 +447,14 @@ public class Tekstvak extends Applet {
 					eerste tekstvak een getal in en in het tweede en klikt vervolgens op &eacute;&eacute;n van de knoppen om de berekening te laten 
 					uitvoeren. De uitkomst wordt in het eerste tekstvak getoond en het tweede tekstvak wordt leeggemaakt.</p>
 					<img src="rekenmachine.jpg">
+					
+					<h2>Uitbreiding staafdiagram</h2>
+					<p>Voeg labels, invoervelden en een knop toe zodat de gebruiker de waardes van het 
+					staafdiagram kan veranderen</p>
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/Dzo9tZgFzZM" 
+						frameborder="0" allowfullscreen></iframe>
+					</div>
 		
 				</div>
 			</div>
