@@ -251,9 +251,9 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
 				</div>
 				
 				<h3>Zelf een repository maken</h3>
-				<p>Als je op GitHub zelf een repository maakt, moet je een .readme bestand toevoegen. Hierin 
+				<p>Als je op GitHub zelf een repository maakt, moet je een <code>.gitignore</code> bestand toevoegen. Hierin 
 				staan de bestanden en bestandstypen die niet gesynchroniseerd moeten worden. Op GitHub vind 
-				je veel voorgedefinieerde .readme bestanden die je kunt gebruiken. Nadat je op GitHub een 
+				je veel voorgedefinieerde .gitignore bestanden die je kunt gebruiken. Nadat je op GitHub een 
 				lege repo hebt aangemaakt kun je hem clonen naar je computer. In de lege map kun je nu een 
 				project aanmaken of een bestaand project kopi&euml;ren.</p>
 				
