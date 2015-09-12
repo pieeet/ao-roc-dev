@@ -440,7 +440,7 @@ public class Tekstvak extends Applet {
 					
 					<h2>Opdracht 8.3</h2>
 					<p>Maak een applet waarin een tekstvak met label en een knop Ok staan. In het tekstvak moet een bedrag worden ingevuld 
-					en zodra de gebruiker op Ok klikt <b>of</b> op de enter-toets drukt moet de prijs inclusief BTW (= 19%) in het venster geplaatst worden.</p>
+					en zodra de gebruiker op Ok klikt <b>of</b> op de enter-toets drukt moet de prijs inclusief BTW (= 21%) in het venster geplaatst worden.</p>
 					
 					<h2>Praktijkopdracht</h2>
 					<p>Maak een rekenmachine in een applet. De rekenmachine bestaat uit twee tekstvakken en vier knoppen. De gebruiker tikt in het 
