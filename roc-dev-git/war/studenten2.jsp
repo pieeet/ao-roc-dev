@@ -39,12 +39,12 @@
 		<!--Titelbalk pagina -->
 <div id="header">
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div id="logo"> <a href="/Welkom.jsp"><img id="rocdevlogo"src="images/roc-dev-googlefont.png"></a> </div>
     </div>
     
     
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div id="heading">
         <h1>Portfolio&#39;s studenten</h1>
       </div>

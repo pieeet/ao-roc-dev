@@ -30,7 +30,7 @@
 		<!--Titelbalk pagina -->
 <div id="header">
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div id="logo"> <a href="/Welkom.jsp"><img id="rocdevlogo"src="images/roc-dev-googlefont.png"></a> </div>
     </div>
     
