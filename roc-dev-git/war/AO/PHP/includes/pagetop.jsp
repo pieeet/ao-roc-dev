@@ -30,13 +30,13 @@
 		<!--Titelbalk pagina -->
 <div id="header">
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div id="logo"> <a href="/Welkom.jsp"><img id="rocdevlogo"src="/images/roc-dev-googlefont.png"></a> </div>
     </div>
     
     
     <!-- Titel -->
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div id="heading">
         <h1>Web Apps</h1>
       </div>
