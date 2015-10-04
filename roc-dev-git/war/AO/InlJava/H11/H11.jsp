@@ -207,10 +207,9 @@ for(int x = 10;  x &lt; eind;  x++) {
 					<h2>Opdracht 11.4</h2>
 					<p>Maak een applet waarin de tafel van drie getoond wordt.</p>
 					
-					<h2>Opdracht 11.5</h2>
-					<p>Breid de applet uit opdracht 4 zo uit dat de gebruiker kan ingeven welke tafel hij wil zien.</p>
 					
-					<h2>Opdracht 11.6</h2>
+					
+					<h2>Opdracht 11.5</h2>
 					<p>Teken vijf vierkanten volgens onderstaand figuur:<br>
 					
 					<canvas id="vierkanten" width=150 height=150></canvas>
@@ -235,7 +234,7 @@ for(int x = 10;  x &lt; eind;  x++) {
 
 					</script>
 					
-					<h2>Opdracht 11.7</h2>
+					<h2>Opdracht 11.6</h2>
 					<p>Teken vijf concentrische cirkels zoals in het volgende figuur:</p>
 					
 					<canvas id="cirkels" width=200 height=100></canvas>
@@ -255,7 +254,7 @@ for(int x = 10;  x &lt; eind;  x++) {
 
 					</script>
 					
-					<h2>Opdracht 11.8</h2>
+					<h2>Opdracht 11.7</h2>
 					<p>Teken 50 concentrische cirkels zoals onderstaand figuur.</p>
 					<canvas id="cirkels2" width=600 height=600></canvas>
 					
@@ -272,11 +271,11 @@ for(int x = 10;  x &lt; eind;  x++) {
 					}
 					</script>
 					
-					<h2>Opdracht 11.9</h2>
+					<h2>Opdracht 11.8</h2>
 					<p>Schrijf een applet waarin minimaal 100 cirkels worden getoond die hetzelfde beginpunt hebben, maar elke cirkel wordt 
 					iets groter dan de vorige.</p>
 					
-					<h2>Opdracht 11.10</h2>
+					<h2>Opdracht 11.9</h2>
 					<p>Schrijf een applet waarin een schaakbord op het scherm wordt getekend. Een schaakbord heeft 8 bij 8 vakken om en om 
 					wit en zwart. Zie <a href="Schaakbord.jsp" target="_blank">nadere uitleg</a></p>
 					
