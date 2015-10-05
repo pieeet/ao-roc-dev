@@ -187,6 +187,7 @@
 							<select name="cohort" class="formulier_input formulier_input_marge">
 								<option value="2013">2013</option>
 								<option value="2014">2014</option>
+								<option value="2015">2015</option>
 							</select>
 						</div>
 						<div class="formulier_regel">
