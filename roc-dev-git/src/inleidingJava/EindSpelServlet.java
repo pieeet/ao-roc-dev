@@ -21,7 +21,7 @@ public class EindSpelServlet extends HttpServlet {
 		if (req.getParameter("nieuw_spel") != null) {
 			eindeSpelImage = "";
 			aantalLucifers = 23;
-			boodschap = "<p>Aantal lucifers: " + aantalLucifers + ". Jouw beurt.</p>";
+			boodschap = "<p>Aantal smileys: " + aantalLucifers + ". Jouw beurt.</p>";
 			gewonnen = false;
 			this.printHtml(resp);	
 		} else {
@@ -62,8 +62,8 @@ public class EindSpelServlet extends HttpServlet {
 							gewonnen = true;
 						}
 						aantalLucifers -= beurtComputer;
-						boodschap = "<p>De computer heeft " + beurtComputer + " plaatjes weggehaald. "
-								+ "Aantal plaatjes: " + aantalLucifers + ". Jouw beurt</p>";
+						boodschap = "<p>De computer heeft " + beurtComputer + " smileys weggehaald.<br> "
+								+ "Aantal resterende smileys: " + aantalLucifers + ". Jouw beurt</p>";
 						this.printHtml(resp);
 					}
 				}
@@ -83,7 +83,7 @@ public class EindSpelServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		if (eindeSpelImage.equals("")) {
-			out.println("<label>Hoeveel potloden neem je (&eacute;&eacute;n, twee of drie)?</label>");
+			out.println("<label>Hoeveel smileys neem je (&eacute;&eacute;n, twee of drie)?</label>");
 			out.println("<input type=\"number\" id=\"invoer_spel\">");
 			out.println("<button type=\"button\" id=\"speel_knop\">Speel</button>");
 			out.println(boodschap);
@@ -100,7 +100,7 @@ public class EindSpelServlet extends HttpServlet {
 		} else {
 			out.println(boodschap);
 			out.println(eindeSpelImage);
-			out.println("<button type=\"button\" id=\"nieuw_spel_knop\">Nieuw spel</button>");
+			out.println("<button type=\"button\" class=\"btn btn-danger\" id=\"nieuw_spel_knop\">Nieuw spel</button>");
 		}
 		out.close();
 	}

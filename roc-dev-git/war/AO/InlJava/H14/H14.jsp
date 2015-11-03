@@ -264,7 +264,9 @@ public class LoadAndPlay extends Applet {
 		<script src="/AO/JSP_Java_DB/includes/jquery-1.11.2.js"></script>
 		<script>
 		$(document).ready(function() {
-			nieuwSpel();
+			$(document).on('click', 'button#start_spel_button', function(){
+				nieuwSpel();
+			});
 			$(document).on(
 					'click',
 					'#speel_knop',
@@ -309,24 +311,7 @@ public class LoadAndPlay extends Applet {
 		</script>
 
 		<div id="spel_result">
-			<%-- <label>Hoeveel potloden neem je (&eacute;&eacute;n, twee of
-				drie)?</label> <input type="number" id="invoer_spel">
-			<button type="button" id="speel_knop">Speel</button>
-			<input type="hidden" id="aantal_lucifers" value="23">
-			<p>Aantal lucifers: 23. Jouw beurt.</p>
-			<div id="inl_java_spel_plaatjes">
-				<%
-					for (int i = 0; i < 23; i++) {
-				%>
-
-				<img src="/AO/InlJava/H14/basic1-119_smiley_neutral-512.png"
-					class="lucifer">
-
-				<%
-					}
-				%>
-
-			</div> --%>
+			<button type="button" class="btn btn-danger" id="start_spel_button">Start spel</button>
 		</div>
 
 
