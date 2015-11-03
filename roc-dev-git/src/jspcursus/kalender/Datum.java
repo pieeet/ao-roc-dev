@@ -14,26 +14,25 @@ public class Datum implements Serializable {
 	String maandString;
 	String datumStandaardFormat;
 	String datumNLFormat;
-	private final String[] maanden = {"januari", "februari", 
-			"maart", "april", "mei", "juni",
-			"juli", "augustus", "september", 
-			"oktober", "november", "december"};
-	
-	//specifieke datum
+	private final String[] maanden = { "januari", "februari", "maart", "april",
+			"mei", "juni", "juli", "augustus", "september", "oktober",
+			"november", "december" };
+
+	// specifieke datum
 	public Datum(int jaar, int maand, int dag) {
 		this.jaar = jaar;
 		this.maand = maand;
 		this.dag = dag;
 		this.setAttributen();
 	}
-	
-	//specifieke maand
+
+	// specifieke maand
 	public Datum(int jaar, int maand) {
 		this(jaar, maand, 1);
 		this.setAttributen();
 	}
-	
-	//huidige maand
+
+	// huidige maand
 	public Datum() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.DAY_OF_MONTH, 1);
@@ -42,7 +41,7 @@ public class Datum implements Serializable {
 		this.jaar = cal.get(Calendar.YEAR);
 		this.setAttributen();
 	}
-	
+
 	public Datum(String datumStandaard) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
@@ -58,15 +57,16 @@ public class Datum implements Serializable {
 		this.maand = cal.get(Calendar.MONTH);
 		this.jaar = cal.get(Calendar.YEAR);
 		this.setAttributen();
-		
+
 	}
-	
+
 	private void setAttributen() {
 		this.maandString = maanden[this.maand];
-		this.datumStandaardFormat = this.maakDatumFormat(this.dag, this.maand, this.jaar);
+		this.datumStandaardFormat = this.maakDatumFormat(this.dag, this.maand,
+				this.jaar);
 		this.datumNLFormat = this.maakNLFormat(this.dag, this.maand, this.jaar);
 	}
-	
+
 	public String getMaandString() {
 		return maandString;
 	}
@@ -88,7 +88,7 @@ public class Datum implements Serializable {
 	}
 
 	private String maakDatumFormat(int dag, int maand, int jaar) {
-		String datFormat ="";
+		String datFormat = "";
 		String maandFormat = "";
 		if (this.maand < 9) {
 			maandFormat += "-0" + (this.maand + 1);
@@ -101,17 +101,14 @@ public class Datum implements Serializable {
 		} else {
 			dagFormat += "-" + dag;
 		}
-		
+
 		datFormat = "" + this.jaar + maandFormat + dagFormat;
 		return datFormat;
 	}
-	
+
 	private String maakNLFormat(int dag, int maand, int jaar) {
 		return "" + dag + " " + this.maandString + " " + jaar;
 	}
-	
-	
-	
 
 	public int getJaar() {
 		return jaar;
@@ -136,8 +133,6 @@ public class Datum implements Serializable {
 	public void setDag(int dag) {
 		this.dag = dag;
 	}
-	
-	
 
 	public String getDatumNLFormat() {
 		return datumNLFormat;

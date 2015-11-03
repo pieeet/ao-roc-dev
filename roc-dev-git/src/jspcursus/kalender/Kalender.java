@@ -28,6 +28,7 @@ public class Kalender extends GregorianCalendar
 	}
 
 	//hulpmethoden voor de constructors
+	
 	private int aantalDagenVorigeMaand() {
 		int jaarNieuw = jaar;
 		int maandNieuw;
@@ -60,7 +61,9 @@ public class Kalender extends GregorianCalendar
 			this.dataVorigeMaand[i] = this.startVorigeMaand + i;
 		}
 	}
-
+	
+	//automatisch gegenereerde getters en setters
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
