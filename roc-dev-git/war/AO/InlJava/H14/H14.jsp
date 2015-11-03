@@ -265,20 +265,36 @@ public class LoadAndPlay extends Applet {
 		<script>
 		$(document).ready(function() {
 			nieuwSpel();
-			
 			$(document).on(
 					'click',
 					'#speel_knop',
 					function() {
-						var aantal_verminderen = $("#invoer_spel").val();
-						var aantal_lucifers = $("#aantal_lucifers").val();
-
-						$.get("/eindspel?aantal_lucifers=" + aantal_lucifers
-								+ "&aantal_verminderen=" + aantal_verminderen,
-								function(responseText) {
-									$('#spel_result').html(responseText);
-								});
+						speel();
 					});
+			$(document).on(
+					'keydown',
+					'#invoer_spel',
+					function(e) {
+						var code = e.which; // recommended to use e.which, it's normalized across browsers
+					    if(code==13)e.preventDefault();
+					    if(code==32||code==13||code==188||code==186){
+					    	speel();
+					    } 
+					   
+					});
+			
+			function speel() {
+				var aantal_verminderen = $("#invoer_spel").val();
+				var aantal_lucifers = $("#aantal_lucifers").val();
+
+				$.get("/eindspel?aantal_lucifers=" + aantal_lucifers
+						+ "&aantal_verminderen=" + aantal_verminderen,
+						function(responseText) {
+							$('#spel_result').html(responseText);
+						});
+				setTimeout( function() { $( '#invoer_spel' ).focus() }, 500 );
+			}
+			
 			$(document).on('click', '#nieuw_spel_knop', function() {
 				nieuwSpel();
 			});
@@ -293,7 +309,7 @@ public class LoadAndPlay extends Applet {
 		</script>
 
 		<div id="spel_result">
-			<label>Hoeveel potloden neem je (&eacute;&eacute;n, twee of
+			<%-- <label>Hoeveel potloden neem je (&eacute;&eacute;n, twee of
 				drie)?</label> <input type="number" id="invoer_spel">
 			<button type="button" id="speel_knop">Speel</button>
 			<input type="hidden" id="aantal_lucifers" value="23">
@@ -310,10 +326,7 @@ public class LoadAndPlay extends Applet {
 					}
 				%>
 
-			</div>
-
-
-
+			</div> --%>
 		</div>
 
 
