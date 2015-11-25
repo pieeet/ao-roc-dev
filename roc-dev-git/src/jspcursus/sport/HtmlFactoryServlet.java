@@ -169,7 +169,7 @@ public class HtmlFactoryServlet extends HttpServlet {
 	      out.println("</div>");
 	      out.println("<div class=\"formulier_regel\">");
 	        out.println("<label "
-	  		+ "class=\"formulier_label\">e-mail</label>");
+	  		+ "class=\"formulier_label\">e-mail (verplicht)</label>");
 	        out.println("<input "
 	  		+ "type=\"text\" "
 	  		+ "id=\"email\" "

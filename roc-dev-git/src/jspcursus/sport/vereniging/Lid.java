@@ -60,34 +60,35 @@ public class Lid implements Serializable {
             String achternaam, String adres, String postcode, String woonplaats, String telefoon, 
             String email, String geboortedatum, String geslacht) {
 		this();
-        if (email.equals("")) {
-        	//doe niets
-        } else {
-        	//check op geldige datum
-            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            sdf.setLenient(false);
-            Date gebdat;
-            try {
-                gebdat = sdf.parse(geboortedatum);
-                this.geboortedatum = sdf.format(gebdat);
-            }
-            catch(ParseException | NullPointerException e) {
-                this.geboortedatum = "1900-01-01";
-            }
-            this.roepnaam = roepnaam.trim();
-            this.tussenvoegsels = tussenvoegsels.trim();
-            this.achternaam = achternaam.trim();
-            this.email = email.trim();
-            
-          //maak automatisch spelerscode aan
-            this.spelerscode = this.geboortedatum + email.trim();
-            this.adres = adres.trim();
-            this.postcode = postcode.trim();
-            this.woonplaats = woonplaats.trim();
-            this.telefoon = telefoon.trim();
-            this.geslacht = geslacht.trim();
-            this.blobKey = null;
+        
+    	//check op geldige datum
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setLenient(false);
+        Date gebdat;
+        try {
+            gebdat = sdf.parse(geboortedatum);
+            this.geboortedatum = sdf.format(gebdat);
         }
+        catch(ParseException | NullPointerException e) {
+            this.geboortedatum = sdf.format(new Date());
+        }
+        this.roepnaam = roepnaam.trim();
+        this.tussenvoegsels = tussenvoegsels.trim();
+        this.achternaam = achternaam.trim();
+        this.email = email.trim();
+        
+      //maak automatisch spelerscode aan
+        if(email.equals("")) {
+        	email="onbekend";
+        }
+        this.spelerscode = this.geboortedatum + email.trim();
+        this.adres = adres.trim();
+        this.postcode = postcode.trim();
+        this.woonplaats = woonplaats.trim();
+        this.telefoon = telefoon.trim();
+        this.geslacht = geslacht.trim();
+        this.blobKey = null;
+        
     }
 	
 	public void setIndiener(String user) {

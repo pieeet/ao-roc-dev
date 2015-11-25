@@ -851,7 +851,7 @@ div#portfolios {
 }
 
 div#spel_result {
-	min-height: 500px;
+	min-height: 100px;
 }
 
 div#spel_result img.lucifer {

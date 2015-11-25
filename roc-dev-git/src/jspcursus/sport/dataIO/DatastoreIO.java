@@ -173,7 +173,7 @@ public class DatastoreIO implements DataIOInterface {
 					BlobKey bk = new BlobKey((String) ent.getProperty("blobKeyString"));
 					lid.setBlobkey(bk);
 				}
-			} catch (EntityNotFoundException e) {
+			} catch (EntityNotFoundException | NullPointerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
