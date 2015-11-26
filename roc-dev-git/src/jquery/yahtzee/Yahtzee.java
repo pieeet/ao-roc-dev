@@ -1,6 +1,7 @@
 package jquery.yahtzee;
 
 import java.io.Serializable;
+import org.apache.commons.lang3.StringEscapeUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,6 +36,9 @@ public class Yahtzee implements Serializable {
 	public String getGebruikersnaam() {
 		return gebruikersnaam;
 	}
+	public String getGebruikersnaamEsc() {
+		return StringEscapeUtils.escapeHtml4(gebruikersnaam);
+	}
 
 
 	public void setGebruikersnaam(String gebruikersnaam) {
@@ -44,6 +48,10 @@ public class Yahtzee implements Serializable {
 
 	public int getScore() {
 		return score;
+	}
+	
+	public String getScoreEsc() {
+		return StringEscapeUtils.escapeHtml4("" + score);
 	}
 
 

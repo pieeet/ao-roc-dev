@@ -2,6 +2,7 @@ package jquery;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,29 +26,36 @@ public class JQueryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		io = new DatastoreIO();
+		String scoreLijst = this.maakScoreLijst();
+		req.setAttribute("scorelijst", scoreLijst);
+		RequestDispatcher disp = req.getRequestDispatcher("/AO/clientside/H1/h1_v1.jsp");
+		disp.forward(req, resp);
 		
-		if (req.getParameter("submit_score_button") != null) {
-			String user = req.getParameter("user");
-			int score = Integer.parseInt(req.getParameter("score"));
-			Date date = new Date();
-			Yahtzee yahtzee = new Yahtzee(user, score, date);
-			io.voegScoreToe(yahtzee);
-			PrintWriter out = resp.getWriter();
-			out.print(this.maakScoreLijst());
-		}
-		else {
-			String scoreLijst = this.maakScoreLijst();
-			req.setAttribute("scorelijst", scoreLijst);
-			RequestDispatcher disp = req.getRequestDispatcher("/AO/clientside/H1/h1_v1.jsp");
-			disp.forward(req, resp);
-		}
+			
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(req, resp);
+		io = new DatastoreIO();
+		//score button handler
+		if (req.getParameter("submit_score_button") != null) {
+			String user = req.getUserPrincipal().toString();
+			int endindex = user.indexOf("@roc-dev.com");
+			String username = user.substring(0, endindex);
+			try {
+				int score = Integer.parseInt(req.getParameter("score"));
+				if (score > 0 && score <= 375) {
+					Date date = new Date();
+					Yahtzee yahtzee = new Yahtzee(username, score, date);
+					io.voegScoreToe(yahtzee);
+				}
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			resp.getWriter().print(this.maakScoreLijst());
+		}
 	}
 	
 	private String maakScoreLijst() {
@@ -64,7 +72,7 @@ public class JQueryServlet extends HttpServlet {
 			for (Yahtzee y: scores) {
 				String datum = sdf.format(y.getDatumTijd());
 				html += "<tr><td>" + teller + "</td></td><td>" + 
-						y.getGebruikersnaam() + "</td><td>" + y.getScore() + "</td><td>" + datum + "</td></tr>";
+						y.getGebruikersnaamEsc() + "</td><td>" + y.getScoreEsc() + "</td><td>" + datum + "</td></tr>";
 				teller++;
 			}
 			html += "</table>";
