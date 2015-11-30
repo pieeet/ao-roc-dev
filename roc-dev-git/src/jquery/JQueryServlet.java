@@ -30,9 +30,6 @@ public class JQueryServlet extends HttpServlet {
 		req.setAttribute("scorelijst", scoreLijst);
 		RequestDispatcher disp = req.getRequestDispatcher("/AO/clientside/H1/h1_v1.jsp");
 		disp.forward(req, resp);
-		
-			
-		
 	}
 
 	@Override
