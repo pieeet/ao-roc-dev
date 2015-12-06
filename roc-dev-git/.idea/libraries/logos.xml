@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="logos">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/war/AO/HtmlCss/H4/logos/logos.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

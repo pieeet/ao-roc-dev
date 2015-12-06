@@ -457,15 +457,17 @@ public class TakenlijstDB {
 		verrassingen kunnen leiden. In dat geval is het beter om ALTER TABLE
 		statements te gebruiken om bijvoorbeeld een kolom aan een tabel toe te
 		voegen.</p>
-	<p>De execSQL methode van de SQLiteDatabase klasse kan gebruikt
-		worden om SQL statements zoals CREATE TABLE en DROP TABLE uit te
-		voeren of een aantal voorbeeld rijen in te voegen, maar kan uit
+	<p>
+		De execSQL methode van de SQLiteDatabase klasse kan gebruikt worden om
+		SQL statements zoals CREATE TABLE en DROP TABLE uit te voeren of een
+		aantal voorbeeld rijen in te voegen, maar kan uit
 		veiligheidsoverwegingen beter niet gebruikt worden om invoer van
 		gebruikers in een tabel in te voeren. In dat geval kunnen beter
-		statements gebruikt worden die zogenaamde 
-		<a href="http://www.w3schools.com/sql/sql_injection.asp" target="+blank">SQL 
-		injections</a> verhinderen.
-		Deze zullen we later in dit hoofdstuk tegenkomen.</p>
+		statements gebruikt worden die zogenaamde <a
+			href="http://www.w3schools.com/sql/sql_injection.asp" target="+blank">SQL
+			injections</a> verhinderen. Deze zullen we later in dit hoofdstuk
+		tegenkomen.
+	</p>
 	<h3>Een database connectie openen en sluiten</h3>
 	<p>Om een connectie met de database te openen heb je een instantie
 		van de klasse SQLiteDatabase nodig. Deze instantie komt in twee
@@ -510,7 +512,7 @@ public class TakenlijstDB {
 		methodes nodig die op een object van de klasse kunnen worden
 		aangeroepen. Laten we beginnen met methodes te maken die gegevens uit
 		de database ophalen.</p>
-	<h4>Gegevens uit de database ophalen</h4>
+	<h3>Gegevens uit de database ophalen</h3>
 	<pre class="code">
 	<span class="comment">//haal taken van bepaalde lijst</span>
 	public ArrayList&lt;Taak&gt; getTaken(String lijstNaam) {
@@ -577,6 +579,22 @@ public class TakenlijstDB {
         return lijst;
     }
     
+    <span class="comment">//haal lijst met id</span>
+    public Lijst getLijst(long id) {
+        String where = LIJST_ID + "= ?";
+        String[] whereArgs = { id };
+        openReadableDB();
+        Cursor cursor = db.query(LIJST_TABEL, null,
+                where, whereArgs, null, null, null);
+        Lijst lijst = null;
+        cursor.moveToFirst();
+        lijst = new Lijst(cursor.getInt(LIJST_ID_COL),
+                cursor.getString(LIJST_NAAM_COL));
+        this.closeCursor(cursor);
+        this.closeDB();
+        return lijst;
+    }
+    
     <span class="comment">//hulpmethode</span>
     private Taak getTaakVanCursor(Cursor cursor) {
         if (cursor == null || cursor.getCount() == 0){
@@ -595,6 +613,7 @@ public class TakenlijstDB {
         }
     }
 	</pre>
+	<h3>Meerdere rijen uit een tabel ophalen</h3>
 	<p>
 		De methode getTaken haalt alle taken van een bepaalde lijst op. Als
 		argument wordt de naam van de lijst meegegeven. De methode query van
@@ -615,16 +634,91 @@ public class TakenlijstDB {
 		<li><b>moveToNext()</b>: gaat naar de volgende rij</li>
 		<li><b>close()</b>: sluit de cursor</li>
 	</ul>
+	<h3>Een enkele rij ophalen</h3>
+	<p>De methode getTaak toont hoe je een enkele taak uit een tabel
+		ophaalt, waarbij het id als argument wordt gebruikt. De methode werkt
+		hetzelfde als meerdere rijen ophalen. Allereerst wordt de WHERE
+		voorwaarde gedefinieerd. Ook hier bestaat dit uit &eacute;&eacute;n
+		parameter, in dit geval de ID van de taak. Nadat de argumenten voor de
+		WHERE voorwaarde (in dit geval de id die naar een String wordt
+		geconverteerd) zijn gedefinieerd in de whereArgs array wordt de query
+		methode aangeroepen om een cursor te verkrijgen. De moveToFirst
+		methode zet de cursor op de eerste (in dit geval enige) rij van de
+		resultaten te zetten. Met de hulpmethode getTaakVanCursor om de
+		gegevens van de rij naar een java object (Taak) om te zetten. Tot slot
+		wordt de cursor en de database connectie gesloten.</p>
+	<h3>Data ophalen met een cursor</h3>
+	<p>Met de cursor kan de data uit een rij van een tabel worden
+		opgehaald met de methoden:</p>
+	<ul>
+		<li>getInt(kolomIndex)</li>
+		<li>getDouble(kolomIndex)</li>
+		<li>getString(kolomIndex)</li>
+	</ul>
+	<p>Bovenstaande methoden accepteren alleen het nummer van de kolom,
+		dus niet de kolomnaam.</p>
 
+	<h3>Gegevens in de database toevoegen, wijzigen en verwijderen</h3>
+	<p>Onderstaande code laat zien hoe je een taak toevoegt, wijzigt en
+		verwijdert:</p>
+	<pre class="code">
+    public long voegTaakToe(Taak taak) {
+        ContentValues cv = this.maakContenValues(taak);
+        this.openWritableDB();
+        long rijId = db.insert(TAAK_TABEL, null, cv);
+        this.closeDB();
+        return rijId;
+    }
 
+    public int updateTaak(Taak taak) {
+        ContentValues cv = this.maakContenValues(taak);
+        String where = TAAK_ID + &quot;= ?&quot;;
+        String[] whereArgs = { String.valueOf(taak.getTaakId()) };
+        this.openWritableDB();
+        int rijCount = db.update(TAAK_TABEL, cv, where, whereArgs);
+        Log.d(&quot;takenlijst&quot;, &quot;rijCount = &quot; + rijCount);
+        this.closeDB();
+        return rijCount;
+    }
 
+    private ContentValues maakContenValues(Taak taak) {
+        ContentValues cv = new ContentValues();
+        cv.put(TAAK_LIJST_ID, taak.getLijstId());
+        cv.put(TAAK_NAAM, taak.getNaam());
+        cv.put(TAAK_NOTITIE, taak.getNotitie());
+        cv.put(TAAK_AFGEROND, taak.getDatumMillisVoltooid());
+        cv.put(TAAK_VERBORGEN, taak.getVerborgen());
+        return cv;
+    }
 
-
-
-
-
-
-
+    public int deleteTaak(long id) {
+        String where = TAAK_ID + &quot;= ?&quot;;
+        String[] whereArgs = { String.valueOf(id)};
+        this.openWritableDB();
+        int rijCount = db.delete(TAAK_TABEL, where, whereArgs);
+        this.closeDB();
+        return rijCount;
+    }
+	</pre>
+	<p>
+		Om gegevens aan de database toe te voegen of te wijzigen kun je een
+		object van de klasse <a
+			href="http://developer.android.com/reference/android/content/ContentValues.html"
+			target="_blank">ContentValues</a> gebruiken om de waardes die je naar
+		de database wilt schrijven in op te slaan. Aangezien de id van een
+		taak door de database zelf met het AUTO_INCREMENT attribuut wordt
+		aangemaakt, hoeft dit niet te worden meegegeven.
+	</p>
+	<p>De gebruikte methodes van de SQLiteDatabase klasse:</p>
+	<ul>
+		<li>insert(tabel, kolommen, contentValues)</li>
+		<li>update(tabel, contentValues, where, whereArgs)</li>
+		<li>delete(tabel, where, wherArgs)
+	</ul>
+	<p>De gebruikte methode van de ContentValues klasse:</p>
+	<ul>
+		<li>put(kolomnaam, waarde)</li>
+	</ul>
 </div>
 <%@ include file="/includes/bottom.html"%>
 

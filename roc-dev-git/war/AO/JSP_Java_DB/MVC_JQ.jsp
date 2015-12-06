@@ -27,8 +27,8 @@
 		verschillende lagen in je applicatie.</p>
 		<img src="/AO/JSP_Java_DB/images/mvc.png" alt="mvc patroon">
 		<p>Onderstaande afbeelding toont de structuur van het project uit deel 4 opgezet volgens het 
-		mvc patroon. De broncode van het project kun je 
-		<a href="https://drive.google.com/a/roc-dev.com/folderview?id=0B3XneerL-ZIcVDhJQS0tSXN2NkU&amp;usp=sharing" 
+		mvc patroon. De broncode van het project met zowel een Datastore als een MySQL databaseklasse kun je 
+		<a href="https://github.com/pieeet/sport-cloudsql" 
 		target="_blank">hier</a> vinden.</p>
 		<img src="/AO/JSP_Java_DB/sport_db_project.png" width="250" alt="">
 		<h3>Data laag (package sportIO)</h3>

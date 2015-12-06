@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Voorbeelden">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/war/AO/BlueJ/CDRom/Voorbeelden.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

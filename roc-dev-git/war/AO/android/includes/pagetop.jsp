@@ -112,6 +112,9 @@
 					<li><a href="/AO/android/H5/H5.jsp">Menu&#39;s en instellingen</a></li>
 					<li><a href="/AO/android/H6/H6.jsp">RSS Reader</a></li>
 					<li><a href="/AO/android/H7/H7.jsp">Services en notificaties</a></li>
+					<li><a href="/AO/android/H8/H8.jsp">Broadcasts</a></li>
+					<li><a href="/AO/android/H9/H9.jsp">Takenlijst</a></li>
+					<li><a href="/AO/android/H10/H10.jsp">Tabs en custom adapters</a></li>
 				</ol>
 				
 				
