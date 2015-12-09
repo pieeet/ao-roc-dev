@@ -8,6 +8,7 @@
 
 
 <%
+
 	if (user != null) { 
 if (request.getAttribute("check") == null) {
 	response.sendRedirect("/jsp_deel_3");
@@ -80,8 +81,8 @@ public class Graden {
 	public Graden() {
 		
 	}
-	
-	public int naarCels(String sFahr) throws NumberFormatException {
+	<span class="comment">//Exception opwerpen voor foute invoer</span>
+	public int naarCels(String sFahr) <span class="codeplus">throws NumberFormatException</span> {
 		int fahr = Integer.parseInt(sFahr);
 		uitkomst = Math.round((fahr -32)/1.8f);
 		return uitkomst;
@@ -115,22 +116,27 @@ public class Graden {
 String celsValue = &quot;&quot;;
 String fahrValue = &quot;&quot;;
 String warning = &quot;&quot;;
+<span class="comment">//check of er op knop is geklikt</span>
 if (request.getParameter(&quot;knop&quot;) != null) {
   try {
+    <span class="comment">//er mag maar &eacute;&eacute;n input veld zijn ingevuld</span>
     if (!request.getParameter(&quot;cels&quot;).equals(&quot;&quot;) 
      && !request.getParameter(&quot;fahr&quot;).equals(&quot;&quot;)) {
-       warning = &quot;Voer slechts &amp;#233;&amp;#233;n waarde in!&quot;;
+       warning = &quot;Voer slechts &amp;eacute;&amp;eacute;n waarde in!&quot;;
     }
+    <span class="comment">//gebruiker heeft Celsius ingevoerd</span>
     else if (!request.getParameter(&quot;cels&quot;).equals(&quot;&quot;)) {
       <span class="codeplus">int fahr = g.naarFahr(request.getParameter(&quot;cels&quot;));</span>
       fahrValue += fahr;
     }
+    <span class="comment">//gebruiker heeft Fahrenheit ingevoerd</span>
     else if (!request.getParameter(&quot;fahr&quot;).equals(&quot;&quot;)) {
       <span class="codeplus">int cels = g.naarCels(request.getParameter(&quot;fahr&quot;));</span>
       celsValue += cels;
     }
   }
-  catch(NumberFormatException e) {
+  <span class="comment">//foute of geen invoer werpt Exception op</span>
+  <span class="codeplus">catch(NumberFormatException e</span>) {
     warning = &quot;Voer een geheel getal in&quot;;
   }
 }
