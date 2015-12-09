@@ -52,11 +52,11 @@ if (request.getAttribute("check") == null) {
 		</div>
 
 		<div class="uitwerking" id="uitw14">
-			<p>In NetBeans maak je in je projectstructuur een java klasse.
+			<p>In Eclipse maak je in je projectstructuur een java klasse.
 				Klassen bevinden zich in zogenaamde &quot;packages&quot; in de map
-				&quot;Source Packages&quot;.</p>
-			<img src="/AO/JSP_Java_DB/images/NBklasse.jpg"
-				alt="Java klasse in NetBeans project">
+				&quot;src&quot; (source).</p>
+			<img src="/AO/JSP_Java_DB/images/project.png"
+				alt="Java klasse in Eclipse project">
 			<h3>De java klasse</h3>
 			<p>We maken een java klasse met een constructor en twee methoden
 				om van Celsius naar Fahrenheit en vice versa te rekenen. We geven
