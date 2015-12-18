@@ -71,7 +71,7 @@
             	<ul class="dropdown-menu">
             		 <li><a href="/AO/InlJava/H1/H1.jsp">Inleiding Java</a></li>
             		 <li><a href="/AO/Greenfoot/greenfoot1.jsp">Greenfoot</a></li>
-            		 <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
+            		 <li class="active"><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
             	</ul>
 			</li>
             <li><a href="/AO/HtmlCss/H1/H1.jsp">HTML/CSS</a></li>
