@@ -117,7 +117,7 @@
 				</ul>
 				<h3>Downloads</h3>
 				<ul>
-					<li><a href="/AO/Greenfoot/includes/Spelen_in_Java 1.pdf" target="_blank">instructie (pdf)</a></li>
+					<li><a href="/AO/Greenfoot/includes/Spelen_in_Java.pdf" target="_blank">instructie (pdf)</a></li>
 					<li><a href="/AO/Greenfoot/includes/images.zip">images.zip</a></li>
 					<li><a href="/AO/Greenfoot/includes/sounds.zip">sounds.zip</a></li>
 					<li><a href="/AO/Greenfoot/includes/GarpsGame.jar">GarpsGame.jar</a></li>

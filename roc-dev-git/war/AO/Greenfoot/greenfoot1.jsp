@@ -34,7 +34,7 @@
 			installeren als deze nog niet op je computer staat en door Greenfoot
 			te installeren. Daarna volgt er een eerste kennismaking met Greenfoot
 			en Garp. Zie verder <a
-				href="/AO/Greenfoot/includes/Spelen_in_Java 1.pdf" target="_blank">de
+				href="/AO/Greenfoot/includes/Spelen_in_Java.pdf" target="_blank">de
 				instructie</a>. Heb je afbeeldingen en geluiden nodig, dan vind je die
 			in de web links.
 		</p>
