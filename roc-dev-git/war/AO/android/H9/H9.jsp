@@ -124,8 +124,8 @@ CREATE TABLE Taak (
 	lijst_id INTEGER NOT NULL,
 	taak_naam TEXT NOT NULL,
 	notitie TEXT,
-	date_afgerond TEXT,
-	verborgen TEXT
+	date_afgerond INTEGER,
+	verborgen INTEGER
 )
 </pre>
 	<h4>Tabellen deleten</h4>
@@ -602,11 +602,11 @@ public class TakenlijstDB {
         } else {
             try {
                 Taak taak = new Taak();
-                taak.setTaakId(cursor.getInt(TAAK_ID_COL));
+                taak.setTaakId(<span class="codeplus">cursor.getInt</span>(TAAK_ID_COL));
                 taak.setLijstId(cursor.getInt(TAAK_LIJST_ID_COL));
-                taak.setNaam(cursor.getString(TAAK_NAAM_COL));
+                taak.setNaam(<span class="codeplus">cursor.getString</span>(TAAK_NAAM_COL));
                 taak.setNotitie(cursor.getString(TAAK_NOTITIE_COL));
-                taak.setDatumMillisVoltooid(cursor.getInt(TAAK_AFGEROND_COL));
+                taak.setDatumMillisVoltooid(<span class="codeplus">cursor.getLong</span>(TAAK_AFGEROND_COL));
                 taak.setVerborgen(cursor.getInt(TAAK_VERBORGEN_COL));
                 return taak;
             } catch(Exception e) {return null;}
@@ -663,9 +663,9 @@ public class TakenlijstDB {
 		verwijdert:</p>
 	<pre class="code">
     public long voegTaakToe(Taak taak) {
-        ContentValues cv = this.maakContenValues(taak);
+        <span class="codeplus">ContentValues</span> cv = this.maakContenValues(taak);
         this.openWritableDB();
-        long rijId = db.insert(TAAK_TABEL, null, cv);
+        long rijId = db.<span class="codeplus">insert(TAAK_TABEL, null, cv)</span>;
         this.closeDB();
         return rijId;
     }
@@ -675,13 +675,13 @@ public class TakenlijstDB {
         String where = TAAK_ID + &quot;= ?&quot;;
         String[] whereArgs = { String.valueOf(taak.getTaakId()) };
         this.openWritableDB();
-        int rijCount = db.update(TAAK_TABEL, cv, where, whereArgs);
+        int rijCount = db.<span class="codeplus">update(TAAK_TABEL, cv, where, whereArgs)</span>;
         Log.d(&quot;takenlijst&quot;, &quot;rijCount = &quot; + rijCount);
         this.closeDB();
         return rijCount;
     }
 
-    private ContentValues maakContenValues(Taak taak) {
+    private ContentValues <span class="codeplus">maakContenValues(Taak taak)</span> {
         ContentValues cv = new ContentValues();
         cv.put(TAAK_LIJST_ID, taak.getLijstId());
         cv.put(TAAK_NAAM, taak.getNaam());
@@ -695,7 +695,7 @@ public class TakenlijstDB {
         String where = TAAK_ID + &quot;= ?&quot;;
         String[] whereArgs = { String.valueOf(id)};
         this.openWritableDB();
-        int rijCount = db.delete(TAAK_TABEL, where, whereArgs);
+        int rijCount = db.<span class="codeplus">delete(TAAK_TABEL, where, whereArgs)</span>;
         this.closeDB();
         return rijCount;
     }

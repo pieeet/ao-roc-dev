@@ -61,6 +61,7 @@
             	aria-haspopup="true" aria-expanded="false">Java <span class="caret"></span></a>
             	<ul class="dropdown-menu">
             		 <li><a href="/AO/InlJava/H1/H1.jsp">Inleiding Java</a></li>
+            		 <li><a href="/AO/Greenfoot/greenfoot1.jsp">Greenfoot</a></li>
             		 <li><a href="/AO/BlueJ/BlueJ.jsp">BlueJ</a></li>
             	</ul>
 			</li>

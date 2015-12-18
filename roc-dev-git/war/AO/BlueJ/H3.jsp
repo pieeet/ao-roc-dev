@@ -62,7 +62,7 @@
 						<ul>
 							<li>Datum met 3 attributen van het type int (dag, maand en jaar)</li>
 							<li>Speler met 2 attributen (String naam en Datum geboortedatum)</li>
-							<li>Team met 3 attributen (String naam en twee spelers van het type Leerling)</li>
+							<li>Team met 3 attributen (String naam en twee spelers van het type Speler)</li>
 							<li>Wedstrijd met 4 attributen (Datum wedstrijdDatum, 2 teams en een String uitslag)</li>
 							<li>Een Applet die er ongeveer als volgt uitziet:<br>
 							<img src="images/wedstrijdapplet.png" width=500>
@@ -109,13 +109,33 @@ Speler speler1 = <span class="jsp">new</span> Speler(&quot;Pietje&quot;, <span c
 						<h3>Getters</h3>
 						<p>Een getter is een methode die de waarde van een attribuut teruggeeft bijvoorbeeld:</p>
 <pre class="code">
-public <span class="codeplus">String</span> getNaam() {
-    <span class="codeplus">return naam</span>;
+public class Team {
+    private String naam;
+    private Speler speler1;
+    private Speler speler2;
+   
+    <span class="comment">//constructor</span>
+    public Team(String naam, Speler speler1, Speler speler2) {
+        this.naam = naam;
+        this.speler1 = speler1;
+        this.speler2 = speler2;
+    }
+    
+    <span class="comment">/****** Getters ******/</span>
+    
+    public <span class="codeplus">String getNaam()</span> {
+        <span class="codeplus">return naam</span>;
+    }
+    
+    public <span class="codeplus">Speler</span> getSpeler1() {
+        <span class="codeplus">return speler1</span>;
+    }
+    
+    public <span class="codeplus">Speler</span> getSpeler2() {
+        <span class="codeplus">return speler2</span>;
+    }
 }
 
-public <span class="codeplus">Speler</span> getSpeler1() {
-    <span class="codeplus">return speler1</span>;
-}
 </pre>							
 						<p>Een getter heeft altijd een <em>terugkeerwaarde</em>. De terugkeerwaarde 
 						(in bovenstaande code gemarkeerd) kan van een primitief type zijn 
@@ -144,7 +164,7 @@ public <span class="codeplus">void setUitslag(String uitslag)</span> {
 team1 = new Team(&quot;4A&quot;, new Speler(&quot;Jantje&quot;, new Datum(20, 1, 1987)), 
         new Speler(&quot;Pietje&quot;, new Datum(15,1, 1988)));
 team2 = new Team(&quot;4B&quot;, new Speler(&quot;Klaas&quot;, new Datum(3, 10, 1977)), 
-        new Speler(&quot;Melvin&quot;, new Datum(8,11, 19891)));
+        new Speler(&quot;Melvin&quot;, new Datum(8, 11, 1991)));
 wedstrijd = new Wedstrijd(new Datum(20,1,2015), team1, team2);
 wedstrijd.<span class="codeplus">setUitslag(&quot;5-3&quot;)</span>;
 </pre>					
@@ -376,7 +396,7 @@ public class Overzicht extends Applet {
 		team1 = new Team(&quot;4A&quot;, new Speler(&quot;Jantje&quot;, new Datum(20, 1, 1987)), 
 				new Speler(&quot;Pietje&quot;, new Datum(15,1, 1988)));
 		team2 = new Team(&quot;4B&quot;, new Speler(&quot;Klaas&quot;, new Datum(3, 10, 1977)), 
-				new Speler(&quot;Melvin&quot;, new Datum(8,11, 19891)));
+				new Speler(&quot;Melvin&quot;, new Datum(8,11, 1991)));
 		wedstrijd = new Wedstrijd(new Datum(20,1,2015), team1, team2);
 		wedstrijd.setUitslag(&quot;5-3&quot;);
 	}
