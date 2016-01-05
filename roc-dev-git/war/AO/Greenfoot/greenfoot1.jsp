@@ -47,9 +47,10 @@
 			van de dief Gnomus kennen. Hoe komt het toch dat hij vanzelf beweegt
 			en een eigen leven leidt?</p>
 		<div class="embed-responsive embed-responsive-16by9">
-			<iframe width="560" height="315"
-				src="https://www.youtube.com/embed/SkOilgTC-AA" frameborder="0"
-				allowfullscreen></iframe>
+			
+				<iframe width="560" height="315" 
+				src="https://www.youtube.com/embed/ng2rGEFrT_E" 
+				frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
 	<div class="opdrachten">
