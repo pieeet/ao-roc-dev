@@ -26,7 +26,12 @@ public class Toetsen {
 			"Schrijf een project in Bluej, waarin de programma&#39;s van een aantal televisiezenders wordt "
 			+ "bijgehouden. Zowel de datum als het tijdstip waarop de programma&#39;s worden bijgehouden. "
 			+ "De manager van de televisiezenders wil graag weten hoelang een televisieprogramma duurt en "
-			+ "hij wil weten hoelang er op een bepaalde dag uitgezonden wordt per zender." 
+			+ "hij wil weten hoelang er op een bepaalde dag uitgezonden wordt per zender.", 
+			
+			"Schrijf een project in BlueJ waarin de gegevens van medewerkers van een bedrijf bijgehouden "
+			+ "worden. Er wordt ook bijgehouden op welke afdeling of afdelingen de medewerkers werkzaam zijn. "
+			+ "Ook hun salaris wordt bijgehouden en het moet mogelijk zijn per afdeling het totaalsalaris "
+			+ "te berekenen."
 
 	};
 	
