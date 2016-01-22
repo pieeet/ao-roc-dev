@@ -772,7 +772,7 @@ public class AutoLijst {
 					functionaliteit toegevoegd zodat de eigenaar van de website zijn
 					voorraad op gemakkelijke wijze kan beheren.</li>
 				<li>De auto-divs worden met <a
-					href="http://api.jquery.com/jquery.ajax/">JQuery / AJAX</a>
+					href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp" target="_blank">JQuery / AJAX</a>
 					ververst zonder dat de pagina hoeft te worden herladen
 				</li>
 
