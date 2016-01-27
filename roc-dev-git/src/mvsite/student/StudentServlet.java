@@ -25,7 +25,7 @@ public class StudentServlet extends HttpServlet {
 		
 		//nieuwe portfolio toevoegen
 		if (req.getParameter("nieuwe_student_knop") != null)  {
-			String email = req.getParameter("nieuwe_student_email");
+			String email =  req.getUserPrincipal().toString();
 			String voornaam = req.getParameter("nieuwe_student_voornaam");
 			String tussenvoegsels = req.getParameter("nieuwe_student_tussenvoegsels");
 			String achternaam = req.getParameter("nieuwe_student_achternaam");
@@ -39,7 +39,7 @@ public class StudentServlet extends HttpServlet {
 			io.voegStudentToe(student);
 			req.setAttribute("boodschap", boodschap);
 		} else if (req.getParameter("wijzig_url_knop") != null) {
-			String email = req.getParameter("nieuwe_student_email");
+			String email = req.getUserPrincipal().toString();;
 			Student student = null;
 			try {
 				student = io.getStudent(email);

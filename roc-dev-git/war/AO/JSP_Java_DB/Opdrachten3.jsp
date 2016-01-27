@@ -642,40 +642,8 @@ public class AutoLijst {
 
 			</ul>
 		</div>
-		<div id="studenten">
-			<%
-				ArrayList<Student> sLijst = new StudentLijst().getLijst();
-						for (Student st : sLijst) {
-							if (st.getWebpage() == null) {
-			%>
-			<a
-				href="pvb_jaar1_2014/<%=st.getHeleNaam().replace(" ", "")%>/index.jsp"
-				target="_blank">
-				<div class="studentkader">
-					<img src="<%=st.getAvatar()%>">
-					<p class="naamstudent"><%=st.getHeleNaam()%></p>
-				</div>
-			</a>
-
-			<%
-				} else {
-			%>
-
-			<a href="<%=st.getWebpage()%>" target="_blank">
-				<div class="studentkader">
-
-					<img src="<%=st.getAvatar()%>">
-
-					<p class="naamstudent"><%=st.getHeleNaam()%></p>
-				</div>
-			</a>
-
-
-			<%
-				}
-						}
-			%>
-		</div>
+		<h3>Publiceer je portfolio</h3>
+		<p>Je kunt je portfolio <a href="/studenten#portfolio-form">hier</a> publiceren</p>
 	</div>
 </div>
 <%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>

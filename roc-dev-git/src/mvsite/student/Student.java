@@ -1,6 +1,10 @@
 package mvsite.student;
 
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.apache.commons.lang3.StringEscapeUtils;
 
 @SuppressWarnings("serial")
 public class Student implements Serializable {
@@ -90,23 +94,34 @@ public class Student implements Serializable {
 	}
 
 	public String getVoornaam() {
-		return voornaam;
+		return StringEscapeUtils.escapeHtml4(voornaam);
 	}
 
 	public String getTussenvoegsels() {
-		return tussenvoegsels;
+		return StringEscapeUtils.escapeHtml4(tussenvoegsels);
 	}
 
 	public String getAchternaam() {
-		return achternaam;
+		return StringEscapeUtils.escapeHtml4(achternaam);
 	}
 	
 	public String getHeleNaam() {
-		return heleNaam;
+		if (StringEscapeUtils.escapeHtml4(heleNaam).length() > 40) {
+			return "Sufferdje: " + email;
+		} else {
+			return StringEscapeUtils.escapeHtml4(heleNaam);
+		}
+		
 	}
 	
 	public String getWebpage() {
-		return webpage;
+		try {
+			URL url = new URL(webpage);
+			return StringEscapeUtils.escapeHtml4(url.toString());
+		} catch (MalformedURLException e) {
+			return "http://www.biggestloser.com/";
+		}
+		
 	}
 
 	public String[] getAvatars() {
