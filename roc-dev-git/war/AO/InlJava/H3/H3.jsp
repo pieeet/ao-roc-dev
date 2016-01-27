@@ -1,8 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
-
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
       
       <div class="col-md-9">
         <h2>H3 Verschil applicatie en applet</h2>
@@ -17,10 +16,6 @@
 			</ul>
 	          
         </div>
-        
-        
-        
-       
         <div id="artikel">
  	
 			<h4>Theorie</h4>
@@ -37,7 +32,7 @@
 			De verschillen tussen bytecode enerzijds en de verschillende machinetalen anderzijds zijn zo klein, dat een gebruiker daarvan 
 			nauwelijks of niets merkt.</p>
 				
-			<img src="images/java_machinetaal.png" height="405">
+			<img src="/AO/InlJava/H3/images/java_machinetaal.png" height="405">
 			<p>Er is nog een verschil tussen een applet en een applicatie: Een applicatie kan gegevens uit bestanden lezen, 
 			gegevens naar bestanden schrijven en bestanden maken of verwijderen. Uit veiligheidsoverwegingen kan een applet dat niet. 
 			Een applet draait op de client en dus op zeer veel verschillende computers en zou veel schade kunnen aanrichten, 
@@ -45,5 +40,5 @@
 	
 		</div>
 </div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

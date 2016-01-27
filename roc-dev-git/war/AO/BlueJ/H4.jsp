@@ -1,8 +1,7 @@
-<%@ include file="/AO/BlueJ/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
 
-
-<%	if (user != null) { %>
-
+	<%@ include file="/AO/BlueJ/includes/zijmenu.jsp"%>
       
       <div class="col-md-9">
 	        <h2>Objecten met objecten</h2>
@@ -42,6 +41,4 @@ Speler speler1 = new Speler(arg0, arg1, arg2)
 					
 					
 	</div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+	<%@ include file="/AO/BlueJ/includes/bottom.html"%>

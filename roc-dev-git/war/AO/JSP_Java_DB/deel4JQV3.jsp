@@ -1,4 +1,4 @@
-<%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp"%>
+
 
 <!-- JQuery stylesheets voor sport app -->
 <link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.css" type="text/css"
@@ -20,14 +20,18 @@
 <%@ page import="com.google.appengine.api.blobstore.BlobstoreService"%>
 
 
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
 <%
 	if (user != null) {
 		pageContext.setAttribute("user", user);
 
 		if (request.getAttribute("via_servlet") == null) {
-			response.sendRedirect("/sport");
+			response.sendRedirect("AO/jsp//sport");
 		}
+	}
 %>
 <input type="hidden" id="email_gebruiker" value="<%=user.getEmail()%>">
 <div class="col-md-9">
@@ -732,13 +736,10 @@ public ArrayList&lt;Lid&gt; getLedenLijst() {
 			properties zoals naam, geboortedatum etc.</p>
 	</div>
 </div>
-<%@ include file="/includes/bottom.html"%>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
 
 <!-- JQuery UI JavaScript voor sportapp -->
 <script src="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.js"></script>
 
 <!-- JQuery voor sportapp UNDER CONSTRUCTION -->
 <script src="/AO/JSP_Java_DB/includes/sportapp.js"></script>
-<%
-	}
-%>

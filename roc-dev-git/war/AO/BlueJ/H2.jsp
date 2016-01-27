@@ -1,7 +1,7 @@
-<%@ include file="/AO/BlueJ/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/BlueJ/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -35,6 +35,4 @@
 			<img class="imgfullwidth" src="/AO/BlueJ/images/tekendorp.jpg" alt="resultaat dorp">
 					
 	</div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/BlueJ/includes/bottom.html" %>

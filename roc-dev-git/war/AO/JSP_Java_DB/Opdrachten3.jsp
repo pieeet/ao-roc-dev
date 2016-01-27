@@ -1,4 +1,4 @@
-<%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp"%>
+
 <%@ page import="jspcursus.Graden"%>
 <%@ page import="jspcursus.autoshop.Auto"%>
 <%@ page import="jspcursus.autoshop.AutoLijst"%>
@@ -6,10 +6,13 @@
 <%@ page import="mvsite.student.*"%>
 <%@ page import="java.util.ArrayList"%>
 
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
 <%
 
-	if (user != null) { 
+	
 if (request.getAttribute("check") == null) {
 	response.sendRedirect("/jsp_deel_3");
 } else {
@@ -28,15 +31,7 @@ if (request.getAttribute("check") == null) {
 			<li>hoe je java klassen in je web app kunt maken en gebruiken</span></li>
 
 		</ul>
-
-
-
 	</div>
-
-
-
-
-
 	<!-- inhoud -->
 	<div class="opdrachten" id="opg14">
 		<h2>Opdracht 14</h2>
@@ -179,122 +174,7 @@ if (request.getParameter(&quot;knop&quot;) != null) {
 			maar maak nu gebruik van een klasse die de berekeningen uitvoert in
 			plaats van dat de berekeningen in JSP worden uitgevoerd. Maak naast
 			JSP gebruik van HTML en CSS bij het uitvoeren van deze opdracht.</p>
-		<script src="/AO/JSP_Java_DB/includes/jquery-1.11.2.js"></script>
-		<script>
-			$(document)
-					.ready(
-							function() {
-								$(document)
-										.on(
-												'click',
-												'#reken_functie_plus',
-												function() {
-													var functie = $(
-															"#reken_functie_plus")
-															.val();
-													var arg1 = $("#arg1").val();
-													var arg2 = $("#arg2").val();
-
-													$
-															.get(
-																	"/rekenmachine?arg1="
-																			+ arg1
-																			+ "&arg2="
-																			+ arg2
-																			+ "&functie="
-																			+ functie,
-																	function(
-																			responseText) {
-																		$(
-																				"#inhoud_rekenmachine")
-																				.html(
-																						responseText);
-																	});
-												});
-								$(document)
-										.on(
-												'click',
-												'#reken_functie_min',
-												function() {
-													var functie = $(
-															"#reken_functie_min")
-															.val();
-													var arg1 = $("#arg1").val();
-													var arg2 = $("#arg2").val();
-
-													$
-															.get(
-																	"/rekenmachine?arg1="
-																			+ arg1
-																			+ "&arg2="
-																			+ arg2
-																			+ "&functie="
-																			+ functie,
-																	function(
-																			responseText) {
-																		$(
-																				"#inhoud_rekenmachine")
-																				.html(
-																						responseText);
-																	});
-												});
-								$(document)
-										.on(
-												'click',
-												'#reken_functie_maal',
-												function() {
-													var functie = $(
-															"#reken_functie_maal")
-															.val();
-													var arg1 = $("#arg1").val();
-													var arg2 = $("#arg2").val();
-
-													$
-															.get(
-																	"/rekenmachine?arg1="
-																			+ arg1
-																			+ "&arg2="
-																			+ arg2
-																			+ "&functie="
-																			+ functie,
-																	function(
-																			responseText) {
-																		$(
-																				"#inhoud_rekenmachine")
-																				.html(
-																						responseText);
-																	});
-												});
-								$(document)
-										.on(
-												'click',
-												'#reken_functie_delen',
-												function() {
-													var functie = $(
-															"#reken_functie_delen")
-															.val();
-													var arg1 = $("#arg1").val();
-													var arg2 = $("#arg2").val();
-
-													$
-															.get(
-																	"/rekenmachine?arg1="
-																			+ arg1
-																			+ "&arg2="
-																			+ arg2
-																			+ "&functie="
-																			+ functie,
-																	function(
-																			responseText) {
-																		$(
-																				"#inhoud_rekenmachine")
-																				.html(
-																						responseText);
-																	});
-												});
-
-							});
-		</script>
+		
 
 		<div id="inhoud_rekenmachine">
 			<div id="rekenmachine">
@@ -494,25 +374,7 @@ if (request.getParameter(&quot;functie&quot;) != null) {
 
 	</div>
 
-	<script>
-		$(document).ready(
-				function() {
-
-					$("#knop_merk_prijs").click(
-							function() {
-								var merk = $("#merk").val();
-								var minprijs = $("#minprijs").val();
-								var maxprijs = $("#maxprijs").val();
-								$.get("/autoshop?merk=" + merk + "&minprijs="
-										+ minprijs + "&maxprijs=" + maxprijs,
-										function(responseText) {
-											$("#autoselectie").html(
-													responseText);
-										});
-							});
-
-				});
-	</script>
+	
 
 	<%
 		AutoLijst al = new AutoLijst();
@@ -733,6 +595,8 @@ public class AutoLijst {
 			<img class="ninja_img_uitleg" alt="blackbelt"
 				src="/images/black_belt.png">
 			<ul>
+				<li>de pagina is ingebed in je online portfolio. Je hebt 
+				een eigen(zinnige) stijl gemaakt</li>
 				<li>de HTML van het selectieveld &quot;Merk&quot; wordt
 					automatisch gevuld met unieke merken. Default is &quot;alle
 					merken&quot;</li>
@@ -813,13 +677,73 @@ public class AutoLijst {
 			%>
 		</div>
 	</div>
-
-
-
 </div>
-<%@ include file="/includes/bottom.html"%>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+<script>
+$(document).ready (function () {
+	
+	
+	/***********  Rekenmachine  **********/
+	
+	$(document).on('click','#reken_functie_plus', function() {
+		var functie = $("#reken_functie_plus").val();
+		var arg1 = $("#arg1").val();
+		var arg2 = $("#arg2").val();
+		$.get("/rekenmachine?arg1="+ arg1
+				+ "&arg2="
+				+ arg2+ "&functie="+ functie, function(responseText) {
+					$("#inhoud_rekenmachine").html(responseText);
+		});
+	});
+	$(document).on('click', '#reken_functie_min', function() {
+		var functie = $("#reken_functie_min").val();
+		var arg1 = $("#arg1").val();
+		var arg2 = $("#arg2").val();
 
+		$.get("/rekenmachine?arg1="+ arg1
+				+ "&arg2=" + arg2
+				+ "&functie=" + functie,function(responseText) {
+			$("#inhoud_rekenmachine").html(responseText);
+		});
+	});
+	$(document).on('click', '#reken_functie_maal',function() {
+		var functie = $("#reken_functie_maal").val();
+		var arg1 = $("#arg1").val();
+		var arg2 = $("#arg2").val();
+		$.get("/rekenmachine?arg1=" + arg1
+				+ "&arg2="+ arg2
+				+ "&functie="+ functie, function(responseText) {
+			$("#inhoud_rekenmachine").html(responseText);
+		});
+	});
+	$(document).on('click','#reken_functie_delen',function() {
+		var functie = $("#reken_functie_delen").val();
+		var arg1 = $("#arg1").val();
+		var arg2 = $("#arg2").val();
+		$.get("/rekenmachine?arg1=" + arg1
+				+ "&arg2="+ arg2
+				+ "&functie="+ functie,function(responseText) {
+			$("#inhoud_rekenmachine").html(responseText);
+		});
+	});
+	
+	
+	/***********  Auto shop  **********/
+	
+	$("#knop_merk_prijs").click(function() {
+		var merk = $("#merk").val();
+		var minprijs = $("#minprijs").val();
+		var maxprijs = $("#maxprijs").val();
+		$.get("/autoshop?merk=" + merk + "&minprijs="
+				+ minprijs + "&maxprijs=" + maxprijs,
+				function(responseText) {
+					$("#autoselectie").html(
+							responseText);
+		});
+	});
+});
+</script>
 <%
 	}
-	}
+	
 %>

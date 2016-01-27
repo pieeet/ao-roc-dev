@@ -1,9 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp"%>
-
-
-<%
-	if (user != null) {
-%>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 
 <div class="col-md-9">
@@ -26,15 +23,15 @@
 		met voor optionele notities.</p>
 	<div class="img_met_bijschrift">
 		<p>De Takenlijst Activity</p>
-		<img src="takenlijst_1.png">
+		<img src="/AO/android/H9/takenlijst_1.png">
 	</div>
 	<div class="img_met_bijschrift">
 		<p>Voeg toe / wijzig taak</p>
-		<img src="takenlijst_2.png">
+		<img src="/AO/android/H9/takenlijst_2.png">
 	</div>
 	<div class="img_met_bijschrift">
 		<p>Tab layout</p>
-		<img src="takenlijst_3.png">
+		<img src="/AO/android/H9/takenlijst_3.png">
 	</div>
 	<p>De takenlijst werkt met twee verschillende lijsten: persoonlijk
 		en zakelijk. De gebruiker kan op een tab klikken of &quot;swipen&quot;
@@ -95,7 +92,7 @@
 	<h3>Opzetten van de takenlijst database</h3>
 	<p>Onderstaande tekening toont een diagram voor de takenlijst
 		database.</p>
-	<img src="erd.png">
+	<img src="/AO/android/H9/erd.png">
 	<p>We kunnen volstaan met twee tabellen: de lijst tabel en de taak
 		tabel. De tabellen zijn aan elkaar gerelateerd met een
 		&eacute;&eacute;n op meer relatie. Een lijst kan meerdere taken
@@ -720,8 +717,4 @@ public class TakenlijstDB {
 		<li>put(kolomnaam, waarde)</li>
 	</ul>
 </div>
-<%@ include file="/includes/bottom.html"%>
-
-<%
-	}
-%>
+<%@ include file="/AO/android/includes/bottom.html"%>

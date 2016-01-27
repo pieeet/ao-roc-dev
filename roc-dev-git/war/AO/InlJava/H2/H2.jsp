@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -33,7 +33,7 @@
 					<p>In dit hoofdstuk leer je werken met een Java <a href="http://nl.wikipedia.org/wiki/Java-applet" target="blank">"Applet"</a>. 
 					De meeste code editors hebben een zogenaamde Applet Viewer waarmee een venster wordt geopend. Dit maakt ze zeer geschikt om 
 					de eerste Java beginselen mee te leren. Verder worden ze niet veel meer gebruikt.</p>
-					<img src="images/ScreenShot_2_003.jpg" alt="screenshot Applet" width="600">
+					<img src="/AO/InlJava/H2/images/ScreenShot_2_003.jpg" alt="screenshot Applet" width="600">
        				<p>Maak de volgende klasse in je code editor en voer het programma uit.</p>
 						
 <pre class="code">
@@ -122,7 +122,7 @@ public class Show extends Applet {
 		&eacute;&eacute;n of meerdere tekens. Achter de string staan twee getallen. Dat zijn de co&ouml;rdinaten, waarmee de plaats bepaald wordt 
 		waar de string in de applet op het scherm komt. De co&ouml;rdinaten zorgen ervoor dat de linkeronderhoek van het eerste teken van de string op positie 
 		50 vanaf de linkerkant en op positie 60 vanaf boven geplaatst wordt. De x-co&ouml;rdinaat begint links met 0 en de y-co&ouml;rdinaat begint boven met 0.<br>
-		<img src="images/schermcoordinaten.png" height="500"></p>
+		<img src="/AO/InlJava/H2/images/schermcoordinaten.png" height="500"></p>
 		<p>De co&ouml;rdinaten zorgen ervoor dat de linkeronderhoek van het eerste teken van de string op positie 50 vanaf de linkerkant en op positie 
 		60 vanaf boven geplaatst wordt. De x-co&ouml;rdinaat begint links met 0 en de y-co&ouml;rdinaat begint boven met 0.</p>
 		
@@ -176,6 +176,6 @@ public class Show extends Applet {
 					je roepnaam wordt in blauw en je achternaam in rood afgedrukt op het scherm.</p>
 				</div>
 			</div>
-<%@ include file="/includes/bottom.html" %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
 
-<% } %>
+

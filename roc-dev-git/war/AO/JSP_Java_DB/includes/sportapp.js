@@ -129,7 +129,7 @@ $(document).ready(function() {
     	$("#sport_tab-2_content").fadeOut(fadeOutTime, function () {
     		$("#sport_tab-2_content").html(loadingSpinner);
     		$("#sport_tab-2_content").fadeIn(spinner, function () {
-    			$.get("/sport?nieuwteamform=x"
+    			$.get("/AO/jsp/sport?nieuwteamform=x"
   		        		+ "&teamcode=" + teamcode
   		        		+ "&teamomschrijving=" + teamomschrijving, function(responseText) { 
     				$("#sport_tab-2_content").fadeOut(spinner, function () {
@@ -237,7 +237,7 @@ $(document).ready(function() {
         $("#sport_tab-2_content").fadeOut(fadeOutTime, function () {
     		$("#sport_tab-2_content").html(loadingSpinner);
     		$("#sport_tab-2_content").fadeIn(spinner, function () {
-    			$.get("/sport?wijzigteam=x"
+    			$.get("/AO/jsp/sport?wijzigteam=x"
     	        		+ "&teamcode=" + teamcode
     	        		+ "&teamomschrijving=" + teamomschrijving, function(responseText) {  
     				$("#sport_tab-2_content").fadeOut(spinner, function () {
@@ -258,7 +258,7 @@ $(document).ready(function() {
         	$("#sport_tab-1_content").fadeOut(fadeOutTime, function () {
         		$("#sport_tab-1_content").html(loadingSpinner);
         		$("#sport_tab-1_content").fadeIn(spinner, function () {
-        			$.get("/sport?verwijderlid=x"
+        			$.get("/AO/jsp/sport?verwijderlid=x"
     	            		+ "&spelerscode=" + spelerscode, function(responseText) {  
         				$("#sport_tab-1_content").fadeOut(spinner, function () {
         					$("#sport_tab-1_content").html(responseText).fadeIn(fadeInTime);
@@ -281,7 +281,7 @@ $(document).ready(function() {
     		$("#sport_tab-2_content").fadeOut(fadeOutTime, function () {
         		$("#sport_tab-2_content").html(loadingSpinner);
         		$("#sport_tab-2_content").fadeIn(spinner, function () {
-        			$.get("/sport?verwijderteam=x"
+        			$.get("/AO/jsp//sport?verwijderteam=x"
     	            		+ "&teamcode=" + teamcode, function(responseText) { 
         				$("#sport_tab-2_content").fadeOut(spinner, function () {
         					$("#sport_tab-2_content").html(responseText).fadeIn(fadeInTime);
@@ -298,7 +298,7 @@ $(document).ready(function() {
     
 	//inladen gegevens tab 2 leden
 	$(document).on('click', '#ui-id-2', function() {
-		$.get("sporthtml?leden_overzicht=x", function(responseText) { 
+		$.get("/sporthtml?leden_overzicht=x", function(responseText) { 
 			//$("#sport_tab-1_content").fadeOut(spinner);
 			$("#sport_tab-1_content").html(responseText).hide().fadeIn(fadeInTime); 
 	    });
@@ -308,7 +308,7 @@ $(document).ready(function() {
 
      //inladen gegevens tab 3 teams
     $(document).on('click', '#ui-id-3', function() {
-        $.get("sporthtml?teams_overzicht=x", function(responseText) { 
+        $.get("/sporthtml?teams_overzicht=x", function(responseText) { 
             $("#sport_tab-2_content").html(responseText).hide().fadeIn(fadeInTime); 
         });
     });
@@ -316,7 +316,7 @@ $(document).ready(function() {
     $(document).on('click', '#voeg_teamspeler_toe', function() {
         var spelerscode = $('#select_teamspeler').val();
         var teamcode = $(this).data('teamcode');
-        $.get("sport?voegteamspelertoe=x&spelerscode=" + spelerscode + "&teamcode=" + teamcode, function(responseText) { 
+        $.get("/AO/jsp/sport?voegteamspelertoe=x&spelerscode=" + spelerscode + "&teamcode=" + teamcode, function(responseText) { 
             $("#sport_tab-2_content").html(responseText); 
         });
     });
@@ -324,7 +324,7 @@ $(document).ready(function() {
     $(document).on('click', '.verwijder_teamspeler', function() {
         var spelerscode = $(this).data('spelerscode');
         var teamcode = $(this).data('teamcode');
-        $.get("/sport?verwijderteamspeler=x&spelerscode=" + spelerscode + 
+        $.get("/AO/jsp/sport?verwijderteamspeler=x&spelerscode=" + spelerscode + 
         		"&teamcode=" + teamcode, function(responseText) { 
             $("#sport_tab-2_content").html(responseText); 
         });

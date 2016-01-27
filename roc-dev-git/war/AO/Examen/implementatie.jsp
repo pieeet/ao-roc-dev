@@ -1,9 +1,6 @@
-<%@ include file="includes/pagetop.jsp" %>
-
-
-
-<%	if (user != null) { %>
-
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/Examen/includes/zijmenu.jsp"%>
 
 
       <!-- inhoud -->
@@ -395,6 +392,5 @@
         </div>
 
 	<!-- 3 afsluitdivs uit include file -->
-<%@ include file="/includes/bottom.html" %>
-</body>	
-<% } %>
+<%@ include file="/AO/Examen/includes/bottom.html" %>
+

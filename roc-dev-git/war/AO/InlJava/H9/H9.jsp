@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -23,11 +23,11 @@
         
         
 					<h4>Theorie</h4>
-					<img src="matrix_2.gif">
+					<img src="/AO/InlJava/H9/images/matrix_2.gif">
         
        
        <p>Hoe vindt de communicatie plaats tussen besturingssysteem (OS) en de applet uit <a href="/AO/InlJava/H8/H8.jsp#voorbeeld8_7">voorbeeld 8.7</a>?</p>
-					<img src="appletOs_v2.png" width=750>
+					<img src="/AO/InlJava/H9/images/appletOs_v2.png" width=750>
 					<p>Als het programma start, wordt allereerst init() aangeroepen. Daarin kunnen bijvoorbeeld de venstereigenschappen staan van het 
 					hoofdvenster zoals de achtergrondkleur. Verder wordt aan Windows doorgegeven welke <dfn>&quot;kindvensters&quot;</dfn> er getekend moeten worden, 
 					bijvoorbeeld de knoppen en tekstvakken met labels. Als de vensters door Windows getekend zijn kan de inhoud door het programma 
@@ -38,5 +38,4 @@
 					vensters kan worden weergegeven. Tot slot wordt er gewacht op de volgende gebeurtenis.</p>
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>

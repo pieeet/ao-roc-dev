@@ -1,9 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp"%>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%
-	if (user != null) {
-%>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
 
 <div class="col-md-9">
@@ -24,7 +22,7 @@
 
 
 	<h4>Praktijk</h4>
-	<img src="multimedia.png">
+	<img src="/AO/InlJava/H14/images/multimedia.png">
 
 	<h3>Willekeurige getallen</h3>
 	<p>Met de random-functie kunnen we willekeurige getallen genereren,
@@ -226,7 +224,7 @@ public class LoadAndPlay extends Applet {
 			kaart kan maar &eacute;&eacute;n keer gedeeld worden. Laat na het
 			delen het resultaat in het venster van de applet zien. Als de kaarten
 			verdeeld zijn, laat de computer dat door een geluid blijken.</p>
-		<!-- <p>Probeer het eerst zelf. Kom je er niet uit dan kun je <a href="deelKaarten.jsp">hier</a> hulp 
+		<!-- <p>Probeer het eerst zelf. Kom je er niet uit dan kun je <a href="/AO/inleiding-java/deel-kaarten">hier</a> hulp 
 						bij de uitwerking vinden.</p> -->
 
 
@@ -320,7 +318,5 @@ public class LoadAndPlay extends Applet {
 
 
 </div>
-<%@ include file="/includes/bottom.html"%>
-<%
-	}
-%>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

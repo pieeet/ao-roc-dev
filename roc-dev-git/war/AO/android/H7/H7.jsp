@@ -1,8 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
-
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
       
        <div class="col-md-9">
            <h2>Services en notificaties</h2>
@@ -20,7 +18,7 @@
 			te doen kun je een <em>service</em> gebruiken. Wanneer de taak gereed is kun je een <em>notificatie</em> maken die 
 			de gebruiker een berichtje stuurt. In dit hoofdstuk breiden we de RSS reader uit zodat hij geregeld checkt 
 			of er een nieuwe feed beschikbaar is. Als dat het geval is wordt gebruiker gewaarschuwd met een notificatie.</p>
-			<img src="notificatie.jpg">
+			<img src="/AO/android/H7/notificatie.jpg">
 			
 			<h3>Een Application object maken</h3>
 			<p>Voor je met services en notificaties aan de slag gaat is het goed om te leren hoe je een Application object kunt 
@@ -242,7 +240,7 @@ public class NewsReaderService extends Service {
 </pre>          
           
           <p>Op je (virtual) device kun je zien welke services worden uitgevoerd:</p>
-          <img src="services.jpg">
+          <img src="/AO/android/H7/services.jpg">
           
           <h3>Een notificatie maken</h3>
           <p>We gaan er nu voor zorgen dat de srvice een notificatie maakt wanneer er een nieuwe feed beschikbaar is. 
@@ -621,6 +619,4 @@ public class ItemsActivity extends Activity
           
            
       </div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/android/includes/bottom.html"%>

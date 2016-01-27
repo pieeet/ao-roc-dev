@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -27,7 +27,7 @@
         
 					
 					<h4>Praktijk</h4>
-					<img src="guiComp.png" width="500">
+					<img src="/AO/InlJava/H8/images/guiComp.png" width="500">
 					
 					<h3>Een knop zichtbaar maken</h3>
 				<p>Eerst de code:</p>
@@ -229,7 +229,7 @@ add(tekstvak);
 							</li>
 						</ul>
 						
-						<img src="tekstveld.jpg">
+						<img src="/AO/InlJava/H8/images/tekstveld.jpg">
 						<h3>Een label</h3>
 						<p>Het zou mooier als de tekst &quot;Type iets in het tekstvakje&quot; niet ergens onder maar voor het tekstvak komt te staan. 
 						Dat wordt opgelost met een zogenaamd label. Dit is een tekstvak waarin niets ingetikt kan worden, maar waar het programma 
@@ -257,7 +257,7 @@ public class Tekstvak extends Applet {
 }
 </pre>				
 
-					<img src="labelTekstveld.jpg">
+					<img src="/AO/InlJava/H8/images/labelTekstveld.jpg">
 					<p>In drie stappen is het label gerealiseerd:<br>
 					<ul>
 						<li>Eerst de declaratie<br>
@@ -446,7 +446,7 @@ public class Tekstvak extends Applet {
 					<p>Maak een rekenmachine in een applet. De rekenmachine bestaat uit twee tekstvakken en vier knoppen. De gebruiker tikt in het 
 					eerste tekstvak een getal in en in het tweede en klikt vervolgens op &eacute;&eacute;n van de knoppen om de berekening te laten 
 					uitvoeren. De uitkomst wordt in het eerste tekstvak getoond en het tweede tekstvak wordt leeggemaakt.</p>
-					<img src="rekenmachine.jpg">
+					<img src="/AO/InlJava/H8/images/rekenmachine.jpg">
 					
 					<h2>Uitbreiding staafdiagram</h2>
 					<p>Voeg labels, invoervelden en een knop toe zodat de gebruiker de waardes van het 
@@ -459,5 +459,4 @@ public class Tekstvak extends Applet {
 				</div>
 			</div>
 
-<%@ include file="/includes/bottom.html" %>	
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>

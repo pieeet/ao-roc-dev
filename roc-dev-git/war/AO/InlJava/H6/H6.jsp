@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -28,7 +28,7 @@
         <div id="artikel">
      		
 					<h4>Praktijk</h4>
-					<img src="images/10_trans.png" width="500">
+					<img src="/AO/InlJava/H6/images/10_trans.png" width="500">
 					
 					<h3>int en long</h3>			
 					<p>Voor gehele getallen kun je het beste variabelen gebruiken van het type int of long. De keuze tussen de twee typen 
@@ -351,5 +351,4 @@ public class Reken extends Applet {
 				</div>
 
 			</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>

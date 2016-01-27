@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -149,11 +149,11 @@ public void paint(Graphics g) {
 </pre>						
 					<p>We moeten de X-co&ouml;rdinaat weer terug zetten naar zijn oorspronkelijke positie, anders krijgen we het 
 					volgende resultaat:</p>
-					<img src="schaakfout3.jpg">
+					<img src="/AO/InlJava/H11/images/schaakfout3.jpg">
 					<h3>De scope van variabelen</h3>
 					<p>Als  een waarde aan een variabele wordt toegekend, dan wordt die waarde onthouden tot de sluitaccolade 
 					van de <em>body</em> waarbinnen hij is gedeclareerd. Dit kan verwarrend zijn, met name als je gebruik maakt van lussen!</p>
-					<img src="scope.png">
+					<img src="/AO/InlJava/H11/images/scope.png">
 					<h3>Nesten</h3>
 					<p>Bovenstaande code kun je herhalen tot het schaakbord compleet is. Maar het kan uiteraard nog veel korter door ook bij het 
 					maken van de 8 rijen gebruik te maken van een lus. Ga als volgt te werk:
@@ -178,5 +178,5 @@ public void paint(Graphics g) {
         
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

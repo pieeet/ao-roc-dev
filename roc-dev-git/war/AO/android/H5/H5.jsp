@@ -1,7 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
       
       <div class="col-md-9">
@@ -90,7 +89,7 @@ import android.support.v7.app.ActionBarActivity;
 </pre>        	
         	
         	 <p>De twee strings worden - mits er genoeg ruimte op het scherm is (ifRoom) - vertoond als &quot;action-items&quot;</p>
-        	 <img src="menu1.jpg">
+        	 <img src="/AO/android/H5/menu1.jpg">
         </div>
         
         <div class="opdrachten">
@@ -101,7 +100,7 @@ import android.support.v7.app.ActionBarActivity;
         	Ook kun je op het internet 
         	- bijvoorbeeld <a href="https://developer.android.com/design/downloads/index.html" target="_blank">hier</a> - veel pakketten met iconen 
         	voor verschillende resoluties vinden.</p>
-        	<img src="ic_settings_new.png" class="ninja_img_uitleg"><img src="ic_about.png" class="ninja_img_uitleg">
+        	<img src="/AO/android/H5/ic_settings_new.png" class="ninja_img_uitleg"><img src="/AO/android/H5/ic_about.png" class="ninja_img_uitleg">
 			<p>Kopieer de plaatjes in &eacute;&eacute;n van de &quot;drawable&quot; mappen&quot; van je project. Bovenstaande plaatjes 
 			zijn geschikt voor xhdpi. Voor deze oefening hoef je niet verschillende plaatjes voor verschillende resoluties te maken, maar als 
 			een app werkelijk &quot;in produktie&quot; gaat ga je dat natuurlijk wel doen. 
@@ -122,7 +121,7 @@ import android.support.v7.app.ActionBarActivity;
    /&gt;
 </pre>			
 			<p>In plaats van de strings worden nu automatisch de iconen in je action bar weergegeven.</p>
-			<img src="menu2.jpg">
+			<img src="/AO/android/H5/menu2.jpg">
 			
 			<p>Items die weinig worden gebruikt kunnen beter worden verborgen in het &quot;options menu&quot;. Ook kun je 
 			aangeven dat een item altijd (always) moet worden getoond.</p>
@@ -141,7 +140,7 @@ import android.support.v7.app.ActionBarActivity;
    /&gt;
 </pre>					
 		
-			<img src="menu3.jpg">
+			<img src="/AO/android/H5/menu3.jpg">
 			<p>In het options menu wordt standaard de titel-string weergegeven en niet het icoon.</p>
 		</div>
 		<h3>Een aantal attributen van een menu-item</h3>
@@ -196,7 +195,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
     		<h2>Opdracht 5.4</h2>
     		<p>Als de gebruiker in het menu op &quot;info&quot; drukt, wordt er een nieuwe Activity van het type &quot;Dialog&quot; gestart 
     		waarin informatie over de app wordt weergegeven.</p>
-    		<img src="info_dialog.jpg">
+    		<img src="/AO/android/H5/info_dialog.jpg">
     		<ol>
     			<li>Kies File, new..., Activity, Blank Activity en noem hem InfoActivity</li>
     			<li>Open de aangemaakte InfoActivity klasse. Omdat het Dialog scherm geen ActionBar heeft kunnen alle 
@@ -302,7 +301,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
     			<li>welk type afronding default moet worden gebruikt</li>
     		</ul>
     		<h4>Voorbeeld uitwerking</h4>
-    		<img src="settings1.jpg"><img src="settings2.jpg">
+    		<img src="/AO/android/H5/settings1.jpg"><img src="/AO/android/H5/settings2.jpg">
     		
     		<ol>
     			<li>Maak in de map res een resource-directory genaamd xml. In deze directory maak je een XML resource file genaamd
@@ -469,7 +468,7 @@ if (afronding == AFROND_GEEN) {
     	<h2>Opdracht 5.7</h2>
     	<p>Maak nog een list-preference waarmee gebruiker de default fooi kan instellen op respectievelijk 10%, 15% of 20%. Maak 
     	vervolgens twee categorie&euml;n: Fooi percentage en Afronden. Zie voorbeeld.</p>
-    	<img src="settings3.jpg">
+    	<img src="/AO/android/H5/settings3.jpg">
     	<ol>
     		<li>Zet volgens onderstaand voorbeeld categorie&euml;n om je preferences:<br>
     		
@@ -503,7 +502,7 @@ if (afronding == AFROND_GEEN) {
     	<p>Het standaard fooi-percentage is alleen relevant als het fooi-percentage niet wordt onthouden. We kunnen er voor zorgen dat 
     	het alleen wordt ingeschakeld als de CheckBox is aangevinkt. Om dit mogelijk te maken moeten we de instellingen enigszins aanpassen.
     	In plaats van bewaren kan gebruiker er nu voor kiezen om het percentage te vergeten. Wel zo logisch.</p>
-    	<img src="settings4.jpg" width=300>
+    	<img src="/AO/android/H5/settings4.jpg" width=300>
     	
     	<div class="opdrachten">
 	    	<h2>Opdracht 5.8</h2>
@@ -531,7 +530,7 @@ if (afronding == AFROND_GEEN) {
     	<h3>Met Java preferences veranderen</h3>
     	<p>Het kan voorkomen dat je een item juist wilt activeren als een checkbox niet aangevinkt is en wilt de-activeren als 
     	het wel is aangevinkt. Hiervoor heb je java nodig die de het standaard gedrag overruled. </p>
-    	<img src="settings5.jpg"><img src="settings6.jpg">
+    	<img src="/AO/android/H5/settings5.jpg"><img src="/AO/android/H5/settings6.jpg">
     	
     	
     	
@@ -594,6 +593,4 @@ public class InstellingenFragment extends PreferenceFragment
     	
   </div>
 </div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/android/includes/bottom.html"%>

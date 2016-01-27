@@ -1,8 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
-
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
       
       <div class="col-md-9">
    		<h2>Bijlage 1 Kleuren</h2>
@@ -76,4 +75,4 @@ g.setBackground( new Color( 255, 0, 0) );
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="/AO/InlJava/includes/inlJava.js" type="text/javascript"></script>	
-<% } %>
+

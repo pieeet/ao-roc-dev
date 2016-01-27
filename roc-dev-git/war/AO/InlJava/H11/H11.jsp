@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -23,7 +23,7 @@
 	          
         </div>
         <h4>Praktijk</h4>
-		<img src="loop.png" width=450>
+		<img src="/AO/InlJava/H11/images/loop.png" width=450>
         
         
        
@@ -277,7 +277,7 @@ for(int x = 10;  x &lt; eind;  x++) {
 					
 					<h2>Opdracht 11.9</h2>
 					<p>Schrijf een applet waarin een schaakbord op het scherm wordt getekend. Een schaakbord heeft 8 bij 8 vakken om en om 
-					wit en zwart. Zie <a href="Schaakbord.jsp" target="_blank">nadere uitleg</a></p>
+					wit en zwart. Zie <a href="/AO/inleiding-java/schaakbord" target="_blank">nadere uitleg</a></p>
 					
 					<h2>Praktijkopdracht</h2>
 					<p>Deze praktijkopdracht bevat twee opdrachten die over tafels gaan. Een tafel op het scherm ziet er als volgt uit:<br>
@@ -300,5 +300,5 @@ for(int x = 10;  x &lt; eind;  x++) {
 
 	
     </div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

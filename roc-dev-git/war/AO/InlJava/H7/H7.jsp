@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -27,7 +27,7 @@
      		
 					
 					<h4>Theorie</h4>
-					<img src="os_types.png" width="500">
+					<img src="/AO/InlJava/H7/images/os_types.png" width="500">
 					<p>Windows is een grafische interface: Afbeeldingen of opgemaakte tekst op het scherm tonen of afdrukken met de 
 					printer op papier wordt door Windows afgehandeld. Een programmeur hoeft geen hardware te benaderen om afbeeldingen 
 					af te drukken. Een in Windows geschreven programma kan elke videokaart of printer gebruiken, waarvoor in Windows 
@@ -37,7 +37,7 @@
 					scherm ziet, is een object. Elke knop, radiobutton, invoervak, label en noem alle soorten objecten maar op die op het 
 					scherm kunnen verschijnen, zijn vensters en werken in principe op dezelfde manier, omdat ze afgeleid zijn van het 
 					basisobject venster.</p>
-					<img src="guiKlassen.gif">
+					<img src="/AO/InlJava/H7/images/guiKlassen.gif">
 					<p>Als een gebruiker met de muis op een knop klikt, stuurt Windows een gebeurtenis naar de methode die bij die knop hoort: 
 					In dit geval dat er op de knop is geklikt. Een andere gebeurtenis had dubbelklikken kunnen zijn. Windows houdt intern bij 
 					welke methode bij welk venster hoort. Je kunt ook zeggen: Windows roept de methode aan die bij die knop hoort. Dit wordt in 
@@ -45,7 +45,7 @@
 					De methode staat in het intern geheugen van de computer. Een aantal eigenschappen zijn standaard: Een venster is altijd 
 					rechthoekig en een knop zal zich indrukken zodra een gebruiker erop klikt. Een actief venster zal een titelbalk met blauwe 
 					achtergrond laten zien.</p>
-					<img src="eventHandling.png" width="550">
+					<img src="/AO/InlJava/H7/images/eventHandling.png" width="550">
 					<p>Een programmeur moet twee dingen doen:<br>
 					<ul>
 						<li>hij moet ervoor zorgen dat het venster zichtbaar wordt op het scherm</li>
@@ -92,7 +92,7 @@ public class Show extends Applet {
 					onder &quot;Method Summary&quot; alle methoden van de klasse opgesomd. De methode setSize() staat daar niet tussen. In het onderdeel 
 					&quot;Methods inherited from class java.awt.Component&quot; wordt de methode w&eacute;l genoemd. Aangezien Applet een uitbreiding is van 
 					onder meer <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Component.html" target="_blank">Component</a>, erft zij alle eigenschappen, waaronder methoden.</p>
-					<img src="ScreenShot_2_004.jpg" alt="Java API" width=300>
+					<img src="/AO/InlJava/H7/images/ScreenShot_2_004.jpg" alt="Java API" width=300>
 					<p>Een klasse kan verschillende methoden bevatten met dezelfde naam, maar met verschillende argumenten. De klasse Component heeft nog een 
 					methode setSize die als argument een instantie van het type 
 					<a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Dimension.html" target="_lank">Dimension</a> 
@@ -106,5 +106,5 @@ public class Show extends Applet {
 				</div>
 		
 			</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

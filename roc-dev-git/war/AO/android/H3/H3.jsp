@@ -1,8 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
-
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
       
       <div class="col-md-9">
       <h2>3 Layouts &amp; widgets</h2>
@@ -25,7 +23,7 @@
 	          
         </div>
         
-		<img src="materialDesign.png">
+		<img src="/AO/android/H3/materialDesign.png">
 		<p>Android kent een aantal standaard layouts waarmee wordt bepaald hoe de elementen 
 		ten opzichte van elkaar worden gepositioneerd. </p>
 		
@@ -34,7 +32,7 @@
 					LayoutParams.html" target="_blank">Relative Layout</a> zijn de elementen relatief ten opzichte 
 					van elkaar gepositioneerd. 
 					In deze layout moeten alle elementen een &quot;id&quot; krijgen.</p> 
-					<img src="relative_layout.png">
+					<img src="/AO/android/H3/relative_layout.png">
 					
 					
 					<h3>Linear Layout</h3>
@@ -43,7 +41,7 @@
 					onder elkaar geplaatst. Met de property &quot;weight&quot; kun je de (relatieve) grootte van de elementen 
 					aanpassen (zie illustratie). Met de property &quot;gravity&quot; kun je de ori&euml;ntatie ten opzichte van 
 					het parent-element (top, bottom, center, left, right) bepalen.</p>
-					<img src="linear_layout.png">
+					<img src="/AO/android/H3/linear_layout.png">
 					
 					<h3>Table layout</h3>
 					<P>Om je layout in een grid te zetten kun je een 
@@ -51,7 +49,7 @@
 					</a> gebruiken. Voor iedere rij die je maakt 
 					voeg je een element &lt;TableRow&gt; toe waar je de elementen binnen plaatst. Met &quot;layout_span=&quot;...&quot; 
 					kun je een element over meerdere kolommen laten lopen (zie voorbeeld).</P>
-					<img src="tableLayout.png" alt="tabel layout" >
+					<img src="/AO/android/H3/tableLayout.png" alt="tabel layout" >
 					
 <pre class="code">
 <span class="codeplus">&lt;TableLayout</span> xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -96,7 +94,7 @@
 					<h3>Frame Layout</h3>
 					<p>Met een frame layout kun je meerdere widgets over elkaar heen &quot;stacken&quot;. Je kunt bijvoorbeeld 
 					een TextView bovenop een foto plaatsen.</p>
-					<img src="frameScreen.png" width="350">
+					<img src="/AO/android/H3/frameScreen.png" width="350">
 <pre class="code">
 &lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
     xmlns:tools=&quot;http://schemas.android.com/tools&quot;
@@ -264,7 +262,7 @@ if (optie2RadioButton.isChecked) {
                     <h3 id="spinners">Spinners</h3>
                     <p>Een spinner is een drop-down lijst met opties. Aangezien de meeste code voor een 
                     spinner in java wordt gemaakt is de xml code vrij simpel.</p>
-                    <img src="spinner.png" width="300">
+                    <img src="/AO/android/H3/spinner.png" width="300">
                     
                     <h4>xml layout</h4>
 <pre class="code">
@@ -346,14 +344,14 @@ widgetNaam.<span class="codeplus">setVisibility(View.<b>VISIBLE</b>);</span>
                        om of het fooibedrag of het totaalbedrag af te ronden. Middels een drop down menu kan hij er 
                        voor kiezen om het bedrag te delen tussen 2, 3 of 4 personen. Als het bedrag niet wordt gedeeld, 
                        wordt het gedeelde bedrag niet vertoond.</p>
-                       <img src="opdr3_3_1.png" width="250">
-                       <img src="opdr3_3_2.png" width="250">
+                       <img src="/AO/android/H3/opdr3_3_1.png" width="250">
+                       <img src="/AO/android/H3/opdr3_3_2.png" width="250">
                        
                     </div>
                     
                     <h3>Seek bars</h3>
                     <p>Een seek bar is een slider waarmee je een waarde (int) kunt veranderen.</p>
-                    <img src="seekbar.png" width=300>
+                    <img src="/AO/android/H3/seekbar.png" width=300>
                     
                     <h4>xml code</h4>
                     <p>In je xml code kun je de slider een maximale waarde (standaard 100) en de 
@@ -419,7 +417,7 @@ public void <span class="codeplus">onStopTrackingTouch(SeekBar seekBar)</span> {
                     ScrollView</a> plaatsen. Voor horizontaal scrollen gebruik je <a 
                     href="http://developer.android.com/reference/android/widget/HorizontalScrollView.html" 
                     target="_blank">HorizontalScrollView.</a></p>
-                    <img src="scrollbar.png" width="400">
+                    <img src="/AO/android/H3/scrollbar.png" width="400">
                     
 <pre class="code">
 &lt;ScrollView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -1041,30 +1039,10 @@ public class FooiCalculatorActivity extends Activity
 						</div>
                     
 				</div>
-				
-	
-				
-        
-        
-       
-	        
-					
 					
 		</div>
-	        
-	        
-   
-        
-        
         
         <!-- inhoud -->
         
-		
-				
-		
-
-
 	
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/android/includes/bottom.html"%>

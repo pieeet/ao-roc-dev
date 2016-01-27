@@ -1,5 +1,6 @@
-<%@ include file="includes/pagetop.jsp" %>
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/Examen/includes/zijmenu.jsp"%>
 
       <!-- inhoud -->
 		<div class="col-md-9">
@@ -20,14 +21,14 @@
 		     		opdrachtgever wil. Daarom moet de opdrachtgever het eens zijn met de inhoud van een 
 		     		behoefteanalyse. Het document Behoefteanalyse is tevens het uitgangspunt voor het ontwikkelen 
 		     		van de website. <br>
-		     		<a href="hulpdocs/CaseHotelOlympia.doc.pdf">Voorbeeld behoeftenanalyse</a></p>
+		     		<a href="/AO/Examen/hulpdocs/CaseHotelOlympia.doc.pdf">Voorbeeld behoeftenanalyse</a></p>
 	        	</div>
 	        	<p>Maak een behoefteanalyse. Doe dat in de volgende stappen.</p>
 	        	<ul>
 	        		<li>Maak een afspraak met de opdrachtgever en vermeld daarbij wat het doel van het gesprek is.</li>
 	        		<li>Bekijk websites van de opdrachtgever en branchegenoten.</li>
 	        		<li>Maak een lijst met tien tot vijftien vragen die je in ieder geval wilt stellen. Bij het 
-	        		bedenken van de vragen kun je dit <a href="hulpdocs/vragenlijst.pdf">document (pdf)</a> 
+	        		bedenken van de vragen kun je dit <a href="/AO/Examen/hulpdocs/vragenlijst.pdf">document (pdf)</a> 
 	        		als hulpmiddel gebruiken</li>
 	        		<li>Voer het gesprek met de opdrachtgever.</li>
 	        		<li>Schrijf de behoefteanalyse.</li>
@@ -204,7 +205,7 @@
 	        	<div class="bs-callout bs-callout-warning">
 		     		<p>Aan de hand van de behoefteanalyse maak je nu het functioneel ontwerp. 
 		     		Daarbij houd je je aan de planning in het plan van aanpak.<br>
-		     		<a href="hulpdocs/Functioneelontwerp.pptx.pdf">PowerPoint 
+		     		<a href="/AO/Examen/hulpdocs/Functioneelontwerp.pptx.pdf">PowerPoint 
 		     		presentatie Functioneel Ontwerp</a></p>
 	        	</div>
 	        	<p>Maak het functioneel ontwerp. Doe dat met de volgende stappen.</p>
@@ -264,7 +265,7 @@
 		        		<p>Beschrijf hoe de navigatie plaats vindt. Maak daarbij gebruik van een menu, 
 		        		breadcrumbs, sitemap en een zoekfunctie. Geef een menu schematisch weer en gebruik 
 		        		logische namen die begrijpelijk zijn voor een gebruiker.</p>
-		        		<img src="images/jemeppe_nav.png" width="500">
+		        		<img src="/AO/Examen/images/jemeppe_nav.png" width="500">
 		        	</li>
 		        	<li><h4>Lijst van alle pagina&#39;s</h4>
 		        		<p>Maak vervolgens een lijst van alle pagina&#39;s die op de website komen. Zet 
@@ -288,18 +289,18 @@
 		        		Een vlekkenplan geeft de plaats weer van de verschillende onderdelen van een pagina.</p>
 	
 						<p>Een vlekkenplan kan er als volgt uit zien:</p>
-						<img src="images/jemeppe_vlekkenplan.png" width="500">
+						<img src="/AO/Examen/images/jemeppe_vlekkenplan.png" width="500">
 					</li>
 					<li><h4>Formulierontwerp</h4>
 						<p>Een internetformulier is een pagina waarop een bezoeker gegevens kan invullen. 
 						Veel mensen vinden het moeilijk een formulier in te vullen. Maak het hun dus zo 
 						eenvoudig mogelijk. Een voorbeeld van een formulier vind je hieronder.</p>
-						<img src="images/jemeppe_form.png" width="500">
+						<img src="/AO/Examen/images/jemeppe_form.png" width="500">
 					</li>
 					<li><h4>Grafisch ontwerp</h4>
 						<p>Het grafisch ontwerp van een website is een specialisme op zich. Beschrijf in het grafisch 
 						ontwerp welke voor- en achtergrondkleuren en welke lettertypen worden gebruikt.<br>
-						<a href="hulpdocs/Grafisch_ontwerp.pptx.pdf">Powerpoint 
+						<a href="/AO/Examen/hulpdocs/Grafisch_ontwerp.pptx.pdf">Powerpoint 
 						grafisch ontwerp</a></p>
 					</li>
 	        	</ol>
@@ -310,7 +311,7 @@
 	        	<div class="bs-callout bs-callout-warning">
 		     		<p>Aan de hand van de behoefteanalyse en het functioneel ontwerp kun je nu het technisch 
 		     		ontwerp maken. Je houdt je daarbij aan de planning in het plan van aanpak.<br>
-		     		<a href="hulpdocs/UML_inleiding.pdf">Powerpoint UML en use cases</a></p>
+		     		<a href="/AO/Examen/hulpdocs/UML_inleiding.pdf">Powerpoint UML en use cases</a></p>
 	        	</div>
 	        	
 	        	<p>Maak het technisch ontwerp. Doe dat in de volgende stappen:</p>
@@ -367,7 +368,7 @@
 		        		</ol>
 		        		<p>De operaties worden in het klassendiagram weggelaten. De eigenschappen niet. Zie 
 		        		voorbeeld</p>
-		        		<img src="images/jemeppe_klassendiagram.png" height="500">
+		        		<img src="/AO/Examen/images/jemeppe_klassendiagram.png" height="500">
 	        		</li>
 	        		<li><h4>Normalisatie</h4>
 	        		<p>De normalisatie voldoet aan de volgende eisen:</p>
@@ -483,5 +484,4 @@
 
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/Examen/includes/bottom.html" %>

@@ -1,8 +1,10 @@
-<%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
 
-<c:if test="${not empty user }">
 
 	
 
@@ -368,8 +370,57 @@ public class RekenmachineServlet extends HttpServlet {
     &lt;/table&gt;
 &lt;/form&gt;
 </pre>			
-		<script src="/AO/JSP_Java_DB/includes/jquery-1.11.2.js"></script>
-		<script>
+				
+			<div class="opdrachten" id="kalenderopdracht">
+				<h2>Praktijkopdracht</h2>
+				<p>Een luxe hotel wil een web-app waarmee een 
+				klant per kamer een beschikbaarheidskalender  
+				kan opvragen en - als de kamer beschikbaar is - een reservering maken. Maak bij de uitwerking
+				gebruik van een servlet.</p>
+				<img src="/images/master.png" class="ninja_img_uitleg">
+				
+				
+					<div class="bs-callout bs-callout-info" id="jsp_mvc_kalender_app">
+	
+					<div id="kalender_container">
+						<!-- wordt gevuld met html van KalenderTabelServlet -->
+					</div>
+
+					
+					
+					<h3>Kies een kamer</h3>
+					
+					<div class="formulier">
+						<div class="formulier_regel">
+							<label 
+								class="formulier_label">kamer</label>
+							<select 
+								class="formulier_input" 
+								id="kamer_bij_keuzekamer">
+								<c:forEach items="${kamers}" var="kamernaam">
+								<option  value="${kamernaam}">${kamernaam}</option>
+							</c:forEach>
+							</select>
+						</div>
+						<div class="formulier_regel">
+							<button type="button" 
+								id="kiesKamerKnop" 
+								class="formulier_input">Kies kamer</button>
+						</div>
+							
+						
+					</div>
+
+
+					
+					<!-- ******* EINDE KALENDER DIV******* -->
+				
+				</div>		
+			
+			</div>
+		</div>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+<script>
         $(document).ready(function() {  
  
         	$(document).on('click', '#vorige', function() {
@@ -425,61 +476,7 @@ public class RekenmachineServlet extends HttpServlet {
         });       
             
         </script>
-			
-			
-			
-					
-			<div class="opdrachten" id="kalenderopdracht">
-				<h2>Praktijkopdracht</h2>
-				<p>Een luxe hotel wil een web-app waarmee een 
-				klant per kamer een beschikbaarheidskalender  
-				kan opvragen en - als de kamer beschikbaar is - een reservering maken. Maak bij de uitwerking
-				gebruik van een servlet.</p>
-				<img src="/images/master.png" class="ninja_img_uitleg">
-				
-				
-					<div class="bs-callout bs-callout-info" id="jsp_mvc_kalender_app">
-	
-					<div id="kalender_container">
-						<!-- wordt gevuld met html van KalenderTabelServlet -->
-					</div>
 
-					
-					
-					<h3>Kies een kamer</h3>
-					
-					<div class="formulier">
-						<div class="formulier_regel">
-							<label 
-								class="formulier_label">kamer</label>
-							<select 
-								class="formulier_input" 
-								id="kamer_bij_keuzekamer">
-								<c:forEach items="${kamers}" var="kamernaam">
-								<option  value="${kamernaam}">${kamernaam}</option>
-							</c:forEach>
-							</select>
-						</div>
-						<div class="formulier_regel">
-							<button type="button" 
-								id="kiesKamerKnop" 
-								class="formulier_input">Kies kamer</button>
-						</div>
-							
-						
-					</div>
-
-
-					
-					<!-- ******* EINDE KALENDER DIV******* -->
-				
-				</div>		
-			
-			</div>
-		</div>
-<%@ include file="/includes/bottom.html" %>
-
-</c:if>
 
 
 

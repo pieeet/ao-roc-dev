@@ -1,12 +1,10 @@
-<%@ include file="includes/pagetop.jsp" %>
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/Examen/includes/zijmenu.jsp"%>
 
       <!-- inhoud -->
 		<div class="col-md-9">
-<%
-		
-%>      
+     
       	
   			<h2>Jemeppe</h2>
 	        <!-- oranje border links -->
@@ -29,7 +27,7 @@
 	        </div> -->
 
 			<h2>Introductie</h2>
-			<img src="images/kasteel-almere1.jpg">
+			<img src="/AO/Examen/images/kasteel-almere1.jpg">
 			<p>Een zeer rijke Engelse, mrs Norton, heeft het kasteel Jemeppe gekocht. Het kasteel 
 			heeft een zeer groot aantal kamers. De namen van de kamers zijn afgeleid van boektitels. 
 			Zo is de naam van de kamer aan de westzijde van het kasteel De Avondenkamer genaamd, afgeleid van 
@@ -310,7 +308,7 @@
 			<div class="bijlage">
 				<h3>Bijlage 1</h3>
 				<div class="jemeppe_bijlage">
-					<img id="jemeppe_logo" src="images/jemepe_logo_trans.png">
+					<img id="/AO/Examen/jemeppe_logo" src="images/jemepe_logo_trans.png">
 					<h4>Factuur</h4>
 					<p>Het kasteel Jemeppe<br>
 					Oude Waterlandseweg 10<br>
@@ -349,7 +347,7 @@
 			<div class="bijlage">
 				<h3>Bijlage 2</h3>
 				<div class="jemeppe_bijlage">
-					<img id="jemeppe_logo" src="images/jemepe_logo_trans.png">
+					<img id="/AO/Examen/jemeppe_logo" src="images/jemepe_logo_trans.png">
 					<h4>Overzicht reserveringen</h4>
 					<p>Het kasteel Jemeppe<br>
 					Oude Waterlandseweg 10<br>
@@ -379,5 +377,5 @@
 				</div>
 			</div>
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/Examen/includes/bottom.html" %>
+

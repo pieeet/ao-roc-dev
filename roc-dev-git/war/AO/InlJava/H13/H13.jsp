@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -26,7 +26,7 @@
        
         
 			<h4>Praktijk</h4>
-			<img src="methodes.png" width=400>
+			<img src="/AO/InlJava/H13/images/methodes.png" width=400>
 			<h3>Inleiding</h3>
 			<p>Methodes zijn stukjes programmatuur die een bepaalde functie vervullen. Veel methodes zijn voorgedefinieerd 
 			zoals <b>drawString()</b>. Er kan aan deze methode niets veranderd worden. Alleen met argumenten kan aangegeven worden 
@@ -299,5 +299,5 @@ void tekenDriehoek( Graphics g, int x1, int y1, int x2, int y2, int x3, int y3);
 		</div>
 
 
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

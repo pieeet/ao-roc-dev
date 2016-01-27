@@ -37,12 +37,12 @@ public class EindSpelServlet extends HttpServlet {
 					if (aantalLucifers == 1) {
 						boodschap = "<p>Hmmm... je hebt gewonnen</p>";
 						aantalLucifers = 0;
-						eindeSpelImage = "<img src=\"sad_face.png\" id=\"einde_spel\">";
+						eindeSpelImage = "<img src=\"/AO/InlJava/H14/images/sad_face.png\" id=\"einde_spel\">";
 						this.printHtml(resp);
 					//computer heeft gewonnen	
 					} else if (aantalLucifers <= 0) {
 						boodschap = "<p>Ha!!! Je hebt verloren.</p>";
-						eindeSpelImage = "<img src=\"evil-smiley-face.png\" id=\"einde_spel\">";
+						eindeSpelImage = "<img src=\"/AO/InlJava/H14/images/evil-smiley-face.png\" id=\"einde_spel\">";
 						this.printHtml(resp);
 					// computer	aan zet
 					} else {
@@ -91,9 +91,9 @@ public class EindSpelServlet extends HttpServlet {
 			out.println("<div id=\"inl_java_spel_plaatjes\">");
 			for (int i = 0; i < aantalLucifers; i++) {
 				if (gewonnen) {
-					out.println("<img src=\"surely_winning_40px.png\" class=\"lucifer\">");
+					out.println("<img src=\"/AO/InlJava/H14/images/surely_winning_40px.png\" class=\"lucifer\">");
 				} else {
-					out.println("<img src=\"basic1-119_smiley_neutral-512_40px.png\" class=\"lucifer\">");
+					out.println("<img src=\"/AO/InlJava/H14/images/basic1-119_smiley_neutral-512_40px.png\" class=\"lucifer\">");
 				}
 			}
 			out.println("</div>");

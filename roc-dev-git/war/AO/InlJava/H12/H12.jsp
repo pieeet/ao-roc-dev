@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -30,7 +30,7 @@
        
       
 		<h4>Praktijk</h4>
-		<img src="tabellenTransp.png">
+		<img src="/AO/InlJava/H12/images/tabellenTransp.png">
 		<h3>Inleiding</h3>
 		<p>Een tabel is een rij gelijksoortige gegevens in het intern geheugen van de computer. Een tabel betekent hier iets 
 		geheel anders dan een tabel in een database. Met gelijksoortig wordt bedoeld dat een tabel uit <em>of</em> een aantal objecten 
@@ -124,7 +124,7 @@ public class Tabel extends Applet {
 					<b>kopie = salaris</b></p>
 					<p>Als vervolgens de elementen van kopie op het scherm wordt gezet, dan lijkt het alsof er een kopie van is gemaakt. Dat 
 					is niet waar: Er is een referentie gemaakt.</p>
-					<img src="referentie.png" width=600>
+					<img src="/AO/InlJava/H12/images/referentie.png" width=600>
 					<p>Dit wordt een ondiepe kopie (shallow copy) genoemd. Wijzigingen die op kopie plaatsvinden, worden dus tevens voor salaris 
 					doorgevoerd.</p>
 					<p>Met een for-lus kunnen we een zogenaamde diepe kopie (deep copy) maken:</p>
@@ -135,7 +135,7 @@ for(int teller = 0; teller &lt; salaris.length; teller ++) {
 }
 </pre>					
 					<p>Als we nu een wijziging aanbrengen in de table kopie dan blijft de table salaris ongewijzigd:</p>
-					<img src="kopie.png" width=600>
+					<img src="/AO/InlJava/H12/images/kopie.png" width=600>
 					<p>De volgende programma&#39;s laten dit principe zien:</p>
 <pre class="code">
 <span class="comment">//Voorbeeld 12.2</span>
@@ -348,5 +348,4 @@ public class Stringarrays extends Applet {
 				</div>
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>

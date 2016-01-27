@@ -1,6 +1,6 @@
-<%@ include file="includes/pagetop.jsp" %>
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/Examen/includes/zijmenu.jsp"%>
 
       <!-- inhoud -->
 		<div class="col-md-9">
@@ -17,7 +17,7 @@
 		        <!-- oranje border links -->
 		        <div class="bs-callout bs-callout-warning">
 		     		<p>Van je projectleider heb je het Service Level Agreement 
-		     		(<a href="hulpdocs/ServiceLevelagreement.docx.pdf">zie voorbeeld</a>) gekregen dat afgesloten 
+		     		(<a href="/AO/Examen/hulpdocs/ServiceLevelagreement.docx.pdf">zie voorbeeld</a>) gekregen dat afgesloten 
 		     		is tussen de opdrachtgever en FastDevelopment. Verder heb je het 
 		     		kwaliteitshandboek van je projectleider gekregen. Het is jouw taak om 
 		     		het onderhoud en beheer uit te voeren.</p>
@@ -29,7 +29,7 @@
 					<li>Breid het kwaliteitshandboek uit voor onderhoud en beheer.</li>
 					<li>Als je een onderhoudsticket van je projectleider krijgt, vul je het 
 					kwaliteitshandboek in en voeg je hem toe als bijlage aan het 
-					kwaliteitshandboek. <a href="hulpdocs/TicketOnderhoudenbeheer.docx.pdf">Voorbeeld 
+					kwaliteitshandboek. <a href="/AO/Examen/hulpdocs/TicketOnderhoudenbeheer.docx.pdf">Voorbeeld 
 					onderhoudsticket</a></li>
 					<li>Schrijf een voorstel over mogelijke oplossingen voor het onderhoudsticket. 
 					Overleg met de projectleider over de mogelijke oplossingen voor het 
@@ -215,5 +215,4 @@
 	        	</ul>
 			</div>
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/Examen/includes/bottom.html" %>

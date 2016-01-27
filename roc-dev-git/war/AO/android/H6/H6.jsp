@@ -1,7 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
       
       <div class="col-md-9">
@@ -37,15 +36,15 @@
         standaard browser.</p>
         <div class="img_met_bijschrift">
         	<p>ItemsActivity</p>
-        	<img src="items_activity.jpg">
+        	<img src="/AO/android/H6/items_activity.jpg">
         </div>
         <div class="img_met_bijschrift">
         	<p>ItemActivity</p>
-        	<img src="item_activity.jpg">
+        	<img src="/AO/android/H6/item_activity.jpg">
         </div>
         <div class="img_met_bijschrift">
         	<p>Browser</p>
-        	<img src="artikel.jpg">
+        	<img src="/AO/android/H6/artikel.jpg">
         </div>
         
         
@@ -325,7 +324,7 @@ public class RSSItem {
          events die plaatsvinden als gebruiker iets doet. De user interface hoort altijd te reageren op een handeling. Je wilt dus 
         niet dat de gebruiker moet wachten tot een bepaalde taak is uitgevoerd. Tijdrovende taken zoals het ophalen en verwerken van data horen dus 
         in een aparte thread plaats te vinden.</p>
-        <img src="thread.png">
+        <img src="/AO/android/H6/thread.png">
         
         <h3>Asynchrone taken starten</h3>
         <p>Een asynchrone taak (asynchronous task) is een taak die in een aparte thread op de achtergrond draait. Omdat Android apps 
@@ -348,7 +347,7 @@ public class RSSItem {
         	onPostExecute (Result result)</a>: deze methode doet iets nadat doInBackground() is ge&euml;indigd. De values krijgen hun waarde 
         	met het resultaat van doInBackground()
         </ol>
-        <img src="AsyncTask.png">
+        <img src="/AO/android/H6/AsyncTask.png">
         
         <p>De methoden van AsyncTask kennen drie soorten parameters:</p>
         <ol>
@@ -977,6 +976,4 @@ startActivity(belIntent);
           	<p>Je hebt nu alle componenten om de RSS reader te maken. </p>
           </div>
       </div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/android/includes/bottom.html"%>

@@ -1,5 +1,6 @@
-<%@ include file="includes/pagetop.jsp" %>
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/Examen/includes/zijmenu.jsp"%>
 
       <!-- inhoud -->
 		<div class="col-md-9">
@@ -389,5 +390,4 @@ insert into bestelling(datum, factuurnummer)
 
 		</div>
 
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/Examen/includes/bottom.html" %>

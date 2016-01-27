@@ -1,7 +1,9 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 
-<%	if (user != null) { %>
+
 
       
       <div class="col-md-9">
@@ -26,7 +28,7 @@
        
         <!-- inhoud -->
         
-		<img src="stijl.png">
+		<img src="/AO/android/H4/stijl.png">
 		<p>In het vorige hoofdstuk heb je de properties van de widgets handmatig 
 		ingesteld. Je hebt bijvoorbeeld de textSize property van ieder label en Textview 
 		ingesteld zodat ze allemaal even groot zijn. In dit hoofdstuk gaan we werken met 
@@ -44,9 +46,9 @@
 					die verschillende thema&#39;s kunnen hebben. Als je je app geschikt wilt maken voor oudere 
 					versies, moet je ook een thema kiezen dat voor de oudste versie gebruikt kan worden. 
 					</p>
-					<img src="mat_l_da.png" width=180>
-					<img src="mat_l.png" width=180>	
-					<img src="hol_l.png" width=180>				
+					<img src="/AO/android/H4/mat_l_da.png" width=180>
+					<img src="/AO/android/H4/mat_l.png" width=180>	
+					<img src="/AO/android/H4/hol_l.png" width=180>				
 					<p>In studio kun je in je activity.xml file een preview zien van verschillende thema&#39;s.</p>
 					<h3>Een stijl maken</h3>
 					<p>Onze fooicalculator uit het vorige hoofdstuk heeft een aantal TextViews die als label 
@@ -329,6 +331,4 @@
 
 
 	
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/android/includes/bottom.html"%>

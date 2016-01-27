@@ -2,11 +2,13 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="gerechten.recept.*"%>
 
+
+
 <%
 	if (user != null) {
 
 		if (request.getAttribute("gerechten") == null) {
-			response.sendRedirect("voeg-toetjes-toe");
+			response.sendRedirect("voeg-gerecht-toe");
 
 		} else {
 			ArrayList<Gerecht> gerechten = (ArrayList<Gerecht>) request
@@ -141,7 +143,7 @@ div#voeg-ingredienten-toe {
 	</div>
 </div>
 
-<%@ include file="/includes/bottom.html"%>
+
 <script src="/AO/receptenboek/javascript/gerechten.js"></script>
 </body>
 

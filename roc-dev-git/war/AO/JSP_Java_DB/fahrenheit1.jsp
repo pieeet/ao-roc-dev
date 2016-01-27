@@ -1,7 +1,6 @@
-<%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
       
       <div class="col-md-9">
@@ -36,6 +35,4 @@
 		
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-	
-<% } %>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>

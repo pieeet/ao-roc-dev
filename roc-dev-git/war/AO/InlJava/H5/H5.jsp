@@ -1,7 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -26,7 +26,7 @@
         <div id="artikel">
      		
 					<h4>Theorie</h4>
-					<img src="images/variabele.png" class="gewoon_plaatje">
+					<img src="/AO/InlJava/H5/images/variabele.png" class="gewoon_plaatje">
 					<p>Als een programma wordt uitgevoerd, slaat de computer gegevens op in het intern geheugen. Dat gebeurt in cellen. 
 					Die cellen zijn &eacute;&eacute;n byte ( = 8 bits) groot. Dat betekent dat de maximale waarde van een cel 255 is. Als een 
 					hogere waarde moet worden bewaard, dan doet de computer (of eigenlijk het besturingssysteem) dit door een aantal cellen 
@@ -56,7 +56,7 @@
 							<li>breedte &amp;</li>
 							<li>hoogte, beide van type &quot;int&quot;</li>
 						</ul>
-						<img src="images/opdracht5_1.png" class="gewoon_plaatje">
+						<img src="/AO/InlJava/H5/images/opdracht5_1.png" class="gewoon_plaatje">
 						<p>Kun je nog meer variabelen bedenken?<br>
 						Wat is het voordeel van deze aanpak?</p>
 						
@@ -120,5 +120,4 @@ public class Show extends Applet{
 				</div>
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>

@@ -1,9 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp"%>
-
-
-<%
-	if (user != null) {
-%>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 
 <div class="col-md-9">
@@ -607,7 +604,7 @@ public class MainActivity extends AppCompatActivity {
 		je twee iconen; een vinkje om de taak toe te voegen en een kruisje om
 		te annuleren.</p>
 
-	<img src="taak_toevoegen.png">
+	<img src="/AO/android/H10/taak_toevoegen.png">
 
 
 	<pre class="code">
@@ -653,7 +650,7 @@ public class MainActivity extends AppCompatActivity {
 &lt;/LinearLayout&gt;
 	</pre>
 	<h4>De spinner</h4>
-	<img src="spinner.png">
+	<img src="/AO/android/H10/spinner.png">
 	<p>De layout van de activity gebruikt een custom layout voor de
 		spinner. Deze wordt gebruikt om de lijstnamen in de spinner te tonen.
 		Hiervoor wordt een TextView met een zwarte tekstkleur en een
@@ -910,8 +907,4 @@ public class AddEditActivity extends AppCompatActivity
 	</pre>
 
 </div>
-<%@ include file="/includes/bottom.html"%>
-
-<%
-	}
-%>
+<%@ include file="/AO/android/includes/bottom.html"%>

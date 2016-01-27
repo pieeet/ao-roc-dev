@@ -1,8 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
-
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
       
       <div class="col-md-9">
         <h2>H4 Tekenen</h2>
@@ -60,7 +59,7 @@ public class Show extends Applet {
 					<b>g.drawRect(20, 20, 100, 100);</b></p>
 					
 					<p>Een rechthoek met ronde hoeken teken je met behulp van <b>drawRoundRect()</b> of <b>fillRoundRect()</b>:<br>
-					<img src="images/ronde_hoeken.png" height="200"><br>
+					<img src="/AO/InlJava/H4/images/ronde_hoeken.png" height="200"><br>
 					<b>g.drawRoundRect(20, 20, 100, 50, 10, 10);</b><br>
 					De eerste vier getallen hebben dezelfde functie als in drawRect: twee co&ouml;rdinaten en de breedte en de hoogte. De laatste twee 
 					getallen zijn de breedte en de hoogte van de ellips, waarmee de hoeken zijn afgerond. Maak je de laatste twee waarden groter dan 
@@ -69,7 +68,7 @@ public class Show extends Applet {
 					<h3>Ellipsen en bogen</h3>
 					<p>Een ellips teken je met de methodes <b>drawOval()</b> en <b>fillOval()</b>:<br>
 					<b>g.drawOval(20, 20, 50, 100);</b></p>
-					<img src="images/ellips.png" height="600">
+					<img src="/AO/InlJava/H4/images/ellips.png" height="600">
 					<p>Eigenlijk zijn de co&ouml;rdinaten de linkerbovenhoek van een rechthoek en de twee laatste de breedte en de hoogte van diezelfde 
 					rechthoek. De ellips wordt binnen de rechthoek getekend.</p>
 					<p>Een cirkel teken je op dezelfde manier als een vierkant, maar dan met drawOval() of fillOval(). De laatste twee getallen zijn 
@@ -79,7 +78,7 @@ public class Show extends Applet {
 					de ellips heen. De twee volgende getallen zijn de starthoek van de boog en de sluithoek van de boog in graden:</p>
 					<p><b>g.drawArc(20, 20, 100, 50, 90, 135);</b></p>
 					
-					<img src="images/boog.png" height="423">
+					<img src="/AO/InlJava/H4/images/boog.png" height="423">
 					
 					<p>Met <b>g.fillArc(20, 20, 100, 50, 90, 135);</b> wordt de boog een taartpunt.</p>
 					<p>Let op, want de graden beginnen in het oosten en niet in het noorden.</p>
@@ -131,7 +130,7 @@ public class Show extends Applet {
 					<p>Teken de zijde waarop de vier van een dobbelsteen staat</p>
 					
 					<h2>Praktijkopdracht</h2>
-					<img src="images/Praktijkopdracht4.jpg" alt="vormen tekenen">
+					<img src="/AO/InlJava/H4/images/Praktijkopdracht4.jpg" alt="vormen tekenen">
 					<p>Schrijf een applet in Java, waarin de bovenstaande figuur wordt getekend. De kleur van de gevulde figuren is magenta en 
 					de teksten zijn in het zwart. De afgeronde hoeken hebben de waarde 30 en de taartpunt begint bij 0 en de hoek is 45 graden.<br>
 					Als je klaar bent, lever je de broncode in bij je docent.</p>
@@ -139,5 +138,5 @@ public class Show extends Applet {
 					
 			</div>
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

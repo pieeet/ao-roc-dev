@@ -1,7 +1,7 @@
-<%@ include file="/AO/BlueJ/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/BlueJ/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -35,7 +35,7 @@
 		<p>In het eerste hoofdstuk ga je aan de slag met de <i>klasse</i> Lamp. Deze kun je vinden in de voorbeelden. 
 		Lamp is een klasse. Een klasse is een soort bouwtekening. Van een klasse kun je een concreet <em>object</em> maken door 
 		de <em>constructor</em> aan te roepen.</p>
-		<img src="constructorpng.png" alt="constructor" >
+		<img src="/AO/BlueJ/images/constructorpng.png" alt="constructor" >
         
        
 <pre class="code">
@@ -143,6 +143,6 @@ lamp1.uit();
 					<img class="imgfullwidth" src="/AO/BlueJ/images/H1Lamp.jpg" alt="screenshot klasse lamp">
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
+<%@ include file="/AO/BlueJ/includes/bottom.html" %>
 	
-<% } %>
+

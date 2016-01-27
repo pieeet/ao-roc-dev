@@ -1,8 +1,10 @@
 
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
+
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
 
 
-<%	if (user != null) { %>
 
       <div class="col-md-9">
         <h2>H1 installeren ontwikkelomgeving</h2>
@@ -42,7 +44,7 @@
 			<iframe width="640" height="360" src="https://www.youtube.com/embed/SS-9y0H3Si8" 
 			frameborder="0" allowfullscreen></iframe>
 						
-			<!-- <img src="images/animalObjects.png" alt="Objecten"><br> -->
+			<!-- <img src="/AO/InlJava/H1/images/animalObjects.png" alt="Objecten"><br> -->
 						
 			<p>Een computer doet niets uit zichzelf. Voor iedere taak die uitgevoerd moet worden moet de computer
 			instructies krijgen. Het hart van een computer is de processor die eenvoudige opdrachten kan 
@@ -85,7 +87,7 @@ c = a + b;
 			een specialisme binnen 
 			het vak.</p>
 			
-			<img class="gewoon_plaatje" src="images/vacature_test_specialist.png">
+			<img class="gewoon_plaatje" src="/AO/InlJava/H1/images/vacature_test_specialist.png">
 			
 			<p>Als er tijdens het compileren een foutmelding wordt gegeven, dan ga je terug naar de broncode om de 
 			fout te verhelpen. Je applet zal dan niet uitgevoerd worden. Dat gebeurt alleen maar als de broncode 
@@ -96,7 +98,7 @@ c = a + b;
 			opgemerkt en zijn vaak vrij gemakkelijk op te sporen. Een logische fout is wat lastiger. Het is een fout waardoor het programma niet 
 			doet wat het moet doen. Je hebt waarschijnlijk ergens een denkfout gemaakt.</p>
 			
-			<img src="images/fouten.png" class="gewoon_plaatje" alt="programmeerfouten" id="programmeerfouten">
+			<img src="/AO/InlJava/H1/images/fouten.png" class="gewoon_plaatje" alt="programmeerfouten" id="programmeerfouten">
 
 			<div class="opdrachten">
 				<h2>Opdracht 1.1 Installeer Java JDK</h2>
@@ -107,7 +109,7 @@ c = a + b;
 				target="_blank">java versie 7</a>, dus het is wel zo handig om deze meteen te installeren. Installeer 
 				een voor jouw computer geschikte versie. Voor de meeste computers kun je de 64 bits versie kiezen.</p>
 				
-				<img src="images/java_install.jpg" alt="screenshot"><br>
+				<img src="/AO/InlJava/H1/images/java_install.jpg" alt="screenshot"><br>
 				<h3>Systeem-variabelen (Windows)</h3>
 				<p>Als je op een Windows machine werkt, is het raadzaam om een systeem variabele aan te maken 
 				die het systeem vertelt waar java zich bevindt. 
@@ -163,7 +165,7 @@ public class MijnEersteJavaKlasse {
 }
 </pre>				
 				<p>Als het goed is zie je tekst <code>Dit is mijn eerste java klasse!</code> in je console verschijnen.</p>
-				<img class="gewoon_plaatje" src="images/console.png">
+				<img class="gewoon_plaatje" src="/AO/InlJava/H1/images/console.png">
 				
 			</div>
 			<div class="opdrachten">
@@ -270,7 +272,5 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
 		</div>
 	</div>
 		
-<%@ include file="/includes/bottom.html" %>
-</body>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
 
-<% } %>

@@ -1,7 +1,9 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
 <%@ page import="inleidingJava.DeelKaarten" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-<%	if (user != null) { 
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
+<%
 	String tabel = "";
 	DeelKaarten dk = new DeelKaarten();
 	if (request.getParameter("deel_kaart") != null) {
@@ -13,7 +15,7 @@
       <div class="col-md-9">
         <h2>Kaarten delen</h2>
         <h3>Voorbeeld</h3>
-        <form action="deelKaarten.jsp" method="get">
+        <form action="/AO/inleiding-java/deel-kaarten?deel_kaart" method="get">
         	<input type="submit" name="deel_kaart"  value="Deel Kaarten" >
         </form>
         <%= tabel %>
@@ -111,5 +113,5 @@ public void paint(Graphics g) {
 </pre>		
 		
 	</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
+

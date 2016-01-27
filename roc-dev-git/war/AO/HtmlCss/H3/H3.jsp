@@ -1,7 +1,7 @@
-<%@ include file="/AO/htmlCss/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
+<%@ include file="/AO/HtmlCss/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -416,5 +416,4 @@ body {
 				</div>	
 				
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/HtmlCss/includes/bottom.html" %>

@@ -1,15 +1,21 @@
-<%@ include file="/AO/clientside/includes/pagetop.jsp" %>
 
 
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="jquery.yahtzee.Yahtzee" %>
+
+
 
 <%	
-	if (user != null) { 
+	
 		if (request.getAttribute("scorelijst") == null) {
 			response.sendRedirect("/jquery");
 		} else {		
 %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="jquery.yahtzee.Yahtzee" %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/clientside/includes/zijmenu.jsp"%>
+
+
 	<input type="hidden" id="user_email" value="<%= user.getNickname() %>">
       
 	<div class="col-md-9">
@@ -330,8 +336,12 @@ var waarde = 25;
   </div>
 </div> 
 
-<%@ include file="/includes/bottom.html" %>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="/AO/clientside/H1/yahtzee-min.js"></script>
-<% } } %>
+
+
+<%@ include file="/AO/clientside/includes/bottom.html"%>
+
+
+<% }  %>
 </html>	

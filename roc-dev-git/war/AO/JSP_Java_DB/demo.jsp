@@ -1,10 +1,11 @@
-<%@ include file="/AO/JSP_Java_DB/includes/pagetop.jsp" %>
 <%@ page import="jspcursus.autoshop.Auto" %>
 <%@ page import="jspcursus.autoshop.AutoLijst" %>
 <%@ page import="java.util.ArrayList" %>
 
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
-<%	if (user != null) { %>
 
 <%
 AutoLijst al = new AutoLijst();
@@ -86,6 +87,5 @@ if (request.getParameter("kies_knop") != null) {
 
 
 	<!-- 3 afsluitdivs uit include file -->
-<%@ include file="/includes/bottom.html" %>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
 
-<% } %>

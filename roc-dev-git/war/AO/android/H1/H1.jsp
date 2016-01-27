@@ -1,8 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp"%>
-
-<%
-	if (user != null) {
-%>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 <div class="col-md-9">
 	<h2>1 Ontwikkelomgeving</h2>
@@ -23,7 +21,7 @@
 
 	<!-- inhoud -->
 
-	<img src="AndroidStudio.png" alt="Android Logo" width="300">
+	<img src="/AO/android/H1/AndroidStudio.png" alt="Android Logo" width="300">
 	<p>Android Studio (studio) is een nieuwe ontwikkelomgeving die door
 		Google en de makers van de IntelliJ IDEA wordt ontwikkeld. Op het
 		moment van schrijven is studio nog in ontwikkeling (b&#232;ta), maar
@@ -48,7 +46,7 @@
 			href="http://developer.android.com/tools/help/sdk-manager.html"
 			target="_blank">SDK Manager</a>.
 	</p>
-	<img src="sdkm_icon.png">
+	<img src="/AO/android/H1/sdkm_icon.png">
 	<p>Installeer de meest recente versies van de volgende pakketten in
 		de SDK manager</p>
 	<ul>
@@ -91,7 +89,7 @@
 		minimum-sdk de minimum API die je net hebt ge&iuml;nstalleerd. Als het
 		goed is krijg je het volgende scherm te zien.
 	</p>
-	<img src="studio_start.jpg" width="800">
+	<img src="/AO/android/H1/studio_start.jpg" width="800">
 	<h2>Projectstructuur</h2>
 	<p>Wanneer je een nieuw project start maakt studio een simpele app
 		aan met &eacute;&eacute;n &quot;Activity&quot; (scherm ) die de tekst
@@ -171,8 +169,5 @@ protected void onCreate(Bundle savedInstanceState) {
 
 
 
-<%@ include file="/includes/bottom.html"%>
+<%@ include file="/AO/android/includes/bottom.html"%>
 
-<%
-	}
-%>

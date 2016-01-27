@@ -1,7 +1,6 @@
-<%@ include file="/AO/android/includes/pagetop.jsp" %>
-
-
-<%	if (user != null) { %>
+<%@ include file="/includes/pagetop-all.jsp"%>
+<div class="container">
+<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
       
       <div class="col-md-9">
@@ -26,7 +25,7 @@
         </div>
         
         <!-- inhoud -->
-        <img src="fooi_calcs.png" width=600>
+        <img src="/AO/android/H2/fooi_calcs.png" width=600>
 		<p>In dit hoofdstuk gaan we een app maken die op basis van een rekeningbedrag en een fooipercentage 
 					de fooi en het totaalbedrag berekent. De standaard fooi is 15%. Gebruiker kan dit percentage door op 
 					de min- of plusknop te drukken met &eacute;&eacute;n procentpunt verlagen respectievelijk verhogen.</p>
@@ -45,7 +44,7 @@
 					<p>Om de elementen relatief ten opzichte van elkaar te positioneren moeten ze identificeerbaar zijn met een &quot;id&quot;. 
 					Dezelfde id&#39;s hebben we straks nodig in de Java klasse, dus is het zaak om ze een id te geven waaruit op te maken is 
 					welk element het is en wat voor type element het is. Je kunt id&#39;s zowel in de Design-tab als de Text-tab aanmaken.</p>
-					<img src="widgetId.jpg" width=600>
+					<img src="/AO/android/H2/widgetId.jpg" width=600>
 					
 					<h3>width en height</h3>
 					<p>Studio geeft aan de width en height properties van de layout standaard de waarde &quot;match_parent&quot;. Dit betekent dat 
@@ -263,7 +262,7 @@ protected void onCreate(Bundle savedInstanceState) {
 						</ul>	
 							<p>De app toont het kortingspercentage, het kortingbedrag en het totaalbedrag</p>
 							<h4>Voorbeeld</h4>
-							<img src="rekeningKorting2.jpg" alt="screenshot app">
+							<img src="/AO/android/H2/rekeningKorting2.jpg" alt="screenshot app">
 							
 						
 					</div>
@@ -271,7 +270,7 @@ protected void onCreate(Bundle savedInstanceState) {
 					<h2>Waardes opslaan met SharedPreferences</h2>
 				<p>Als je app gestart is en de gebruiker krijgt een telefoontje, dan gaat hij in de pauzestand (onPause). Dit gebeurt 
 				ook als gebruiker de schermori&euml;ntatie verandert. Wanneer de app wordt hervat, wordt de methode onResume() aangeroepen.</p>
-				<img src="lifecycle.png">
+				<img src="/AO/android/H2/lifecycle.png">
 				<p>Om te voorkomen dat steeds gegevens verloren gaan, moeten we deze ergens opslaan. Hiervoor gebruiken we 
 				<a href="http://developer.android.com/reference/android/content/SharedPreferences.html" target="_blank">SharedPreferences</a>.</p>
 				<p>In onze fooi calculator willen we twee waardes bewaren als de app op pauze gaat: de string met het rekeningbedrag en het 
@@ -347,6 +346,5 @@ public void onResume() {
 
 
 	
-<%@ include file="/includes/bottom.html" %>
+<%@ include file="/AO/android/includes/bottom.html"%>
 	
-<% } %>

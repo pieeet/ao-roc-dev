@@ -1,9 +1,7 @@
-<%@ include file="/AO/Greenfoot/includes/pagetop.jsp"%>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%
-	if (user != null) {
-%>
+<%@ include file="/AO/Greenfoot/includes/zijmenu.jsp" %>
 <style>
 .embed-responsive {
 	margin-top: 1em;
@@ -132,8 +130,6 @@
 
 
 </div>
-<%@ include file="/includes/bottom.html"%>
+<%@ include file="/AO/Greenfoot/includes/bottom.html"%>
 
-<%
-	}
-%>
+

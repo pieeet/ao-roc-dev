@@ -1,8 +1,7 @@
-<%@ include file="/AO/htmlCss/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	
-	if (user != null) { %>
+<%@ include file="/AO/HtmlCss/includes/zijmenu.jsp" %>
 
       
       <div class="col-md-9">
@@ -46,7 +45,7 @@
 		<div class="opdrachten" id="opdr1.1">
 					
 						<h2>Opdracht 1.1</h2>
-						<img class="imgfullwidth" src="images/ScreenShot_before.jpg" alt="Schermafdruk open met Firefox">
+						<img class="imgfullwidth" src="/AO/HtmlCss/H1/images/ScreenShot_before.jpg" alt="Schermafdruk open met Firefox">
 						
 						<p>Maak volgens de HTML 5.0 standaard bovenstaande HTML pagina. Met behulp van Notepad++ maak je een bestand aan met 
 						de naam <em>eerste-opdracht.<b>html</b></em> en plak de onderstaande code in het bestand. Pas totaal 
@@ -130,7 +129,7 @@
 </pre>
 				
 						<p>Sla het bestand op als .html bestand en open het in Firefox.</p>
-						<img class="imgfullwidth" src="images/ScreenShot_2.jpg" alt="Schermafdruk open met Firefox">
+						<img class="imgfullwidth" src="/AO/HtmlCss/H1/images/ScreenShot_2.jpg" alt="Schermafdruk open met Firefox">
 						<p>Vervolgens gaan we wat CSS code toevoegen </p>
 						
 	
@@ -190,7 +189,7 @@
 						<div class="uitwerking" id="uitw1.1">
 							<h2>Uitwerking opdracht 1.1</h2>
 							<p>Als het goed is gegaan zie je het volgende scherm in je browser:</p>
-							<img src="images/opdr_1.jpg" width="800" alt="schermafdruk">
+							<img src="/AO/HtmlCss/H1/images/opdr_1.jpg" width="800" alt="schermafdruk">
 							
 							<div class="toonknopcontainer">
 								<button class="toonknop" id="toon1.1" onclick="verberg('uitw1.1')">Verberg uitwerking</button>
@@ -218,7 +217,7 @@
 							bewegen kun je zien waar ze zich op de pagina bevinden. Ook kun je elementen uitschakelen of hun waardes
 							veranderen en meteen het resultaat bekijken in je browser. Dit wordt vaak gebruikt om snel te kunnen zien wat 
 							het gevolg is van bepaalde keuzes. </p>
-							<img src="images/ScreenShot_3.jpg" width="600">
+							<img src="/AO/HtmlCss/H1/images/opdr_1.jpg" width="600">
 							
 							
 							
@@ -462,5 +461,4 @@
 
 				</div>	
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/HtmlCss/includes/bottom.html" %>

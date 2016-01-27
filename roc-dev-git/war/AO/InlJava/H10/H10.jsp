@@ -1,8 +1,7 @@
-<%@ include file="/AO/InlJava/includes/pagetop.jsp" %>
+<%@ include file="/includes/pagetop-all.jsp" %>
+<div class="container">
 
-
-<%	if (user != null) { %>
-
+<%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
       
       <div class="col-md-9">
         <h2>H10 Beslissingen</h2>
@@ -25,7 +24,7 @@
         </div>
         
         <h4>Praktijk</h4>
-		<img src="beslissingen.png" width=500>
+		<img src="/AO/InlJava/H10/images/beslissingen.png" width=500>
         
        
         <h3>Relationele operatoren</h3>
@@ -400,5 +399,4 @@ public class Switch extends Applet {
 				</div>
 
 		</div>
-<%@ include file="/includes/bottom.html" %>
-<% } %>
+<%@ include file="/AO/InlJava/includes/bottom.html"%>
