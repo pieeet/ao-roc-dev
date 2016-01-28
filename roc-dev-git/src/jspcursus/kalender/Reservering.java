@@ -6,13 +6,23 @@ package jspcursus.kalender;
 public class Reservering {
 	Kamer kamer;
 	Datum datum;
+	String emailUser;
 
 	
 	
-	public Reservering(Kamer kamer, Datum datum) {
+	public Reservering(Kamer kamer, Datum datum, String emailUser) {
 		super();
 		this.kamer = kamer;
 		this.datum = datum;
+		this.emailUser = emailUser;
+	}
+
+	public String getEmailUser() {
+		return emailUser;
+	}
+
+	public void setEmailUser(String emailUser) {
+		this.emailUser = emailUser;
 	}
 
 	public Kamer getKamer() {

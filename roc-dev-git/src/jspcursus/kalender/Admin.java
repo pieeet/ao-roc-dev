@@ -1,7 +1,13 @@
 package jspcursus.kalender;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import com.google.appengine.api.datastore.EntityNotFoundException;
 
@@ -46,9 +52,6 @@ public class Admin {
 		return beschikbaar;
 	}
 	
-	
-	
-	
 	public ArrayList<String> getKamerNamenLijst() {
 		ArrayList<Kamer> kamerLijst = io.getKamerLijst();
 		ArrayList<String> namenlijst = new ArrayList<String>();
@@ -62,72 +65,70 @@ public class Admin {
 		io.voegKamerToe(kamer);
 	}
 	
-	
-	public void maakReservering(Reservering reservering) {
-		io.bewaarReservering(reservering);
+	public String maakReservering(Reservering reservering, boolean beschikbaar) {
+		Kamer kamer = reservering.getKamer();
+		Datum datum = reservering.getDatum();
+		String emailUser = reservering.getEmailUser();
+		String reserveringsBoodschap;
+		if (beschikbaar) {
+			io.bewaarReservering(reservering);
+			reserveringsBoodschap = "Reservering &quot;" + kamer.getNaam()
+					+ "&quot; voor datum: " + datum.getDatumNLFormat()
+					+ " is geslaagd.";
+
+			if (!reservering.getEmailUser().equals("pdevries@roc-dev.com")) {
+				String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
+				msgBody += emailUser
+						+ " heeft de volgende reservering gemaakt:\r\n";
+				msgBody += "- " + kamer.getNaam() + "\r\n";
+				msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
+				msgBody += "Reservering is gelukt!";
+
+				try {
+					Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+					msg.setFrom(new InternetAddress("pdevries@roc-dev.com",
+							"Admin roc-dev"));
+					msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+							"pdevries@roc-dev.com", "Mr. User"));
+					msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
+							+ datum.getDatumNLFormat());
+					msg.setText(msgBody);
+					Transport.send(msg);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} else {
+			reserveringsBoodschap = "Helaas is " + kamer.getNaam() + " niet beschikbaar op "
+					+ datum.getDatumNLFormat()
+					+ ". Probeer een andere kamer.";
+
+			if (!emailUser.equals("pdevries@roc-dev.com")) {
+				String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
+				msgBody += emailUser
+						+ " heeft geprobeerd de volgende reservering te maken:\r\n";
+				msgBody += "- " + kamer.getNaam() + "\r\n";
+				msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
+				msgBody += "Reservering is mislukt. Reden: kamer is bezet.";
+				try {
+					Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+					msg.setFrom(new InternetAddress("pdevries@roc-dev.com",
+							"Admin roc-dev"));
+					msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+							"pdevries@roc-dev.com", "Mr. User"));
+					msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
+							+ datum.getDatumNLFormat());
+					msg.setText(msgBody);
+					Transport.send(msg);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return reserveringsBoodschap;
 		
 	}
-	
-	
-	//maak html tabel
-	public String kalNaarHtml(Kalender kal, Kamer kamer) {
-		int aantalDagenDezeMaand = kal.getAantalDagenMaand();
-		int aantalDagenVorigeMaand = kal.getLaatsteDagVorigeMaand();
-		int hoeveelheidRestVorigeMaand = kal.getAantalRestVorigeMaand();
-		int startDatumVorigeMaand = kal.getStartVorigeMaand();
-		ArrayList<Datum> resLijst = this.getGereserveerdeData(kamer, 
-				kal.getMaand(), kal.getJaar());
-		String html = "<table class=\"kalender\">";
-		html += "<tr>";
-		html += "<th>ma</th><th>di</th><th>wo</th><th>do</th><th>vr</th><th>za</th><th>zo</th>";
-		html += "</tr>";
-		int aantalRijen = 5;
-		if (aantalDagenDezeMaand + hoeveelheidRestVorigeMaand > 35) {
-			aantalRijen = 6;
-		} else if (aantalDagenDezeMaand + hoeveelheidRestVorigeMaand == 28) {
-			aantalRijen = 4;
-		}
-		int datumDezeMaand = 1;
-		int datumVorigeMaand = startDatumVorigeMaand;
-		int datumVolgendeMaand = 1;
-		for (int rij = 0; rij < aantalRijen; rij++) {
-			int kolomteller = 1;
-			html += "<tr>";
-			for (int cel = 0; cel < 7; cel++) {
-				while  ( datumVorigeMaand <= aantalDagenVorigeMaand) {
-					html += "<td class=\"rest\">" + datumVorigeMaand + "</td>";
-					datumVorigeMaand++;
-					kolomteller++;
-				}
-				while (kolomteller <= 7 && datumDezeMaand <= aantalDagenDezeMaand ) {
-					boolean bezet = false;
-					for (Datum d: resLijst) {
-						if (d.getDag() == datumDezeMaand) {
-							bezet = true;
-						} 
-					}
-					if (bezet) {
-						html += "<td class=\"data_bezet\">" + datumDezeMaand + "</td>";
-					} else {
-						html += "<td class=\"vrij\">" + datumDezeMaand + "</td>";
-					}
-					datumDezeMaand++;
-					kolomteller++;
-				}
-				while (kolomteller <= 7) {
-					html += "<td class=\"rest\">" + datumVolgendeMaand + "</td>";
-					datumVolgendeMaand++;
-					kolomteller++;
-				}
-			} 
-			html += "</tr>";
-			
-		}
-		html += "</table>";
-		return html;
-	}
-	
-	
-	
 }
 

@@ -2,16 +2,8 @@ package jspcursus.kalender.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Principal;
-import java.util.Properties;
+import java.util.ArrayList;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,217 +17,140 @@ import jspcursus.kalender.Reservering;
 
 @SuppressWarnings("serial")
 public class KalenderTabelServlet extends HttpServlet {
-	Admin admin;
+	private Admin admin;
+	private Kamer kamer;
+	private Datum kalenderMaand, reserveringsDatum;
+	private String emailUser, reserveringsBoodschap;
+	private Kalender kalender;
+	private boolean isBeschikbaar;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		admin = new Admin();
-		if (req.getParameter("kiesKamerKnop") != null || 
-				req.getParameter("vorige") != null || 
-				req.getParameter("volgende") != null || 
-				req.getParameter("reservering_knop") != null) {
-			
-			
-			String sleutel = req.getParameter("sleutel");
-			Kamer kamer = admin.getKamer(sleutel);
-			Datum datum = null;
-			String boodschap = null;
-			boolean beschikbaar = true;
-			
-			
-			if (req.getParameter("kiesKamerKnop") != null)  {
-				//blijf op de geselecteerde maand
-				if (req.getParameter("maand") != null  && !req.getParameter("maand").equals("")) {
-					int jaar = Integer.parseInt(req.getParameter("jaar"));
-					int maand = Integer.parseInt(req.getParameter("maand"));
-					datum = new Datum(jaar, maand);
-					
-				} else {
-					//ga naar deze maand
-					datum = new Datum();
-				}
-			}
-			
-			//ga naar vorige maand
-			else if (req.getParameter("vorige") != null) {
-				int maand = Integer.parseInt(req.getParameter("maand"));
-				maand -= 1;
-				int jaar = Integer.parseInt(req.getParameter("jaar"));
-				if (maand < 0) {
-					maand += 12;
-					jaar -= 1;
-				}
-				
-				datum = new Datum(jaar, maand);
-				
-			}
-			
-			//ga naar volgende maand
-			else if (req.getParameter("volgende") != null) {
-				
-				int maand = Integer.parseInt(req.getParameter("maand"));
-				maand += 1;
-				int jaar = Integer.parseInt(req.getParameter("jaar"));
-				if (maand > 11) {
-					maand -= 12;
-					jaar += 1;
-				}
-				//volgende maand
-				datum = new Datum(jaar, maand);
-				
-			} else if (req.getParameter("reservering_knop") != null ) {
-				
-				Principal user = req.getUserPrincipal();
-				String emailUser = user.toString();
-				Properties props = new Properties();
-				Session session = Session.getDefaultInstance(props, null);
-				Datum resDatum = new Datum(req.getParameter("datum"));
-				beschikbaar = admin.checkBeschikbaar(kamer, resDatum);
-				if (!beschikbaar) {
-					boodschap = "Helaas is " + kamer.getNaam() + " niet beschikbaar op " + 
-							resDatum.getDatumNLFormat() + ". Probeer een andere kamer.";
-					
-					if (!emailUser.equals("pdevries@roc-dev.com")) {
-						String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
-				        msgBody += user.getName() + " heeft geprobeerd de volgende reservering te maken:\r\n";
-				        msgBody += "- " + kamer.getNaam() + "\r\n";
-				        msgBody += "- " + resDatum.getDatumNLFormat() + "\r\n";
-				        msgBody += "Reservering is mislukt. Reden: kamer is bezet.";
-				        try {
-				            Message msg = new MimeMessage(session);
-				            msg.setFrom(new InternetAddress("pdevries@roc-dev.com", "Admin roc-dev"));
-				            msg.addRecipient(Message.RecipientType.TO,
-				                             new InternetAddress("pdevries@roc-dev.com", "Mr. User"));
-				            msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. " + resDatum.getDatumNLFormat());
-				            msg.setText(msgBody);
-				            Transport.send(msg);
+		String sleutel = req.getParameter("sleutel");
+		kamer = admin.getKamer(sleutel);
+		kalenderMaand = new Datum();
+		int jaar;
+		int maand;
 
-				        } catch (AddressException e) {
-				            // ...
-				        } catch (MessagingException e) {
-				            // ...
-				        }
-					}
-					
-				} else {
-					Reservering reservering = new Reservering(kamer, resDatum);
-					admin.maakReservering(reservering);
-					boodschap = "Reservering &quot;" + kamer.getNaam() + 
-							"&quot; voor datum: " + 
-							resDatum.getDatumNLFormat() + " is geslaagd.";
-					
-					if (!emailUser.equals("pdevries@roc-dev.com")) {
-						String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
-				        msgBody += user.getName() + " heeft de volgende reservering gemaakt:\r\n";
-				        msgBody += "- " + kamer.getNaam() + "\r\n";
-				        msgBody += "- " + resDatum.getDatumNLFormat() + "\r\n";
-				        msgBody += "Reservering is gelukt!";
-
-				        try {
-				            Message msg = new MimeMessage(session);
-				            msg.setFrom(new InternetAddress("pdevries@roc-dev.com", "Admin roc-dev"));
-				            msg.addRecipient(Message.RecipientType.TO,
-				                             new InternetAddress("pdevries@roc-dev.com", "Mr. User"));
-				            msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. " + resDatum.getDatumNLFormat());
-				            msg.setText(msgBody);
-				            Transport.send(msg);
-
-				        } catch (AddressException e) {
-				            // ...
-				        } catch (MessagingException e) {
-				            // ...
-				        }
-					}
-			        
-				}
-				
-				//maand obv parameters
-				int maand = Integer.parseInt(req.getParameter("maand"));
-				int jaar = Integer.parseInt(req.getParameter("jaar"));
-				datum = new Datum(jaar, maand);
-				
-			}
-			Kalender kal = new Kalender(datum);
-			String tabel = admin.kalNaarHtml(kal, kamer);
-			PrintWriter out = resp.getWriter();
-			
-			//de maandkiezer div
-			out.println("<div id=\"kalender_maandkiezer\">");
-			out.println("<h3>" + kamer.getNaam() + "</h3>");
-			out.println("<button type=\"button\" id=\"vorige\" value=\"&lt;\">&lt;</button>");
-			out.println("<label>" + datum.getMaandString() + "</label>");
-			out.println("<label>" + datum.getJaar() + "</label>");
-			out.println("<button type=\"button\" id=\"volgende\" value=\"&gt;\">&gt;</button>");
-			out.println("<input type=\"hidden\" id=\"maand_verborgen\" value=\"" + datum.getMaand() + "\">");
-			out.println("<input type=\"hidden\" id=\"jaar_verborgen\" value=\"" + datum.getJaar() + "\">");
-			out.println("<input type=\"hidden\" id=\"kamer_verborgen\" value=\"" + kamer.getNaam() + "\">");
-			out.println("</div>");
-			
-			//de kalender div
-			out.println("<div id=\"kalender_tabel\">");
-			out.println(tabel);
-			out.println("</div>");
-			
-			//reserveer datum div
-			out.println("<div id=\"kalender_reserveer_datum\">");
-			out.println("<h3>Reserveren</h3>");
-			
-			out.println("<div class=\"formulier\">");
-			
-			out.println("<div class=\"formulier_regel\">");
-				out.println("<label "
-						+ "class=\"formulier_label\">Voer een datum in</label>");
-				out.println("<input "
-						+ "class=\"formulier_input\" "
-						+ "type=\"date\" "
-						+ "id=\"reservering_datum\" "
-						+ "value=\"" + datum.getDatumStandaardFormat() +"\">");
-					
-			out.println("</div>");
-			
-			out.println("<div class=\"formulier_regel\">");
-				out.println("<button "
-						+ "type=\"button\" "
-						+ "id=\"reservering_knop\" "
-						+ "class=\"formulier_input\" "
-						+ "value=\"reserveer datum\">reserveer datum</button>");
-			out.println("</div>");
-			
-			out.println("</div>"); //.formulier
-				
-			
-		
-			
-			
-			
-			
-//			out.println("<table>");
-//			out.println("<tr>");
-//			out.println("<td>Voer een datum in</td>");
-//			out.println("<td><input type=\"date\" id=\"reservering_datum\" value=\"" + 
-//					datum.getDatumStandaardFormat() +"\" autofocus></td>" );
-//			out.println("<td><button type=\"button\" id=\"reservering_knop\" value=\"reserveer "
-//					+ "datum\">reserveer datum</button></tr></table>");
-//			out.println("</div>");
-			out.println("</div>");
-			
-			//boodschap reservering
-			if (boodschap != null) {
-				if (!beschikbaar) {
-					out.println("<div class=\"bs-callout bs-callout-danger\">");
-					out.println("<h4 class=\"danger\">Reservering mislukt</h4>");
-				} else {
-					out.println("<div class=\"bs-callout bs-callout-succes\">");
-					out.println("<h4 class=\"succes\">Reservering geslaagd</h4>");
-				}
-				out.println("<p>" + boodschap + "</p></div>");
-			}
-			
-			out.close();
-
+		if (req.getParameter("maand") != null
+				&& !req.getParameter("maand").equals("")) {
+			jaar = Integer.parseInt(req.getParameter("jaar"));
+			maand = Integer.parseInt(req.getParameter("maand"));
+			kalenderMaand = new Datum(jaar, maand);
+		} else {
+			jaar = kalenderMaand.getJaar();
+			maand = kalenderMaand.getMaand();
 		}
-		
-		
+
+		// Gebruiker gaat maand terug
+		if (req.getParameter("vorige") != null) {
+			maand -= 1;
+			if (maand < 0) {
+				maand += 12;
+				jaar -= 1;
+			}
+			kalenderMaand = new Datum(jaar, maand);
+		}
+
+		// Gebruiker gaat maand vooruit
+		else if (req.getParameter("volgende") != null) {
+			maand += 1;
+			if (maand > 11) {
+				maand -= 12;
+				jaar += 1;
+			}
+			kalenderMaand = new Datum(jaar, maand);
+
+			// Handle reservering
+		} else if (req.getParameter("reservering_knop") != null) {
+			reserveringsDatum = new Datum(req.getParameter("datum"));
+			isBeschikbaar = admin.checkBeschikbaar(kamer, reserveringsDatum);
+			emailUser = req.getUserPrincipal().toString();
+			Reservering reservering = new Reservering(kamer, reserveringsDatum,
+					emailUser);
+			reserveringsBoodschap = admin.maakReservering(reservering,
+					isBeschikbaar);
+		}
+		kalender = new Kalender(kalenderMaand);
+		PrintWriter out = resp.getWriter();
+		// de maandkiezer div
+		out.println(this.maakMaandKiezerHTML());
+		// de kalender div
+		out.println(this.maakKalenderHTML());
+		// reserveer datum div
+		out.println(this.maakReserveringDatumHTML());
+		// boodschap reservering
+		if (reserveringsBoodschap != null) {
+			out.println(this
+					.maakReserveringsBoodschapHTML(reserveringsBoodschap));
+		}
+		out.close();
+	}
+
+	private String maakMaandKiezerHTML() {
+		String div = "<div id=\"kalender_maandkiezer\">";
+		div += "<h3>" + kamer.getNaam() + "</h3>";
+		div += "<button type=\"button\" id=\"vorige\" value=\"&lt;\">&lt;</button>";
+		div += "<label>" + kalenderMaand.getMaandString() + "</label>";
+		div += "<label>" + kalenderMaand.getJaar() + "</label>";
+		div += "<button type=\"button\" id=\"volgende\" value=\"&gt;\">&gt;</button>";
+		div += "<input type=\"hidden\" id=\"maand_verborgen\" value=\""
+				+ kalenderMaand.getMaand() + "\">";
+		div += "<input type=\"hidden\" id=\"jaar_verborgen\" value=\""
+				+ kalenderMaand.getJaar() + "\">";
+		div += "<input type=\"hidden\" id=\"kamer_verborgen\" value=\""
+				+ kamer.getNaam() + "\">";
+		div += "</div>";
+
+		return div;
+	}
+
+	private String maakKalenderHTML() {
+		String div = "";
+		div += "<div id=\"kalender_tabel\">";
+		div += this.maakKalenderTabel(kalender, kamer);
+		div += "</div>";
+
+		return div;
+	}
+
+	private String maakReserveringDatumHTML() {
+		String div = "";
+		div += "<div id=\"kalender_reserveer_datum\">\n";
+		div += "<h3>Reserveren</h3>\n";
+
+		div += "<div class=\"formulier\">\n";
+
+		div += "<div class=\"formulier_regel\">\n";
+		div += "<label "
+				+ "class=\"formulier_label\">Voer een datum in</label>\n "
+				+ "<input class=\"formulier_input\" " + "type=\"date\" "
+				+ "id=\"reservering_datum\" " + "value=\""
+				+ kalenderMaand.getDatumStandaardFormat() + "\">\n</div>\n "
+				+ "<div class=\"formulier_regel\">\n "
+				+ "<button  type=\"button\" " + "id=\"reservering_knop\" "
+				+ "class=\"formulier_input\" "
+				+ "value=\"reserveer datum\">reserveer datum</button>\n";
+		div += "</div></div></div>";
+
+		return div;
+	}
+
+	private String maakReserveringsBoodschapHTML(String reserveringsBoodschap) {
+		String div = "";
+		if (reserveringsBoodschap != null) {
+			if (!isBeschikbaar) {
+				div += "<div class=\"bs-callout bs-callout-danger\">";
+				div += "<h4 class=\"danger\">Reservering mislukt</h4>";
+			} else {
+				div += "<div class=\"bs-callout bs-callout-succes\">";
+				div += "<h4 class=\"succes\">Reservering geslaagd</h4>";
+			}
+			div += "<p>" + reserveringsBoodschap + "</p></div>";
+		}
+		return div;
 	}
 
 	@Override
@@ -243,7 +158,67 @@ public class KalenderTabelServlet extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(req, resp);
 	}
-	
-	
+
+	// maak html tabel
+	private String maakKalenderTabel(Kalender kal, Kamer kamer) {
+		int aantalDagenDezeMaand = kal.getAantalDagenMaand();
+		int aantalDagenVorigeMaand = kal.getLaatsteDagVorigeMaand();
+		int hoeveelheidRestVorigeMaand = kal.getAantalRestVorigeMaand();
+		int startDatumVorigeMaand = kal.getStartVorigeMaand();
+		ArrayList<Datum> resLijst = admin.getGereserveerdeData(kamer,
+				kal.getMaand(), kal.getJaar());
+		String html = "<table class=\"kalender\">";
+		html += "<tr>";
+		html += "<th>ma</th><th>di</th><th>wo</th><th>do</th><th>vr</th><th>za</th><th>zo</th>";
+		html += "</tr>";
+		int aantalRijen = 5;
+		if (aantalDagenDezeMaand + hoeveelheidRestVorigeMaand > 35) {
+			aantalRijen = 6;
+		} else if (aantalDagenDezeMaand + hoeveelheidRestVorigeMaand == 28) {
+			aantalRijen = 4;
+		}
+		int datumDezeMaand = 1;
+		int datumVorigeMaand = startDatumVorigeMaand;
+		int datumVolgendeMaand = 1;
+		for (int rij = 0; rij < aantalRijen; rij++) {
+			int kolomteller = 1;
+			html += "<tr>";
+			for (int cel = 0; cel < 7; cel++) {
+				while (datumVorigeMaand <= aantalDagenVorigeMaand) {
+					html += "<td class=\"rest\">" + datumVorigeMaand + "</td>";
+					datumVorigeMaand++;
+					kolomteller++;
+				}
+				while (kolomteller <= 7
+						&& datumDezeMaand <= aantalDagenDezeMaand) {
+					boolean bezet = false;
+					for (Datum d : resLijst) {
+						if (d.getDag() == datumDezeMaand) {
+							bezet = true;
+						}
+					}
+					if (bezet) {
+						html += "<td class=\"data_bezet\">" + datumDezeMaand
+								+ "</td>";
+					} else {
+						html += "<td class=\"vrij\">" + datumDezeMaand
+								+ "</td>";
+					}
+					datumDezeMaand++;
+					kolomteller++;
+				}
+				while (kolomteller <= 7) {
+					html += "<td class=\"rest\">" + datumVolgendeMaand
+							+ "</td>";
+					datumVolgendeMaand++;
+					kolomteller++;
+				}
+			}
+			html += "</tr>";
+
+		}
+		html += "</table>";
+		return html;
+	}
 
 }
