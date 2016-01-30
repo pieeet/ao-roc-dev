@@ -65,12 +65,13 @@ public class Admin {
 		io.voegKamerToe(kamer);
 	}
 	
-	public String maakReservering(Reservering reservering, boolean beschikbaar) {
+	public String maakReservering(Reservering reservering) {
 		Kamer kamer = reservering.getKamer();
 		Datum datum = reservering.getDatum();
+		
 		String emailUser = reservering.getEmailUser();
 		String reserveringsBoodschap;
-		if (beschikbaar) {
+		if (checkBeschikbaar(kamer, datum)) {
 			io.bewaarReservering(reservering);
 			reserveringsBoodschap = "Reservering &quot;" + kamer.getNaam()
 					+ "&quot; voor datum: " + datum.getDatumNLFormat()

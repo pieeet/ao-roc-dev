@@ -52,7 +52,6 @@
     &lt;input type=&quot;submit&quot; name=&quot;knop_1&quot; value=&quot;Ok&quot;&gt;
 &lt;/form&gt;
 </pre>
-
 		<h4>action</h4>
 		<p>Bepaalt naar welke pagina het formulier toe wordt gestuurd. Het
 			gebeurt vaak dat bezoeker naar dezelfde pagina wordt teruggeleid.</p>
@@ -77,7 +76,7 @@
 		</p>
 		<p>
 			http://doelpagina<span class="codeplus">?</span>tekst_input_1=[invoer
-			gebruiker]<span class="codeplus">&</span>knop_1=Ok
+			gebruiker]<span class="codeplus">&amp;</span>knop_1=Ok
 		</p>
 		<p>Als je niet wilt dat de parameters in je url komen te staan,
 			bijvoorbeeld omdat er vertrouwelijke info wordt verstuurd en je niet
@@ -118,8 +117,6 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 }
 <span class="jsp">%&gt;</span>
 </pre>
-
-
 		<div class="opdrachten" id="opg8">
 
 			<h2>Opdracht 8</h2>
@@ -137,8 +134,8 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 				De methode request.getParameter(&quot;naam&quot;) geeft altijd een
 				string waarde. Om er mee te kunnen rekenen moet de string geparsed
 				worden, in dit geval naar een integer (<a
-					href="/AO/inleiding-java/h8#voorbeeld8_7"
-					target="_blank">zie Inleiding Java</a>).
+					href="/AO/inleiding-java/h8#voorbeeld8_7" target="_blank">zie
+					Inleiding Java</a>).
 			</p>
 			<p>
 				Als gebruiker per ongeluk een letter in plaats van een getal heeft
@@ -248,8 +245,6 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 				</p>
 				<p>De knop krijgt als waarde (value) Ok mee en getal heeft in
 					dit geval geen waarde. Blijkbaar heeft de gebruiker niets ingevuld.</p>
-
-
 				<h3>JSP</h3>
 				<p>
 					Met behulp van JSP maken we de benodigde variabelen en kennen
@@ -314,9 +309,6 @@ if (request.getParameter(&quot;knop&quot;) != null) {
 	&lt;% } 
 } %&gt;
 </pre>
-
-
-
 				<p>Met behulp van CSS code zorgen we er tenslotte voor dat de
 					waarschuwingstekst rood wordt, iets kleiner dan de andere tekst
 					naast het invoervak wordt geplaatst. Een div is van zichzelf een
@@ -331,11 +323,7 @@ div.fout {
 	display: inline;
 }
 </pre>
-
 			</div>
-
-
-
 		</div>
 
 		<div class="opdrachten" id="opg9">
@@ -492,16 +480,11 @@ if (request.getParameter("knop") != null <span class="codeplus">||
 		else if (request.getParameter("plus") != null) {
 			getal = getal + 1;
 		}</span>
-	    
 }
 &#37;&gt;
-
 </pre>
 			</div>
-
 		</div>
-
-
 		<div class="opdrachten" id="opg10">
 			<h2>Opdracht 10</h2>
 			<p>
@@ -579,10 +562,8 @@ finally {
 					dat er twee methoden round() bestaan. Het bestaan van twee methoden
 					met dezelfde naam, maar met verschillende parameters noemen we
 					overloading.</p>
-
 				<img class="imgfullwidth" src="/AO/JSP_Java_DB/images/apiMath.jpg"
 					alt="de methode round van klasse Math">
-
 				<p>De eerste methode vereist als parameter een double, en heeft
 					als terugkeerwaarde een long. Een long is de 64-bit grote broer van
 					int. Om van een long een int te maken moet je hem typecasten (zie
@@ -595,9 +576,6 @@ finally {
 					precieze - 32-bit broertje van double. Als je in Java een decimaal
 					gebruikt, gaat Java er van uit dat je een double wilt gebruiken. Om
 					een float te gebruiken kun je een f achter de decimaal zetten.</p>
-
-
-
 			</div>
 		</div>
 		<div class="opdrachten" id="opg11">
@@ -637,8 +615,8 @@ finally {
 
 					}
 				%>
-				<input type="hidden" name="hoogste" value="<%=hoogste%>">
-				<input type="hidden" name="laagste" value="<%=laagste%>">
+				<input type="hidden" name="hoogste" value="<%=hoogste%>"> <input
+					type="hidden" name="laagste" value="<%=laagste%>">
 
 			</form>
 			<br>
@@ -655,7 +633,6 @@ finally {
 			<%
 				if (laagste != Integer.MAX_VALUE && hoogste != Integer.MIN_VALUE) {
 			%>
-
 			<p>
 				Laagste getal:
 				<%=laagste%>
@@ -742,10 +719,7 @@ finally {
 
       &lt;/form&gt;
   &lt;/body&gt;
-
 </pre>
-
-
 			</div>
 
 		</div>
@@ -761,7 +735,6 @@ finally {
 				is. Zo weet de pagina of er van Celsius naar Fahrenheit of van
 				Fahrenheit naar Celsius moet worden omgerekend. Maak naast JSP
 				gebruik van HTML en CSS bij het uitvoeren van deze opdracht.</p>
-
 
 			<%
 				String celsValue = "";
@@ -788,9 +761,7 @@ finally {
 					}
 				}
 			%>
-
 			<h3 id="opg12">Fahrenheit en Celsius omrekenen</h3>
-
 			<div id="rekenmachine">
 				<div id="rekenmachine_naam">
 					<p>Graden</p>
@@ -817,10 +788,7 @@ finally {
 				<%
 					}
 				%>
-
 			</div>
-
-
 			<!-- <div class="toonknopcontainer">
 								<button class="toonknop" id="toon12" onclick="toon('uitw12')">Toon uitwerking</button>
 						</div> -->
@@ -879,9 +847,6 @@ finally {
 
   &lt;/form&gt;
 &lt;/body&gt;
-
-
-
 </pre>
 				<h3>Uitleg</h3>
 				<p>In deze uitwerking gebruiken we 2 int variabelen om de
@@ -901,17 +866,8 @@ finally {
 					met de naam &quot;cels&quot; <span class="letop">niet</span> gelijk
 					is aan een lege String...
 				</p>
-
-
-
-
-
 			</div>
-
-
 		</div>
-
-
 		<div class="opdrachten">
 			<h2>Opdracht 13</h2>
 			<p>Schrijf een webpagina die een rekenmachine bevat. De
@@ -951,9 +907,7 @@ finally {
 							opg13Boodschap = "Je mag alleen (decimale) getallen invoeren";
 						} finally {
 						}
-
 					}
-
 				}
 			%>
 			<!-- nieuwe rekenmachine -->
@@ -983,16 +937,14 @@ finally {
 						<div class="knop_container_2">
 							<input type="submit" name="functie" value="/">
 						</div>
-
 					</div>
 				</form>
 				<div id="reken_foutmelding">
 					<p class="foutboodschap"><%=opg13Boodschap%></p>
 				</div>
-
 			</div>
-
-
 		</div>
 	</div>
-	<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+</div>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+</html>

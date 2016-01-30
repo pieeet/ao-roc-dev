@@ -65,13 +65,13 @@ public class KalenderTabelServlet extends HttpServlet {
 
 			// Handle reservering
 		} else if (req.getParameter("reservering_knop") != null) {
+			
 			reserveringsDatum = new Datum(req.getParameter("datum"));
 			isBeschikbaar = admin.checkBeschikbaar(kamer, reserveringsDatum);
 			emailUser = req.getUserPrincipal().toString();
 			Reservering reservering = new Reservering(kamer, reserveringsDatum,
 					emailUser);
-			reserveringsBoodschap = admin.maakReservering(reservering,
-					isBeschikbaar);
+			reserveringsBoodschap = admin.maakReservering(reservering);
 		}
 		kalender = new Kalender(kalenderMaand);
 		PrintWriter out = resp.getWriter();
@@ -93,8 +93,8 @@ public class KalenderTabelServlet extends HttpServlet {
 		String div = "<div id=\"kalender_maandkiezer\">";
 		div += "<h3>" + kamer.getNaam() + "</h3>";
 		div += "<button type=\"button\" id=\"vorige\" value=\"&lt;\">&lt;</button>";
-		div += "<label>" + kalenderMaand.getMaandString() + "</label>";
-		div += "<label>" + kalenderMaand.getJaar() + "</label>";
+		div += "<label id=\"maandkiezer_maand\">" + kalenderMaand.getMaandString() + " ";
+		div += kalenderMaand.getJaar() +"</label>";
 		div += "<button type=\"button\" id=\"volgende\" value=\"&gt;\">&gt;</button>";
 		div += "<input type=\"hidden\" id=\"maand_verborgen\" value=\""
 				+ kalenderMaand.getMaand() + "\">";

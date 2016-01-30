@@ -1,39 +1,39 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
-<%@ include file="/AO/android/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 
-<div class="col-md-9">
+	<div class="col-md-9">
 
-	<h2>Tabs en custom adapters</h2>
+		<h2>Tabs en custom adapters</h2>
 
-	<!-- Leerdoelen -->
-	<div class="bs-callout bs-callout-warning">
-		<h2>Leerdoelen</h2>
-		<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
-			je:</p>
-		<ul>
-			<li>weet hoe je een tablayout met een viewpager kunt maken</li>
-			<li>weet hoe je in een tablayout met fragments en listviews
-				werkt</li>
-			<li>weet hoe je een custom adapter kunt maken</li>
-			<li>weet hoe je een layout klasse maakt</li>
-			<li>weet hoe je een adapter voor een pager maakt</li>
-			<li>weet hoe je listeners aan een tablayout en een pager koppelt</li>
-			<li>weet hoe je iconen aan een menu toevoegt en de
-				onOptionsItemSelected methode gebruikt</li>
-		</ul>
-	</div>
-	<p>In het vorige hoofdstuk hebben we de database en business
-		klassen voor een takenlijst app geschreven. In dit hoofdstuk gaan we
-		deze klassen gebruiken om de data op een user interface te vertonen.
-		We gaan dit doen met behulp van een TabLayout.
-	</p>
-	<h3>Tabs gebruiken</h3>
-	<p>Allereerst gaan we een TabLayout gebruiken in combinatie met een
-		zogenaamde ViewPager. Je kunt hiervoor de volgende code in de
-		content_main.xml layout gebruiken:</p>
-	<pre class="code">
+		<!-- Leerdoelen -->
+		<div class="bs-callout bs-callout-warning">
+			<h2>Leerdoelen</h2>
+			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
+				je:</p>
+			<ul>
+				<li>weet hoe je een tablayout met een viewpager kunt maken</li>
+				<li>weet hoe je in een tablayout met fragments en listviews
+					werkt</li>
+				<li>weet hoe je een custom adapter kunt maken</li>
+				<li>weet hoe je een layout klasse maakt</li>
+				<li>weet hoe je een adapter voor een pager maakt</li>
+				<li>weet hoe je listeners aan een tablayout en een pager
+					koppelt</li>
+				<li>weet hoe je iconen aan een menu toevoegt en de
+					onOptionsItemSelected methode gebruikt</li>
+			</ul>
+		</div>
+		<p>In het vorige hoofdstuk hebben we de database en business
+			klassen voor een takenlijst app geschreven. In dit hoofdstuk gaan we
+			deze klassen gebruiken om de data op een user interface te vertonen.
+			We gaan dit doen met behulp van een TabLayout.</p>
+		<h3>Tabs gebruiken</h3>
+		<p>Allereerst gaan we een TabLayout gebruiken in combinatie met
+			een zogenaamde ViewPager. Je kunt hiervoor de volgende code in de
+			content_main.xml layout gebruiken:</p>
+		<pre class="code">
 <span class="comment">&lt;!-- content_main.xml --&gt;</span>
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -63,16 +63,16 @@
 &lt;/RelativeLayout&gt;
 	</pre>
 
-	<h3>De tablayout maken</h3>
-	<p>De tablayout en viewpager kun je in je java klasse op de
-		gebruikelijke manier opvragen. Om de tabs namen te kunnen geven hebben
-		we de lijstnamen nodig die in de database zijn opgeslagen. We hebben
-		dus ook een TakenlijstDB object nodig. Met behulp van dit object
-		vragen we een ArrayList met de lijsten op. Met behulp van een for each
-		loop kun je per lijst de naam opvragen waarmee je de teksten van de
-		tabs maakt.</p>
+		<h3>De tablayout maken</h3>
+		<p>De tablayout en viewpager kun je in je java klasse op de
+			gebruikelijke manier opvragen. Om de tabs namen te kunnen geven
+			hebben we de lijstnamen nodig die in de database zijn opgeslagen. We
+			hebben dus ook een TakenlijstDB object nodig. Met behulp van dit
+			object vragen we een ArrayList met de lijsten op. Met behulp van een
+			for each loop kun je per lijst de naam opvragen waarmee je de teksten
+			van de tabs maakt.</p>
 
-	<pre class="code">
+		<pre class="code">
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private TakenlijstDB db;
@@ -97,20 +97,20 @@ public class MainActivity extends AppCompatActivity {
     <span class="comment">// overige code</span>
 }
 	</pre>
-	<h3>De ViewPager</h3>
-	<p>
-		Met een <a
-			href="http://developer.android.com/training/animation/screen-slide.html"
-			target="_blank">ViewPager</a> kun je de tab schermen maken en van tab
-		wisselen. Voor we de pager maken, maken we eerst een layout en een
-		klasse die de inhoud van de tabs weergeven. De layout heeft een
-		verticale linear layout met daarin een ListView om de taken in een
-		lijst weer te geven. De klasse is een uitbreiding van <a
-			href="http://developer.android.com/guide/components/fragments.html"
-			target="_blank">Fragment</a>.
-	</p>
+		<h3>De ViewPager</h3>
+		<p>
+			Met een <a
+				href="http://developer.android.com/training/animation/screen-slide.html"
+				target="_blank">ViewPager</a> kun je de tab schermen maken en van
+			tab wisselen. Voor we de pager maken, maken we eerst een layout en
+			een klasse die de inhoud van de tabs weergeven. De layout heeft een
+			verticale linear layout met daarin een ListView om de taken in een
+			lijst weer te geven. De klasse is een uitbreiding van <a
+				href="http://developer.android.com/guide/components/fragments.html"
+				target="_blank">Fragment</a>.
+		</p>
 
-	<pre class="code">
+		<pre class="code">
 <span class="comment">&lt;!-- fragment_takenlijst.xml --&gt;</span>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 </pre>
 
 
-	<pre class="code">
+		<pre class="code">
 public class TakenlijstFragment extends Fragment {
     ListView taakListView;
     int tabPos;
@@ -148,7 +148,7 @@ public class TakenlijstFragment extends Fragment {
 
         <span class="comment">// referentie naar de ListView in de layout</span>
         taakListView = (ListView) view.findViewById (R.id.<span
-			class="codeplus">takenlijst_listView</span>);
+				class="codeplus">takenlijst_listView</span>);
         verversTakenlijst();
         return view;
     }
@@ -173,18 +173,18 @@ public class TakenlijstFragment extends Fragment {
 
 }
 	</pre>
-	<h3>Een custom adapter maken</h3>
-	<p>Nadat de app een lijst met taken uit de databse heeft geladen,
-		moeten deze taken worden vertoond op de user interface. In vorige
-		hoofdstukken hebben we daarvoor een simple adapter gebruikt. Aangezien
-		een taak een checkbox heeft die een taak als voltooid markeert, moeten
-		we een custom adapter maken.</p>
+		<h3>Een custom adapter maken</h3>
+		<p>Nadat de app een lijst met taken uit de databse heeft geladen,
+			moeten deze taken worden vertoond op de user interface. In vorige
+			hoofdstukken hebben we daarvoor een simple adapter gebruikt.
+			Aangezien een taak een checkbox heeft die een taak als voltooid
+			markeert, moeten we een custom adapter maken.</p>
 
-	<h4>De layout voor een taak item in de list view</h4>
-	<p>Gebruik onderstaande code om een taak item voor de list view te
-		maken:</p>
+		<h4>De layout voor een taak item in de list view</h4>
+		<p>Gebruik onderstaande code om een taak item voor de list view te
+			maken:</p>
 
-	<pre class="code">
+		<pre class="code">
 <span class="comment">&lt;!-- listview_taak.xml --&gt;</span>
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -222,15 +222,15 @@ public class TakenlijstFragment extends Fragment {
 &lt;/RelativeLayout&gt;	
 	</pre>
 
-	<h4>Een klasse voor een layout</h4>
-	<p>
-		Als een layout voor een List View widget complexe widgets als
-		checkboxes bevat kun je als volgt een subklasse maken van een
-		layoutklasse zoals <a
-			href="http://developer.android.com/reference/android/widget/RelativeLayout.html"
-			target="_blank">RelativeLayout</a>.
-	</p>
-	<pre class="code">
+		<h4>Een klasse voor een layout</h4>
+		<p>
+			Als een layout voor een List View widget complexe widgets als
+			checkboxes bevat kun je als volgt een subklasse maken van een
+			layoutklasse zoals <a
+				href="http://developer.android.com/reference/android/widget/RelativeLayout.html"
+				target="_blank">RelativeLayout</a>.
+		</p>
+		<pre class="code">
 public class TaakLayout <span class="codeplus">extends RelativeLayout</span> implements View.OnClickListener {
     private CheckBox checkBox;
     private TextView naamTextView;
@@ -305,30 +305,30 @@ public class TaakLayout <span class="codeplus">extends RelativeLayout</span> imp
     }
 }
 	</pre>
-	<h4>De custom adapter</h4>
-	<p>
-		Gebruik onderstaande code om een adapter klasse te maken die een
-		subklasse is van de <a
-			href="http://developer.android.com/reference/android/widget/BaseAdapter.html"
-			target="_blank">BaseAdapter</a> klasse. De klasse heeft twee
-		object-variabelen: de context en een ArrayList van taak objecten.
-		Beiden attributen krijgen hun waarde als de constructor wordt
-		aangeroepen.
-	</p>
-	<p>Na de constructor worden er 4 methoden van de Adapter klasse
-		vervangen: (1) getCount(), (2) getItem(), (3) getItemId() en (4)
-		getView(). Deze methoden zijn nodig om de taken in een ListView widget
-		te plaatsen.</p>
-	<p>De eerste drie zijn gemakkelijk te begrijpen. getCount() geeft
-		het aantal items in de lijst. De getItem() methode geeft een Taak
-		object op de gespecificeerde positie in de lijst terug. De methode
-		getItemId() geeft het id van het item terug. Het item id is in dit
-		geval hetzelfde als de positie in de lijst. De vierde methode geeft
-		een TaakLayout object terug zoals die in de vorige klasse is
-		gedefinieerd.</p>
+		<h4>De custom adapter</h4>
+		<p>
+			Gebruik onderstaande code om een adapter klasse te maken die een
+			subklasse is van de <a
+				href="http://developer.android.com/reference/android/widget/BaseAdapter.html"
+				target="_blank">BaseAdapter</a> klasse. De klasse heeft twee
+			object-variabelen: de context en een ArrayList van taak objecten.
+			Beiden attributen krijgen hun waarde als de constructor wordt
+			aangeroepen.
+		</p>
+		<p>Na de constructor worden er 4 methoden van de Adapter klasse
+			vervangen: (1) getCount(), (2) getItem(), (3) getItemId() en (4)
+			getView(). Deze methoden zijn nodig om de taken in een ListView
+			widget te plaatsen.</p>
+		<p>De eerste drie zijn gemakkelijk te begrijpen. getCount() geeft
+			het aantal items in de lijst. De getItem() methode geeft een Taak
+			object op de gespecificeerde positie in de lijst terug. De methode
+			getItemId() geeft het id van het item terug. Het item id is in dit
+			geval hetzelfde als de positie in de lijst. De vierde methode geeft
+			een TaakLayout object terug zoals die in de vorige klasse is
+			gedefinieerd.</p>
 
 
-	<pre class="code">
+		<pre class="code">
 public class TakenlijstAdapter extends BaseAdapter {
     private Context context;
     private ArrayList&lt;Taak&gt; taken;
@@ -367,10 +367,11 @@ public class TakenlijstAdapter extends BaseAdapter {
     }
 }
 	</pre>
-	<h4>De adapter in de TakenlijstFragment klasse gebruiken</h4>
-	<p>We kunnen nu de adapter gebruiken om de verversTakenlijst
-		methode in de eerder gemaakte TakenlijstFragment klasse aan te vullen:</p>
-	<pre class="code">
+		<h4>De adapter in de TakenlijstFragment klasse gebruiken</h4>
+		<p>We kunnen nu de adapter gebruiken om de verversTakenlijst
+			methode in de eerder gemaakte TakenlijstFragment klasse aan te
+			vullen:</p>
+		<pre class="code">
     public void verversTakenlijst() {
 
         <span class="comment">//get takenlijst voor huidige tab</span>
@@ -384,22 +385,22 @@ public class TakenlijstAdapter extends BaseAdapter {
         <span class="codeplus">taakListView.setAdapter(adapter)</span>;
     }	
 	</pre>
-	<h4>De adapter voor de pager maken</h4>
-	<p>
-		De pager in MainActivity moet er voor zorgen dat in iedere tab een
-		TakenlijstFragment wordt getoond dat overeenkomt met de betreffende
-		takenlijst. Nu we alle bouwstenen hebben gemaakt kunnen we een adapter
-		voor de pager maken. De adapter is een subklasse van <a
-			href="http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html"
-			target="_blank">FragmentStatePagerAdapter</a>. De adapter heeft twee
-		attributen: het aantal tabs en een <a
-			href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html"
-			target="_blank">HashMap</a> waar key-value paren in kunnen worden
-		opgeslagen. Hierin worden de fragmenten opgeslagen waarbij de tab
-		positie als key wordt gebruikt (zie code).
-	</p>
+		<h4>De adapter voor de pager maken</h4>
+		<p>
+			De pager in MainActivity moet er voor zorgen dat in iedere tab een
+			TakenlijstFragment wordt getoond dat overeenkomt met de betreffende
+			takenlijst. Nu we alle bouwstenen hebben gemaakt kunnen we een
+			adapter voor de pager maken. De adapter is een subklasse van <a
+				href="http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html"
+				target="_blank">FragmentStatePagerAdapter</a>. De adapter heeft twee
+			attributen: het aantal tabs en een <a
+				href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html"
+				target="_blank">HashMap</a> waar key-value paren in kunnen worden
+			opgeslagen. Hierin worden de fragmenten opgeslagen waarbij de tab
+			positie als key wordt gebruikt (zie code).
+		</p>
 
-	<pre class="code">
+		<pre class="code">
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int aantalTabs;
     HashMap&lt;Integer, TakenlijstFragment&gt; fragmenten = new HashMap&lt;&gt;();
@@ -428,11 +429,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
 }	
 	</pre>
-	<h4>De pager adapter gebruiken</h4>
-	<p>Maak in MainActivity een object van de pager adapter en koppel
-		hem aan de pager. Onderstaande code toont de gehele MainActivity
-		klasse.</p>
-	<pre class="code">
+		<h4>De pager adapter gebruiken</h4>
+		<p>Maak in MainActivity een object van de pager adapter en koppel
+			hem aan de pager. Onderstaande code toont de gehele MainActivity
+			klasse.</p>
+		<pre class="code">
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     TakenlijstDB db;
@@ -528,17 +529,17 @@ public class MainActivity extends AppCompatActivity {
     }
 }	
 	</pre>
-	<h3>Het menu maken</h3>
-	<p>
-		In de menubalk van de main activity moeten twee iconen komen: een
-		prullenbak die er voor zorgt dat de voltooide items uit de lijst
-		worden gehaald en een plus icoon waarmee de activity voor het maken
-		van een nieuw taak wordt gestart. De gebruikte iconen kun je <a
-			href="https://www.google.com/design/icons/index.html#ic_delete"
-			target="_blank">hier</a> vinden
-	</p>
+		<h3>Het menu maken</h3>
+		<p>
+			In de menubalk van de main activity moeten twee iconen komen: een
+			prullenbak die er voor zorgt dat de voltooide items uit de lijst
+			worden gehaald en een plus icoon waarmee de activity voor het maken
+			van een nieuw taak wordt gestart. De gebruikte iconen kun je <a
+				href="https://www.google.com/design/icons/index.html#ic_delete"
+				target="_blank">hier</a> vinden
+		</p>
 
-	<pre class="code">
+		<pre class="code">
 &lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
     xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
     xmlns:tools=&quot;http://schemas.android.com/tools&quot; tools:context=&quot;.MainActivity&quot;&gt;
@@ -561,11 +562,11 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;/menu&gt;
 	</pre>
-	<p>De volgende code in de methode onOptionsItemSelected van
-		MainActivity zorgt er voor dat de voltooide taken uit de lijst worden
-		gehaald:</p>
+		<p>De volgende code in de methode onOptionsItemSelected van
+			MainActivity zorgt er voor dat de voltooide taken uit de lijst worden
+			gehaald:</p>
 
-	<pre class="code">
+		<pre class="code">
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -596,18 +597,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }	
 	</pre>
-	<h3>Een taak toevoegen of wijzigen</h3>
-	<p>Om nieuwe taken toe te voegen of bestaande taken te wijzigen
-		moeten we een nieuwe Activity maken. De activity gebruikt een spinner
-		om de lijst te kiezen waar de taak onder valt. Vervolgens zijn er twee
-		EditText views waar gebruiker tekst in kan voeren. In de menu balk zie
-		je twee iconen; een vinkje om de taak toe te voegen en een kruisje om
-		te annuleren.</p>
+		<h3>Een taak toevoegen of wijzigen</h3>
+		<p>Om nieuwe taken toe te voegen of bestaande taken te wijzigen
+			moeten we een nieuwe Activity maken. De activity gebruikt een spinner
+			om de lijst te kiezen waar de taak onder valt. Vervolgens zijn er
+			twee EditText views waar gebruiker tekst in kan voeren. In de menu
+			balk zie je twee iconen; een vinkje om de taak toe te voegen en een
+			kruisje om te annuleren.</p>
 
-	<img src="/AO/android/H10/taak_toevoegen.png">
+		<img src="/AO/android/H10/taak_toevoegen.png">
 
 
-	<pre class="code">
+		<pre class="code">
 <span class="comment">//content_add_edit.xml</span>
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -649,13 +650,13 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;/LinearLayout&gt;
 	</pre>
-	<h4>De spinner</h4>
-	<img src="/AO/android/H10/spinner.png">
-	<p>De layout van de activity gebruikt een custom layout voor de
-		spinner. Deze wordt gebruikt om de lijstnamen in de spinner te tonen.
-		Hiervoor wordt een TextView met een zwarte tekstkleur en een
-		tekstgrootte van 18 sp gebruikt.</p>
-	<pre class="code">
+		<h4>De spinner</h4>
+		<img src="/AO/android/H10/spinner.png">
+		<p>De layout van de activity gebruikt een custom layout voor de
+			spinner. Deze wordt gebruikt om de lijstnamen in de spinner te tonen.
+			Hiervoor wordt een TextView met een zwarte tekstkleur en een
+			tekstgrootte van 18 sp gebruikt.</p>
+		<pre class="code">
 <span class="comment">//spinner_list.xml</span>
 	
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -668,11 +669,11 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;/TextView&gt;	
 	</pre>
-	<h4>De layout voor het menu</h4>
-	<p>Ook hier moeten in de menu-balk twee iconen komen die er voor
-		zorgen dat de nieuwe of gewijzigde taak wordt bewaard of die de actie
-		cancelled. De layout zit in de map menu.</p>
-	<pre class="code">
+		<h4>De layout voor het menu</h4>
+		<p>Ook hier moeten in de menu-balk twee iconen komen die er voor
+			zorgen dat de nieuwe of gewijzigde taak wordt bewaard of die de actie
+			cancelled. De layout zit in de map menu.</p>
+		<pre class="code">
 <span class="comment">// menu/activity_add_edit.xml</span>	
 	
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -692,21 +693,21 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;/menu&gt;	
 	</pre>
-	<h4>De AddEditActivity klasse</h4>
-	<p>Onderstaande code toont de AddEditActivity klasse. De klasse
-		maakt gebruik van de database klasse om de namen van de lijsten op te
-		halen en in de spinner te tonen.</p>
-	<p>Om te bepalen of het om een bestaande taak gaat die gewijzigd
-		moet worden of om een nieuwe taak is er een boolean variabele editMode
-		gemaakt die op true wordt gezet als het om een bestaande taak en op
-		false als het om een nieuwe taak gaat. In het eerste geval wordt de
-		taak eerst uit de database gehaald en worden de EditText views en de
-		spinner gevuld met de bestaande data, in het tweede geval wordt er een
-		nieuwe taak gemaakt. Om te weten of het om een bestaande of een nieuwe
-		taak gaan we straks informatie aan de intent meegeven (met de putExtra
-		methode) waarmee de activity wordt gestart.</p>
+		<h4>De AddEditActivity klasse</h4>
+		<p>Onderstaande code toont de AddEditActivity klasse. De klasse
+			maakt gebruik van de database klasse om de namen van de lijsten op te
+			halen en in de spinner te tonen.</p>
+		<p>Om te bepalen of het om een bestaande taak gaat die gewijzigd
+			moet worden of om een nieuwe taak is er een boolean variabele
+			editMode gemaakt die op true wordt gezet als het om een bestaande
+			taak en op false als het om een nieuwe taak gaat. In het eerste geval
+			wordt de taak eerst uit de database gehaald en worden de EditText
+			views en de spinner gevuld met de bestaande data, in het tweede geval
+			wordt er een nieuwe taak gemaakt. Om te weten of het om een bestaande
+			of een nieuwe taak gaan we straks informatie aan de intent meegeven
+			(met de putExtra methode) waarmee de activity wordt gestart.</p>
 
-	<pre class="code">
+		<pre class="code">
 public class AddEditActivity extends AppCompatActivity
         implements View.OnKeyListener {
 
@@ -834,13 +835,13 @@ public class AddEditActivity extends AppCompatActivity
     }
 }
 	</pre>
-	<h4>De AddEditActivity starten met intents</h4>
-	<p>De AddEditActivit moet worden geopend als gebruiker vanaf de
-		MainActivity op het + icoontje klikt of als hij op een bestaande taak
-		klikt. Vul de onOptionsItemSelected methode in de MainActivity klasse
-		als volgt aan:</p>
+		<h4>De AddEditActivity starten met intents</h4>
+		<p>De AddEditActivit moet worden geopend als gebruiker vanaf de
+			MainActivity op het + icoontje klikt of als hij op een bestaande taak
+			klikt. Vul de onOptionsItemSelected methode in de MainActivity klasse
+			als volgt aan:</p>
 
-	<pre class="code">
+		<pre class="code">
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         
@@ -876,15 +877,15 @@ public class AddEditActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 	</pre>
-	<p>
-		In de TaakLayout klasse kun je aan de onClick methode nu de volgende
-		code toevoegen die zorgt dat AddEditActivity wordt gestart met een
-		bestaande taak. Hiervoor wordt de taakId aan het intent meegegeven met
-		de putExtra methode. Ook wordt een boolean variabele <em>editmode</em>
-		meegegeven zodat we weten dat het om een bestaande taak gaat.
-	</p>
+		<p>
+			In de TaakLayout klasse kun je aan de onClick methode nu de volgende
+			code toevoegen die zorgt dat AddEditActivity wordt gestart met een
+			bestaande taak. Hiervoor wordt de taakId aan het intent meegegeven
+			met de putExtra methode. Ook wordt een boolean variabele <em>editmode</em>
+			meegegeven zodat we weten dat het om een bestaande taak gaat.
+		</p>
 
-	<pre class="code">
+		<pre class="code">
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -905,6 +906,7 @@ public class AddEditActivity extends AppCompatActivity
         }
     }	
 	</pre>
-
+	</div>
 </div>
 <%@ include file="/AO/android/includes/bottom.html"%>
+</html>

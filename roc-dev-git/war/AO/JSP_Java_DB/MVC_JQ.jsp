@@ -445,89 +445,89 @@ public class RekenmachineServlet extends HttpServlet {
 
 		</div>
 	</div>
-	<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
-	<script>
-		$(document).ready(
-				function() {
+</div>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+<style>
+	#reservering_datum, #maandkiezer_maand {
+		width: 20em;
+		text-align: center;
+	}
+</style>
+<script>
+	$(document).ready(
+			function() {
 
-					$(document).on(
-							'click',
-							'#vorige',
-							function() {
+				$(document).on(
+						'click',
+						'#vorige',
+						function() {
 
-								var sleutel = $("#kamer_verborgen").val();
+							var sleutel = $("#kamer_verborgen").val();
+							var maand = $("#maand_verborgen").val();
+							var jaar = $("#jaar_verborgen").val();
+
+							$.get("/kalendertabel?vorige=x&sleutel=" + sleutel
+									+ "&maand=" + maand + "&jaar=" + jaar,
+									function(responseText) {
+										$("#kalender_container").html(
+												responseText);
+									});
+						});
+
+				$(document).on(
+						'click',
+						'#volgende',
+						function() {
+							var sleutel = $("#kamer_verborgen").val();
+							var maand = $("#maand_verborgen").val();
+							var jaar = $("#jaar_verborgen").val();
+
+							$.get("/kalendertabel?volgende=x&sleutel="
+									+ sleutel + "&maand=" + maand + "&jaar="
+									+ jaar, function(responseText) {
+								$('#kalender_container').html(responseText);
+							});
+						});
+
+				$(document).on(
+						'click',
+						'#reservering_knop',
+						function() {
+							var sleutel = $("#kamer_verborgen").val();
+							var datum = $("#reservering_datum").val();
+							var maand = $("#maand_verborgen").val();
+							var jaar = $("#jaar_verborgen").val();
+							$.get("/kalendertabel?reservering_knop=x&datum="
+									+ datum + "&maand=" + maand + "&jaar="
+									+ jaar + "&sleutel=" + sleutel, function(
+									responseText) {
+								$('#kalender_container').html(responseText);
+							});
+						});
+
+				$("#kiesKamerKnop").click(
+						function() {
+							var sleutel = $("#kamer_bij_keuzekamer").val();
+							if ($("#maand_verborgen").length) {
 								var maand = $("#maand_verborgen").val();
 								var jaar = $("#jaar_verborgen").val();
-
-								$.get("/kalendertabel?vorige=x&sleutel="
+								$.get("/kalendertabel?kiesKamerKnop=x&sleutel="
 										+ sleutel + "&maand=" + maand
 										+ "&jaar=" + jaar,
 										function(responseText) {
 											$("#kalender_container").html(
 													responseText);
 										});
-							});
-
-					$(document).on(
-							'click',
-							'#volgende',
-							function() {
-								var sleutel = $("#kamer_verborgen").val();
-								var maand = $("#maand_verborgen").val();
-								var jaar = $("#jaar_verborgen").val();
-
-								$.get("/kalendertabel?volgende=x&sleutel="
-										+ sleutel + "&maand=" + maand
-										+ "&jaar=" + jaar,
+							} else {
+								$.get("/kalendertabel?kiesKamerKnop=x&sleutel="
+										+ sleutel,
 										function(responseText) {
-											$('#kalender_container').html(
+											$("#kalender_container").html(
 													responseText);
 										});
-							});
+							}
+						});
 
-					$(document).on(
-							'click',
-							'#reservering_knop',
-							function() {
-								var sleutel = $("#kamer_verborgen").val();
-								var datum = $("#reservering_datum").val();
-								var maand = $("#maand_verborgen").val();
-								var jaar = $("#jaar_verborgen").val();
-								$.get(
-										"/kalendertabel?reservering_knop=x&datum="
-												+ datum + "&maand=" + maand
-												+ "&jaar=" + jaar + "&sleutel="
-												+ sleutel, function(
-												responseText) {
-											$('#kalender_container').html(
-													responseText);
-										});
-							});
-
-					$("#kiesKamerKnop").click(
-							function() {
-								var sleutel = $("#kamer_bij_keuzekamer").val();
-								if ($("#maand_verborgen").length) {
-									var maand = $("#maand_verborgen").val();
-									var jaar = $("#jaar_verborgen").val();
-									$.get(
-											"/kalendertabel?kiesKamerKnop=x&sleutel="
-													+ sleutel + "&maand="
-													+ maand + "&jaar=" + jaar,
-											function(responseText) {
-												$("#kalender_container").html(
-														responseText);
-											});
-								} else {
-									$.get(
-											"/kalendertabel?kiesKamerKnop=x&sleutel="
-													+ sleutel, function(
-													responseText) {
-												$("#kalender_container").html(
-														responseText);
-											});
-								}
-							});
-
-				});
-	</script>
+			});
+</script>
+</html>

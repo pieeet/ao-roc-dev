@@ -456,5 +456,6 @@ public class Overzicht extends Applet {
 		</div>
 
 	</div>
-
-	<%@ include file="/AO/BlueJ/includes/bottom.html"%>
+</div>
+<%@ include file="/AO/BlueJ/includes/bottom.html"%>
+</html>

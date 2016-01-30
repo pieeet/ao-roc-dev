@@ -16,7 +16,7 @@
 				<li>Eclipse met de App Engine plugin hebt ge&iuml;nstalleerd</li>
 				<li>jsp pagina&#39;s in Eclipse kunt maken</li>
 				<li>weet hoe je java code schrijft tussen de jsp tags <span
-					class="jsp"><b>&lt;%</span></b> en <span class="jsp"><b>%&gt;</b></span></li>
+					class="jsp"><b>&lt;%</b></span> en <span class="jsp"><b>%&gt;</b></span></li>
 				<li>weet hoe je de jsp expressie <b><span class="jsp">&lt;%=</span>
 						variabele <span class="jsp">%&gt;</span></b> in je html code gebruikt
 				</li>
@@ -38,12 +38,10 @@
 		<img src="/AO/JSP_Java_DB/images/jsp.png">
 		<h3>Benodigde voorkennis</h3>
 		<p>
-			Uitgangspunt is dat je de cursussen <a
-				href="/AO/inleiding-java/h1" target="_blank">Inleiding
-				Java</a>, <a href="/AO/BlueJ/intro"
-				target="_blank">BlueJ</a> en <a
-				href="/AO/htmlcss/h1" target="_blank">HTML/CSS</a>
-			hebt voltooid.
+			Uitgangspunt is dat je de cursussen <a href="/AO/inleiding-java/h1"
+				target="_blank">Inleiding Java</a>, <a href="/AO/BlueJ/intro"
+				target="_blank">BlueJ</a> en <a href="/AO/htmlcss/h1"
+				target="_blank">HTML/CSS</a> hebt voltooid.
 		</p>
 
 		<h3>Ontwikkelomgeving</h3>
@@ -351,7 +349,7 @@ int jaar = dag * 365;
 			<p>
 				<span class="letop">Tip:</span> Maak gebruik van de Java klasse <a
 					href="http://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html"
-					target=_"blank"> Calendar</a>. Maak een instantie van Calendar door
+					target="_blank"> Calendar</a>. Maak een instantie van Calendar door
 				de <em>static</em> methode Calendar.<a
 					href="http://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html#getInstance()">getInstance()</a>
 				aan te roepen. Dit levert de huidige datum/tijd op. Om het uur van
@@ -800,13 +798,9 @@ long maxWaarde = 900000000000000000L;
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-
-
 			</div>
-
-
 		</div>
-
-
 	</div>
-	<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+</div>
+<%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+</html>

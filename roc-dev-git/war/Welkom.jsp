@@ -48,5 +48,6 @@
 			</div>
 		</div>
 	</div>
-<%@ include file="/includes/bottom-home.html"%>	
-</body>
+</div>
+<%@ include file="/includes/bottom-home.html"%>
+</html>

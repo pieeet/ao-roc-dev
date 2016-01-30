@@ -41,7 +41,7 @@
 			uitgebreide Engelstalige tutorial van BlueJ.</p>
 					
 	</div>
-
+</div>
 <%@ include file="/AO/BlueJ/includes/bottom.html" %>
-	
+</html>
 

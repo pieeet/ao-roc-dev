@@ -1,86 +1,115 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
-<%@ include file="/AO/android/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
-      
-      <div class="col-md-9">
-      	<h2>6 RSS Reader</h2>
-  
-        <!-- Leerdoelen -->
-        <div class="bs-callout bs-callout-warning">
-        	<h2>Leerdoelen</h2>
-			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat je:
+
+	<div class="col-md-9">
+		<h2>6 RSS Reader</h2>
+
+		<!-- Leerdoelen -->
+		<div class="bs-callout bs-callout-warning">
+			<h2>Leerdoelen</h2>
+			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
+				je:
 			<ul>
-				<li>weet wat een RSS feed is en hoe je die kunt gebruiken om artikelen van een bron te publiceren in een 
-				RSS reader</li>
+				<li>weet wat een RSS feed is en hoe je die kunt gebruiken om
+					artikelen van een bron te publiceren in een RSS reader</li>
 				<li>weet wat een thread is</li>
-				<li>weet wanneer je naast de UI thread een andere thread moet starten</li>
-				<li>weet hoe je vanuit een activity een thread kunt starten door een subklasse te maken van de klasse AsyncTask</li>
-				<li>begrijpt hoe je <em>generics</em> gebruikt bij de definitie van de AsyncTask klasse zodat de klasse met verschillende 
-				typen objecten voor  1) de parameters, 2) de values en 3) de result kan werken</li>
-				<li>begrijpt hoe je input van het internet kunt downloaden en naar een bestand kan schrijven</li>
+				<li>weet wanneer je naast de UI thread een andere thread moet
+					starten</li>
+				<li>weet hoe je vanuit een activity een thread kunt starten
+					door een subklasse te maken van de klasse AsyncTask</li>
+				<li>begrijpt hoe je <em>generics</em> gebruikt bij de definitie
+					van de AsyncTask klasse zodat de klasse met verschillende typen
+					objecten voor 1) de parameters, 2) de values en 3) de result kan
+					werken
+				</li>
+				<li>begrijpt hoe je input van het internet kunt downloaden en
+					naar een bestand kan schrijven</li>
 				<li>begrijpt hoe je xml bestanden kunt lezen</li>
-				<li>weet hoe je de SimpleAdapter klasse gebruikt om data in een ListView object te tonen</li>
-				<li>weet hoe je met behulp van een intent een nieuwe activity start en aan het intent object data kunt toevoegen 
-				met de putExtra methode</li>
-				<li>weet hoe je de data van een intent kunt opvragen met getXxxExtra methoden</li>
-				<li>weet hoe je vanuit je app de standaard browser en de telefoon-app kunt starten</li>
-				
-				
+				<li>weet hoe je de SimpleAdapter klasse gebruikt om data in een
+					ListView object te tonen</li>
+				<li>weet hoe je met behulp van een intent een nieuwe activity
+					start en aan het intent object data kunt toevoegen met de putExtra
+					methode</li>
+				<li>weet hoe je de data van een intent kunt opvragen met
+					getXxxExtra methoden</li>
+				<li>weet hoe je vanuit je app de standaard browser en de
+					telefoon-app kunt starten</li>
+
+
 			</ul>
-        </div>
-        
-        <p>In dit hoofdstuk maken we een begin met een app die  een 
-        <a href="http://nl.wikipedia.org/wiki/Really_Simple_Syndication" target="_blank">RSS feed</a> vertoont. De app toont een overzicht van 
-        recente artikelen van de bron. Als je op een artikel klikt krijg je een korte samenvatting te zien. Van daaruit kun je het artikel openen met de 
-        standaard browser.</p>
-        <div class="img_met_bijschrift">
-        	<p>ItemsActivity</p>
-        	<img src="/AO/android/H6/items_activity.jpg">
-        </div>
-        <div class="img_met_bijschrift">
-        	<p>ItemActivity</p>
-        	<img src="/AO/android/H6/item_activity.jpg">
-        </div>
-        <div class="img_met_bijschrift">
-        	<p>Browser</p>
-        	<img src="/AO/android/H6/artikel.jpg">
-        </div>
-        
-        
-        
-        <p style="clear:left">De gebruikte feed kun je <a href="http://www.nrc.nl/tech/rss.php?n=np">hier</a> vinden. Je kunt uiteraard ook  een 
-         feed van een andere bron gebruiken. Een rss-feed is een 
-        xml bestand volgens een vaste structuur. Voor onze feed gebruiken we een beperkt aantal elementen uit het xml bron-bestand:</p>
-        <ul>
-        	<li>Binnen de <em>&lt;channel&gt;</em> tag:
-        	<ul>
-        		<li><em>&lt;title&gt;</em>: hiermee wordt de naam van de feed bovenin het scherm getoond</li></ul></li>
-        	<li>Binnen de <em>&lt;item&gt;</em> tag:
-        	<ul>
-        		<li><em>&lt;pubDate&gt;</em>: de datum/tijd van de publicatie</li>
-        		<li><em>&lt;title&gt;</em>: de titel van een item</li>
-        		<li><em>&lt;description&gt;</em>: De samenvatting van het artikel</li>
-        		<li><em>&lt;link&gt;</em>: de link naar het artikel</li>
-        	</ul>
-        	</li>
-        </ul>
-        <h2>De user interface (UI)</h2>
-        <p>De plaatjes hierboven tonen de user interface. Het startscherm - de Items Activity - toont de titel van de feed met 
-        daaronder een lijst van artikelen. 
-        Ieder artikel heeft een publikatiedatum en een titel.</p>
-        <p>Als gebruiker op een artikel klikt wordt de Item Activity van het artikel geopend die meer informatie geeft over het 
-        gekozen artikel. Deze activity heeft een titel, publicatiedatum, een beschrijving en een link naar het originele artikel. Als 
-        gebruiker op deze link klikt wordt de default browser van het toestel geopend. Dit vindt buiten de app plaats. Met de &quot;terug-knop&quot; 
-        kan de gebruiker terugkeren naar de app.</p>
-        
-        <p>Voor het scherm dat de lijst met items toont kun je een verticale linear layout gebruiken met daarbinnen een TextView voor 
-        de titel en een ListView voor de lijst met items. De uiteindelijke lijst wordt door java code aangemaakt.</p>
-        <p>Voor de items in de lijst maak je een aparte view. Ook deze krijgt een verticale linear layout.</p>
-        <p>Tot slot maak je een view die &eacute;&eacute;n item toont.</p>
-        
-        
-<pre class="code">
+		</div>
+
+		<p>
+			In dit hoofdstuk maken we een begin met een app die een <a
+				href="http://nl.wikipedia.org/wiki/Really_Simple_Syndication"
+				target="_blank">RSS feed</a> vertoont. De app toont een overzicht
+			van recente artikelen van de bron. Als je op een artikel klikt krijg
+			je een korte samenvatting te zien. Van daaruit kun je het artikel
+			openen met de standaard browser.
+		</p>
+		<div class="img_met_bijschrift">
+			<p>ItemsActivity</p>
+			<img src="/AO/android/H6/items_activity.jpg">
+		</div>
+		<div class="img_met_bijschrift">
+			<p>ItemActivity</p>
+			<img src="/AO/android/H6/item_activity.jpg">
+		</div>
+		<div class="img_met_bijschrift">
+			<p>Browser</p>
+			<img src="/AO/android/H6/artikel.jpg">
+		</div>
+
+
+
+		<p style="clear: left">
+			De gebruikte feed kun je <a
+				href="http://www.nrc.nl/tech/rss.php?n=np">hier</a> vinden. Je kunt
+			uiteraard ook een feed van een andere bron gebruiken. Een rss-feed is
+			een xml bestand volgens een vaste structuur. Voor onze feed gebruiken
+			we een beperkt aantal elementen uit het xml bron-bestand:
+		</p>
+		<ul>
+			<li>Binnen de <em>&lt;channel&gt;</em> tag:
+				<ul>
+					<li><em>&lt;title&gt;</em>: hiermee wordt de naam van de feed
+						bovenin het scherm getoond</li>
+				</ul></li>
+			<li>Binnen de <em>&lt;item&gt;</em> tag:
+				<ul>
+					<li><em>&lt;pubDate&gt;</em>: de datum/tijd van de publicatie</li>
+					<li><em>&lt;title&gt;</em>: de titel van een item</li>
+					<li><em>&lt;description&gt;</em>: De samenvatting van het
+						artikel</li>
+					<li><em>&lt;link&gt;</em>: de link naar het artikel</li>
+				</ul>
+			</li>
+		</ul>
+		<h2>De user interface (UI)</h2>
+		<p>De plaatjes hierboven tonen de user interface. Het startscherm
+			- de Items Activity - toont de titel van de feed met daaronder een
+			lijst van artikelen. Ieder artikel heeft een publikatiedatum en een
+			titel.</p>
+		<p>Als gebruiker op een artikel klikt wordt de Item Activity van
+			het artikel geopend die meer informatie geeft over het gekozen
+			artikel. Deze activity heeft een titel, publicatiedatum, een
+			beschrijving en een link naar het originele artikel. Als gebruiker op
+			deze link klikt wordt de default browser van het toestel geopend. Dit
+			vindt buiten de app plaats. Met de &quot;terug-knop&quot; kan de
+			gebruiker terugkeren naar de app.</p>
+
+		<p>Voor het scherm dat de lijst met items toont kun je een
+			verticale linear layout gebruiken met daarbinnen een TextView voor de
+			titel en een ListView voor de lijst met items. De uiteindelijke lijst
+			wordt door java code aangemaakt.</p>
+		<p>Voor de items in de lijst maak je een aparte view. Ook deze
+			krijgt een verticale linear layout.</p>
+		<p>Tot slot maak je een view die &eacute;&eacute;n item toont.</p>
+
+
+		<pre class="code">
 <span class="comment">&lt;!-- **** activity_items.xml **** --&gt;</span>
 
 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -107,7 +136,7 @@
 &lt;/LinearLayout&gt;
 </pre>
 
-<pre class="code">
+		<pre class="code">
 <span class="comment">&lt;!-- **** listview_item.xml **** --&gt;</span>
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -136,7 +165,7 @@
 
 </pre>
 
-<pre class="code">
+		<pre class="code">
 <span class="comment">&lt;!-- **** activity_item.xml **** --&gt;</span>
 
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -192,30 +221,34 @@
 
     &lt;/LinearLayout&gt;
 &lt;/ScrollView&gt;
-</pre>        
-        
-        
-        <div class="opdrachten">
-        	<h2>Opdracht 1</h2>
-        	<p>Maak de twee Activities en maak in je java klassen referenties naar de verschillende views.</p>
-        </div>
-        
-        
-        
-        <h2>Model</h2>
-        <p>Model klassen representeren dingen uit de werkelijkheid. Voor onze reader maken we een klasse RSSFeed en een klasse RSSItem 
-        met de attributen die we nodig hebben.</p>
-        
-        <h3>RSSFeed</h3>
-        <p>Benodigde attributen</p>
-        <ul>
-        	<li>de naam van de feed (het title element in de feed)</li>
-        	<li>een ArrayList met de RSSItems (de item elementen in de feed). Maak ook een methode<em>void addItem(RSSItem item)</em> die een 
-        	RSSItem kan toevoegen aan 
-        	de lijst en een methode <em>RSSItem getItem(int position)</em> die  een RSSItem met behulp van een parameter index nummer 
-        	uit de lijst haalt.</li>
-        </ul>
-<pre class="code">
+</pre>
+
+
+		<div class="opdrachten">
+			<h2>Opdracht 1</h2>
+			<p>Maak de twee Activities en maak in je java klassen referenties
+				naar de verschillende views.</p>
+		</div>
+
+
+
+		<h2>Model</h2>
+		<p>Model klassen representeren dingen uit de werkelijkheid. Voor
+			onze reader maken we een klasse RSSFeed en een klasse RSSItem met de
+			attributen die we nodig hebben.</p>
+
+		<h3>RSSFeed</h3>
+		<p>Benodigde attributen</p>
+		<ul>
+			<li>de naam van de feed (het title element in de feed)</li>
+			<li>een ArrayList met de RSSItems (de item elementen in de
+				feed). Maak ook een methode<em>void addItem(RSSItem item)</em> die
+				een RSSItem kan toevoegen aan de lijst en een methode <em>RSSItem
+					getItem(int position)</em> die een RSSItem met behulp van een parameter
+				index nummer uit de lijst haalt.
+			</li>
+		</ul>
+		<pre class="code">
 public class RSSFeed {
     private String title = null;
     private String pubDate = null;
@@ -256,17 +289,17 @@ public class RSSFeed {
         return items;
     }
 }
-</pre>        
-        <h3>RSSItem</h3>
-        <p>Benodigde attributen</p>
-        <ul>
-        	<li>title: de titel van het item</li>
-        	<li>pubDate: publicatiedatum</li>
-        	<li>description: de samenvatting</li>
-        	<li>link: de link naar het artikel op het web</li>
-        </ul>
-        
-<pre class="code">
+</pre>
+		<h3>RSSItem</h3>
+		<p>Benodigde attributen</p>
+		<ul>
+			<li>title: de titel van het item</li>
+			<li>pubDate: publicatiedatum</li>
+			<li>description: de samenvatting</li>
+			<li>link: de link naar het artikel op het web</li>
+		</ul>
+
+		<pre class="code">
 public class RSSItem {
 
     private String title = null;
@@ -307,61 +340,89 @@ public class RSSItem {
         return pubDate;
     }
 }
-</pre>        
-        
-        
+</pre>
 
-        
-        
-        
-        <h2>Threads</h2>
-        <p>De app leest data uit het xml bestand dat van het internet wordt binnengehaald. De data wordt opgeslagen in een bestand dat vervolgens 
-        door de app wordt gelezen. In een Android app moet je taken als deze in een thread uitvoeren zodat de user interface niet &quot;bevriest&quot;.</p>
-        
-        <h3>De werking van threads</h3>
-        <p>Standaard werkt een Android app met &eacute;&eacute;n thread: de &quot;UI thread&quot;. Deze thread toont de user interface die wacht op 
-        (luistert naar) 
-         events die plaatsvinden als gebruiker iets doet. De user interface hoort altijd te reageren op een handeling. Je wilt dus 
-        niet dat de gebruiker moet wachten tot een bepaalde taak is uitgevoerd. Tijdrovende taken zoals het ophalen en verwerken van data horen dus 
-        in een aparte thread plaats te vinden.</p>
-        <img src="/AO/android/H6/thread.png">
-        
-        <h3>Asynchrone taken starten</h3>
-        <p>Een asynchrone taak (asynchronous task) is een taak die in een aparte thread op de achtergrond draait. Omdat Android apps 
-        dit soort taken vaak gebruiken heeft het Android framework hiervoor een speciale klasse: 
-        <a href="http://developer.android.com/reference/android/os/AsyncTask.html" target="_blank">AsyncTask</a> die het makkelijk 
-        maakt om dit soort taken uit te voeren. De klasse heeft een aantal methoden die je kunt gebruiken:</p>
-        <ol>
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#onPreExecute()" target="_blank">onPreExecute()</a>: deze 
-        	methode kan iets doen voor de thread wordt gestart.</li>
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#execute(Params...)" target="_blank">
-        	execute(Params... params)</a> deze methode start de thread</li>
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#doInBackground(Params...)" target="_blank">
-        	doInBackground(Params... params)</a>: deze methode bevat de code die op de achtergrond wordt uitgevoerd.</li>
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#publishProgress(Progress...)" target="_blank">
-        	publishProgress(Progress... values)</a>: publiceert de voortgang vanuit de achtergrondtaak. Deze methode zorgt er voor dat 
-        	de volgende methode wordt gestart in de UI thread</li>
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#onProgressUpdate(Progress...)" target="_blank">
-        	onProgressUpdate(Progress... values)</a>: hiermee kun je bijvoorbeeld een voortgangsindicator in de UI maken.
-        	<li><a href="http://developer.android.com/reference/android/os/AsyncTask.html#onPostExecute(Result)" target="_blank">
-        	onPostExecute (Result result)</a>: deze methode doet iets nadat doInBackground() is ge&euml;indigd. De values krijgen hun waarde 
-        	met het resultaat van doInBackground()
-        </ol>
-        <img src="/AO/android/H6/AsyncTask.png">
-        
-        <p>De methoden van AsyncTask kennen drie soorten parameters:</p>
-        <ol>
-        	<li>params: dit zijn de parameters die worden meegegeven aan de methode execute(Params... params) en die door de methode 
-        	doInBackground(Params... params) kunnen worden gebruikt</li>
-        	<li>values: dit zijn de parameters die worden meegegeven aan de methode publishProgress(Progress... values) en die door de 
-        	methode onProgressUpdate(Progress... values) kunnen worden gebruikt</li>
-        	<li>result: de waarde die de methode doInBackground teruggeeft en die door de methode onPostExecute(Result result) kan
-        	worden gebruikt</li>
-        </ol>
-        <p>Om AsyncClass te gebruiken moet je er een subklasse van maken. Daarbij moet je aangeven uit wat voor type objecten de bovengenoemde 
-         parameters bestaan. Onderstaand voorbeeld laat zien hoe je de klasse kunt maken voor de feed-reader.</p>
-         
-<pre class="code">
+
+
+
+
+
+		<h2>Threads</h2>
+		<p>De app leest data uit het xml bestand dat van het internet
+			wordt binnengehaald. De data wordt opgeslagen in een bestand dat
+			vervolgens door de app wordt gelezen. In een Android app moet je
+			taken als deze in een thread uitvoeren zodat de user interface niet
+			&quot;bevriest&quot;.</p>
+
+		<h3>De werking van threads</h3>
+		<p>Standaard werkt een Android app met &eacute;&eacute;n thread:
+			de &quot;UI thread&quot;. Deze thread toont de user interface die
+			wacht op (luistert naar) events die plaatsvinden als gebruiker iets
+			doet. De user interface hoort altijd te reageren op een handeling. Je
+			wilt dus niet dat de gebruiker moet wachten tot een bepaalde taak is
+			uitgevoerd. Tijdrovende taken zoals het ophalen en verwerken van data
+			horen dus in een aparte thread plaats te vinden.</p>
+		<img src="/AO/android/H6/thread.png">
+
+		<h3>Asynchrone taken starten</h3>
+		<p>
+			Een asynchrone taak (asynchronous task) is een taak die in een aparte
+			thread op de achtergrond draait. Omdat Android apps dit soort taken
+			vaak gebruiken heeft het Android framework hiervoor een speciale
+			klasse: <a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html"
+				target="_blank">AsyncTask</a> die het makkelijk maakt om dit soort
+			taken uit te voeren. De klasse heeft een aantal methoden die je kunt
+			gebruiken:
+		</p>
+		<ol>
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#onPreExecute()"
+				target="_blank">onPreExecute()</a>: deze methode kan iets doen voor
+				de thread wordt gestart.</li>
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#execute(Params...)"
+				target="_blank"> execute(Params... params)</a> deze methode start de
+				thread</li>
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#doInBackground(Params...)"
+				target="_blank"> doInBackground(Params... params)</a>: deze methode
+				bevat de code die op de achtergrond wordt uitgevoerd.</li>
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#publishProgress(Progress...)"
+				target="_blank"> publishProgress(Progress... values)</a>: publiceert
+				de voortgang vanuit de achtergrondtaak. Deze methode zorgt er voor
+				dat de volgende methode wordt gestart in de UI thread</li>
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#onProgressUpdate(Progress...)"
+				target="_blank"> onProgressUpdate(Progress... values)</a>: hiermee
+				kun je bijvoorbeeld een voortgangsindicator in de UI maken.
+			<li><a
+				href="http://developer.android.com/reference/android/os/AsyncTask.html#onPostExecute(Result)"
+				target="_blank"> onPostExecute (Result result)</a>: deze methode
+				doet iets nadat doInBackground() is ge&euml;indigd. De values
+				krijgen hun waarde met het resultaat van doInBackground()
+		</ol>
+		<img src="/AO/android/H6/AsyncTask.png">
+
+		<p>De methoden van AsyncTask kennen drie soorten parameters:</p>
+		<ol>
+			<li>params: dit zijn de parameters die worden meegegeven aan de
+				methode execute(Params... params) en die door de methode
+				doInBackground(Params... params) kunnen worden gebruikt</li>
+			<li>values: dit zijn de parameters die worden meegegeven aan de
+				methode publishProgress(Progress... values) en die door de methode
+				onProgressUpdate(Progress... values) kunnen worden gebruikt</li>
+			<li>result: de waarde die de methode doInBackground teruggeeft
+				en die door de methode onPostExecute(Result result) kan worden
+				gebruikt</li>
+		</ol>
+		<p>Om AsyncClass te gebruiken moet je er een subklasse van maken.
+			Daarbij moet je aangeven uit wat voor type objecten de bovengenoemde
+			parameters bestaan. Onderstaand voorbeeld laat zien hoe je de klasse
+			kunt maken voor de feed-reader.</p>
+
+		<pre class="code">
 import android.os.AsyncTask;
 ...
 
@@ -398,74 +459,103 @@ public class ItemsActivity extends Activity {
             Toast.makeText(context, result, Toast.LENGTH.LONG).show();
         }
     }
-</pre>       
-        
-        <p>In bovenstaand voorbeeld is er voor gekozen om een binnenklasse te maken die een subklasse is van AsyncTask. 
-        Dit is vrij gebruikelijk. Bij het maken van de klasse geef je tussen vishaken aan welke typen parameters de klasse gaat 
-        gebruiken. In dit geval bestaan de params uit Strings, de values uit Void en de result is een String. Klassen 
-        die op deze manier worden gemaakt, maken gebruik van zogenaamde 
-        <a href="http://en.wikipedia.org/wiki/Generics_in_Java" target="_blank">generics</a>. Eerder ben je dit al eens 
-        tegengekomen bij de ArrayList waarbij je tussen de vishaken moest aangeven wat voor type objecten de lijst bevat.</p>
-        
-        <h4>params</h4>
-        <p> In dit geval is er voor gekozen om de String met de link naar de feed mee te geven aan de methode execute(). 
-        De methode doInBackground() accepteert een array van strings. Tussen de haakjes staat (String... params). Dit betekent 
-        dat je &eacute;&eacute;n of meer Strings of een array van 
-        strings mag meegeven. Wat je ook doet, het resultaat is altijd een array. Omdat we in dit geval maar met &eacute;&eacute;n parameter 
-        werken, kun je deze opvragen met params[0].</p>
-        
-        <h4>values</h4>
-        <p>In bovenstaande uitwerking wordt de voortgang niet bijgehouden. Als je een generic type niet gebruikt moet je dit aangeven met 
-        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Void.html" target="_blank">Void</a> (let op de hoofdletter!).</p>
-        
-        <h4>result</h4>
-        <p>doInBackground() geeft een String terug, die als result wordt gebruikt in de methode onPostExecute(), die er in dit geval 
-        een Toast van maakt die het result (<em>&quot;De feed is gedownload&quot;</em>) laat zien. Om een 
-        Toast te maken heb je een Context object nodig. Vanuit een binnenklasse kun je de context opvragen met de naam van de 
-        buitenklasse gevolgd door een punt en het keyword <em>this</em></p>
-        
-        <h3>Mogelijke klasse declaraties</h3>
-        <p>Onderstaande code geeft een aantal mogelijke declaraties van een DownloadFeed klasse die de AsyncTask klasse uitbreidt:</p>
-        
-<pre class="code">
+</pre>
+
+		<p>
+			In bovenstaand voorbeeld is er voor gekozen om een binnenklasse te
+			maken die een subklasse is van AsyncTask. Dit is vrij gebruikelijk.
+			Bij het maken van de klasse geef je tussen vishaken aan welke typen
+			parameters de klasse gaat gebruiken. In dit geval bestaan de params
+			uit Strings, de values uit Void en de result is een String. Klassen
+			die op deze manier worden gemaakt, maken gebruik van zogenaamde <a
+				href="http://en.wikipedia.org/wiki/Generics_in_Java" target="_blank">generics</a>.
+			Eerder ben je dit al eens tegengekomen bij de ArrayList waarbij je
+			tussen de vishaken moest aangeven wat voor type objecten de lijst
+			bevat.
+		</p>
+
+		<h4>params</h4>
+		<p>In dit geval is er voor gekozen om de String met de link naar
+			de feed mee te geven aan de methode execute(). De methode
+			doInBackground() accepteert een array van strings. Tussen de haakjes
+			staat (String... params). Dit betekent dat je &eacute;&eacute;n of
+			meer Strings of een array van strings mag meegeven. Wat je ook doet,
+			het resultaat is altijd een array. Omdat we in dit geval maar met
+			&eacute;&eacute;n parameter werken, kun je deze opvragen met
+			params[0].</p>
+
+		<h4>values</h4>
+		<p>
+			In bovenstaande uitwerking wordt de voortgang niet bijgehouden. Als
+			je een generic type niet gebruikt moet je dit aangeven met <a
+				href="http://docs.oracle.com/javase/7/docs/api/java/lang/Void.html"
+				target="_blank">Void</a> (let op de hoofdletter!).
+		</p>
+
+		<h4>result</h4>
+		<p>
+			doInBackground() geeft een String terug, die als result wordt
+			gebruikt in de methode onPostExecute(), die er in dit geval een Toast
+			van maakt die het result (<em>&quot;De feed is gedownload&quot;</em>)
+			laat zien. Om een Toast te maken heb je een Context object nodig.
+			Vanuit een binnenklasse kun je de context opvragen met de naam van de
+			buitenklasse gevolgd door een punt en het keyword <em>this</em>
+		</p>
+
+		<h3>Mogelijke klasse declaraties</h3>
+		<p>Onderstaande code geeft een aantal mogelijke declaraties van
+			een DownloadFeed klasse die de AsyncTask klasse uitbreidt:</p>
+
+		<pre class="code">
 <span class="comment">/*params: array van Strings
  *values: array van Integers
  *result: een string
  */</span>
-Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">String</span>, <span class="codeplus">Integer</span>, <span class="codeplus">String</span>&gt: {...}
+Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">String</span>, <span
+				class="codeplus">Integer</span>, <span class="codeplus">String</span>&gt: {...}
 
 <span class="comment">/*params: array van URL&#39;s
  *values: worden niet gebruikt
  *result: een string
  */</span>
-Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">URL</span>, <span class="codeplus">Void</span>, <span class="codeplus">String</span>&gt: {...}
+Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">URL</span>, <span
+				class="codeplus">Void</span>, <span class="codeplus">String</span>&gt: {...}
 
 <span class="comment">/*params: worden niet gebruikt
  *values: worden niet gebruikt
  *result: wordt niet gebruikt
  */</span>
-Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">Void</span>, <span class="codeplus">Void</span>, <span class="codeplus">Void</span>&gt: {...}
+Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">Void</span>, <span
+				class="codeplus">Void</span>, <span class="codeplus">Void</span>&gt: {...}
 
 <span class="comment">/*params: array van Strings
  *values: array van Integers
  *result: een object van RSSFeed
  */</span>
-Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">String</span>, <span class="codeplus">Integer</span>, <span class="codeplus">RSSFeed</span>&gt: {...}
-</pre>        
-        
-        <p>Let op dat wanneer je primitieve waardes wilt gebruiken je de corresponderende 
-        <a href="http://en.wikipedia.org/wiki/Primitive_wrapper_class" target="_blank">wrapper klassen</a>  
-        gebruikt!</p>
-      
-        <h2>Werken met files</h2>
-        <p>Nu je weet hoe je threads maakt en uitvoert ben je klaar om code te leren schrijven die door de thread wordt uitgevoerd. Vaak 
-        moet dit soort code data van bestanden lezen en/of naar bestanden schrijven. De feed reader bijvoorbeeld moet een RSS feed van het 
-        internet lezen en de data die we gaan gebruiken naar een xml bestand schrijven. Vervolgens moet het dit xml bestand kunnen lezen en 
-        de data omzetten naar java objecten.</p>
-        
-        <p>Onderstaande code toont een klasse die data van het internet download en in een bestand (news_feed.xml) opslaat.</p>
-        
-<pre class="code">
+Class DownloadFeed extends AsyncTask&lt;<span class="codeplus">String</span>, <span
+				class="codeplus">Integer</span>, <span class="codeplus">RSSFeed</span>&gt: {...}
+</pre>
+
+		<p>
+			Let op dat wanneer je primitieve waardes wilt gebruiken je de
+			corresponderende <a
+				href="http://en.wikipedia.org/wiki/Primitive_wrapper_class"
+				target="_blank">wrapper klassen</a> gebruikt!
+		</p>
+
+		<h2>Werken met files</h2>
+		<p>Nu je weet hoe je threads maakt en uitvoert ben je klaar om
+			code te leren schrijven die door de thread wordt uitgevoerd. Vaak
+			moet dit soort code data van bestanden lezen en/of naar bestanden
+			schrijven. De feed reader bijvoorbeeld moet een RSS feed van het
+			internet lezen en de data die we gaan gebruiken naar een xml bestand
+			schrijven. Vervolgens moet het dit xml bestand kunnen lezen en de
+			data omzetten naar java objecten.</p>
+
+		<p>Onderstaande code toont een klasse die data van het internet
+			download en in een bestand (news_feed.xml) opslaat.</p>
+
+		<pre class="code">
 <span class="comment">//ToDo importeer benodigde klassen</span>
 
 <span class="comment">/**
@@ -513,29 +603,35 @@ public class FileIO{
         }
     }
 }
-</pre>        
-        
-        <p>De code begint met twee constanten voor de url van de feed en de naam van het bestand. Je kunt alleen de 
-        naam van het bestand aangeven, het pad naar het bestand bepaalt Android. Vervolgens wordt er een try/catch 
-        block gebruikt om eventuele I/O exceptions af te vangen.</p>
-        <p>Binnen het try block wordt er eerst een URL object gemaakt met behulp van de url string. Op dit URL object 
-        kun je met de openStream methode een InputStream object maken die de data kan lezen.<p>
-        <p>Om data van internet te lezen moet je in je AndroidManifest een permissie toevoegen op hetzelfde niveau 
-        als het application element.</p>
-        
-<pre class="code">
+</pre>
+
+		<p>De code begint met twee constanten voor de url van de feed en
+			de naam van het bestand. Je kunt alleen de naam van het bestand
+			aangeven, het pad naar het bestand bepaalt Android. Vervolgens wordt
+			er een try/catch block gebruikt om eventuele I/O exceptions af te
+			vangen.</p>
+		<p>Binnen het try block wordt er eerst een URL object gemaakt met
+			behulp van de url string. Op dit URL object kun je met de openStream
+			methode een InputStream object maken die de data kan lezen.
+		<p>
+		<p>Om data van internet te lezen moet je in je AndroidManifest een
+			permissie toevoegen op hetzelfde niveau als het application element.</p>
+
+		<pre class="code">
     &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
     &lt;application&gt;
         ...
     &lt;/application&gt;
 </pre>
-           <p>Nadat het bestand is opgeslagen moet het bestand gelezen worden en naar een RSSFeed object worden geparsed. 
-           Om een xml file te lezen heb je een xml parser nodig. Maak daarvoor de onderstaande methode in je FileIO klasse.</p>
-           
-           
-           
-           
-<pre class="code">
+		<p>Nadat het bestand is opgeslagen moet het bestand gelezen worden
+			en naar een RSSFeed object worden geparsed. Om een xml file te lezen
+			heb je een xml parser nodig. Maak daarvoor de onderstaande methode in
+			je FileIO klasse.</p>
+
+
+
+
+		<pre class="code">
     public RSSFeed readFile() {
         try {
             <span class="comment">// maak een XML reader object</span>
@@ -563,12 +659,12 @@ public class FileIO{
             return null;
         }
     }
-</pre>           
-          <p>Bovenstaande methode heeft een feed handler nodig. Deze klasse is een uitbreiding 
-          van DefaultHandler en krijgt als attribuut een RSSFeed en een methode 
-          om hem op te vragen.</p>
-          
-<pre class="code">
+</pre>
+		<p>Bovenstaande methode heeft een feed handler nodig. Deze klasse
+			is een uitbreiding van DefaultHandler en krijgt als attribuut een
+			RSSFeed en een methode om hem op te vragen.</p>
+
+		<pre class="code">
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -666,26 +762,37 @@ public class RSSFeedHandler extends DefaultHandler {
 }
 
 
-</pre>          
+</pre>
 
-          <p>Eerst wordt de methode <b>startDocument()</b> aangeroepen. Vervolgens de methode <b>startElement()</b> die wordt gestart als 
-          de xml reader een element ( &lt; &gt; ) tegenkomt. We hebben alleen de elementen nodig die we gebruiken in de  
-          feed reader: de title van de feed, de items en per item de title van het item, de pubDate, de description en de link. Hiervoor worden 
-          booleans gebruikt die op true worden gezet wanneer de methode ze tegenkomt. als de methode een nieuw item tegenkomt wordt er een 
-          nieuw item-object gemaakt. Nadat de methode startElement 
-          een element heeft gevonden wordt de methode <b>characters(...)</b> gestart die een string maakt van de tekst van het betreffende 
-          element en deze bewaart in het feed of het item object. Omdat title zowel in de feed als 
-          in het item voorkomt moeten we eerst bepalen waar hij bij hoort. Als hij nog niet gelezen is (feedTitleIsGelezen == false), 
-          dan is het de title van de feed en wordt hij in het feed object bewaard. Op dat moment is hij gelezen, dus wordt hij op true gezet. 
-          Als de feed title al is gelezen 
-          (feedTitleIsGelezen == true), dan hoort hij bij het item en wordt 
-          hij in het item object bewaard. Tot slot wordt de methode <b>endElement(...)</b> aangeroepen. Deze zoekt naar eind tags zoals &lt;/item&gt;.
-          Net als bij de startElement methode gebruiken we de derde parameter (qName) om te bepalen of het om een item element gaat. Als 
-          dat zo is dan wordt het item aan de lijst met items van de RSSFeed toegevoegd.</p>
-          
-          <p>We zijn nu zo ver dat we in onze ItemsActivity klasse de feed kunnen downloaden en lezen:</p>
-          
-<pre class="code">
+		<p>
+			Eerst wordt de methode <b>startDocument()</b> aangeroepen. Vervolgens
+			de methode <b>startElement()</b> die wordt gestart als de xml reader
+			een element ( &lt; &gt; ) tegenkomt. We hebben alleen de elementen
+			nodig die we gebruiken in de feed reader: de title van de feed, de
+			items en per item de title van het item, de pubDate, de description
+			en de link. Hiervoor worden booleans gebruikt die op true worden
+			gezet wanneer de methode ze tegenkomt. als de methode een nieuw item
+			tegenkomt wordt er een nieuw item-object gemaakt. Nadat de methode
+			startElement een element heeft gevonden wordt de methode <b>characters(...)</b>
+			gestart die een string maakt van de tekst van het betreffende element
+			en deze bewaart in het feed of het item object. Omdat title zowel in
+			de feed als in het item voorkomt moeten we eerst bepalen waar hij bij
+			hoort. Als hij nog niet gelezen is (feedTitleIsGelezen == false), dan
+			is het de title van de feed en wordt hij in het feed object bewaard.
+			Op dat moment is hij gelezen, dus wordt hij op true gezet. Als de
+			feed title al is gelezen (feedTitleIsGelezen == true), dan hoort hij
+			bij het item en wordt hij in het item object bewaard. Tot slot wordt
+			de methode <b>endElement(...)</b> aangeroepen. Deze zoekt naar eind
+			tags zoals &lt;/item&gt;. Net als bij de startElement methode
+			gebruiken we de derde parameter (qName) om te bepalen of het om een
+			item element gaat. Als dat zo is dan wordt het item aan de lijst met
+			items van de RSSFeed toegevoegd.
+		</p>
+
+		<p>We zijn nu zo ver dat we in onze ItemsActivity klasse de feed
+			kunnen downloaden en lezen:</p>
+
+		<pre class="code">
 public class ItemsActivity extends Activity {
 
     private RSSFeed feed;
@@ -737,26 +844,39 @@ public class ItemsActivity extends Activity {
         }
     }
 }
-</pre>          
-           <h2>De lijst maken met een adapter</h2>
-           <p>In <a href="../H3/H3.jsp#spinners">hoofdstuk 3</a> heb je geleerd hoe je met behulp van een adapter een array van strings in een spinner kon tonen. Voor de 
-           RSS reader gebruiken we een adapter om de ListView widget aan te maken. Hiervoor gebruiken we de 
-           <a href="http://developer.android.com/reference/android/widget/SimpleAdapter.html" target="_blank">SimpleAdapter</a> klasse.
-           De constructor van SimpleAdapter vraagt 5 parameters:</p>
-           <ol>
-           		<li>de context: in dit geval <em>this</em> (de Activity)</li>
-           		<li>data: een lijst (arrayList) met Map&lt;String, ?&gt; objecten. In een map kun je zogenaamde 
-           		&quot;Key - Value paren&quot; opslaan. In dit geval gebruiken we een 
-           		<a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank">HashMap</a> waar 
-           		de title en pubDates van een item worden opgeslagen. De map-objecten moeten alle keys bevatten die in de 
-           		parameter <em>from</em> worden gespecificeerd. Bij het maken van een map moet je aangeven wat voor soort objecten je 
-           		er in gaat stoppen.</li>
-           		<li>resource: een integer met het id van de layout voor de listview items</li>
-           		<li>from: een array van strings met de namen van de keys die in de maps worden gebruikt</li>
-           		<li>to: een array van integers met de id&#39;s van de widgets die de teksten moeten vertonen</li>
-           </ol>
-           
-<pre class="code">
+</pre>
+		<h2>De lijst maken met een adapter</h2>
+		<p>
+			In <a href="../H3/H3.jsp#spinners">hoofdstuk 3</a> heb je geleerd hoe
+			je met behulp van een adapter een array van strings in een spinner
+			kon tonen. Voor de RSS reader gebruiken we een adapter om de ListView
+			widget aan te maken. Hiervoor gebruiken we de <a
+				href="http://developer.android.com/reference/android/widget/SimpleAdapter.html"
+				target="_blank">SimpleAdapter</a> klasse. De constructor van
+			SimpleAdapter vraagt 5 parameters:
+		</p>
+		<ol>
+			<li>de context: in dit geval <em>this</em> (de Activity)
+			</li>
+			<li>data: een lijst (arrayList) met Map&lt;String, ?&gt;
+				objecten. In een map kun je zogenaamde &quot;Key - Value paren&quot;
+				opslaan. In dit geval gebruiken we een <a
+				href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html"
+				target="_blank">HashMap</a> waar de title en pubDates van een item
+				worden opgeslagen. De map-objecten moeten alle keys bevatten die in
+				de parameter <em>from</em> worden gespecificeerd. Bij het maken van
+				een map moet je aangeven wat voor soort objecten je er in gaat
+				stoppen.
+			</li>
+			<li>resource: een integer met het id van de layout voor de
+				listview items</li>
+			<li>from: een array van strings met de namen van de keys die in
+				de maps worden gebruikt</li>
+			<li>to: een array van integers met de id&#39;s van de widgets
+				die de teksten moeten vertonen</li>
+		</ol>
+
+		<pre class="code">
 public class ItemsActivity extends Activity {
 
     ...
@@ -774,7 +894,8 @@ public class ItemsActivity extends Activity {
         ArrayList&lt;RSSItem&gt; items = feed.getAllItems();
 
         <span class="comment">// maak <em>data</em> variabele</span>
-        ArrayList&lt;HashMap&lt;String, String&gt;&gt; <span class="codeplus">data</span> =
+        ArrayList&lt;HashMap&lt;String, String&gt;&gt; <span
+				class="codeplus">data</span> =
                 new ArrayList();
         for (RSSItem item : items) {
             HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
@@ -795,11 +916,14 @@ public class ItemsActivity extends Activity {
     }
        
 }
-</pre>           
-          
-          <p>Bovenstaande methode kun je nu aanroepen in de <em>onPostExecute</em> methode van de <em>ReadFeed</em> (binnen)klasse:</p>
-          
-<pre class="code">
+</pre>
+
+		<p>
+			Bovenstaande methode kun je nu aanroepen in de <em>onPostExecute</em>
+			methode van de <em>ReadFeed</em> (binnen)klasse:
+		</p>
+
+		<pre class="code">
  <span class="comment">// nadat de feed gelezen is</span>
  @Override
  protected void onPostExecute(Void result) {
@@ -808,17 +932,21 @@ public class ItemsActivity extends Activity {
      <span class="codeplus">ItemsActivity.this.updateDisplay();</span>
  }
 
-</pre>          
-          
-          <h2>Event handling voor een adapter</h2>
-          <p>Onderstaande code laat zien hoe je een event afhandelt dat plaatsvindt als gebruiker op &eacute;&eacute;n van de items 
-          in de lijst klikt. Hiervoor moet je de 
-          <a href="http://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener.html" target="_blank">
-          OnItemClickListener</a> interface implementeren die genest is in de AdapterView klasse. Je koppelt vervolgens de 
-          event handler aan de widget waarop geklikt wordt door gebruiker, in ons geval &eacute;&eacute;n van de items in 
-          de ListView widget.</p>
-          
-<pre class="code">
+</pre>
+
+		<h2>Event handling voor een adapter</h2>
+		<p>
+			Onderstaande code laat zien hoe je een event afhandelt dat
+			plaatsvindt als gebruiker op &eacute;&eacute;n van de items in de
+			lijst klikt. Hiervoor moet je de <a
+				href="http://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener.html"
+				target="_blank"> OnItemClickListener</a> interface implementeren die
+			genest is in de AdapterView klasse. Je koppelt vervolgens de event
+			handler aan de widget waarop geklikt wordt door gebruiker, in ons
+			geval &eacute;&eacute;n van de items in de ListView widget.
+		</p>
+
+		<pre class="code">
 <span class="codeplus">import android.widget.AdapterView.OnItemClickListener;</span>
 ...
 ...
@@ -844,26 +972,39 @@ public class ItemsActivity extends Activity
         <span class="codeplus">RSSItem item = feed.getItem(position);</span>
         
         <span class="comment">//ToDo maak een intent</span>
-</pre>          
-          <p>In de <em>onItemClick</em> methode gebruiken we de derde parameter (int position) om de positie van het geselecteerde item in de lijst 
-          op te vragen. Als het goed is heb je in de klasse RSSFeed een methode gemaakt die een item met een bepaalde positie uit de lijst met 
-          RSSItems terug geeft.</p>
-          
-          <h2>Een intent maken</h2>
-          <p>Als je in de <em>Item<b>s</b> Activity</em> op een item klikt wil je dat de data van dat item in de <em>Item Activity</em> wordt getoond. Hiervoor moet je 
-          een <em>intent</em> maken die data door kan geven van de Items Activity naar de Item Activity.</p>
-          
-          <p>Vanuit de Item Activity kun je vervolgens op een link klikken die het volledige artikel in de standaard browser toont. Ook 
-          hiervoor maak je een intent die je toestel vertelt dat  de link in een web browser moet worden vertoond.</p>
-          
-          <h3>Data doorgeven tussen activities</h3>
-          <p>Zoals we in hoofdstuk 5 hebben gezien is een 
-          <a href="http://developer.android.com/reference/android/content/Intent.html" target="_blank">intent</a> een object dat beschrijft wat 
-          er moet gebeuren. Vaak wordt er met een intent een andere activity gestart met de methode startActivity(intent). Om data door te 
-          geven kun je de methode <em>putExtra()</em> 
-          op het intent object aanroepen.</p>
-          
- <pre class="code">
+</pre>
+		<p>
+			In de <em>onItemClick</em> methode gebruiken we de derde parameter
+			(int position) om de positie van het geselecteerde item in de lijst
+			op te vragen. Als het goed is heb je in de klasse RSSFeed een methode
+			gemaakt die een item met een bepaalde positie uit de lijst met
+			RSSItems terug geeft.
+		</p>
+
+		<h2>Een intent maken</h2>
+		<p>
+			Als je in de <em>Item<b>s</b> Activity
+			</em> op een item klikt wil je dat de data van dat item in de <em>Item
+				Activity</em> wordt getoond. Hiervoor moet je een <em>intent</em> maken
+			die data door kan geven van de Items Activity naar de Item Activity.
+		</p>
+
+		<p>Vanuit de Item Activity kun je vervolgens op een link klikken
+			die het volledige artikel in de standaard browser toont. Ook hiervoor
+			maak je een intent die je toestel vertelt dat de link in een web
+			browser moet worden vertoond.</p>
+
+		<h3>Data doorgeven tussen activities</h3>
+		<p>
+			Zoals we in hoofdstuk 5 hebben gezien is een <a
+				href="http://developer.android.com/reference/android/content/Intent.html"
+				target="_blank">intent</a> een object dat beschrijft wat er moet
+			gebeuren. Vaak wordt er met een intent een andere activity gestart
+			met de methode startActivity(intent). Om data door te geven kun je de
+			methode <em>putExtra()</em> op het intent object aanroepen.
+		</p>
+
+		<pre class="code">
  @Override
  public void onItemClick(AdapterView&lt;?&gt; parent, View v,
                          int position, long id) {
@@ -881,10 +1022,11 @@ public class ItemsActivity extends Activity
      this.<span class="codeplus">startActivity(intent)</span>;
  }
  </pre>
- 
- 		  <p>In de ItemActivity klasse kun je de data van de intent opvragen en aan de widgets koppelen:</p>
- 		  
-<pre class="code">
+
+		<p>In de ItemActivity klasse kun je de data van de intent opvragen
+			en aan de widgets koppelen:</p>
+
+		<pre class="code">
 
 ...
 
@@ -911,27 +1053,35 @@ protected void onCreate(Bundle savedInstanceState) {
      linkTextView.setOnClickListener(this);
 }
  
-</pre> 		  
- 		           
-          <p>Constructor en veelgebruikte methodes van de intent klasse. Voor volledig overzicht zie 
-          <a href="http://developer.android.com/reference/android/content/Intent.html" target="_blank">Intent</a></p>
-          <ul>
-          		<li>Constructor: <em>Intent(context, class)</em> maakt een intent voor de gespecificeerde (Activity) klasse </li>
-          		<li>data aan intent toevoegen: <em>putExtra(name, value)</em></li>
-          		<li>string opvragen: <em>getStringExtra(name)</em></li>
-          		<li>int opvragen: <em>getIntExtra(name, default)</em></li>
-          </ul>
-          
-          <h3>De web browser starten</h3>
-          <p>Als je op de link klikt moet de web browser starten. Hiervoor moet de OnClickListener interface en de 
-          daarbij behorende methode onClick(View v) worden ge&iuml;mplementeerd. 
-          Ook dit doe je met een intent waarbij je specificeert wat 
-          voor actie moet plaatsvinden. In dat geval bepaalt Android welke app wordt gestart. Om een dergelijke intent te maken 
-          gebruik je een andere constructor van de Intent klasse:</p>
-          
-          
-          
-<pre class="code">
+</pre>
+
+		<p>
+			Constructor en veelgebruikte methodes van de intent klasse. Voor
+			volledig overzicht zie <a
+				href="http://developer.android.com/reference/android/content/Intent.html"
+				target="_blank">Intent</a>
+		</p>
+		<ul>
+			<li>Constructor: <em>Intent(context, class)</em> maakt een
+				intent voor de gespecificeerde (Activity) klasse
+			</li>
+			<li>data aan intent toevoegen: <em>putExtra(name, value)</em></li>
+			<li>string opvragen: <em>getStringExtra(name)</em></li>
+			<li>int opvragen: <em>getIntExtra(name, default)</em></li>
+		</ul>
+
+		<h3>De web browser starten</h3>
+		<p>Als je op de link klikt moet de web browser starten. Hiervoor
+			moet de OnClickListener interface en de daarbij behorende methode
+			onClick(View v) worden ge&iuml;mplementeerd. Ook dit doe je met een
+			intent waarbij je specificeert wat voor actie moet plaatsvinden. In
+			dat geval bepaalt Android welke app wordt gestart. Om een dergelijke
+			intent te maken gebruik je een andere constructor van de Intent
+			klasse:</p>
+
+
+
+		<pre class="code">
 public class ItemActivity extends Activity 
         <span class="codeplus">implements View.OnClickListener</span> {
     ...
@@ -950,16 +1100,23 @@ public class ItemActivity extends Activity
         startActivity(viewIntent);
     }
 }
-</pre>          
-          <p>De eerste parameter (Intent.ACTION_VIEW) vertelt Android dat er een browser window gestart moet worden. De tweede parameter 
-          geeft de <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier" target="_blank">uri</a> van het web adres dat de 
-          browser moet openen. Let op het verschil tussen URI en URL! Het resultaat is dat Android de default web browser op het toestel opent.</p>
-          
-          <h3>Andere intent acties</h3>
-          <p>Naast het openen van een web browser kun je ook andere apps op het toestel starten:</p>
-          <ul>
-          	<li><b>Intent.ACTION_DIAL</b>: in combinatie met een telefoonnummer opent deze intent de telefoon app met het nummer geselcteerd:<br>
-<pre class="code">
+</pre>
+		<p>
+			De eerste parameter (Intent.ACTION_VIEW) vertelt Android dat er een
+			browser window gestart moet worden. De tweede parameter geeft de <a
+				href="http://en.wikipedia.org/wiki/Uniform_resource_identifier"
+				target="_blank">uri</a> van het web adres dat de browser moet
+			openen. Let op het verschil tussen URI en URL! Het resultaat is dat
+			Android de default web browser op het toestel opent.
+		</p>
+
+		<h3>Andere intent acties</h3>
+		<p>Naast het openen van een web browser kun je ook andere apps op
+			het toestel starten:</p>
+		<ul>
+			<li><b>Intent.ACTION_DIAL</b>: in combinatie met een
+				telefoonnummer opent deze intent de telefoon app met het nummer
+				geselcteerd:<br> <pre class="code">
 <span class="comment">//maak een telefoonnummer uri</span>
 String telNr = "tel:06-12345678";
 Uri telUri = Uri.parse(telNr);
@@ -967,13 +1124,14 @@ Uri telUri = Uri.parse(telNr);
 <span class="comment">//maak en start een intent</span>
 Intent belIntent = new Intent(Intent.ACTION_DIAL, telUri);
 startActivity(belIntent);
-</pre>          
-			</li>
-			
-          </ul>
-          <div class="opdrachten">
-          	<h2>Opdracht 3</h2>
-          	<p>Je hebt nu alle componenten om de RSS reader te maken. </p>
-          </div>
-      </div>
+</pre></li>
+
+		</ul>
+		<div class="opdrachten">
+			<h2>Opdracht 3</h2>
+			<p>Je hebt nu alle componenten om de RSS reader te maken.</p>
+		</div>
+	</div>
+</div>
 <%@ include file="/AO/android/includes/bottom.html"%>
+</html>

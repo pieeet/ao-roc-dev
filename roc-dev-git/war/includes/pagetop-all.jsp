@@ -37,7 +37,6 @@
 
 <body>
 
-
 	<%@ page import="java.util.List"%>
 	<%@ page import="com.google.appengine.api.users.User"%>
 	<%@ page import="com.google.appengine.api.users.UserService"%>

@@ -2,9 +2,6 @@
 <div class="container">
 
 <%@ include file="/AO/HtmlCss/includes/zijmenu.jsp" %>
-
-
-      
       <div class="col-md-9">
       	<h2>H2 Tour de Junior</h2>
   
@@ -25,16 +22,7 @@
 				 <li>weet hoe je elementen naast elkaar kunt positioneren met <span class="html">float: left</span>; of 
 				 	<span class="html">float: right;</span></li>
 			</ul>
-   
-	       
-	          
         </div>
-        
-        
-        
-        
-        
-        
         
         <!-- inhoud -->
         <div class="table_wrapper">
@@ -60,14 +48,14 @@
 							 hier</a> en plaats ze in de daarvoor bestemde map </li>
 							<li>Maak een element &lt;<span class="html"><a href="http://www.w3schools.com/html/html_tables.asp">
 								table</a></span>&gt; waar je de teksten, plaatjes en ankers (links) in plaatst.</li>
-							<li>maak gebruik van CSS om de tabel te stylen. Referenties:</li>
+							<li>maak gebruik van CSS om de tabel te stylen. Referenties:
 								<ul>
 									<li><a href="http://www.w3schools.com/cssref/pr_text_text-align.asp">text-align</a></li>
 									<li><a href="http://www.w3schools.com/cssref/pr_font_font-size.asp">font-size</a></li>
 									<li><a href="http://www.w3schools.com/css/css_margin.asp">margin</a></li>
 									<li><a href="http://www.w3schools.com/css/css_align.asp">horizontaal uitlijnen</a></li>
 									<li><a href="http://www.w3schools.com/cssref/pr_dim_height.asp">height &amp; width</a></li>
-								</ul>
+								</ul></li>
 						</ol>
 						
 						<p>Open je HTML bestand in je browser. Als het goed is ziet het er ongeveer uit als hieronder.<p>
@@ -474,5 +462,8 @@
 									
 							</table>
 					</div>
+					</div>
+					</div>
 	
 <%@ include file="/AO/HtmlCss/includes/bottom.html" %>
+</html>

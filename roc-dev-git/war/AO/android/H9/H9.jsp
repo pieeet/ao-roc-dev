@@ -1,116 +1,116 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
-<%@ include file="/AO/android/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/android/includes/zijmenu.jsp"%>
 
 
-<div class="col-md-9">
-	<h2>Takenlijst</h2>
+	<div class="col-md-9">
+		<h2>Takenlijst</h2>
 
-	<!-- Leerdoelen -->
-	<div class="bs-callout bs-callout-warning">
-		<h2>Leerdoelen</h2>
-		<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
-			je:</p>
-		<ul>
-			<li></li>
-		</ul>
-	</div>
-	<h3>Introductie</h3>
-	<p>In dit hoofdstuk gaan we een takenlijst maken. Als gebruiker de
-		app start vertoont de Takenlijst Activity een lijst met taken. Iedere
-		taak heeft een check-box waarmee kan worden aangegeven dat de taak
-		voltooid is, een text view met de naam van de taak en een tekst view
-		met voor optionele notities.</p>
-	<div class="img_met_bijschrift">
-		<p>De Takenlijst Activity</p>
-		<img src="/AO/android/H9/takenlijst_1.png">
-	</div>
-	<div class="img_met_bijschrift">
-		<p>Voeg toe / wijzig taak</p>
-		<img src="/AO/android/H9/takenlijst_2.png">
-	</div>
-	<div class="img_met_bijschrift">
-		<p>Tab layout</p>
-		<img src="/AO/android/H9/takenlijst_3.png">
-	</div>
-	<p>De takenlijst werkt met twee verschillende lijsten: persoonlijk
-		en zakelijk. De gebruiker kan op een tab klikken of &quot;swipen&quot;
-		om van lijst te wisselen.</p>
-	<p>Als gebruiker taken aanvinkt zijn ze voltooid. Door op het
-		prullenbak icoontje in de menu balk te klikken, worden ze uit de lijst
-		op het scherm verwijderd. Als gebruiker op een taak klikt opent het
-		edit venster zodat de taak achteraf gewijzigd kan worden.</p>
-	<p>Door op het + icoontje te klikken kan een taak worden
-		toegevoegd. Voor taken toevoegen en taken wijzigen kan dezelfde
-		activity worden gebruikt. Als gebruiker klaar is met de taak bewerken,
-		kan hij op het &#10004; icoontje in de menu balk klikken.</p>
-	<p>De app heeft verschillende gegevens nodig:</p>
-	<ul>
-		<li>de lijstnamen voor de tabs</li>
-		<li>gegevens van een taak:
+		<!-- Leerdoelen -->
+		<div class="bs-callout bs-callout-warning">
+			<h2>Leerdoelen</h2>
+			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
+				je:</p>
 			<ul>
-				<li>de lijst waar de taak bij hoort</li>
-				<li>de naam van de taak</li>
-				<li>de eventuele notitie</li>
-				<li>al of niet voltooid</li>
+				<li></li>
 			</ul>
-		</li>
-	</ul>
-	<h3>Introductie SQLite</h3>
-	<p>Zoals de naam al zegt is SQLite een lichtgewicht (ca 350 KB) SQL
-		(relationele) database die de meeste, maar niet alle standaard SQL
-		functies implementeert. De SQLite bibliotheek is ge&iuml;nstalleerd op
-		ieder Android toestel. Je hoeft niets te installeren of te
-		configureren.</p>
-	<p>Wanneer je een SQLite databse maakt wordt deze opgeslagen in een
-		enkel bestand op het toestel. Dit bestand kan alleen door de app zelf
-		benaderd worden. SQLite is gratis, open source en wordt ondersteund
-		door de meeste browsers en besturingssystemen. Om die redenen wordt
-		het veel gebruikt als &quot;embedded&quot; database.</p>
-	<h4>Verschillen met andere databases</h4>
-	<p>SQLite verschilt op een aantal onderdelen met andere (SQL)
-		databases:</p>
-	<ul>
-		<li>SQLite draait niet op een server die wordt benaderd door
-			client apps. Het is ingebed (embedded) als onderdeel van de client
-			app.</li>
-		<li>SQLite ondersteunt slecht drie data types: TEXT, INTEGER en
-			REAL. Deze data types komen overeen met de java data types: String,
-			long en double. Als je andere data types wilt opslaan (zoals
-			Data/Time of boolean), dan moet je ze converteren naar
-			&eacute;&eacute;n van de bovenstaande. Je kunt bijvoorbeeld Date naar
-			text converteren als je deze wilt opslaan en terug converteren naar
-			Date als je hem uit de database ophaalt.</li>
-		<li>SQLite is &quot;weakly typed&quot;, dat wil zeggen dat je in
-			een kolom niet alleen maar data van &eacute;&eacute;n bepaald type
-			mag opslaan. Dus als je een kolom hebt gedefinieerd met INTEGERS, kun
-			je daar nog steeds Strings in opslaan. Bij het programmeren moet je
-			dus opletten dat je de juiste data types opslaat aangezien andere
-			types niet geweigerd worden.</li>
-	</ul>
+		</div>
+		<h3>Introductie</h3>
+		<p>In dit hoofdstuk gaan we een takenlijst maken. Als gebruiker de
+			app start vertoont de Takenlijst Activity een lijst met taken. Iedere
+			taak heeft een check-box waarmee kan worden aangegeven dat de taak
+			voltooid is, een text view met de naam van de taak en een tekst view
+			met voor optionele notities.</p>
+		<div class="img_met_bijschrift">
+			<p>De Takenlijst Activity</p>
+			<img src="/AO/android/H9/takenlijst_1.png">
+		</div>
+		<div class="img_met_bijschrift">
+			<p>Voeg toe / wijzig taak</p>
+			<img src="/AO/android/H9/takenlijst_2.png">
+		</div>
+		<div class="img_met_bijschrift">
+			<p>Tab layout</p>
+			<img src="/AO/android/H9/takenlijst_3.png">
+		</div>
+		<p>De takenlijst werkt met twee verschillende lijsten: persoonlijk
+			en zakelijk. De gebruiker kan op een tab klikken of
+			&quot;swipen&quot; om van lijst te wisselen.</p>
+		<p>Als gebruiker taken aanvinkt zijn ze voltooid. Door op het
+			prullenbak icoontje in de menu balk te klikken, worden ze uit de
+			lijst op het scherm verwijderd. Als gebruiker op een taak klikt opent
+			het edit venster zodat de taak achteraf gewijzigd kan worden.</p>
+		<p>Door op het + icoontje te klikken kan een taak worden
+			toegevoegd. Voor taken toevoegen en taken wijzigen kan dezelfde
+			activity worden gebruikt. Als gebruiker klaar is met de taak
+			bewerken, kan hij op het &#10004; icoontje in de menu balk klikken.</p>
+		<p>De app heeft verschillende gegevens nodig:</p>
+		<ul>
+			<li>de lijstnamen voor de tabs</li>
+			<li>gegevens van een taak:
+				<ul>
+					<li>de lijst waar de taak bij hoort</li>
+					<li>de naam van de taak</li>
+					<li>de eventuele notitie</li>
+					<li>al of niet voltooid</li>
+				</ul>
+			</li>
+		</ul>
+		<h3>Introductie SQLite</h3>
+		<p>Zoals de naam al zegt is SQLite een lichtgewicht (ca 350 KB)
+			SQL (relationele) database die de meeste, maar niet alle standaard
+			SQL functies implementeert. De SQLite bibliotheek is
+			ge&iuml;nstalleerd op ieder Android toestel. Je hoeft niets te
+			installeren of te configureren.</p>
+		<p>Wanneer je een SQLite databse maakt wordt deze opgeslagen in
+			een enkel bestand op het toestel. Dit bestand kan alleen door de app
+			zelf benaderd worden. SQLite is gratis, open source en wordt
+			ondersteund door de meeste browsers en besturingssystemen. Om die
+			redenen wordt het veel gebruikt als &quot;embedded&quot; database.</p>
+		<h4>Verschillen met andere databases</h4>
+		<p>SQLite verschilt op een aantal onderdelen met andere (SQL)
+			databases:</p>
+		<ul>
+			<li>SQLite draait niet op een server die wordt benaderd door
+				client apps. Het is ingebed (embedded) als onderdeel van de client
+				app.</li>
+			<li>SQLite ondersteunt slecht drie data types: TEXT, INTEGER en
+				REAL. Deze data types komen overeen met de java data types: String,
+				long en double. Als je andere data types wilt opslaan (zoals
+				Data/Time of boolean), dan moet je ze converteren naar
+				&eacute;&eacute;n van de bovenstaande. Je kunt bijvoorbeeld Date
+				naar text converteren als je deze wilt opslaan en terug converteren
+				naar Date als je hem uit de database ophaalt.</li>
+			<li>SQLite is &quot;weakly typed&quot;, dat wil zeggen dat je in
+				een kolom niet alleen maar data van &eacute;&eacute;n bepaald type
+				mag opslaan. Dus als je een kolom hebt gedefinieerd met INTEGERS,
+				kun je daar nog steeds Strings in opslaan. Bij het programmeren moet
+				je dus opletten dat je de juiste data types opslaat aangezien andere
+				types niet geweigerd worden.</li>
+		</ul>
 
-	<h3>Opzetten van de takenlijst database</h3>
-	<p>Onderstaande tekening toont een diagram voor de takenlijst
-		database.</p>
-	<img src="/AO/android/H9/erd.png">
-	<p>We kunnen volstaan met twee tabellen: de lijst tabel en de taak
-		tabel. De tabellen zijn aan elkaar gerelateerd met een
-		&eacute;&eacute;n op meer relatie. Een lijst kan meerdere taken
-		bevatten, maar een taak heeft maar &eacute;&eacute;n lijst.</p>
-	<p>De Lijst tabel heeft maar twee kolommen: de _id kolom fungeert
-		als sleutel voor iedere rij en de kolom naam bewaart de naam van de
-		lijst.</p>
-	<p>De Taak tabel heeft 6 kolommen. Ook hier een _id voor de
-		sleutel. Vervolgens een kolom die bewaart bij welke lijst de taak
-		hoort. De taak_naam en notitie kolommen bewaren naam en notitie. De
-		date_afgerond bewaart de datum/tijd waarop de taak is afgerond.
-		Hieruit kan worden afgeleid of de taak wel of niet is afgerond.</p>
-	<p>In de kolom verborgen kun je een boolean waarde bewaren die
-		bepaalt of de (afgeronde) taak wel of niet moet worden getoond.</p>
+		<h3>Opzetten van de takenlijst database</h3>
+		<p>Onderstaande tekening toont een diagram voor de takenlijst
+			database.</p>
+		<img src="/AO/android/H9/erd.png">
+		<p>We kunnen volstaan met twee tabellen: de lijst tabel en de taak
+			tabel. De tabellen zijn aan elkaar gerelateerd met een
+			&eacute;&eacute;n op meer relatie. Een lijst kan meerdere taken
+			bevatten, maar een taak heeft maar &eacute;&eacute;n lijst.</p>
+		<p>De Lijst tabel heeft maar twee kolommen: de _id kolom fungeert
+			als sleutel voor iedere rij en de kolom naam bewaart de naam van de
+			lijst.</p>
+		<p>De Taak tabel heeft 6 kolommen. Ook hier een _id voor de
+			sleutel. Vervolgens een kolom die bewaart bij welke lijst de taak
+			hoort. De taak_naam en notitie kolommen bewaren naam en notitie. De
+			date_afgerond bewaart de datum/tijd waarop de taak is afgerond.
+			Hieruit kan worden afgeleid of de taak wel of niet is afgerond.</p>
+		<p>In de kolom verborgen kun je een boolean waarde bewaren die
+			bepaalt of de (afgeronde) taak wel of niet moet worden getoond.</p>
 
-	<h4>Tabellen maken</h4>
-	<p>Onderstaande SQL statements cre&euml;ren de twee tabellen:</p>
-	<pre class="code">
+		<h4>Tabellen maken</h4>
+		<p>Onderstaande SQL statements cre&euml;ren de twee tabellen:</p>
+		<pre class="code">
 CREATE TABLE Lijst (
 	_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	lijst_naam TEXT NOT NULL UNIQUE
@@ -125,53 +125,53 @@ CREATE TABLE Taak (
 	verborgen INTEGER
 )
 </pre>
-	<h4>Tabellen deleten</h4>
-	<p>Met Onderstaande statement kun je de tabellen wissen</p>
-	<pre class="code">
+		<h4>Tabellen deleten</h4>
+		<p>Met Onderstaande statement kun je de tabellen wissen</p>
+		<pre class="code">
 DROP TABLE IF EXISTS Lijst
 DROP TABLE IF EXISTS Taak
 </pre>
-	<h4>Veelgebruikte kolom attributen</h4>
-	<table>
-		<tr>
-			<th>Attribuut</th>
-			<th>Beschrijving</th>
-		</tr>
-		<tr>
-			<td>PRIMARY KEY</td>
-			<td>Definieert de primaire sleutel. Een primary key kolom
-				vereist dat iedere rij een waarde moet hebben en dat iedere waarde
-				uniek is.</td>
-		<tr>
-			<td>AUTOINCREMENT</td>
-			<td>Maakt dat de waarde automatisch wordt gegenereerd als een
-				nieuwe rij wordt ingevoerd. In combinatie met type INTEGER zorgt er
-				voor dat nieuwe waarde &eacute;&eacute;n hoger wordt dan de vorige</td>
-		</tr>
-		<tr>
-			<td>NOT NULL</td>
-			<td>Specificeert dat er een waarde moet worden ingevoerd</td>
-		</tr>
-		<tr>
-			<td>UNIQUE</td>
-			<td>Iedere ingevoerde waarde moet uniek zijn, met andere woorden
-				er mogen geen waardes hetzelfde zijn</td>
-		</tr>
-	</table>
+		<h4>Veelgebruikte kolom attributen</h4>
+		<table>
+			<tr>
+				<th>Attribuut</th>
+				<th>Beschrijving</th>
+			</tr>
+			<tr>
+				<td>PRIMARY KEY</td>
+				<td>Definieert de primaire sleutel. Een primary key kolom
+					vereist dat iedere rij een waarde moet hebben en dat iedere waarde
+					uniek is.</td>
+			<tr>
+				<td>AUTOINCREMENT</td>
+				<td>Maakt dat de waarde automatisch wordt gegenereerd als een
+					nieuwe rij wordt ingevoerd. In combinatie met type INTEGER zorgt er
+					voor dat nieuwe waarde &eacute;&eacute;n hoger wordt dan de vorige</td>
+			</tr>
+			<tr>
+				<td>NOT NULL</td>
+				<td>Specificeert dat er een waarde moet worden ingevoerd</td>
+			</tr>
+			<tr>
+				<td>UNIQUE</td>
+				<td>Iedere ingevoerde waarde moet uniek zijn, met andere
+					woorden er mogen geen waardes hetzelfde zijn</td>
+			</tr>
+		</table>
 
-	<h3>
-		De <em>business</em> objecten voor de takenlijst
-	</h3>
-	<p>
-		Onderstaande java klassen tonen de java <em>business</em> objecten van
-		de takenlijst app. Deze objecten gebruiken we om dezelfde data die we
-		in de tabellen opslaan om te zetten naar java objecten. Wanneer met
-		databases wordt gewerkt is het gebruikelijk om klassen te maken die
-		dezelfde data kunnen bevatten die in de tabellen wordt opgeslagen.
-		Eventueel kunnen aanvullende methodes worden gemaakt om de data te
-		bewerken.
-	</p>
-	<pre class="code">
+		<h3>
+			De <em>business</em> objecten voor de takenlijst
+		</h3>
+		<p>
+			Onderstaande java klassen tonen de java <em>business</em> objecten
+			van de takenlijst app. Deze objecten gebruiken we om dezelfde data
+			die we in de tabellen opslaan om te zetten naar java objecten.
+			Wanneer met databases wordt gewerkt is het gebruikelijk om klassen te
+			maken die dezelfde data kunnen bevatten die in de tabellen wordt
+			opgeslagen. Eventueel kunnen aanvullende methodes worden gemaakt om
+			de data te bewerken.
+		</p>
+		<pre class="code">
 <span class="comment">//De Lijst klasse</span>
 public class Lijst {
     private int id;
@@ -210,7 +210,7 @@ public class Lijst {
     }
 }
 </pre>
-	<pre class="code">
+		<pre class="code">
 <span class="comment">//De Taak klasse</span>
 public class Taak {
     private int taakId;
@@ -297,41 +297,42 @@ public class Taak {
     }
 }
 </pre>
-	<p>
-		De Lijst en Taak klassen hebben allebei drie constructors. Een default
-		constructor zonder parameters. Een constructor zonder id attribuut.
-		Deze wordt gebruikt als een nieuwe lijst of taak aan de database moet
-		worden toegevoegd. De id wordt immers automatisch aangemaakt als een
-		object aan database wordt toegevoegd. Wanneer echter een rij gegevens
-		uit de databse wordt opgehaald en naar een java klasse moet worden
-		omgezet is er wel sprake van een bestaand id.<br> De Taak klasse
-		heeft twee int constanten TRUE en FALSE gedefinieerd. Deze worden
-		gebruikt om het int attribuut <em>verborgen</em> een waarde te geven.
-		True en false zijn op deze wijze tot int constanten omgezet.
-	</p>
-	<p>Als een taak als voltooid wordt gemarkeerd wordt de datum/tijd
-		van dat moment gebruikt als tijdstip waarop de taak is voltooid. Bij
-		een nog niet voltooide taak is deze waarde 0. Je kunt een datum
-		natuurlijk als String opslaan, maar dan kun je er niet mee rekenen.
-		Aangezien we de milliseconden van de huidige datum/tijd (gerekend
-		vanaf 1 januari 1970) van het systeem kunnen opvragen gebruiken we
-		deze om de waarde van het tijdstip van voltooiing van de taak op te
-		slaan als INTEGER in de database en als long in het java object.</p>
-	<p>
-	<h3>Een database klasse maken</h3>
-	<p>Nu we de business klassen hebben gemaakt kunnen we een database
-		klasse gaan maken. Deze klasse herbergt alle database code voor de
-		app. Mocht je later een andere database willen implementeren, dan hoef
-		je alleen maar een nieuwe database klasse te maken.</p>
-	<h4>Constanten definieren</h4>
-	<p>Het is gebruikelijk om in een databse klasse onveranderlijke
-		gegevens op te slaan in constanten. Deze constanten zijn gemakkelijk
-		op te roepen in je IDE en je voorkomt op die manier typefouten. We
-		gaan constanten defini&euml;ren waarbij we het eerder gemaakte ERD als
-		uitgangspunt nemen. We hebben straks ook de kolomnummers nodig
-		(beginnend met 0), dus die slaan we ook op in constanten.</p>
+		<p>
+			De Lijst en Taak klassen hebben allebei drie constructors. Een
+			default constructor zonder parameters. Een constructor zonder id
+			attribuut. Deze wordt gebruikt als een nieuwe lijst of taak aan de
+			database moet worden toegevoegd. De id wordt immers automatisch
+			aangemaakt als een object aan database wordt toegevoegd. Wanneer
+			echter een rij gegevens uit de databse wordt opgehaald en naar een
+			java klasse moet worden omgezet is er wel sprake van een bestaand id.<br>
+			De Taak klasse heeft twee int constanten TRUE en FALSE gedefinieerd.
+			Deze worden gebruikt om het int attribuut <em>verborgen</em> een
+			waarde te geven. True en false zijn op deze wijze tot int constanten
+			omgezet.
+		</p>
+		<p>Als een taak als voltooid wordt gemarkeerd wordt de datum/tijd
+			van dat moment gebruikt als tijdstip waarop de taak is voltooid. Bij
+			een nog niet voltooide taak is deze waarde 0. Je kunt een datum
+			natuurlijk als String opslaan, maar dan kun je er niet mee rekenen.
+			Aangezien we de milliseconden van de huidige datum/tijd (gerekend
+			vanaf 1 januari 1970) van het systeem kunnen opvragen gebruiken we
+			deze om de waarde van het tijdstip van voltooiing van de taak op te
+			slaan als INTEGER in de database en als long in het java object.</p>
+		<p>
+		<h3>Een database klasse maken</h3>
+		<p>Nu we de business klassen hebben gemaakt kunnen we een database
+			klasse gaan maken. Deze klasse herbergt alle database code voor de
+			app. Mocht je later een andere database willen implementeren, dan
+			hoef je alleen maar een nieuwe database klasse te maken.</p>
+		<h4>Constanten definieren</h4>
+		<p>Het is gebruikelijk om in een databse klasse onveranderlijke
+			gegevens op te slaan in constanten. Deze constanten zijn gemakkelijk
+			op te roepen in je IDE en je voorkomt op die manier typefouten. We
+			gaan constanten defini&euml;ren waarbij we het eerder gemaakte ERD
+			als uitgangspunt nemen. We hebben straks ook de kolomnummers nodig
+			(beginnend met 0), dus die slaan we ook op in constanten.</p>
 
-	<pre class="code">
+		<pre class="code">
 public class TakenlijstDB {
     
     <span class="comment">//database constanten om de tabellen te creëren of droppen</span>
@@ -368,13 +369,13 @@ public class TakenlijstDB {
     public static final String TAAK_VERBORGEN = "taak_verborgen";
     public static final int TAAK_VERBORGEN_COL = 5;
 </pre>
-	<h4>Statements die de database cre&euml;ren</h4>
-	<p>Nu we de tabellen, kolomnamen en -nummers in constanten hebben
-		gedefinieerd kunnen we de CREATE TABLE en DROP TABLE statements gaan
-		maken straks nodig zijn om de Lijst en Taak tabellen aan te maken of
-		te wissen:</p>
+		<h4>Statements die de database cre&euml;ren</h4>
+		<p>Nu we de tabellen, kolomnamen en -nummers in constanten hebben
+			gedefinieerd kunnen we de CREATE TABLE en DROP TABLE statements gaan
+			maken straks nodig zijn om de Lijst en Taak tabellen aan te maken of
+			te wissen:</p>
 
-	<pre class="code">
+		<pre class="code">
     <span class="comment">//CREATE and DROP TABLE constanten</span>
     public static final String CREATE_LIJST_TABLE =
             "CREATE TABLE " + LIJST_TABEL + " (" +
@@ -397,12 +398,12 @@ public class TakenlijstDB {
             "DROP TABLE IF EXISTS " + TAAK_TABEL;
 	
 </pre>
-	<h4>De database cre&euml;ren</h4>
-	<p>Om de database daadwerkelijk te cre&euml;ren maken we een
-		binnenklasse die de klasse SQLiteOpenHelper klasse uitbreidt. Om een
-		beginnetje te maken voegen we meteen handmatig wat rijen aan de
-		tabellen toe. Met \n kun je een regeleinde in de notitie invoegen.</p>
-	<pre class="code">
+		<h4>De database cre&euml;ren</h4>
+		<p>Om de database daadwerkelijk te cre&euml;ren maken we een
+			binnenklasse die de klasse SQLiteOpenHelper klasse uitbreidt. Om een
+			beginnetje te maken voegen we meteen handmatig wat rijen aan de
+			tabellen toe. Met \n kun je een regeleinde in de notitie invoegen.</p>
+		<pre class="code">
     class DBHelper extends <span class="codeplus">SQLiteOpenHelper</span> {
 
         public DBHelper(Context context, String name, 
@@ -420,7 +421,7 @@ public class TakenlijstDB {
             //paar default taken invoeren
             db.execSQL("INSERT INTO listview_taak VALUES (1, 1, 'Rekeningen betalen', " +
             "'internet<span class="codeplus">\n</span>electra<span
-			class="codeplus">\n</span>krant', 0, 0)");
+				class="codeplus">\n</span>krant', 0, 0)");
             db.execSQL("INSERT INTO listview_taak VALUES (2, 1, 'Naar kapper', " +
                     "'', 0, 0)");
         }
@@ -435,45 +436,46 @@ public class TakenlijstDB {
         }
     }	
 	</pre>
-	<p>De klasse begint met een constructor die vier argumenten aan de
-		superklasse (SQLiteOpenHelper) doorgeeft. Na de constructor vervangt
-		(override) de klasse de onCreate methode van de superklasse. De
-		methode wordt alleen uitgevoerd als de gespecificeerde database niet
-		op het toestel wordt aangetroffen. De eerste twee statements in de
-		methode roepen de execSQL methode aan op de database die als argument
-		aan de methode wordt meegegeven. Als argumenten worden de CREATE TABLE
-		constanten meegegeven die we eerder hebben gemaakt en die de twee
-		tabellen aanmaken.</p>
-	<p>De volgende vier statements voegen een aantal rijen toe aan de
-		tabellen. Deze fungeren als voorbeeld en voor testdoeleinden</p>
-	<p>Na de onCreate methode wordt de onUpgrade methode gemaakt.
-		Hiermee wordt de database vervangen als een nieuwere versie
-		beschikbaar is. Tijdens de ontwikkelingsfase is het gebruikelijk om de
-		oude database te wissen en de database opnieuw aan te maken. Dit wist
-		echter alle data. Als de app in produktie is zou dit tot onaangename
-		verrassingen kunnen leiden. In dat geval is het beter om ALTER TABLE
-		statements te gebruiken om bijvoorbeeld een kolom aan een tabel toe te
-		voegen.</p>
-	<p>
-		De execSQL methode van de SQLiteDatabase klasse kan gebruikt worden om
-		SQL statements zoals CREATE TABLE en DROP TABLE uit te voeren of een
-		aantal voorbeeld rijen in te voegen, maar kan uit
-		veiligheidsoverwegingen beter niet gebruikt worden om invoer van
-		gebruikers in een tabel in te voeren. In dat geval kunnen beter
-		statements gebruikt worden die zogenaamde <a
-			href="http://www.w3schools.com/sql/sql_injection.asp" target="+blank">SQL
-			injections</a> verhinderen. Deze zullen we later in dit hoofdstuk
-		tegenkomen.
-	</p>
-	<h3>Een database connectie openen en sluiten</h3>
-	<p>Om een connectie met de database te openen heb je een instantie
-		van de klasse SQLiteDatabase nodig. Deze instantie komt in twee
-		smaken: eentje die alleen kan lezen en een die zowel kan lezen als
-		schrijven. Om deze te maken heb je een instantie van de zopas gemaakte
-		DBHelper klasse nodig. Nadat de db taken zijn uitgevoerd moet je de
-		connectie sluiten om te vermijden dat er allerlei connecties actief
-		blijven. Voeg aan je TakenlijstDB klasse de volgende code toe:</p>
-	<pre class="code">
+		<p>De klasse begint met een constructor die vier argumenten aan de
+			superklasse (SQLiteOpenHelper) doorgeeft. Na de constructor vervangt
+			(override) de klasse de onCreate methode van de superklasse. De
+			methode wordt alleen uitgevoerd als de gespecificeerde database niet
+			op het toestel wordt aangetroffen. De eerste twee statements in de
+			methode roepen de execSQL methode aan op de database die als argument
+			aan de methode wordt meegegeven. Als argumenten worden de CREATE
+			TABLE constanten meegegeven die we eerder hebben gemaakt en die de
+			twee tabellen aanmaken.</p>
+		<p>De volgende vier statements voegen een aantal rijen toe aan de
+			tabellen. Deze fungeren als voorbeeld en voor testdoeleinden</p>
+		<p>Na de onCreate methode wordt de onUpgrade methode gemaakt.
+			Hiermee wordt de database vervangen als een nieuwere versie
+			beschikbaar is. Tijdens de ontwikkelingsfase is het gebruikelijk om
+			de oude database te wissen en de database opnieuw aan te maken. Dit
+			wist echter alle data. Als de app in produktie is zou dit tot
+			onaangename verrassingen kunnen leiden. In dat geval is het beter om
+			ALTER TABLE statements te gebruiken om bijvoorbeeld een kolom aan een
+			tabel toe te voegen.</p>
+		<p>
+			De execSQL methode van de SQLiteDatabase klasse kan gebruikt worden
+			om SQL statements zoals CREATE TABLE en DROP TABLE uit te voeren of
+			een aantal voorbeeld rijen in te voegen, maar kan uit
+			veiligheidsoverwegingen beter niet gebruikt worden om invoer van
+			gebruikers in een tabel in te voeren. In dat geval kunnen beter
+			statements gebruikt worden die zogenaamde <a
+				href="http://www.w3schools.com/sql/sql_injection.asp"
+				target="+blank">SQL injections</a> verhinderen. Deze zullen we later
+			in dit hoofdstuk tegenkomen.
+		</p>
+		<h3>Een database connectie openen en sluiten</h3>
+		<p>Om een connectie met de database te openen heb je een instantie
+			van de klasse SQLiteDatabase nodig. Deze instantie komt in twee
+			smaken: eentje die alleen kan lezen en een die zowel kan lezen als
+			schrijven. Om deze te maken heb je een instantie van de zopas
+			gemaakte DBHelper klasse nodig. Nadat de db taken zijn uitgevoerd
+			moet je de connectie sluiten om te vermijden dat er allerlei
+			connecties actief blijven. Voeg aan je TakenlijstDB klasse de
+			volgende code toe:</p>
+		<pre class="code">
     <span class="comment">//declareer database en databaseHelper objecten</span>
     private SQLiteDatabase db;
     private DBHelper dbHelper;
@@ -503,14 +505,14 @@ public class TakenlijstDB {
         }
     }	
 	</pre>
-	<h3>Public methodes toevoegen</h3>
-	<p>De klasse moet natuurlijk taken kunnen ophalen en vertonen of
-		nieuwe taken aan de database toevoegen. Daarvoor hebben we public
-		methodes nodig die op een object van de klasse kunnen worden
-		aangeroepen. Laten we beginnen met methodes te maken die gegevens uit
-		de database ophalen.</p>
-	<h3>Gegevens uit de database ophalen</h3>
-	<pre class="code">
+		<h3>Public methodes toevoegen</h3>
+		<p>De klasse moet natuurlijk taken kunnen ophalen en vertonen of
+			nieuwe taken aan de database toevoegen. Daarvoor hebben we public
+			methodes nodig die op een object van de klasse kunnen worden
+			aangeroepen. Laten we beginnen met methodes te maken die gegevens uit
+			de database ophalen.</p>
+		<h3>Gegevens uit de database ophalen</h3>
+		<pre class="code">
 	<span class="comment">//haal taken van bepaalde lijst</span>
 	public ArrayList&lt;Taak&gt; getTaken(String lijstNaam) {
         String where = TAAK_LIJST_ID + "= ? AND " +
@@ -610,55 +612,55 @@ public class TakenlijstDB {
         }
     }
 	</pre>
-	<h3>Meerdere rijen uit een tabel ophalen</h3>
-	<p>
-		De methode getTaken haalt alle taken van een bepaalde lijst op. Als
-		argument wordt de naam van de lijst meegegeven. De methode query van
-		de klasse SQLiteDatabase accepteert de volgende argumenten en heeft
-		als terugkeerwaarde een object van de klasse <a
-			href="http://developer.android.com/reference/android/database/Cursor.html"
-			target="_blank">Cursor</a>
-	</p>
-	<pre class="code">
+		<h3>Meerdere rijen uit een tabel ophalen</h3>
+		<p>
+			De methode getTaken haalt alle taken van een bepaalde lijst op. Als
+			argument wordt de naam van de lijst meegegeven. De methode query van
+			de klasse SQLiteDatabase accepteert de volgende argumenten en heeft
+			als terugkeerwaarde een object van de klasse <a
+				href="http://developer.android.com/reference/android/database/Cursor.html"
+				target="_blank">Cursor</a>
+		</p>
+		<pre class="code">
 	Cursor cursor = db.query(tabel, kolommen, selectie, 
 		selectieArgumenten, groupBy, having, orderBy);
 	</pre>
-	<p>Alle argumenten bestaan uit strings of string arrays. Als je een
-		argument niet wilt gebruiken kun je null gebruiken.</p>
-	<p>Enkele methoden van de Cursor klasse:</p>
-	<ul>
-		<li><b>moveToFirst()</b>: gaat naar de eerste rij in de cursor</li>
-		<li><b>moveToNext()</b>: gaat naar de volgende rij</li>
-		<li><b>close()</b>: sluit de cursor</li>
-	</ul>
-	<h3>Een enkele rij ophalen</h3>
-	<p>De methode getTaak toont hoe je een enkele taak uit een tabel
-		ophaalt, waarbij het id als argument wordt gebruikt. De methode werkt
-		hetzelfde als meerdere rijen ophalen. Allereerst wordt de WHERE
-		voorwaarde gedefinieerd. Ook hier bestaat dit uit &eacute;&eacute;n
-		parameter, in dit geval de ID van de taak. Nadat de argumenten voor de
-		WHERE voorwaarde (in dit geval de id die naar een String wordt
-		geconverteerd) zijn gedefinieerd in de whereArgs array wordt de query
-		methode aangeroepen om een cursor te verkrijgen. De moveToFirst
-		methode zet de cursor op de eerste (in dit geval enige) rij van de
-		resultaten te zetten. Met de hulpmethode getTaakVanCursor om de
-		gegevens van de rij naar een java object (Taak) om te zetten. Tot slot
-		wordt de cursor en de database connectie gesloten.</p>
-	<h3>Data ophalen met een cursor</h3>
-	<p>Met de cursor kan de data uit een rij van een tabel worden
-		opgehaald met de methoden:</p>
-	<ul>
-		<li>getInt(kolomIndex)</li>
-		<li>getDouble(kolomIndex)</li>
-		<li>getString(kolomIndex)</li>
-	</ul>
-	<p>Bovenstaande methoden accepteren alleen het nummer van de kolom,
-		dus niet de kolomnaam.</p>
+		<p>Alle argumenten bestaan uit strings of string arrays. Als je
+			een argument niet wilt gebruiken kun je null gebruiken.</p>
+		<p>Enkele methoden van de Cursor klasse:</p>
+		<ul>
+			<li><b>moveToFirst()</b>: gaat naar de eerste rij in de cursor</li>
+			<li><b>moveToNext()</b>: gaat naar de volgende rij</li>
+			<li><b>close()</b>: sluit de cursor</li>
+		</ul>
+		<h3>Een enkele rij ophalen</h3>
+		<p>De methode getTaak toont hoe je een enkele taak uit een tabel
+			ophaalt, waarbij het id als argument wordt gebruikt. De methode werkt
+			hetzelfde als meerdere rijen ophalen. Allereerst wordt de WHERE
+			voorwaarde gedefinieerd. Ook hier bestaat dit uit &eacute;&eacute;n
+			parameter, in dit geval de ID van de taak. Nadat de argumenten voor
+			de WHERE voorwaarde (in dit geval de id die naar een String wordt
+			geconverteerd) zijn gedefinieerd in de whereArgs array wordt de query
+			methode aangeroepen om een cursor te verkrijgen. De moveToFirst
+			methode zet de cursor op de eerste (in dit geval enige) rij van de
+			resultaten te zetten. Met de hulpmethode getTaakVanCursor om de
+			gegevens van de rij naar een java object (Taak) om te zetten. Tot
+			slot wordt de cursor en de database connectie gesloten.</p>
+		<h3>Data ophalen met een cursor</h3>
+		<p>Met de cursor kan de data uit een rij van een tabel worden
+			opgehaald met de methoden:</p>
+		<ul>
+			<li>getInt(kolomIndex)</li>
+			<li>getDouble(kolomIndex)</li>
+			<li>getString(kolomIndex)</li>
+		</ul>
+		<p>Bovenstaande methoden accepteren alleen het nummer van de
+			kolom, dus niet de kolomnaam.</p>
 
-	<h3>Gegevens in de database toevoegen, wijzigen en verwijderen</h3>
-	<p>Onderstaande code laat zien hoe je een taak toevoegt, wijzigt en
-		verwijdert:</p>
-	<pre class="code">
+		<h3>Gegevens in de database toevoegen, wijzigen en verwijderen</h3>
+		<p>Onderstaande code laat zien hoe je een taak toevoegt, wijzigt
+			en verwijdert:</p>
+		<pre class="code">
     public long voegTaakToe(Taak taak) {
         <span class="codeplus">ContentValues</span> cv = this.maakContenValues(taak);
         this.openWritableDB();
@@ -697,24 +699,26 @@ public class TakenlijstDB {
         return rijCount;
     }
 	</pre>
-	<p>
-		Om gegevens aan de database toe te voegen of te wijzigen kun je een
-		object van de klasse <a
-			href="http://developer.android.com/reference/android/content/ContentValues.html"
-			target="_blank">ContentValues</a> gebruiken om de waardes die je naar
-		de database wilt schrijven in op te slaan. Aangezien de id van een
-		taak door de database zelf met het AUTO_INCREMENT attribuut wordt
-		aangemaakt, hoeft dit niet te worden meegegeven.
-	</p>
-	<p>De gebruikte methodes van de SQLiteDatabase klasse:</p>
-	<ul>
-		<li>insert(tabel, kolommen, contentValues)</li>
-		<li>update(tabel, contentValues, where, whereArgs)</li>
-		<li>delete(tabel, where, wherArgs)
-	</ul>
-	<p>De gebruikte methode van de ContentValues klasse:</p>
-	<ul>
-		<li>put(kolomnaam, waarde)</li>
-	</ul>
+		<p>
+			Om gegevens aan de database toe te voegen of te wijzigen kun je een
+			object van de klasse <a
+				href="http://developer.android.com/reference/android/content/ContentValues.html"
+				target="_blank">ContentValues</a> gebruiken om de waardes die je
+			naar de database wilt schrijven in op te slaan. Aangezien de id van
+			een taak door de database zelf met het AUTO_INCREMENT attribuut wordt
+			aangemaakt, hoeft dit niet te worden meegegeven.
+		</p>
+		<p>De gebruikte methodes van de SQLiteDatabase klasse:</p>
+		<ul>
+			<li>insert(tabel, kolommen, contentValues)</li>
+			<li>update(tabel, contentValues, where, whereArgs)</li>
+			<li>delete(tabel, where, wherArgs)
+		</ul>
+		<p>De gebruikte methode van de ContentValues klasse:</p>
+		<ul>
+			<li>put(kolomnaam, waarde)</li>
+		</ul>
+	</div>
 </div>
 <%@ include file="/AO/android/includes/bottom.html"%>
+</html>

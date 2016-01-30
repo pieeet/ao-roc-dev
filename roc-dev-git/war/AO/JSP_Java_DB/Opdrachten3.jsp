@@ -8,65 +8,63 @@
 
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
-<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
 
-<%
-
-	
-if (request.getAttribute("check") == null) {
-	response.sendRedirect("/jsp_deel_3");
-} else {
-%>
+	<%
+		if (request.getAttribute("check") == null) {
+			response.sendRedirect("/jsp_deel_3");
+		} else {
+	%>
 
 
-<div class="col-md-9">
-	<h2>Java klassen</h2>
+	<div class="col-md-9">
+		<h2>Java klassen</h2>
 
-	<!-- Leerdoelen -->
-	<div class="bs-callout bs-callout-warning">
-		<h2>Leerdoelen</h2>
-		<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
-			je weet:</p>
-		<ul>
-			<li>hoe je java klassen in je web app kunt maken en gebruiken</span></li>
+		<!-- Leerdoelen -->
+		<div class="bs-callout bs-callout-warning">
+			<h2>Leerdoelen</h2>
+			<p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
+				je weet:</p>
+			<ul>
+				<li>hoe je java klassen in je web app kunt maken en gebruiken</li>
 
-		</ul>
-	</div>
-	<!-- inhoud -->
-	<div class="opdrachten" id="opg14">
-		<h2>Opdracht 14</h2>
-		<p>Maak dezelfde pagina als in opdracht 12, maar maak nu gebruik
-			van een klasse die de berekeningen uitvoert in plaats van dat de
-			berekeningen in JSP worden uitgevoerd. Maak naast JSP gebruik van
-			HTML en CSS bij het uitvoeren van deze opdracht.</p>
-
-
-
-		<div class="toonknopcontainer">
-			<button class="toonknop" id="toon14" onclick="toon('uitw14')">Toon
-				uitwerking</button>
+			</ul>
 		</div>
-
-		<div class="uitwerking" id="uitw14">
-			<p>In Eclipse maak je in je projectstructuur een java klasse.
-				Klassen bevinden zich in zogenaamde &quot;packages&quot; in de map
-				&quot;src&quot; (source).</p>
-			<img src="/AO/JSP_Java_DB/images/project.png"
-				alt="Java klasse in Eclipse project">
-			<h3>De java klasse</h3>
-			<p>We maken een java klasse met een constructor en twee methoden
-				om van Celsius naar Fahrenheit en vice versa te rekenen. We geven
-				aan de methoden een String mee als parameter. Deze String moet naar
-				een int worden geconverteerd met de methode Integer.parseInt().
-				Zoals we hebben gezien werpt deze methode een NumberFormatException
-				op als de conversie niet lukt. Door achter de methode &quot;throws
-				NumberFormatException&quot; te zetten geven we aan dat deze
-				exception moet worden opgegooid als de methodes worden aangeroepen
-				met een onjuiste parameter(geen int). Later in de jsp gebruiken we
-				deze exception om een foutmelding te maken.</p>
+		<!-- inhoud -->
+		<div class="opdrachten" id="opg14">
+			<h2>Opdracht 14</h2>
+			<p>Maak dezelfde pagina als in opdracht 12, maar maak nu gebruik
+				van een klasse die de berekeningen uitvoert in plaats van dat de
+				berekeningen in JSP worden uitgevoerd. Maak naast JSP gebruik van
+				HTML en CSS bij het uitvoeren van deze opdracht.</p>
 
 
-			<pre class="code">
+
+			<div class="toonknopcontainer">
+				<button class="toonknop" id="toon14" onclick="toon('uitw14')">Toon
+					uitwerking</button>
+			</div>
+
+			<div class="uitwerking" id="uitw14">
+				<p>In Eclipse maak je in je projectstructuur een java klasse.
+					Klassen bevinden zich in zogenaamde &quot;packages&quot; in de map
+					&quot;src&quot; (source).</p>
+				<img src="/AO/JSP_Java_DB/images/project.png"
+					alt="Java klasse in Eclipse project">
+				<h3>De java klasse</h3>
+				<p>We maken een java klasse met een constructor en twee methoden
+					om van Celsius naar Fahrenheit en vice versa te rekenen. We geven
+					aan de methoden een String mee als parameter. Deze String moet naar
+					een int worden geconverteerd met de methode Integer.parseInt().
+					Zoals we hebben gezien werpt deze methode een NumberFormatException
+					op als de conversie niet lukt. Door achter de methode &quot;throws
+					NumberFormatException&quot; te zetten geven we aan dat deze
+					exception moet worden opgegooid als de methodes worden aangeroepen
+					met een onjuiste parameter(geen int). Later in de jsp gebruiken we
+					deze exception om een foutmelding te maken.</p>
+
+
+				<pre class="code">
 package graden;
 
 public class Graden {
@@ -93,19 +91,19 @@ public class Graden {
 </pre>
 
 
-			<h3>De JSP pagina</h3>
-			<p>In de JSP pagina willen we de klasse die we net hebben gemaakt
-				gebruiken om de berekening uit te voeren. Hiertoe moeten we de
-				klasse importeren.</p>
+				<h3>De JSP pagina</h3>
+				<p>In de JSP pagina willen we de klasse die we net hebben
+					gemaakt gebruiken om de berekening uit te voeren. Hiertoe moeten we
+					de klasse importeren.</p>
 
-			<pre class="code">
+				<pre class="code">
 &lt;%@page import=&quot;graden.Graden&quot; %&gt;
 </pre>
-			<p>Nu kunnen we een instantie van Graden aanmaken en daarop de
-				twee methoden aanroepen. Als parameters geven we de String mee die
-				de methode request.getParameter(String s) teruggeeft.</p>
+				<p>Nu kunnen we een instantie van Graden aanmaken en daarop de
+					twee methoden aanroepen. Als parameters geven we de String mee die
+					de methode request.getParameter(String s) teruggeeft.</p>
 
-			<pre class="code">
+				<pre class="code">
 &lt;%
 <span class="codeplus">Graden g = new Graden();</span>
 String celsValue = &quot;&quot;;
@@ -116,7 +114,7 @@ if (request.getParameter(&quot;knop&quot;) != null) {
   try {
     <span class="comment">//er mag maar &eacute;&eacute;n input veld zijn ingevuld</span>
     if (!request.getParameter(&quot;cels&quot;).equals(&quot;&quot;) 
-     && !request.getParameter(&quot;fahr&quot;).equals(&quot;&quot;)) {
+     &amp;&amp; !request.getParameter(&quot;fahr&quot;).equals(&quot;&quot;)) {
        warning = &quot;Voer slechts &amp;eacute;&amp;eacute;n waarde in!&quot;;
     }
     <span class="comment">//gebruiker heeft Celsius ingevoerd</span>
@@ -146,16 +144,16 @@ if (request.getParameter(&quot;knop&quot;) != null) {
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;cels&quot; value=&quot;<span
-					class="codeplus">&lt;%=celsValue%&gt;</span>&quot;&gt;&lt;/td&gt;
+						class="codeplus">&lt;%=celsValue%&gt;</span>&quot;&gt;&lt;/td&gt;
       &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;fahr&quot; value=&quot;<span
-					class="codeplus">&lt;%=fahrValue%&gt;</span>&quot;&gt;&lt;/td&gt;
+						class="codeplus">&lt;%=fahrValue%&gt;</span>&quot;&gt;&lt;/td&gt;
       &lt;td&gt;&lt;input type=&quot;submit&quot; name=&quot;knop&quot; value=&quot;Omrekenen&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
     
     &lt;% if (request.getParameter(&quot;knop&quot;) != null) { %&gt;
       &lt;tr&gt;
         &lt;td colspan=&quot;2&quot; class=&quot;fout&quot;&gt;<span
-					class="codeplus">&lt;%= warning %&gt;</span>&lt;/td&gt;
+						class="codeplus">&lt;%= warning %&gt;</span>&lt;/td&gt;
       &lt;/tr&gt;
     &lt;% } %&gt;
   &lt;/table&gt;
@@ -164,51 +162,50 @@ if (request.getParameter(&quot;knop&quot;) != null) {
 
 
 </pre>
-		</div>
-
-	</div>
-
-	<div class="opdrachten" id="opg15">
-		<h2>Opdracht 15</h2>
-		<p>Maak dezelfde pagina met de rekenmachine als in opdracht 13,
-			maar maak nu gebruik van een klasse die de berekeningen uitvoert in
-			plaats van dat de berekeningen in JSP worden uitgevoerd. Maak naast
-			JSP gebruik van HTML en CSS bij het uitvoeren van deze opdracht.</p>
-		
-
-		<div id="inhoud_rekenmachine">
-			<div id="rekenmachine">
-				<div id="rekenmachine_naam">
-					<p>Rekenmachine</p>
-				</div>
-
-				<div class="invoer_arg">
-					<p>Eerste getal</p>
-					<input type="text" id="arg1" value="">
-				</div>
-				<div class="invoer_arg">
-					<p>Tweede getal</p>
-					<input type="text" id="arg2" value="">
-				</div>
-				<div id="reken_knoppen">
-					<div class="knop_container_2">
-						<button type="button" id="reken_functie_plus" value="plus">+</button>
-					</div>
-					<div class="knop_container_2">
-						<button type="button" id="reken_functie_min" value="min">-</button>
-					</div>
-					<div class="knop_container_2">
-						<button type="button" id="reken_functie_maal" value="maal">X</button>
-					</div>
-					<div class="knop_container_2">
-						<button type="button" id="reken_functie_delen" value="delen">/</button>
-					</div>
-
-				</div>
-
 			</div>
+
 		</div>
 
+		<div class="opdrachten" id="opg15">
+			<h2>Opdracht 15</h2>
+			<p>Maak dezelfde pagina met de rekenmachine als in opdracht 13,
+				maar maak nu gebruik van een klasse die de berekeningen uitvoert in
+				plaats van dat de berekeningen in JSP worden uitgevoerd. Maak naast
+				JSP gebruik van HTML en CSS bij het uitvoeren van deze opdracht.</p>
+
+
+			<div id="inhoud_rekenmachine">
+				<div id="rekenmachine">
+					<div id="rekenmachine_naam">
+						<p>Rekenmachine</p>
+					</div>
+
+					<div class="invoer_arg">
+						<p>Eerste getal</p>
+						<input type="text" id="arg1" value="">
+					</div>
+					<div class="invoer_arg">
+						<p>Tweede getal</p>
+						<input type="text" id="arg2" value="">
+					</div>
+					<div id="reken_knoppen">
+						<div class="knop_container_2">
+							<button type="button" id="reken_functie_plus" value="plus">+</button>
+						</div>
+						<div class="knop_container_2">
+							<button type="button" id="reken_functie_min" value="min">-</button>
+						</div>
+						<div class="knop_container_2">
+							<button type="button" id="reken_functie_maal" value="maal">X</button>
+						</div>
+						<div class="knop_container_2">
+							<button type="button" id="reken_functie_delen" value="delen">/</button>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
 
 
 
@@ -216,16 +213,17 @@ if (request.getParameter(&quot;knop&quot;) != null) {
 
 
 
-		<!--  		<div class="toonknopcontainer">
+
+			<!--  		<div class="toonknopcontainer">
 							<button class="toonknop" id="toon15" onclick="toon('uitw15')">Toon uitwerking</button>
 						</div>  -->
 
-		<div class="uitwerking" id="uitw15">
-			<p>In onderstaande code zijn iets andere keuzes gemaakt dan in de
-				vorige opgave. Zoek de verschillen!</p>
+			<div class="uitwerking" id="uitw15">
+				<p>In onderstaande code zijn iets andere keuzes gemaakt dan in
+					de vorige opgave. Zoek de verschillen!</p>
 
-			<h3>Java</h3>
-			<pre class="code">
+				<h3>Java</h3>
+				<pre class="code">
 package rekenmachine;
 
 <span class="javadoc">/**
@@ -265,9 +263,9 @@ public class Rekenmachine {
 </pre>
 
 
-			<h3>JSP</h3>
+				<h3>JSP</h3>
 
-			<pre class="code">
+				<pre class="code">
 &lt;%
 <span class="codeplus">Rekenmachine rm = new Rekenmachine();</span>
 String uitkomst = &quot;&quot;;
@@ -315,7 +313,7 @@ if (request.getParameter(&quot;functie&quot;) != null) {
           &lt;tr id=&quot;invoer&quot;&gt;
             &lt;td colspan=&quot;2&quot;&gt;
               &lt;input type=&quot;text&quot; name=&quot;arg1&quot; value=&quot;<span
-					class="codeplus">&lt;%= uitkomst %&gt;</span>&quot;
+						class="codeplus">&lt;%= uitkomst %&gt;</span>&quot;
             &lt;/td&gt;
             &lt;td colspan=&quot;2&quot;&gt;
               &lt;input type=&quot;text&quot; name=&quot;arg2&quot; value=&quot;&quot;&gt;
@@ -347,7 +345,7 @@ if (request.getParameter(&quot;functie&quot;) != null) {
           
           &lt;tr&gt;
             &lt;td colspan=&quot;4&quot; class=&quot;fout&quot;&gt;<span
-					class="codeplus">&lt;%= foutboodschap %&gt;</span>&lt;/td&gt;
+						class="codeplus">&lt;%= foutboodschap %&gt;</span>&lt;/td&gt;
           &lt;/tr&gt;
 
       &lt;/table&gt;
@@ -359,78 +357,78 @@ if (request.getParameter(&quot;functie&quot;) != null) {
 
 
 </pre>
-			<p>
-				<span class="letop">Merk op</span> dat er bij het programmeren vaak
-				meerdere oplossingen mogelijk zijn. Iedere programmeur ontwikkelt in
-				zekere zin zijn eigen stijl. Let er wel op dat je probeert zo
-				&quot;zuinig&quot; mogelijk te programmeren en je code
-				overzichtelijk te houden. Sommige bedrijven hanteren strenge
-				stijlregels om hun code uniform te houden.
-			</p>
+				<p>
+					<span class="letop">Merk op</span> dat er bij het programmeren vaak
+					meerdere oplossingen mogelijk zijn. Iedere programmeur ontwikkelt
+					in zekere zin zijn eigen stijl. Let er wel op dat je probeert zo
+					&quot;zuinig&quot; mogelijk te programmeren en je code
+					overzichtelijk te houden. Sommige bedrijven hanteren strenge
+					stijlregels om hun code uniform te houden.
+				</p>
 
 
-		</div>
-
-
-	</div>
-
-	
-
-	<%
-		AutoLijst al = new AutoLijst();
-				ArrayList<Auto> lijst = al.getLijst();
-	%>
-
-	<div class="opdrachten" id="zelftoets">
-		<h2>Toets</h2>
-		<p>Maak een webpagina volgens onderstaand voorbeeld waarin auto's
-			of andere produkten worden vertoond en waarbij de gebruiker kan
-			selecteren op merk of minimum- en/of maximumprijs.</p>
-
-
-		<label>Kies Merk</label> <select id="merk">
-			<option value="alle">Alle merken</option>
-			<%
-				for (String merk : al.getMerken()) {
-			%>
-			<option value="<%=merk%>"><%=merk%></option>
-			<%
-				}
-			%>
-		</select><br> <label>Minimum prijs</label> <input type="text"
-			id="minprijs"> <label>Maximum prijs</label> <input
-			type="text" id="maxprijs"><br> <input type="button"
-			id="knop_merk_prijs" value="OK">
-
-
-		<div id="autoselectie">
-
-			<%
-				for (Auto auto : lijst) {
-			%>
-			<div class="autokader">
-				<img src="<%=auto.getFoto()%>"
-					alt="<%=auto.getMerk()%><%=auto.getType()%>">
-				<p class="merktype"><%=auto.getMerk()%>
-					<%=auto.getType()%></p>
-				<p class="prijs">
-					&euro;
-					<%=auto.getPrijsFormat()%></p>
 			</div>
-			<%
-				}
-			%>
+
 
 		</div>
-		<div class="toonknopcontainer">
-			<button class="toonknop" id="toonzelftoets"
-				onclick="toon('uitwzelftoets')">Toon uitwerking</button>
-		</div>
 
-		<div class="uitwerking" id="uitwzelftoets">
-			<p>Om je op weg te helpen kun je gebruik maken van de twee
-				onderstaande Java klassen.</p>
-			<pre class="code">
+
+
+		<%
+			AutoLijst al = new AutoLijst();
+				ArrayList<Auto> lijst = al.getLijst();
+		%>
+
+		<div class="opdrachten" id="zelftoets">
+			<h2>Toets</h2>
+			<p>Maak een webpagina volgens onderstaand voorbeeld waarin auto's
+				of andere produkten worden vertoond en waarbij de gebruiker kan
+				selecteren op merk of minimum- en/of maximumprijs.</p>
+
+
+			<label>Kies Merk</label> <select id="merk">
+				<option value="alle">Alle merken</option>
+				<%
+					for (String merk : al.getMerken()) {
+				%>
+				<option value="<%=merk%>"><%=merk%></option>
+				<%
+					}
+				%>
+			</select><br> <label>Minimum prijs</label> <input type="text"
+				id="minprijs"> <label>Maximum prijs</label> <input
+				type="text" id="maxprijs"><br> <input type="button"
+				id="knop_merk_prijs" value="OK">
+
+
+			<div id="autoselectie">
+
+				<%
+					for (Auto auto : lijst) {
+				%>
+				<div class="autokader">
+					<img src="<%=auto.getFoto()%>"
+						alt="<%=auto.getMerk()%><%=auto.getType()%>">
+					<p class="merktype"><%=auto.getMerk()%>
+						<%=auto.getType()%></p>
+					<p class="prijs">
+						&euro;
+						<%=auto.getPrijsFormat()%></p>
+				</div>
+				<%
+					}
+				%>
+
+			</div>
+			<div class="toonknopcontainer">
+				<button class="toonknop" id="toonzelftoets"
+					onclick="toon('uitwzelftoets')">Toon uitwerking</button>
+			</div>
+
+			<div class="uitwerking" id="uitwzelftoets">
+				<p>Om je op weg te helpen kun je gebruik maken van de twee
+					onderstaande Java klassen.</p>
+				<pre class="code">
 package jspcursus;
 
 import java.text.DecimalFormat;
@@ -480,7 +478,7 @@ public class Auto {
 
 </pre>
 
-			<pre class="code">
+				<pre class="code">
 package jspcursus;
 
 import java.util.ArrayList;
@@ -560,13 +558,13 @@ public class AutoLijst {
 
 </pre>
 
+			</div>
+
 		</div>
 
-	</div>
-
-	<div class="opdrachten" id="zelftoetsstudenten">
-		<h2>Uitwerking studenten</h2>
-		<!-- <div id="ninjalevels">
+		<div class="opdrachten" id="zelftoetsstudenten">
+			<h2>Uitwerking studenten</h2>
+			<!-- <div id="ninjalevels">
 						
 							<img alt="whitebelt" src="/images/white_belt.png">
 							<img alt="greenbelt" src="/images/green_belt.png">
@@ -578,140 +576,156 @@ public class AutoLijst {
 
 
 
-		<h3>Criteria voor de Ninja-levels</h3>
-		<p>De definitieve criteria zijn nog onderwerp van gesprek, er
-			kunnen derhalve geen rechten aan deze pagina worden ontleend</p>
+			<h3>Criteria voor de Ninja-levels</h3>
+			<p>De definitieve criteria zijn nog onderwerp van gesprek, er
+				kunnen derhalve geen rechten aan deze pagina worden ontleend</p>
 
-		<div class="ninja_level_uitleg">
-			<img class="ninja_img_uitleg" alt="greenbelt"
-				src="/images/green_belt.png">
-			<ul>
-				<li>Het onderdeel &quot;programmeren&quot; van de proeve van
-					bekwaamheid jaar 1 is als voldoende beoordeeld</li>
-			</ul>
+			<div class="ninja_level_uitleg">
+				<img class="ninja_img_uitleg" alt="greenbelt"
+					src="/images/green_belt.png">
+				<ul>
+					<li>Het onderdeel &quot;programmeren&quot; van de proeve van
+						bekwaamheid jaar 1 is als voldoende beoordeeld</li>
+				</ul>
+			</div>
+
+			<div class="ninja_level_uitleg">
+				<img class="ninja_img_uitleg" alt="blackbelt"
+					src="/images/black_belt.png">
+				<ul>
+					<li>de pagina is ingebed in je online portfolio. Je hebt een
+						eigen(zinnige) stijl gemaakt</li>
+					<li>de HTML van het selectieveld &quot;Merk&quot; wordt
+						automatisch gevuld met unieke merken. Default is &quot;alle
+						merken&quot;</li>
+					<li>bij de inputvelden &quot;prijs&quot; hoeft maar
+						&eacute;&eacute;n van beide velden door gebruiker te worden
+						ingevuld (twee mag uiteraard ook)</li>
+					<li>de auto&#039;s verschijnen netjes naast en onder elkaar,
+						de pagina elementen schalen afhankelijk van de schermgrootte</li>
+					<li>de prijzen van de produkten zijn geformatteerd volgens de
+						Nederlandse standaard (1.000.000,-)</li>
+					<li>er kan een combinatie van Merk(en) en prijzen worden
+						geselecteerd</li>
+					<li>de pagina heeft een overzichtelijke lay-out en een
+						wervende vormgeving</li>
+					<li>de pagina staat online in een produktieomgeving (zoals
+						Google App Engine)</li>
+					<li>de broncode van de web-app is &quot;Open Source&quot; en
+						is te vinden op <a href="https://github.com/" target="_blank">GitHub</a>
+						inclusief een readme bestand met een Engelstalige
+						gebruiksaanwijzing
+					</li>
+				</ul>
+			</div>
+			<div class="ninja_level_uitleg">
+				<img class="ninja_img_uitleg" alt="master" src="/images/master.png">
+				<ul>
+					<li>alle vereisten zwarte band</li>
+					<li>de inputvelden prijs zijn vervangen door een
+						&quot;slider&quot; waarmee zowel minimum- als maximumprijs kan
+						worden aangepast (<a
+						href="http://demos.jquerymobile.com/1.3.0-rc.1/docs/demos/widgets/sliders/rangeslider.html"
+						target="_blank">voorbeeld</a>)
+					</li>
+					<li>er kunnen nu ook meerdere merken worden geselecteerd</li>
+
+					<li>de pagina is gekoppeld aan een database en er is
+						functionaliteit toegevoegd zodat de eigenaar van de website zijn
+						voorraad op gemakkelijke wijze kan beheren.</li>
+					<li>De auto-divs worden met <a
+						href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp"
+						target="_blank">JQuery / AJAX</a> ververst zonder dat de pagina
+						hoeft te worden herladen
+					</li>
+
+				</ul>
+			</div>
+			<h3>Publiceer je portfolio</h3>
+			<p>
+				Je kunt je portfolio <a href="/studenten#portfolio-form">hier</a>
+				publiceren
+			</p>
 		</div>
-
-		<div class="ninja_level_uitleg">
-			<img class="ninja_img_uitleg" alt="blackbelt"
-				src="/images/black_belt.png">
-			<ul>
-				<li>de pagina is ingebed in je online portfolio. Je hebt 
-				een eigen(zinnige) stijl gemaakt</li>
-				<li>de HTML van het selectieveld &quot;Merk&quot; wordt
-					automatisch gevuld met unieke merken. Default is &quot;alle
-					merken&quot;</li>
-				<li>bij de inputvelden &quot;prijs&quot; hoeft maar
-					&eacute;&eacute;n van beide velden door gebruiker te worden
-					ingevuld (twee mag uiteraard ook)</li>
-				<li>de auto&#039;s verschijnen netjes naast en onder elkaar, de
-					pagina elementen schalen afhankelijk van de schermgrootte</li>
-				<li>de prijzen van de produkten zijn geformatteerd volgens de
-					Nederlandse standaard (1.000.000,-)</li>
-				<li>er kan een combinatie van Merk(en) en prijzen worden
-					geselecteerd</li>
-				<li>de pagina heeft een overzichtelijke lay-out en een wervende
-					vormgeving</li>
-				<li>de pagina staat online in een produktieomgeving (zoals
-					Google App Engine)</li>
-				<li>de broncode van de web-app is &quot;Open Source&quot; en is
-					te vinden op <a href="https://github.com/" target="_blank">GitHub</a>
-					inclusief een readme bestand met een Engelstalige
-					gebruiksaanwijzing
-				</li>
-			</ul>
-		</div>
-		<div class="ninja_level_uitleg">
-			<img class="ninja_img_uitleg" alt="master" src="/images/master.png">
-			<ul>
-				<li>alle vereisten zwarte band</li>
-				<li>de inputvelden prijs zijn vervangen door een
-					&quot;slider&quot; waarmee zowel minimum- als maximumprijs kan
-					worden aangepast (<a
-					href="http://demos.jquerymobile.com/1.3.0-rc.1/docs/demos/widgets/sliders/rangeslider.html"
-					target="_blank">voorbeeld</a>)
-				</li>
-				<li>er kunnen nu ook meerdere merken worden geselecteerd</li>
-
-				<li>de pagina is gekoppeld aan een database en er is
-					functionaliteit toegevoegd zodat de eigenaar van de website zijn
-					voorraad op gemakkelijke wijze kan beheren.</li>
-				<li>De auto-divs worden met <a
-					href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp" target="_blank">JQuery / AJAX</a>
-					ververst zonder dat de pagina hoeft te worden herladen
-				</li>
-
-			</ul>
-		</div>
-		<h3>Publiceer je portfolio</h3>
-		<p>Je kunt je portfolio <a href="/studenten#portfolio-form">hier</a> publiceren</p>
 	</div>
 </div>
 <%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
 <script>
-$(document).ready (function () {
-	
-	
-	/***********  Rekenmachine  **********/
-	
-	$(document).on('click','#reken_functie_plus', function() {
-		var functie = $("#reken_functie_plus").val();
-		var arg1 = $("#arg1").val();
-		var arg2 = $("#arg2").val();
-		$.get("/rekenmachine?arg1="+ arg1
-				+ "&arg2="
-				+ arg2+ "&functie="+ functie, function(responseText) {
-					$("#inhoud_rekenmachine").html(responseText);
-		});
-	});
-	$(document).on('click', '#reken_functie_min', function() {
-		var functie = $("#reken_functie_min").val();
-		var arg1 = $("#arg1").val();
-		var arg2 = $("#arg2").val();
+	$(document).ready(
+			function() {
 
-		$.get("/rekenmachine?arg1="+ arg1
-				+ "&arg2=" + arg2
-				+ "&functie=" + functie,function(responseText) {
-			$("#inhoud_rekenmachine").html(responseText);
-		});
-	});
-	$(document).on('click', '#reken_functie_maal',function() {
-		var functie = $("#reken_functie_maal").val();
-		var arg1 = $("#arg1").val();
-		var arg2 = $("#arg2").val();
-		$.get("/rekenmachine?arg1=" + arg1
-				+ "&arg2="+ arg2
-				+ "&functie="+ functie, function(responseText) {
-			$("#inhoud_rekenmachine").html(responseText);
-		});
-	});
-	$(document).on('click','#reken_functie_delen',function() {
-		var functie = $("#reken_functie_delen").val();
-		var arg1 = $("#arg1").val();
-		var arg2 = $("#arg2").val();
-		$.get("/rekenmachine?arg1=" + arg1
-				+ "&arg2="+ arg2
-				+ "&functie="+ functie,function(responseText) {
-			$("#inhoud_rekenmachine").html(responseText);
-		});
-	});
-	
-	
-	/***********  Auto shop  **********/
-	
-	$("#knop_merk_prijs").click(function() {
-		var merk = $("#merk").val();
-		var minprijs = $("#minprijs").val();
-		var maxprijs = $("#maxprijs").val();
-		$.get("/autoshop?merk=" + merk + "&minprijs="
-				+ minprijs + "&maxprijs=" + maxprijs,
-				function(responseText) {
-					$("#autoselectie").html(
-							responseText);
-		});
-	});
-});
+				/***********  Rekenmachine  **********/
+
+				$(document).on(
+						'click',
+						'#reken_functie_plus',
+						function() {
+							var functie = $("#reken_functie_plus").val();
+							var arg1 = $("#arg1").val();
+							var arg2 = $("#arg2").val();
+							$.get("/rekenmachine?arg1=" + arg1 + "&arg2="
+									+ arg2 + "&functie=" + functie, function(
+									responseText) {
+								$("#inhoud_rekenmachine").html(responseText);
+							});
+						});
+				$(document).on(
+						'click',
+						'#reken_functie_min',
+						function() {
+							var functie = $("#reken_functie_min").val();
+							var arg1 = $("#arg1").val();
+							var arg2 = $("#arg2").val();
+
+							$.get("/rekenmachine?arg1=" + arg1 + "&arg2="
+									+ arg2 + "&functie=" + functie, function(
+									responseText) {
+								$("#inhoud_rekenmachine").html(responseText);
+							});
+						});
+				$(document).on(
+						'click',
+						'#reken_functie_maal',
+						function() {
+							var functie = $("#reken_functie_maal").val();
+							var arg1 = $("#arg1").val();
+							var arg2 = $("#arg2").val();
+							$.get("/rekenmachine?arg1=" + arg1 + "&arg2="
+									+ arg2 + "&functie=" + functie, function(
+									responseText) {
+								$("#inhoud_rekenmachine").html(responseText);
+							});
+						});
+				$(document).on(
+						'click',
+						'#reken_functie_delen',
+						function() {
+							var functie = $("#reken_functie_delen").val();
+							var arg1 = $("#arg1").val();
+							var arg2 = $("#arg2").val();
+							$.get("/rekenmachine?arg1=" + arg1 + "&arg2="
+									+ arg2 + "&functie=" + functie, function(
+									responseText) {
+								$("#inhoud_rekenmachine").html(responseText);
+							});
+						});
+
+				/***********  Auto shop  **********/
+
+				$("#knop_merk_prijs").click(
+						function() {
+							var merk = $("#merk").val();
+							var minprijs = $("#minprijs").val();
+							var maxprijs = $("#maxprijs").val();
+							$.get("/autoshop?merk=" + merk + "&minprijs="
+									+ minprijs + "&maxprijs=" + maxprijs,
+									function(responseText) {
+										$("#autoselectie").html(responseText);
+									});
+						});
+			});
 </script>
+</html>
 <%
 	}
-	
 %>

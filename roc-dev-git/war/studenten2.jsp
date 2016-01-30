@@ -128,15 +128,11 @@
 		
 		
 		</div>
-		
-		
-
-
 	
     </div>
   </div>
 <%@ include file="/includes/bottom-portfolios.html"%>	
-
+</html>
 
 
 
