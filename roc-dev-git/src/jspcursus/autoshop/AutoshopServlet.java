@@ -11,41 +11,46 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class AutoshopServlet extends HttpServlet {
-	
+	final String MERK_PARAM = "merk";
+	final String MIN_PRIJS_PARAM = "minprijs";
+	final String MAX_PRIJS_PARAM = "maxprijs";
+	final String DEFAULT_MERK_PARAM = "alle";
+	final String REDIRECT_URL = "/AO/jsp/deel3";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		if (req.getParameter("merk") == null) {
-			resp.sendRedirect("jsp_deel_3");
+		
+		if (req.getParameter(MERK_PARAM) == null) {
+			resp.sendRedirect(REDIRECT_URL);
 		} else {
 			try {
 				ArrayList<Auto> lijst = new AutoLijst().getLijst();
-				String merk = "alle";
+				String merk = DEFAULT_MERK_PARAM;
 				int minPrijs = 0;
 				int maxPrijs = Integer.MAX_VALUE;
-				if (req.getParameter("merk") != null
-						&& !req.getParameter("merk").equals("")) {
-					merk = req.getParameter("merk");
+				if (req.getParameter(MERK_PARAM) != null
+						&& !req.getParameter(MERK_PARAM).equals("")) {
+					merk = req.getParameter(MERK_PARAM);
 				}
-				if (!req.getParameter("minprijs").equals("")) {
+				if (!req.getParameter(MIN_PRIJS_PARAM).equals("")) {
 					try {
 						minPrijs = Integer.parseInt(req
-								.getParameter("minprijs"));
+								.getParameter(MIN_PRIJS_PARAM));
 					} catch (NumberFormatException | NullPointerException e) {
 					}
 				}
-				if (!req.getParameter("maxprijs").equals("")) {
+				if (!req.getParameter(MAX_PRIJS_PARAM).equals("")) {
 					try {
 						maxPrijs = Integer.parseInt(req
-								.getParameter("maxprijs"));
+								.getParameter(MAX_PRIJS_PARAM));
 					} catch (NumberFormatException | NullPointerException e) {
 					}
 				}
 				PrintWriter out = resp.getWriter();
-				if (req.getParameter("merk") != null) {
-					if (merk.equals("alle")) {
+				if (req.getParameter(MERK_PARAM) != null) {
+					if (merk.equals(DEFAULT_MERK_PARAM)) {
 						for (Auto auto : lijst) {
 							if (auto.getPrijs() > minPrijs
 									&& auto.getPrijs() < maxPrijs) {
@@ -64,7 +69,7 @@ public class AutoshopServlet extends HttpServlet {
 				}
 				out.close();
 			} catch (Exception e) {
-				resp.sendRedirect("jsp_deel_3");
+				resp.sendRedirect(REDIRECT_URL);
 			}
 		}
 	}

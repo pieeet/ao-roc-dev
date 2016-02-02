@@ -111,7 +111,7 @@
 						<ul class="nav navbar-nav">
 							<li class="dropdown menu-item" id="menu-item-java"><a
 								href="#" class="dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">Java
+								role="button" aria-haspopup="true" aria-expanded="false">Programmeren
 									<span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu">
@@ -123,8 +123,8 @@
 									<li class="menu-item menu-sub-item" id="menu-item-bluej"><a
 										href="/AO/BlueJ/intro">BlueJ</a></li>
 								</ul></li>
-							<li class="menu-item" id="menu-item-html-css"><a
-								href="/AO/htmlcss/h1">HTML/CSS</a></li>
+							<!-- <li class="menu-item" id="menu-item-html-css"><a
+								href="/AO/htmlcss/h1">HTML/CSS</a></li> -->
 							<li class="dropdown menu-item" id="menu-item-web-apps"><a
 								href="#" class="dropdown-toggle" data-toggle="dropdown"
 								role="button" aria-haspopup="true" aria-expanded="false">WebApps
@@ -138,8 +138,19 @@
 									<li class="menu-item menu-sub-item" id="menu-item-jquery"><a
 										href="/AO/jquery/jquery1">JQuery</a></li>
 								</ul></li>
-							<li class="menu-item" id="menu-item-android"><a
-								href="/AO/android/h1">Android</a></li>
+							
+							
+							<li class="dropdown menu-item" id="menu-item-mobile"><a
+								href="#" class="dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false">Mobile
+									<span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li class="menu-item menu-sub-item"
+										id="menu-item-android"><a
+										href="/AO/android/h1">Android</a></li>
+									
+								</ul></li>
 							<li class="menu-item" id="menu-item-examen"><a
 								href="/AO/examen/jemeppe">Examen</a></li>
 						</ul>

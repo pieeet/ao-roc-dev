@@ -14,6 +14,10 @@ import jspcursus.kalender.*;
 
 @SuppressWarnings("serial")
 public class KalenderServlet extends HttpServlet {
+	
+	private final String DISPATCH_URL = "/AO/JSP_Java_DB/MVC_JQ.jsp";
+	private final String ATTRIBUTE_NAME_KAMER = "kamers";
+	
 	Admin admin;
 
 	@Override
@@ -21,11 +25,11 @@ public class KalenderServlet extends HttpServlet {
 			throws ServletException, IOException {
 		admin = new Admin();
 		ArrayList<String> kamers = admin.getKamerNamenLijst();
-		req.setAttribute("kamers", kamers);
+		req.setAttribute(ATTRIBUTE_NAME_KAMER, kamers);
 
 		// geen parameters
 		RequestDispatcher disp = getServletContext().getRequestDispatcher(
-				"/AO/JSP_Java_DB/MVC_JQ.jsp");
+				DISPATCH_URL);
 		try {
 			disp.forward(req, resp);
 		} catch (ServletException e) {

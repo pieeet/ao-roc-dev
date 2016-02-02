@@ -96,7 +96,7 @@ public class HtmlFactoryServlet extends HttpServlet {
 
 	private void openNieuwLidScherm() {
 		BlobstoreService blobstore = BlobstoreServiceFactory.getBlobstoreService();
-		String url = blobstore.createUploadUrl("/sport");
+		String url = blobstore.createUploadUrl("/AO/jsp/sport");
 		out.println("<form"
 				+ "  action=\"" + url + "\" id=\"nieuw_lid_form\" "
 				+ "method=\"post\" "
@@ -223,7 +223,7 @@ public class HtmlFactoryServlet extends HttpServlet {
 	private void openBestaandLidScherm(Lid lid) {
 		
 		BlobstoreService blobstore = BlobstoreServiceFactory.getBlobstoreService();
-		String url = blobstore.createUploadUrl("/sport");
+		String url = blobstore.createUploadUrl("/AO/jsp/sport");
 		
 		//div tabel links
 		out.println("<div id=\"sport_lid_info\" class=\"sport_info\">");
