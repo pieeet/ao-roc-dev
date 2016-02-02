@@ -11,18 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class AutoshopServlet extends HttpServlet {
-	int minPrijs = 0;
-	int maxPrijs = Integer.MAX_VALUE;
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		if (req.getParameter("merk") == null) {
 			resp.sendRedirect("jsp_deel_3");
 		} else {
 			try {
 				ArrayList<Auto> lijst = new AutoLijst().getLijst();
 				String merk = "alle";
+				int minPrijs = 0;
+				int maxPrijs = Integer.MAX_VALUE;
 				if (req.getParameter("merk") != null
 						&& !req.getParameter("merk").equals("")) {
 					merk = req.getParameter("merk");
