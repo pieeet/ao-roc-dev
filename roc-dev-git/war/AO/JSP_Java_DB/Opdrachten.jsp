@@ -2,11 +2,9 @@
 <div class="container">
 
 	<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
-
-
+	
 	<div class="col-md-9">
 		<h2>Werken met JSP</h2>
-
 		<!-- Leerdoelen -->
 		<div class="bs-callout bs-callout-warning">
 			<h2>Leerdoelen</h2>
@@ -24,14 +22,7 @@
 					dit hoofdstuk</li>
 				<li>een online portfolio op App Engine hebt gedeployed</li>
 			</ul>
-
-
-
 		</div>
-
-
-
-
 
 		<!-- inhoud -->
 
@@ -178,9 +169,6 @@ out.println(&quot;Piet: &amp;euro; &quot; + (bedrag / 4)  + &quot;&lt;br&gt;&quo
 					van programmeren. Doordat Java en HTML code door elkaar heen worden
 					gebruikt, kan je code snel onleesbaar worden. Het is dan ook zaak
 					om je code zo overzichtelijk mogelijk te houden.</p>
-
-
-
 			</div>
 		</div>
 
@@ -193,10 +181,6 @@ out.println(&quot;Piet: &amp;euro; &quot; + (bedrag / 4)  + &quot;&lt;br&gt;&quo
 				int week = dag * 7;
 				int jaar = dag * 365;
 			%>
-
-
-
-
 			<h2>Opdracht 2</h2>
 			<p>Schrijf een webpagina, waarin berekend wordt hoeveel seconden
 				er in een minuut, een uur, een dag, een week en een jaar gaan. Maak
@@ -293,14 +277,7 @@ int jaar = dag * 365;
 </pre>
 				<p>Het resultaat is een tabel waarin het aantal seconden wordt
 					berekend</p>
-
-
-
-
 			</div>
-
-
-
 		</div>
 
 		<div class="opdrachten">
@@ -318,34 +295,20 @@ int jaar = dag * 365;
 				TimeZone tz = TimeZone.getTimeZone("Europe/Brussels");
 				nu.setTimeZone(tz);
 				int uurNu = nu.get(Calendar.HOUR_OF_DAY);
-			%>
-			<%
+
 				if (uurNu < 12) {
-			%>
-			<h3>Goedemorgen</h3>
-			<h4>
-				Huidig uur:
-				<%=uurNu%>
-			</h4>
-			<%
+					out.println("<h3>Goedemorgen</h3>");
 				} else if (uurNu < 18) {
-			%>
-			<h3>Goedemiddag</h3>
-			<h4>
-				Huidig uur:
-				<%=uurNu%>
-			</h4>
-			<%
+					out.println("<h3>Goedemiddag</h3>");
 				} else {
-			%>
-			<h3>Goedenavond</h3>
-			<h4>
-				Huidig uur:
-				<%=uurNu%>
-			</h4>
-			<%
+					out.println("<h3>Goedenavond</h3>");
 				}
 			%>
+			<h4>
+				Huidig uur:
+				<%=uurNu%>
+			</h4>
+
 			<p>
 				<span class="letop">Tip:</span> Maak gebruik van de Java klasse <a
 					href="http://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html"
@@ -407,13 +370,6 @@ int huidigUur = nu.get(Calendar.HOUR_OF_DAY);
 					statement. <span class="letop">Merk op</span> hoe je Java en HTML
 					code door elkaar heen kunt gebruiken!
 				</p>
-
-
-
-
-
-
-
 			</div>
 
 
@@ -449,27 +405,18 @@ long maxWaarde = 900000000000000000L;
 				herhaalt.
 			</p>
 			<p>Voorbeeld uitwerking:</p>
-			<%
-				long arg0 = 0L;
-				long arg1 = 1L;
-				long som = arg0 + arg1;
-				long maxWaarde = 900000000000000000L;
-				/* DecimalFormatSymbols dfs = new DecimalFormatSymbols();
-				dfs.setGroupingSeparator('.');
-				DecimalFormat df = new DecimalFormat("###,###.##", dfs); */
-			%>
-			<h3>De rij van Fibonacci</h3>
-			<p><%=som%>,
+			<p>
 				<%
-				while (som < maxWaarde) {
-					som = arg0 + arg1;
-					arg0 = arg1;
-					arg1 = som;
-			%>
-
-				<%=som%>,
-
-				<%
+					long arg0 = 0L;
+					long arg1 = 1L;
+					long som = arg0 + arg1;
+					long maxWaarde = 900000000000000000L;
+					out.println("1, ");
+					while (som < maxWaarde) {
+						som = arg0 + arg1;
+						arg0 = arg1;
+						arg1 = som;
+						out.println(som + ", ");
 					}
 				%>
 				<b>en zo voort...</b>
@@ -522,12 +469,6 @@ long maxWaarde = 900000000000000000L;
 </pre>
 
 			</div>
-
-
-
-
-
-
 		</div>
 
 		<div class="opdrachten">
@@ -552,23 +493,15 @@ long maxWaarde = 900000000000000000L;
 			<table id="schaakbord">
 				<%
 					for (int i = 0; i < 8; i++) {
-				%>
-				<tr>
-					<%
+						out.println("<tr>");
 						for (int j = 0; j < 8; j++) {
-								if ((i + j) % 2 == 0) {
-					%>
-					<td class="zwart"></td>
-					<%
-						} else {
-					%>
-					<td class="wit"></td>
-					<%
-						}
+							if ((i + j) % 2 == 0) {
+								out.println("<td class=\"zwart\"></td>");
+							} else {
+								out.println("<td class='wit'>");
 							}
-					%>
-				</tr>
-				<%
+						}
+						out.println("</tr>");
 					}
 				%>
 			</table>
@@ -668,12 +601,8 @@ long maxWaarde = 900000000000000000L;
 &lt;/html&gt;
 
 </pre>
-
-
 			</div>
-
 		</div>
-
 		<div class="opdrachten">
 			<h2>Opdracht 6</h2>
 			<p>Zet de tafel van vijf in het venster van de browser. Uiteraard
@@ -681,12 +610,7 @@ long maxWaarde = 900000000000000000L;
 			<h3>De tafel van 5</h3>
 			<%
 				for (int i = 1; i <= 10; i++) {
-			%>
-			<%=i%>
-			x 5 =
-			<%=i * 5%>
-			<br>
-			<%
+					out.println(i + " x 5 = " + i * 5 + "<br>");
 				}
 			%>
 			<br>
@@ -705,23 +629,7 @@ long maxWaarde = 900000000000000000L;
 &lt;/body&gt;
 
 </pre>
-
-				<h3>De tafel van 5</h3>
-				<%
-					for (int i = 1; i <= 10; i++) {
-				%>
-				<%=i%>
-				x 5 =
-				<%=i * 5%>
-				<br>
-				<%
-					}
-				%>
-
 			</div>
-
-
-
 		</div>
 
 		<div class="opdrachten">
@@ -737,23 +645,15 @@ long maxWaarde = 900000000000000000L;
 				<table id="xtabel">
 					<%
 						for (int i = 1; i <= 10; i++) {
-					%>
-					<tr>
-						<%
+							out.println("<tr>");
 							for (int j = 1; j <= 10; j++) {
-									if (i == 1 || j == 1) {
-						%>
-						<th><%=i * j%></th>
-						<%
-							} else {
-						%>
-						<td><%=i * j%></td>
-						<%
-							}
+								if (i == 1 || j == 1) {
+									out.println("<th>" + i * j + "</th>");
+								} else {
+									out.println("<td>" + i * j + "</td>");
 								}
-						%>
-					</tr>
-					<%
+							}
+							out.println("</tr>");
 						}
 					%>
 				</table>

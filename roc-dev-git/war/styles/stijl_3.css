@@ -135,6 +135,12 @@ td, th {
 	display: none;
 }
 
+
+
+/**************  schaakbord ***************/
+
+
+
 table#schaakbord {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -155,6 +161,11 @@ table#schaakbord {
 	background-color: white;
 }
 
+
+
+
+/************* X-Tabel *********************/
+
 table#xtabel {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -169,6 +180,13 @@ table#xtabel th, table#xtabel td {
 	width: 10%;
 	height: 10%;
 }
+
+
+
+
+
+
+
 
 table#xtabel th {
 	background-color: #F3F3F3;

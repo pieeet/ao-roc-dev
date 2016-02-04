@@ -12,7 +12,7 @@
       	
       	
       	<%if (request.getAttribute("toets") == null) { %>
-      		<form action="/bluejtoets" method="post">
+      		<form action="/AO/BlueJ/bluejtoets" method="post">
 	      		<input type="hidden" name="user" value="<%= user.getNickname() %>">
 	      		<input type="submit" name="toets_knop" value="ga naar toets">
 	      	</form>

@@ -21,7 +21,7 @@
 		%>
 		<p><%=tekst%></p>
 		<p>
-			Ga <a href="Opdrachten_2.jsp#opg10">terug</a> naar de cursus pagina.
+			Ga <a href="/AO/jsp/deel2#opg10">terug</a> naar de cursus pagina.
 		</p>
 	</div>
 </div>

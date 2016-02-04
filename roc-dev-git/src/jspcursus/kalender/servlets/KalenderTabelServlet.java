@@ -17,6 +17,16 @@ import jspcursus.kalender.Reservering;
 
 @SuppressWarnings("serial")
 public class KalenderTabelServlet extends HttpServlet {
+	private final String SLEUTEL_PARAM = "sleutel";
+	private final String MAAND_PARAM = "maand";
+	private final String JAAR_PARAM = "jaar";
+	private final String VORIGE_MAAND_PARAM = "vorige";
+	private final String VOLGENDE_MAAND_PARAM = "volgende";
+	private final String RESERVERING_KNOP_PARAM = "reservering_knop";
+	private final String DATUM_PARAM = "datum";
+	private final int DECEMBER = 11;
+	private final int JANUARI = 0;
+	
 	private Admin admin;
 	private Kamer kamer;
 	private Datum kalenderMaand, reserveringsDatum;
@@ -28,16 +38,16 @@ public class KalenderTabelServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		admin = new Admin();
-		String sleutel = req.getParameter("sleutel");
+		String sleutel = req.getParameter(SLEUTEL_PARAM);
 		kamer = admin.getKamer(sleutel);
 		kalenderMaand = new Datum();
 		int jaar;
 		int maand;
 
-		if (req.getParameter("maand") != null
-				&& !req.getParameter("maand").equals("")) {
-			jaar = Integer.parseInt(req.getParameter("jaar"));
-			maand = Integer.parseInt(req.getParameter("maand"));
+		if (req.getParameter(MAAND_PARAM) != null
+				&& !req.getParameter(MAAND_PARAM).equals("")) {
+			jaar = Integer.parseInt(req.getParameter(JAAR_PARAM));
+			maand = Integer.parseInt(req.getParameter(MAAND_PARAM));
 			kalenderMaand = new Datum(jaar, maand);
 		} else {
 			jaar = kalenderMaand.getJaar();
@@ -45,28 +55,28 @@ public class KalenderTabelServlet extends HttpServlet {
 		}
 
 		// Gebruiker gaat maand terug
-		if (req.getParameter("vorige") != null) {
+		if (req.getParameter(this.VORIGE_MAAND_PARAM) != null) {
 			maand -= 1;
-			if (maand < 0) {
-				maand += 12;
+			if (maand < JANUARI) {
+				maand = DECEMBER;
 				jaar -= 1;
 			}
 			kalenderMaand = new Datum(jaar, maand);
 		}
 
 		// Gebruiker gaat maand vooruit
-		else if (req.getParameter("volgende") != null) {
+		else if (req.getParameter(this.VOLGENDE_MAAND_PARAM) != null) {
 			maand += 1;
-			if (maand > 11) {
-				maand -= 12;
+			if (maand > DECEMBER) {
+				maand = JANUARI;
 				jaar += 1;
 			}
 			kalenderMaand = new Datum(jaar, maand);
 
 			// Handle reservering
-		} else if (req.getParameter("reservering_knop") != null) {
+		} else if (req.getParameter(this.RESERVERING_KNOP_PARAM) != null) {
 			
-			reserveringsDatum = new Datum(req.getParameter("datum"));
+			reserveringsDatum = new Datum(req.getParameter(this.DATUM_PARAM));
 			isBeschikbaar = admin.checkBeschikbaar(kamer, reserveringsDatum);
 			emailUser = req.getUserPrincipal().toString();
 			Reservering reservering = new Reservering(kamer, reserveringsDatum,

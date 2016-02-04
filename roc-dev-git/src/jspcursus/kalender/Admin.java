@@ -12,6 +12,8 @@ import javax.mail.internet.MimeMessage;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 
 public class Admin {
+	private final String EMAIL_OWNER = "pdevries@roc-dev.com";
+	private final String NAME_OWNER = "Piet de Vries";
 	DataBaseIO io;
 	
 	public Admin() {
@@ -68,68 +70,77 @@ public class Admin {
 	public String maakReservering(Reservering reservering) {
 		Kamer kamer = reservering.getKamer();
 		Datum datum = reservering.getDatum();
-		
 		String emailUser = reservering.getEmailUser();
 		String reserveringsBoodschap;
-		if (checkBeschikbaar(kamer, datum)) {
+		boolean beschikbaar = this.checkBeschikbaar(kamer, datum);
+		if (beschikbaar) {
 			io.bewaarReservering(reservering);
 			reserveringsBoodschap = "Reservering &quot;" + kamer.getNaam()
 					+ "&quot; voor datum: " + datum.getDatumNLFormat()
 					+ " is geslaagd.";
-
-			if (!reservering.getEmailUser().equals("pdevries@roc-dev.com")) {
-				String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
-				msgBody += emailUser
-						+ " heeft de volgende reservering gemaakt:\r\n";
-				msgBody += "- " + kamer.getNaam() + "\r\n";
-				msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
-				msgBody += "Reservering is gelukt!";
-
-				try {
-					Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
-					msg.setFrom(new InternetAddress("pdevries@roc-dev.com",
-							"Admin roc-dev"));
-					msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
-							"pdevries@roc-dev.com", "Mr. User"));
-					msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
-							+ datum.getDatumNLFormat());
-					msg.setText(msgBody);
-					Transport.send(msg);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
 		} else {
 			reserveringsBoodschap = "Helaas is " + kamer.getNaam() + " niet beschikbaar op "
 					+ datum.getDatumNLFormat()
 					+ ". Probeer een andere kamer.";
-
-			if (!emailUser.equals("pdevries@roc-dev.com")) {
-				String msgBody = "Dit is een automatisch gegenereerde testboodschap.\r\n";
-				msgBody += emailUser
-						+ " heeft geprobeerd de volgende reservering te maken:\r\n";
-				msgBody += "- " + kamer.getNaam() + "\r\n";
-				msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
-				msgBody += "Reservering is mislukt. Reden: kamer is bezet.";
-				try {
-					Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
-					msg.setFrom(new InternetAddress("pdevries@roc-dev.com",
-							"Admin roc-dev"));
-					msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
-							"pdevries@roc-dev.com", "Mr. User"));
-					msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
-							+ datum.getDatumNLFormat());
-					msg.setText(msgBody);
-					Transport.send(msg);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
+		}
+		if (!emailUser.equals(this.EMAIL_OWNER)) {
+			this.stuurEmail(reservering, beschikbaar);
 		}
 		return reserveringsBoodschap;
-		
+	}
+	
+	private void stuurEmail(Reservering reservering, boolean beschikbaar) {
+		Kamer kamer = reservering.getKamer();
+		Datum datum = reservering.getDatum();
+		String emailUser = reservering.getEmailUser();
+		String msgBody = "Reservering " + kamer.getNaam() + ".\r\n";
+		if(beschikbaar) {
+			msgBody += emailUser
+					+ " heeft de volgende reservering gemaakt:\r\n";
+			msgBody += "- " + kamer.getNaam() + "\r\n";
+			msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
+			msgBody += "Reservering is gelukt!";
+
+			try {
+				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+				msg.setFrom(new InternetAddress(this.EMAIL_OWNER,
+						NAME_OWNER));
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+						this.EMAIL_OWNER, NAME_OWNER));
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+						emailUser));
+				
+				msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
+						+ datum.getDatumNLFormat());
+				msg.setText(msgBody);
+				Transport.send(msg);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			msgBody += emailUser
+					+ " heeft geprobeerd de volgende reservering te maken:\r\n";
+			msgBody += "- " + kamer.getNaam() + "\r\n";
+			msgBody += "- " + datum.getDatumNLFormat() + "\r\n";
+			msgBody += "Reservering is mislukt. Reden: kamer is bezet.\r\n";
+			try {
+				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+				msg.setFrom(new InternetAddress(this.EMAIL_OWNER,
+						NAME_OWNER));
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+						this.EMAIL_OWNER, NAME_OWNER));
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+						emailUser));
+				msg.setSubject("Reservering: " + kamer.getNaam() + " d.d. "
+						+ datum.getDatumNLFormat());
+				msg.setText(msgBody);
+				Transport.send(msg);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
 

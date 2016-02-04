@@ -261,7 +261,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </servlet>
     <servlet-mapping>
         <servlet-name>BJToetsServlet</servlet-name>
-        <url-pattern>/bluejtoets</url-pattern>
+        <url-pattern>/AO/BlueJ/bluejtoets</url-pattern>
     </servlet-mapping>
 	
 	<!-- HTML /CSS -->
@@ -316,6 +316,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/AO/jsp/deel2</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>JSPFahrenheit</servlet-name>
+		<jsp-file>/AO/JSP_Java_DB/fahrenheit1.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>JSPFahrenheit</servlet-name>
+		<url-pattern>/AO/jsp/fahrenheit</url-pattern>
+	</servlet-mapping>
+	<servlet>
     	<servlet-name>JSPDeel3Servlet</servlet-name>
     	<servlet-class>jspcursus.Deel3Servlet</servlet-class>
     </servlet>
@@ -325,7 +333,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </servlet-mapping>
     <servlet>
 		<servlet-name>AutoDemo</servlet-name>
-		<jsp-file>/AO/JSP_Java_DB/demo.jsp</jsp-file>
+		<jsp-file>/AO/JSP_Java_DB/autoshop-demo.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AutoDemo</servlet-name>

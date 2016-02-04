@@ -169,9 +169,7 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 			%>
 
 			<h3>Kies een tafel</h3>
-
-
-			<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg8" method="get">
+			<form action="/AO/jsp/deel2#opg8" method="get">
 				<input type="text" name="getal1">
 
 				<div class="fout">
@@ -184,23 +182,13 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 			<br>
 			<%
 				if (geklikt) {
-			%>
-			<h3>
-				De tafel van
-				<%=getal%></h3>
-			<%
-				for (int i = 1; i <= 10; i++) {
-			%>
-			<%=i%>
-			x
-			<%=getal%>
-			=
-			<%=i * getal%>
-			<br>
-			<%
-				}
+					out.println("<h3>De tafel van " + getal + "</h3>");
+					for (int i = 1; i <= 10; i++) {
+						out.println(i + " x " + getal + " = " + i * getal + "<br>");
+					}
 				}
 			%>
+			
 
 			<!-- <div class="toonknopcontainer">
 							<button class="toonknop" id="toon8" onclick="toon('uitw8')">Toon uitwerking</button>
@@ -377,7 +365,7 @@ div.fout {
 			%>
 
 			<h3>Kies een tafel</h3>
-			<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg9" method="get">
+			<form action="/AO/jsp/deel2#opg9" method="get">
 				<input type="text" name="getal2">
 
 				<div class="fout">
@@ -389,25 +377,13 @@ div.fout {
 			</form>
 			<%
 				if (geklikt2) {
+					out.println("<h3>De tafel van " + getal2 + "</h3>");
+					for (int i = 1; i <= 10; i++ ) {
+						out.println(i + " x " + getal2 + " = " + i * getal2 + "<br>");
+					}
 			%>
-			<h3>
-				De tafel van
-				<%=getal2%></h3>
-			<%
-				for (int i = 1; i <= 10; i++) {
-			%>
-
-			<%=i%>
-			x
-			<%=getal2%>
-			=
-			<%=i * getal2%>
-			<br>
-
-			<%
-				}
-			%>
-			<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg9" method="get">
+			
+			<form action="/AO/jsp/deel2#opg9" method="get">
 				<input type="hidden" name="getal2" value="<%=getal2%>"> <input
 					type="submit" name="min" value="vorige"> <input
 					type="submit" name="plus" value="volgende">
@@ -500,7 +476,7 @@ if (request.getParameter("knop") != null <span class="codeplus">||
 					target="_blank">Math</a> gebruiken. Bij beide methoden zit echter
 				een addertje onder het gras!
 			</p>
-			<form action="/AO/JSP_Java_DB/fahrenheit1.jsp" method="get">
+			<form action="/AO/jsp/fahrenheit" method="get">
 				<label for="celsius">graden celsius</label> <input type="text"
 					name="celsius"> <input type="submit"
 					value="reken om naar Fahrenheit">
@@ -586,7 +562,7 @@ finally {
 
 			<h3>Hoogste en laagste</h3>
 			<p>Voer een geheel getal in</p>
-			<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg11" method="get">
+			<form action="/AO/jsp/deel2#opg11" method="get">
 				<input type="text" name="getal_HL"> <input type="submit"
 					name="knop11" value="Ok"> <br>
 				<%
@@ -766,7 +742,7 @@ finally {
 				<div id="rekenmachine_naam">
 					<p>Graden</p>
 				</div>
-				<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg12" method="get">
+				<form action="/AO/jsp/deel2#opg12" method="get">
 					<div class="invoer_arg">
 						<p>Celsius</p>
 						<input type="text" name="cels" value="<%=celsValue%>">
@@ -915,7 +891,7 @@ finally {
 				<div id="rekenmachine_naam">
 					<p id="opg13">Rekenmachine</p>
 				</div>
-				<form action="/AO/JSP_Java_DB/Opdrachten_2.jsp#opg13" method="get">
+				<form action="/AO/jsp/deel2#opg13" method="get">
 					<div class="invoer_arg">
 						<p>Eerste getal</p>
 						<input type="text" name="arg1" value="<%=uitkomst13%>">
