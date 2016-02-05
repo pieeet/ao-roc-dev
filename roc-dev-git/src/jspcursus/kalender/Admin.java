@@ -77,11 +77,13 @@ public class Admin {
 			io.bewaarReservering(reservering);
 			reserveringsBoodschap = "Reservering &quot;" + kamer.getNaam()
 					+ "&quot; voor datum: " + datum.getDatumNLFormat()
-					+ " is geslaagd.";
+					+ " is geslaagd. Er is een email naar " + emailUser + " gestuurd. "
+					+ " De kans is vrij groot dat de mail in je spam box is beland.";
 		} else {
 			reserveringsBoodschap = "Helaas is " + kamer.getNaam() + " niet beschikbaar op "
 					+ datum.getDatumNLFormat()
-					+ ". Probeer een andere kamer.";
+					+ ". Probeer een andere kamer. Er is een email naar " + emailUser + " gestuurd. "
+							+ "De kans is vrij groot dat de mail in je spam box is beland.";
 		}
 		if (!emailUser.equals(this.EMAIL_OWNER)) {
 			this.stuurEmail(reservering, beschikbaar);
