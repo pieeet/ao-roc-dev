@@ -1,7 +1,8 @@
 # ao-roc-dev
 web site ao.roc-dev.com
 
-Je kunt het project forken, clonen en importeren in Eclipse (Met git en App Engine plugin).
+Het project is gemaakt met App Engine en Maven.
+https://cloud.google.com/appengine/docs/java/tools/maven
 
 Als je een leuk idee hebt uitgewerkt of verbeteringen aan hebt gebracht op een onderdeel kun je een pull
 request doen.
