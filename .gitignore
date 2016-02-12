@@ -10,3 +10,18 @@ appengine-generated/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
