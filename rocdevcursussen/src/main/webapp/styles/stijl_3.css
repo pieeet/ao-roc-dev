@@ -1,0 +1,836 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.4em;
+    background-color: #F9F9F9;
+
+}
+
+#header {
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+
+#heading {
+    width: 75%;
+    heigth: 50px;
+}
+
+img#rocdevlogo {
+    height: 70px;
+    margin: 0;
+}
+
+#heading h1 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 32px;
+}
+
+.loguit {
+    margin-top: 30px;
+    height: 21px;
+}
+
+#header {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+#header h1 {
+    color: #333;
+}
+
+#menu a {
+    color: #800000;
+    text-decoration: none;
+}
+
+img, .embed-responsive {
+    max-width: 100%;
+    margin: 1em 0;
+}
+
+div.img_met_bijschrift {
+    width: 250px;
+    max-width: 95%;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+    overflow: hidden;
+    margin: 1em 1em 2em 0;
+
+}
+
+div.img_met_bijschrift p, div.img_met_bijschrift img {
+    margin: 0;
+}
+
+.codeplus, .css {
+    background-color: #FFF300;
+}
+
+.jsp, .html {
+    color: red;
+}
+
+.jsp {
+    font-weight: bold;
+}
+
+.comment, .javadoc {
+    color: green;
+}
+
+.opdrachten {
+    border-bottom: 1px solid #800000;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.opdrachten h2, .uitwerking h2 {
+    background-color: #F5F5F5;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding: .4em;
+}
+
+.uitwerking {
+    display: none;
+}
+
+.toonknop {
+    background-color: #F7F7F7;
+    box-shadow: 5px 5px 30px #888888;
+    padding: 2em;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.toonknopcontainer {
+    margin: 0;
+    margin-bottom: 2em;
+    max-width: 1000px;
+    clear: both;
+    text-align: center;
+    margin-top: 2em;
+}
+.clear {
+    clear: both;
+}
+
+/************** Callouts *************************/
+
+.bs-callout {
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.bs-callout code {
+    border-radius: 3px;
+}
+
+.bs-callout + .bs-callout {
+    margin-top: -5px;
+}
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+
+.bs-callout-danger h4.danger {
+    color: #d9534f;
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+.bs-callout-succes {
+    border-left-color: #688B37;
+}
+
+.bs-callout-succes h4 {
+    color: #688B37;
+}
+
+.bs-callout-succes h4.succes {
+    color: #688B37;
+}
+
+/**************  schaakbord ***************/
+
+table#schaakbord, .schaakbord {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#schaakbord td, .schaakbord td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+#schaakbord td.zwart, .schaakbord td.zwart {
+    background-color: black;
+
+}
+
+#schaakbord td.wit, .schaakbord td.wit {
+    background-color: white;
+}
+
+/************* Inleiding Java eindspel **********/
+
+div#spel_result {
+    min-height: 100px;
+}
+
+div#spel_result img.lucifer {
+    margin: 1em;
+}
+
+div#spel_result p.spel_foutmelding {
+    color: red;
+}
+
+div#spel_result img.lucifer {
+    width: 40px;
+}
+
+div#spel_result img#einde_spel {
+    width: 200px;
+}
+
+div#inl_java_spel_plaatjes {
+    max-width: 320px;
+}
+
+/*************YAHTZEE********************/
+div#yahtzee_scherm {
+    border: 4px groove #007A00;
+    width: 310px;
+    background-color: #FFF5EB;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    padding: 3px;
+}
+
+div#yahtzee_scherm button {
+    background-color: #FFEBC2;
+}
+
+div#yahtzee_scherm div.dobbelveld {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 20px 0px 20px 8px;
+}
+
+div#yahtzee_scherm div#gooi_knop,
+div#yahtzee_scherm div#nieuw_spel_knop,
+div#yahtzee_scherm div#submit_score_knop {
+    clear: both;
+    text-align: center;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+
+}
+
+div#yahtzee_scherm button.button_actie {
+    display: block;
+    width: 7em;
+    margin: auto;
+}
+
+div#yahtzee_scherm div#scores {
+    overflow: hidden;
+}
+
+div#yahtzee_scherm div#scores_links, div#yahtzee_scherm div#scores_rechts {
+    width: 50%;
+    padding: 5px;
+    float: left;
+}
+
+div#yahtzee_scherm button.score_button, div#yahtzee_scherm label.score_label {
+    width: 70%;
+
+}
+
+div#yahtzee_scherm input.score {
+    width: 25%;
+    background-color: white;
+}
+
+div#yahtzee_scherm button:disabled {
+    color: #FFC2E0;
+}
+
+div#yahtzee_scherm div#totaal_score {
+    margin: 5px;
+
+}
+
+div#yahtzee_scherm label#totaal_label, div#yahtzee_scherm input#score_totaal {
+    width: 4.5em;
+    float: left;
+    color: red;
+    margin-bottom: 0.5em;
+}
+
+div#yahtzee_scherm img.dobbelsteen {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+div#yahtzee_scherm img#yahtzee_logo {
+    display: block;
+    width: 214px;
+    margin: auto;
+}
+
+#yahtzee_leaderboard {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/************* X-Tabel *********************/
+
+table#xtabel {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 400px;
+
+}
+
+table#xtabel th, table#xtabel td {
+    border: 1px solid black;
+    text-align: center;
+    width: 10%;
+    height: 10%;
+}
+
+table#xtabel th {
+    background-color: #F3F3F3;
+}
+
+/*Foutmelding*/
+.fout_inline {
+    display: inline;
+    width: 35em;
+    color: red;
+    font-size: 0.8em;
+}
+
+.fout {
+    width: 35em;
+    color: red;
+    font-size: 0.8em;
+}
+
+/*Graden omrekentabel*/
+
+div.table_wrapper table#graden th {
+    background-color: #800000;
+    color: #FFF8DC;
+}
+
+div.table_wrapper table#graden th, div.table_wrapper table#graden td {
+    border: none;
+}
+
+/*Rekenmachine*/
+
+div#rekenmachine, div#gradeninvoer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+div#rekenmachine #rekenmachine_naam, div#gradeninvoer #gradeninvoer_naam {
+    width: 100%;
+    line-height: 2em;
+    background-color: #800000;
+    color: #FFF8DC;
+    font-weight: bold;
+}
+
+div#rekenmachine .invoer_arg, div#gradeninvoer .invoer_arg {
+    width: 50%;
+    float: left;
+    margin-bottom: 1em;
+
+}
+
+div#rekenmachine div#reken_knoppen, div#gradeninvoer div#gradeninvoer_knoppen {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+div#rekenmachine .knop_container_2, div#gradeninvoer .knop_container_2 {
+    width: 25%;
+    float: left;
+}
+
+div#rekenmachine .knop_container_2 input[type="submit"],
+div#rekenmachine .knop_container_2 button,
+div#gradeninvoer .knop_container_2 input[type="submit"],
+div#gradeninvoer .knop_container_2 button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+}
+
+div#rekenmachine .foutboodschap {
+    color: #800000;
+    font-size: 0.8em;
+}
+
+/***************** AUTOS *********************/
+
+div.autokader {
+    float: left;
+    margin: 1em;
+    width: 220px;
+    height: 120px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    background: -webkit-linear-gradient(right, rgba(127, 127, 127, 0), rgba(127, 127, 127, 1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, rgba(127, 127, 127, 0), rgba(127, 127, 127, 1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, rgba(127, 127, 127, 0), rgba(127, 127, 127, 1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, rgba(127, 127, 127, 0), rgba(127, 127, 127, 1)); /* Standard syntax (must be last) */
+
+}
+
+div.autokader img {
+    width: 120px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+div.autokader p.merktype {
+    color: #FFF8DC;
+    background-color: #800000;
+    text-align: center;
+}
+
+div.autokader p.prijs {
+    color: #800000;
+    text-align: right;
+    margin-right: 1em;
+}
+
+div#autoselectie {
+    max-width: 1200px;
+}
+
+
+/*Studenten portfolios blokje*/
+
+div.studentkader {
+    color: #800000;
+    float: left;
+    margin: 1em;
+    width: 200px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: helvetica, verdana, arial, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    background: #DFDFDF
+
+    /* background: -webkit-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); For Safari 5.1 to 6.0
+    background: -o-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); For Opera 11.1 to 12.0
+    background: -moz-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); For Firefox 3.6 to 15
+    background: linear-gradient(to right, rgba(127,127,127,0), rgba(127,127,127,1)); Standard syntax (must be last) */
+}
+
+div.studentkadercontainer {
+    margin-left: 13em;
+}
+
+.ninja_level_uitleg {
+    clear: left;
+    margin-bottom: 2em;
+    overflow: hidden;
+
+}
+
+.ninja_paar .ninja_img_uitleg, .ninja_level_uitleg .ninja_img_uitleg,
+#kalenderopdracht .ninja_img_uitleg {
+    width: 120px;
+    padding: 20px;
+    margin: 0;
+}
+
+div#ninja_pics {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+
+div.ninja_paar {
+    float: left;
+}
+
+.ninja_level_uitleg h4, .ninja_level_uitleg ul, .ninja_level_uitleg img {
+    float: left;
+}
+
+div.studentkader img {
+    margin: 0;
+    float: right;
+    width: 50px;
+    padding: 5px;
+    overflow: hidden;
+}
+div.studentkader {
+    font-size: 15px;
+}
+
+div.studentkader p {
+    text-decoration: none;
+    padding: 0.5em;
+    line-height: 100%
+}
+
+div.studentkader:hover {
+    background-color: #800000;
+    color: #FFF8DC;
+}
+
+div#ninjalevels {
+    float: left;
+    width: 10em;
+}
+
+div#ninjalevels img {
+    float: left;
+    height: 100px;
+    clear: left;
+    margin-bottom: 1em;
+}
+
+div#studenten {
+    clear: both;
+    overflow: hidden;
+    max-width: 1200px;
+}
+
+/*Sport App*/
+
+div#studenten {
+    clear: both;
+    overflow: hidden;
+    max-width: 1200px;
+}
+
+div#ledenoverzicht {
+    width: 100%;
+}
+
+img.sport_logo {
+    max-width: 90%;
+}
+
+#tabs_sport .ui-tabs-anchor:hover {
+    color: #eceadf;
+    background-color: #654b24
+}
+
+div.sporttabel {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    margin-top: 2em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+    float: left;
+}
+
+div.scrolltabel {
+    height: 200px;
+    overflow: auto;
+}
+
+div.scrolltabel img.thumb_lid {
+    margin: 0;
+    padding: 0;
+}
+
+div#tabs_sport {
+    float: left;
+    width: 100%;
+    color: #654b24;
+}
+
+div#sport_lid_teams img {
+    margin-left: 0;
+    width: 80%;
+}
+
+div#tabs_sport td, div#tabs_sport h3, div#tabs_sport h3, div#tabs_sport p, div#tabs_sport label,
+div#tabs_sport input, div#tabs_sport li a, div#tabs_sport td {
+    color: #654b24;
+}
+
+table#team_scherm, table#team_leden, table#lid_scherm {
+    margin: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-right: 2em;
+}
+
+/* vervangt tables hierboven */
+div#team_scherm, div#team_leden, div#lid_scherm {
+    width: 100%;
+    /* max-width: 320px; */
+    margin: 0;
+    padding: 1em 1em 1em 0;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    /* border: 1px solid black; */
+}
+
+div#sport_lid_info {
+    max-width: 100%;
+}
+
+div#sport_team_spelers, div#sport_team_info {
+    /* 	float: left;
+        overflow: hidden;
+        margin-bottom: 2em; */
+}
+
+div.sport_info {
+    float: left;
+    overflow: hidden;
+    padding-right: 1em;
+}
+
+div#sport_lid_teams {
+    float: right;
+}
+
+img.sport_foto_lid {
+    width: 90%;
+    max-width: 300px;
+    min-width: 120px;
+}
+
+table#ledentabel, table#teamlijst {
+    padding: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8em;
+}
+
+div.sporttabel button {
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+    background-color: #F8F7F6;
+    color: #654b24
+
+}
+
+div.sporttabel button:hover {
+    background-color: #654b24;
+    color: #F8F7F6;
+
+}
+
+img.loading_spinner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+}
+
+div.sport_content {
+    min-height: 300px;
+}
+
+table#ledentabel td, table#ledentabel th, table#teamlijst td, table#teamlijst th {
+    padding: .5em;
+
+}
+
+#nieuw_lid_form ::-webkit-input-placeholder { /* WebKit browsers */
+    color: #654b24;
+    opacity: 0.5;
+}
+
+#nieuw_lid_form :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: red;
+    opacity: 1;
+}
+
+#nieuw_lid_form ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+
+#nieuw_lid_form :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: red;
+}
+
+div.voegtoeknop {
+    width: 10em;
+    margin: 1em auto 1em auto;
+
+}
+
+/*formulier opmaak o.a sportapp  TODO check bootstrap*/
+
+div.formulier {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 2em;
+    margin-right: 5px;
+}
+div.formulier .formulier_regel {
+    width: 100%;
+    /* max-width: 280px; */
+    clear: both;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+div.formulier .formulier_regel label {
+    margin-right: 1em;
+}
+
+div.formulier .formulier_regel #spelerscode_label {
+    margin-right: 0;
+}
+
+div.formulier .formulier_label {
+    float: left;
+    clear: left;
+    font-weight: bold;
+}
+div.formulier .formulier_input {
+    float: right;
+    clear: right;
+    font-weight: normal;
+}
+div.formulier .formulier_input_marge {
+    margin-right: 2em;
+}
+
+/*Kalender*/
+
+/* voldoende ruimte voor kalender met verschillende afmetingen zonder dat */
+/* onderliggende elementen verspringen */
+div#kalender_tabel {
+    min-height:280px;
+}
+
+table.kalender {
+    font-family: Sans-serif;
+    padding: 0.5em;
+    margin: 2em;
+    border: 1px solid black;
+}
+table.kalender td, table.kalender th {
+    width:50px;
+    text-align:center;
+    padding: 0.5em;
+}
+table.kalender td.data_bezet {
+    background-color: red;
+}
+table.kalender td.rest {
+    background-color: #BABABA;
+    color: grey;
+}
+div#jsp_mvc_kalender_app {
+    margin-bottom: 5em;
+}
+
+
+/* Jemeppe */
+div.jemeppe_kamer {
+    width: 230px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #654b24;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+.table-striped {
+    background: white;
+}
+div.jemeppe_kamer .beschrijving_kamer {
+    height: 230px;
+    margin-left: 1em;
+}
+div.jemeppe_kamer .beschrijving_kamer h3 {
+    margin-top: 5px;
+}
+div#jemeppe_kamers_container sup {
+    color: red;
+
+}
+p.jemeppe_voetnoot {
+    clear: both;
+    font-size: smaller;
+}
+div.jemeppe_bijlage {
+    background-color: white;
+    width: 80%;
+    min-width: 320px;
+    position: relative;
+    padding: 20px;
+}
+div.jemeppe_bijlage img.jemeppe_logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+}
