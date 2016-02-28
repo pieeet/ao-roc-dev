@@ -134,7 +134,7 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 				De methode request.getParameter(&quot;naam&quot;) geeft altijd een
 				string waarde. Om er mee te kunnen rekenen moet de string geparsed
 				worden, in dit geval naar een integer (<a
-					href="<c:url value="/AO/inleiding-java/h8#voorbeeld8_7"/>" target="_blank">zie
+					href="/AO/inleiding-java/h8#voorbeeld8_7" target="_blank">zie
 					Inleiding Java</a>).
 			</p>
 			<p>
@@ -169,7 +169,7 @@ if (request.getParameter(&quot;knop_1&quot;) != null) {
 			%>
 
 			<h3>Kies een tafel</h3>
-			<form action="<c:url value="/AO/jsp/deel2#opg8"/>" method="get">
+			<form action="/AO/jsp/deel2#opg8" method="get">
 				<input type="text" name="getal1" title="">
 
 				<div class="fout">
@@ -365,7 +365,7 @@ div.fout {
 			%>
 
 			<h3>Kies een tafel</h3>
-			<form action="<c:url value="/AO/jsp/deel2#opg9"/>" method="get">
+			<form action="/AO/jsp/deel2#opg9" method="get">
 				<input type="text" name="getal2">
 
 				<div class="fout">
@@ -383,7 +383,7 @@ div.fout {
 					}
 			%>
 			
-			<form action="<c:url value="/AO/jsp/deel2#opg9"/>" method="get">
+			<form action="/AO/jsp/deel2#opg9" method="get">
 				<input type="hidden" name="getal2" value="<%=getal2%>"> <input
 					type="submit" name="min" value="vorige"> <input
 					type="submit" name="plus" value="volgende">
@@ -476,7 +476,7 @@ if (request.getParameter("knop") != null <span class="codeplus">||
 					target="_blank">Math</a> gebruiken. Bij beide methoden zit echter
 				een addertje onder het gras!
 			</p>
-			<form action="<c:url value="/AO/jsp/fahrenheit"/>" method="get">
+			<form action="/AO/jsp/fahrenheit" method="get">
 				<label>graden celsius</label> <input type="text"
 					name="celsius" title=""> <input type="submit"
 					value="reken om naar Fahrenheit">
@@ -562,7 +562,7 @@ finally {
 
 			<h3>Hoogste en laagste</h3>
 			<p>Voer een geheel getal in</p>
-			<form action="<c:url value="/AO/jsp/deel2#opg11"/>" method="get">
+			<form action="/AO/jsp/deel2#opg11" method="get">
 				<input type="text" name="getal_HL" title="getal invoer"> <input type="submit"
 					name="knop11" value="Ok"> <br>
 				<%
@@ -742,7 +742,7 @@ finally {
 				<div id="gradeninvoer_naam">
 					<p>Graden</p>
 				</div>
-				<form action="<c:url value="/AO/jsp/deel2#opg12"/>" method="get">
+				<form action="/AO/jsp/deel2#opg12" method="get">
 					<div class="invoer_arg">
 						<p>Celsius</p>
 						<input type="text" name="cels" value="<%=celsValue%>">
@@ -893,7 +893,7 @@ finally {
 				<div id="rekenmachine_naam">
 					<p id="opg13">Rekenmachine</p>
 				</div>
-				<form action="<c:url value="/AO/jsp/deel2#opg13"/>" method="get">
+				<form action="/AO/jsp/deel2#opg13" method="get">
 					<div class="invoer_arg">
 						<p>Eerste getal</p>
 						<input type="text" name="arg1" value="<%=uitkomst13%>">

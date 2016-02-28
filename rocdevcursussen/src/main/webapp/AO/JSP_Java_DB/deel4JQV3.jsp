@@ -88,9 +88,7 @@
 		<p>
 			Zet je ontwikkel- en produktieomgeving op in App Engine. App Engine
 			heeft een gratis (NoSQL) datastore die we gebruiken om de database te
-			implementeren. Mocht je liever met een traditionele relationele
-			database werken, dan kun je <a href="sport?sql=true">hier</a>
-			terecht.
+			implementeren.
 		</p>
 
 

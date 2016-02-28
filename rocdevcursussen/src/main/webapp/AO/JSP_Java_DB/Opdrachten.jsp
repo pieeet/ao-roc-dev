@@ -29,8 +29,8 @@
 		<img src="<c:url value="/AO/JSP_Java_DB/images/jsp.png"/>">
 		<h3>Benodigde voorkennis</h3>
 		<p>
-			Uitgangspunt is dat je de cursussen <a href="<c:url value="/AO/inleiding-java/h1"/>"
-				target="_blank">Inleiding Java</a>, <a href="<c:url value="/AO/BlueJ/intro"/>"
+			Uitgangspunt is dat je de cursussen <a href="/AO/inleiding-java/h1"
+				target="_blank">Inleiding Java</a>, <a href="/AO/BlueJ/intro"
 				target="_blank">BlueJ</a> en HTML 5 hebt voltooid.
 		</p>
 

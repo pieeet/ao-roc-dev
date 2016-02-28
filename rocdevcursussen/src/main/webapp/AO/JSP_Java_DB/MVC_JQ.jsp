@@ -3,11 +3,6 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
 	<%@ include file="/AO/JSP_Java_DB/includes/zijmenu.jsp"%>
-
-
-
-
-
 	<div class="col-md-9">
 		<h2>MVC en Servlets</h2>
 
