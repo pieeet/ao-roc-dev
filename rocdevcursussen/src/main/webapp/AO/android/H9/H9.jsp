@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS Lijst
 DROP TABLE IF EXISTS Taak
 </pre>
 		<h4>Veelgebruikte kolom attributen</h4>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th>Attribuut</th>
 				<th>Beschrijving</th>

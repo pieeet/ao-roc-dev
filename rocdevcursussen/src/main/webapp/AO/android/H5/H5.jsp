@@ -184,7 +184,7 @@ import android.support.v7.app.ActionBarActivity;
 				weergegeven en niet het icoon.</p>
 		</div>
 		<h3>Een aantal attributen van een menu-item</h3>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th>Naam</th>
 				<th>Beschrijving</th>

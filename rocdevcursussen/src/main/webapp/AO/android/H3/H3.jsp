@@ -325,7 +325,7 @@ if (optie2RadioButton.isChecked) {
 				target="_blank">ArrayAdapter</a> nodig.
 		</p>
 		<p>Twee methodes van de ArrayAdapter klasse:</p>
-		<table border="1">
+		<table class="table table-bordered">
 			<tr>
 				<td><b>createFromResource(context, arrayID, layoutID)</b></td>
 				<td>maakt een arrayadapter voor de specifieke array en layout</td>
