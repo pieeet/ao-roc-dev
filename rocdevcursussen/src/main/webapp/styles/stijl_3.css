@@ -119,6 +119,7 @@ div.img_met_bijschrift p, div.img_met_bijschrift img {
     text-align: center;
     margin-top: 2em;
 }
+
 .clear {
     clear: both;
 }
@@ -467,7 +468,6 @@ div#autoselectie {
     max-width: 1200px;
 }
 
-
 /*Studenten portfolios blokje*/
 
 div.studentkader {
@@ -481,9 +481,7 @@ div.studentkader {
     font-family: helvetica, verdana, arial, sans-serif;
     font-size: 15px;
     text-decoration: none;
-    background: #DFDFDF
-
-    /* background: -webkit-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); For Safari 5.1 to 6.0
+    background: #DFDFDF /* background: -webkit-linear-gradient(left, rgba(127,127,127,0), rgba(127,127,127,1)); For Safari 5.1 to 6.0
     background: -o-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); For Opera 11.1 to 12.0
     background: -moz-linear-gradient(right, rgba(127,127,127,0), rgba(127,127,127,1)); For Firefox 3.6 to 15
     background: linear-gradient(to right, rgba(127,127,127,0), rgba(127,127,127,1)); Standard syntax (must be last) */
@@ -528,6 +526,7 @@ div.studentkader img {
     padding: 5px;
     overflow: hidden;
 }
+
 div.studentkader {
     font-size: 15px;
 }
@@ -733,6 +732,7 @@ div.formulier {
     margin-top: 2em;
     margin-right: 5px;
 }
+
 div.formulier .formulier_regel {
     width: 100%;
     /* max-width: 280px; */
@@ -740,6 +740,7 @@ div.formulier .formulier_regel {
     margin-bottom: 1em;
     overflow: hidden;
 }
+
 div.formulier .formulier_regel label {
     margin-right: 1em;
 }
@@ -753,11 +754,13 @@ div.formulier .formulier_label {
     clear: left;
     font-weight: bold;
 }
+
 div.formulier .formulier_input {
     float: right;
     clear: right;
     font-weight: normal;
 }
+
 div.formulier .formulier_input_marge {
     margin-right: 2em;
 }
@@ -767,7 +770,7 @@ div.formulier .formulier_input_marge {
 /* voldoende ruimte voor kalender met verschillende afmetingen zonder dat */
 /* onderliggende elementen verspringen */
 div#kalender_tabel {
-    min-height:280px;
+    min-height: 280px;
 }
 
 table.kalender {
@@ -776,22 +779,25 @@ table.kalender {
     margin: 2em;
     border: 1px solid black;
 }
+
 table.kalender td, table.kalender th {
-    width:50px;
-    text-align:center;
+    width: 50px;
+    text-align: center;
     padding: 0.5em;
 }
+
 table.kalender td.data_bezet {
     background-color: red;
 }
+
 table.kalender td.rest {
     background-color: #BABABA;
     color: grey;
 }
+
 div#jsp_mvc_kalender_app {
     margin-bottom: 5em;
 }
-
 
 /* Jemeppe */
 div.jemeppe_kamer {
@@ -803,24 +809,30 @@ div.jemeppe_kamer {
     border-radius: 5px;
     padding: 0.5em;
 }
+
 .table-striped {
     background: white;
 }
+
 div.jemeppe_kamer .beschrijving_kamer {
     height: 230px;
     margin-left: 1em;
 }
+
 div.jemeppe_kamer .beschrijving_kamer h3 {
     margin-top: 5px;
 }
+
 div#jemeppe_kamers_container sup {
     color: red;
 
 }
+
 p.jemeppe_voetnoot {
     clear: both;
     font-size: smaller;
 }
+
 div.jemeppe_bijlage {
     background-color: white;
     width: 80%;
@@ -828,6 +840,7 @@ div.jemeppe_bijlage {
     position: relative;
     padding: 20px;
 }
+
 div.jemeppe_bijlage img.jemeppe_logo {
     position: absolute;
     top: 20px;

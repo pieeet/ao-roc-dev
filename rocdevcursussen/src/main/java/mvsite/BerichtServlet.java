@@ -22,23 +22,21 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Piet de Vries
  * @version 1.0
- 
- *
  */
 @SuppressWarnings("serial")
 public class BerichtServlet extends HttpServlet {
-	
+
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-                throws IOException {
+            throws IOException {
         UserService userService = UserServiceFactory.getUserService();
         User user = userService.getCurrentUser();
         String username = user.getNickname();
 
         String guestbookName = req.getParameter("guestbookName");
         Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
-        
+
         Text content = new Text(req.getParameter("content"));
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy, hh:mm:ss");

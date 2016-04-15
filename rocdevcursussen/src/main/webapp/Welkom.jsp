@@ -1,6 +1,6 @@
-<%@ include file="/includes/pagetop-all.jsp"%>
+<%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
-    <%@ include file="/includes/zijmenu.jsp"%>
+    <%@ include file="/includes/zijmenu.jsp" %>
 
 
     <div class="container">
@@ -49,5 +49,5 @@
         </div>
     </div>
 </div>
-<%@ include file="/includes/bottom-home.html"%>
+<%@ include file="/includes/bottom-home.html" %>
 </html>

@@ -24,7 +24,7 @@ public class DeelKaarten {
                 index++;
             }
         }
-        for (int i = 0; i < 13; i++ ) {
+        for (int i = 0; i < 13; i++) {
             speler1[i] = deelKaart();
             speler2[i] = deelKaart();
             speler3[i] = deelKaart();
