@@ -54,12 +54,12 @@
 
 <pre class="code">
 <span class="comment">//ga naar TimerActivity</span>
-Intent intent = new Intent(this, TimerActivity.class);
-startActivity(intent);
+Intent intent = <span class="codeplus">new Intent(this, TimerActivity.class)</span>;
+<span class="codeplus">startActivity(intent)</span>;
 </pre>
 
             <h4>Waardes meegeven aan een intent</h4>
-            <p>Soms wil je waardes meegeven aan een intent waar in de doelklasse iets mee wordt gedaan. In de brain
+            <p>Soms wil je waardes meegeven aan een intent waar in de doel activity iets mee wordt gedaan. In de brain
                 trainer
                 wordt de score van de speler meegegeven zodat kan worden gechecked of er een nieuwe high score is.
                 Hiervoor
@@ -73,9 +73,11 @@ startActivity(intent);
 Intent intent = new Intent(this, MainActivity.class);
 
 <span class="comment">//geef de variabele score (int) mee</span>
-intent.putExtra(&quot;score&quot;, score);
+intent.<span class="codeplus">putExtra(&quot;score&quot;, score)</span>;
+startActivity(intent);
 </pre>
-            <p>In de klasse waar het intent naar toe gaat kun je de waarde opvragen met de key die je hebt
+            <h4>Waardes van een intent opvragen</h4>
+            <p>In de klasse waar het intent naar toe wordt gestuurd kun je de waarde opvragen met de key die je hebt
                 toegekend. Je kunt verschillende types opvragen met verschillende methoden. Hieronder een aantal
                 veelgebruikte. Voor alle methodes zie klasse
                 <a href="http://developer.android.com/reference/android/content/Intent.html" target="_blank">Intent</a>
@@ -95,38 +97,40 @@ intent.putExtra(&quot;score&quot;, score);
 
 <pre class="code">
 <span class="comment">// vraag het intent op</span>
-Intent intent = getIntent();
-int score = intent.getIntExtra(&quot;score&quot;, 0);
+Intent intent = <span class="codeplus"> getIntent()</span>;
+
+<span class="comment">// vraag de meegestuurde integer waarde op</span>
+int score = intent.<span class="codeplus">getIntExtra(&quot;score&quot;, 0)</span>;
 </pre>
 
             <h3>SharedPreferences</h3>
             <p>Met de klasse <a href="http://developer.android.com/reference/android/content/SharedPreferences.html"
                                 target="_blank">SharedPreferences</a> kun je waardes opslaan in een bestand dat
-                Android voor je bewaart. In de Brain Trainer willen we de high score bewaren. Om een waarde op te slaan
-                heb
-                je een object van <a
+                Android voor je bewaart. Je maakt een object van SharedPreferences met de methode getPreferences
+                waarbij je aan moet geven of de gegevens alleen voor de eigen applicatie beschikbaar zijn of
+                ook voor andere apps. Hiervoor kun je een constante van de Context klasse gebruiken. In de Brain Trainer
+                willen we de high score bewaren. Om een waarde op te slaan
+                heb je een object van de binnenklasse SharedPreferences.Editor nodig. Zie voorbeeld hieronder. Met de
+                editor kun je verschillende gegevenstypen opslaan. Zie <a
                         href="http://developer.android.com/reference/android/content/SharedPreferences.Editor.html"
-                        target="_blank">SharedPreferences.Editor</a> nodig. Met de editor kun je verschillende waardes
-                opslaan. Zie
-                <a href="http://developer.android.com/reference/android/content/SharedPreferences.Editor.html"
-                   target="_blank">documentatie</a>.</p>
+                        target="_blank">documentatie</a>.</p>
 
 
 
 
 <pre class="code">
-SharedPreferences prefs = this.getPreferences(Context.MODE_PRIVATE);
+SharedPreferences prefs = this.<span class="codeplus">getPreferences(Context.MODE_PRIVATE)</span>;
 
 <span class="comment">//haal de high score (default 0)</span>
-int highScore = prefs.getInt("highScore", 0);
+int highScore = prefs.<span class="codeplus">getInt("highScore", 0)</span>;
 Intent intent = getIntent();
 int score = intent.getIntExtra("score", 0);
 if (score > highScore) {
     highScore = score;
     <span class="comment">//Bewaar de nieuwe high score</span>
-    SharedPreferences.Editor editor = prefs.edit();
-    editor.putInt("highScore", highScore);
-    editor.commit();
+    <span class="codeplus">SharedPreferences.Editor editor = prefs.edit()</span>;
+    editor.<span class="codeplus">putInt("highScore", highScore)</span>;
+    editor.<span class="codeplus">commit()</span>;
 }
 
 </pre>
@@ -134,6 +138,7 @@ if (score > highScore) {
 
         </div>
     </div>
-
-
-
+</div>
+</div>
+<%@ include file="/AO/android/includes/bottom.html" %>
+</html>

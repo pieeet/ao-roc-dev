@@ -3,7 +3,12 @@
     <div id="menu">
         <h3>Inhoud</h3>
         <ol>
-            <li><a href="/AO/android2/animations.jsp">Animaties</a></li>
+            <li><a href="/AO/android2/animations/animations.jsp">Animaties</a></li>
+            <li><a href="/AO/android2/tictactoe/tictactoe.jsp">TicTacToe</a></li>
+            <li><a href="/AO/android2/eggtimer/eggtimer.jsp">Eierwekker</a></li>
+            <li><a href="/AO/android2/braintrainer/braintrainer.jsp">Brain Trainer</a></li>
+            <li><a href="/AO/android2/currencyconverter/currencyconverter.jsp">Currency Converter</a></li>
+            <li><a href="/AO/android2/hackernewsreader/hackernewsreader.jsp">Hacker News Reader</a></li>
 
         </ol>
 
