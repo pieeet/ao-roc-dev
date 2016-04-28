@@ -337,6 +337,68 @@
         <url-pattern>/AO/android/h10</url-pattern>
     </servlet-mapping>
 
+
+
+    <!--ANDROID 2-->
+    <servlet>
+        <servlet-name>AndroidAnimaties</servlet-name>
+        <jsp-file>/AO/android2/animations/animations.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidAnimaties</servlet-name>
+        <url-pattern>/AO/android/animaties</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AndroidEggTimer</servlet-name>
+        <jsp-file>/AO/android2/eggtimer/eggtimer.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidEggTimer</servlet-name>
+        <url-pattern>/AO/android/eggtimer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AndroidTicTacToe</servlet-name>
+        <jsp-file>/AO/android2/tictactoe/tictactoe.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidTicTacToe</servlet-name>
+        <url-pattern>/AO/android/tictactoe</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AndroidBrainTrainer</servlet-name>
+        <jsp-file>/AO/android2/braintrainer/braintrainer.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBrainTrainer</servlet-name>
+        <url-pattern>/AO/android/braintrainer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AndroidCurrencyConverter</servlet-name>
+        <jsp-file>/AO/android2/currencyconverter/currencyconverter.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidCurrencyConverter</servlet-name>
+        <url-pattern>/AO/android/currencyconverter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AndroidHackerNewsReader</servlet-name>
+        <jsp-file>/AO/android2/hackernewsreader/hackernewsreader.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidHackerNewsReader</servlet-name>
+        <url-pattern>/AO/android/hackernewsreader</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
     <!-- JQuery -->
     <servlet>
         <servlet-name>JqueryServlet</servlet-name>

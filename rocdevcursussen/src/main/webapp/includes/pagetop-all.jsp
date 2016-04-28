@@ -156,7 +156,7 @@
                             <ul class="dropdown-menu">
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-android"><a
-                                        href="/AO/android/h1">Android</a></li>
+                                        href="/AO/android/animaties">Android</a></li>
 
                             </ul>
                         </li>

@@ -22,7 +22,7 @@
                 <li>gegevens uit een JSONArray kunt halen met een for-lus</li>
                 <li>weet hoe je de methode publishProgress in de doInBackground methode van een
                     AsyncTask klasse gebruikt en hoe je de gegevens in de UI thread gebruikt met de
-                    methode onProgressUpfate
+                    methode onProgressUpdate
                 </li>
                 <li>vanuit je app een browser of de telefoon app kunt openen met een uri</li>
 
@@ -41,7 +41,7 @@
             <h2>Gebruikte methodes/klassen</h2>
             <p>Onze reader haalt de artikelen van hacker news op in twee stappen. Eerst wordt een JSONArray met
                 de id&#39;s van de artikelen opgehaald. Per id wordt vervolgens het artikel opgevraagd. Aangezien het
-                om zo&#39;n 500 artikelen gaat is dit een vrij langdurige aangelegenheid. </p>
+                om zo&#39;n 500 artikelen gaat is dit een vrij tijdrovende aangelegenheid. </p>
 
 
             <h3>JSONArray</h3>
@@ -142,11 +142,13 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        <span class="comment">// haal de url uit de lijst mbv paramater position</span>
+
+        <span class="comment">// haal de url uit de lijst</span>
         String urlString = urlLijst.get(position);
+
         <span class="comment">// parse hem naar een Uri</span>
         Uri uri = Uri.parse(urlString);
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri));
+        Intent browserIntent = new Intent(Intent.<span class="codeplus">ACTION_VIEW</span>, uri));
         startActivity(browserIntent);
     }
 });
@@ -158,8 +160,10 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 <pre class="code">
 String telefoonNummer = <span class="codeplus">&quot;tel:020-1234567&quot;</span>;
 Uri telUri = Uri.parse(telefoonNummer);
+
 <span class="comment">// open telefoon app met gegeven nummer</span>
 Intent telefoonIntent = new Intent(Intent.<span class="codeplus">ACTION_DIAL</span>, telUri);
+
 <span class="comment">// gaat meteen bellen (vereist permissie)</span>
 Intent telefoonIntent = new Intent(Intent.<span class="codeplus">ACTION_CALL</span>, telUri);
 startActivity(telefoonIntent);
