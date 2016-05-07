@@ -13,7 +13,7 @@
     <div class="col-md-9">
 
 
-        <h2>Hacker News Reader</h2>
+        <h2>6 Hacker News Reader</h2>
         <div class="bs-callout bs-callout-warning">
             <h2>Leerdoelen</h2>
             <p>Na het maken van deze app wordt van je verwacht dat

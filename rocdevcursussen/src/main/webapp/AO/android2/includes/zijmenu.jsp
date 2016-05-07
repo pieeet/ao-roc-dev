@@ -9,6 +9,7 @@
             <li><a href="/AO/android/braintrainer">Brain Trainer</a></li>
             <li><a href="/AO/android/currencyconverter">Currency Converter</a></li>
             <li><a href="/AO/android/hackernewsreader">Hacker News Reader</a></li>
+            <li><a href="/AO/android/hackernewsfirebase">Hacker News met Firebase</a></li>
 
         </ol>
 

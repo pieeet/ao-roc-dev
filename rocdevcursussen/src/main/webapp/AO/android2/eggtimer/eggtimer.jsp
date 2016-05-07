@@ -13,7 +13,7 @@
     <div class="col-md-9">
 
 
-        <h2>Eierwekker</h2>
+        <h2>3 Eierwekker</h2>
 
         <div class="bs-callout bs-callout-warning">
             <h2>Leerdoelen</h2>

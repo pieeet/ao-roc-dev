@@ -13,7 +13,7 @@
     <div class="col-md-9">
 
 
-        <h2>Brain Trainer</h2>
+        <h2>4 Brain Trainer</h2>
         <div class="bs-callout bs-callout-warning">
             <h2>Leerdoelen</h2>
             <p>Na het maken van deze app wordt van je verwacht dat
