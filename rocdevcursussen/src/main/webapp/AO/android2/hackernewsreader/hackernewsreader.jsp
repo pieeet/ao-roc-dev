@@ -178,5 +178,5 @@ startActivity(telefoonIntent);
     </div>
 </div>
 
-<%@ include file="/AO/android/includes/bottom.html" %>
+<%@ include file="/AO/android2/includes/bottom.html" %>
 </html>
