@@ -26,7 +26,7 @@
             </ul>
         </div>
         <div class="bs-callout bs-callout-info">
-            <p>Het gebruikte geluidsbestand kun je <a href="airhorn.mp3" download>hier</a> downloaden</p>
+            <p>Het gebruikte geluidsbestand kun je <a href="/AO/android2/eggtimer/airhorn.mp3" download>hier</a> downloaden</p>
         </div>
 
         <div class="opdrachten">

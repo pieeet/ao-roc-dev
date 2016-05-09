@@ -183,7 +183,7 @@ Double usd = rates.<span class="codeplus">getDouble(&quot;USD&quot;)</span>;
                 wilt dus niet dat de app bevriest tot een bepaalde taak is
                 uitgevoerd. Tijdrovende taken zoals het ophalen en verwerken van data
                 moeten in een aparte thread worden afgehandeld.</p>
-            <img src="thread.png">
+            <img src="/AO/android2/currencyconverter/thread.png">
 
             <h4>Asynchrone taken starten</h4>
             <p>
@@ -210,7 +210,8 @@ Double usd = rates.<span class="codeplus">getDouble(&quot;USD&quot;)</span>;
                 <li><a
                         href="http://developer.android.com/reference/android/os/AsyncTask.html#doInBackground(Params...)"
                         target="_blank"> doInBackground(Params... params)</a>: deze methode
-                    bevat de code die op de achtergrond wordt uitgevoerd.
+                    bevat de code die op de achtergrond wordt uitgevoerd. De return-waarde wordt aan de methode
+                    onPostExecute meegegeven
                 </li>
                 <li><a
                         href="http://developer.android.com/reference/android/os/AsyncTask.html#publishProgress(Progress...)"
@@ -225,10 +226,10 @@ Double usd = rates.<span class="codeplus">getDouble(&quot;USD&quot;)</span>;
                 <li><a
                         href="http://developer.android.com/reference/android/os/AsyncTask.html#onPostExecute(Result)"
                         target="_blank"> onPostExecute (Result result)</a>: deze methode
-                    doet iets nadat doInBackground() is ge&euml;indigd. De values
-                    krijgen hun waarde met het resultaat van doInBackground()
+                    doet iets nadat doInBackground() is ge&euml;indigd. De result parameter
+                    is de return-waarde van doInBackground()
             </ol>
-            <img src="AsyncTask.png">
+            <img src="/AO/android2/currencyconverter/AsyncTask.png">
 
             <p>De methoden van AsyncTask kennen drie soorten parameters:</p>
             <ol>
@@ -285,7 +286,7 @@ protected void onCreate(Bundle savedInstanceState) {
                 en bij het maken ervan aangeven voor welke taal het bestand bedoeld is met de qualifier <em>locale</em>.
                 Je hoeft dan alleen de string waardes
                 te veranderen. De taal van je app wordt dan aangepast aan de ingestelde taal van de gebruiker.</p>
-            <img src="strings_dutch.png" alt="strings.xml nederlands">
+            <img src="/AO/android2/currencyconverter/strings_dutch.png" alt="strings.xml nederlands">
 
 
         </div>

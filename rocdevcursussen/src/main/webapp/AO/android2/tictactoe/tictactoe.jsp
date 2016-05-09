@@ -34,9 +34,9 @@
         <div class="bs-callout bs-callout-info">
 
             <h2>De gebruikte afbeeldingen</h2>
-            <img src="bord.png" width="100">
-            <img src="kruisje.png" width="100">
-            <img src="rondje.png" width="100">
+            <img src="/AO/android2/tictactoe/bord.png" width="100">
+            <img src="/AO/android2/tictactoe/kruisje.png" width="100">
+            <img src="/AO/android2/tictactoe/rondje.png" width="100">
 
 
         </div>
