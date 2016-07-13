@@ -281,7 +281,7 @@ $(document).ready(function() {
     		$("#sport_tab-2_content").fadeOut(fadeOutTime, function () {
         		$("#sport_tab-2_content").html(loadingSpinner);
         		$("#sport_tab-2_content").fadeIn(spinner, function () {
-        			$.get("/AO/jsp//sport?verwijderteam=x"
+        			$.get("/AO/jsp/sport?verwijderteam=x"
     	            		+ "&teamcode=" + teamcode, function(responseText) { 
         				$("#sport_tab-2_content").fadeOut(spinner, function () {
         					$("#sport_tab-2_content").html(responseText).fadeIn(fadeInTime);

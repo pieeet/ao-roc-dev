@@ -80,7 +80,7 @@
 
         <div class="col-md-3">
             <!-- gebruikersnaam en log uit -->
-            <p class="loguit">${fn:escapeXml(user.nickname)}:
+            <p class="loguit"><span id="username">${fn:escapeXml(user.nickname)}</span>:
                 <a
                         href="http://ao.roc-dev.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://ao.roc-dev.com/Welkom.jsp%26service%3Dah">afmelden</a>
             </p>
@@ -144,6 +144,8 @@
                                         href="/AO/php/php1">PHP</a></li>
                                 <li class="menu-item menu-sub-item" id="menu-item-jquery"><a
                                         href="/AO/jquery/jquery1">JQuery</a></li>
+                                <li class="menu-item menu-sub-item" id="menu-item-gcp"><a
+                                        href="/AO/gcpcoupons">GCP</a></li>
                             </ul>
                         </li>
 

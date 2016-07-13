@@ -214,9 +214,16 @@
                 </div>
 
 
-                <div id="artikel">
+                <h2>GCP codes</h2>
+                <p>Voer een coupon code in of een string van codes gescheiden door komma&#39;s</p>
+                <select id="schooljaar">
+                    <option value="2016">2016</option>
+                </select><br>
+                <input type="text" id="input_codes" width="100%"><br>
+                <button type="button" id="verzend_codes_button">Voer codes in</button>
+                <p id="invoerCodesResult"></p>
 
-                </div>
+
             </div>
         </div>
     </div>
@@ -239,6 +246,34 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+<script>
+    $(document).ready(
+            function () {
+                $(document).on(
+                        'click',
+                        '#verzend_codes_button',
+                        function () {
+                            var codesStr = $("#input_codes").val();
+                            var schooljaar = $("#schooljaar").val();
+                            $.ajax({
+                                url: "/AO/gcpcoupons",
+                                type: "POST",
+                                data: {
+                                    nieuwe_coupon: "x",
+                                    jaar_coupon: schooljaar,
+                                    coupon_code: codesStr
+                                },
+                                success: function(response) {
+                                    $("#invoerCodesResult").text("Er zijn " + response + " codes toegevoegd");
+                                    $("#input_codes").val("");
+                                }
+                            });
+
+                        });
+
+            });
+
+</script>
 
     <% } %>
 	

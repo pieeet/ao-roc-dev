@@ -10,13 +10,8 @@ public class Team implements Serializable {
 	private String omschrijving;
 	
 	public Team(String teamcode, String omschrijving) {
-		this();
-		if (StringEscapeUtils.escapeXml11(teamcode).length() <= 6) {
-			this.teamcode = teamcode;
-		}
-		if (StringEscapeUtils.escapeXml11(omschrijving).length() <= 16) {
-			this.omschrijving = omschrijving;
-		}
+		this.teamcode = teamcode;
+		this.omschrijving = omschrijving;
 		
 		
 	}

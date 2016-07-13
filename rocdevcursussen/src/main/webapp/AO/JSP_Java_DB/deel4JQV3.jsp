@@ -1,4 +1,5 @@
-
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 
 <!-- JQuery stylesheets voor sport app -->
 <link href="/AO/JSP_Java_DB/jqueryUI/jquery-ui.min.css" type="text/css"
@@ -52,6 +53,11 @@
 			sportvereniging waarmee hun ledenadministratie op een webpagina wordt
 			beheerd. Je maakt gebruik van Java, JSP, CSS, een database en
 			eventueel JavaScript.</p>
+
+
+
+		<%--Sport App--%>
+
 		<div class="opdrachten" id="voorbeeld_sport">
 			<h2>Voorbeeld uitwerking</h2>
 			<div class="sporttabel" id="ledenoverzicht">
@@ -84,6 +90,8 @@
 			</div>
 		</div>
 
+
+
 		<h3>Ontwikkelomgeving installeren</h3>
 		<p>
 			Zet je ontwikkel- en produktieomgeving op in App Engine. App Engine
@@ -115,15 +123,17 @@
 				href="http://nl.wikipedia.org/wiki/Spaghetticode" target="_blank">spaghetti
 				code</a>&quot; te vermijden, gaan we het opzetten volgens het
 			veelgebruikte <a href="#"> Model-View-Controller</a> ontwerp
-			patroon.. Maak in de map &quot;src&quot; 3 packages, volgens
+			patroon.</p>
+			<img src="<c:url value="/AO/JSP_Java_DB/images/mvc.png"/>" alt="mvc patroon">
+
+			<p>Maak in de map &quot;src&quot; 3 packages, volgens
 			onderstaand voorbeeld.
 		</p>
-		<img src="<c:url value="/AO/JSP_Java_DB/images/project_mvc.png"/>">
+		<img src="<c:url value="/AO/JSP_Java_DB/images/projectstructuur.png"/>">
 		<h3>Model laag</h3>
 		<p>De &quot;model&quot; laag bestaat uit klassen die een
 			afspiegeling zijn van iets uit de werkelijkheid. In ons project
 			hebben we te maken met een vereniging met spelers en teams.</p>
-		<img src="<c:url value="/AO/JSP_Java_DB/images/model_klassen.png"/>">
 		<p>Maak de klasse &quot;Lid&quot;, geef hem een aantal attributen
 			zoals roepnaam, tussenvoegsels en achternaam. Ook hebben we een
 			unieke sleutel nodig om het lid straks gemakkelijk te kunnen
@@ -397,7 +407,7 @@ public ArrayList&lt;Lid&gt; getAlleLeden() {
     <span class="codeplus">PreparedQuery resultaten = datastore.prepare(q);</span>
     for (Entity ent: resultaten.<span class="codeplus">asIterable()</span>) {
         Lid lid = new Lid();
-        lid.setRoepnaam( <span class="codeplus">(String)</span> ent.getProperty(&quot;roepnaam&quot;) );
+        lid.setRoepnaam( <span class="codeplus">(String) ent.getProperty(&quot;roepnaam&quot;)</span> );
         lid.setTussenvoegsels( (String) ent.getProperty(&quot;tussenvoegsels&quot;) );
         lid.setAchternaam( (String) ent.getProperty(&quot;achternaam&quot;) );
         lid.setEmail( (String) ent.getProperty(&quot;email&quot;) );
@@ -634,6 +644,60 @@ public void wijzigLid(Lid lid) {
 				target="_blank">overzicht.</a>
 		</p>
 
+		<h3>De klasse Date</h3>
+		<p>Met de klasse Date kun je in Java een datum/tijdstip bewaren. Datum en tijd zijn vrij ingewikkeld
+		omdat er nogal wat verschillende notaties zijn en we op aarde verschillende tijdzones
+		kennen. De klasse Date heeft 2 constructors:</p>
+
+		<%
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			String dateString = "20-10-1964 00:00:00";
+			Date date = sdf.parse(dateString);
+			long millis = date.getTime();
+		%>
+
+
+
+<pre class="code">
+<span class="comment">// huidige tijd in milliseconden vanaf 1-1-1970</span>
+Date date1 = new Date();
+long ms = date1.getTime();
+
+<span class="comment">// milliseconden op 20 oktober 1964 00:00 uur gerekend vanaf 1-1-1970</span>
+long ms = <%= millis %>;
+Date date2 = new Date(ms);
+</pre>
+		<p>Als je bovengenoemd date2 object op het scherm wilt wilt vertonen, met andere woorden als je de methode
+			toString op een date object aanroept, krijg je het volgende te zien:</p>
+		<p><%= date %></p>
+		<p>Dat is meestal niet wat je wilt. Ook valt het niet mee om het aantal milliseconden vanaf 1 januari 1970 van een datum te berekenen
+			als je een
+		specifieke datum wilt maken (zoals een geboortedatum van een speler van onze vereniging).
+
+			<h3>SimpleDateFormat</h3>
+			<p>Om van een
+		date object een String te maken en omgekeerd kun je de klasse <a
+					href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" target="_blank">
+				SimpleDateFormat
+			</a> gebruiken. Bij het maken van een object kun je aangeven welk patroon de datum string heeft/moet hebben.
+				Zie voorbeeld. Je kunt verschillende string-patronen gebruiken. Zie documentatie.</p>
+
+
+<pre class="code">
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);
+<span class="comment">// Maak datum string met bovenstaand patroon</span>
+String geboortedatum = &quot;20-10-1964&quot;
+<span class="comment">// maak date object mbv een string</span>
+Date date = sdf.<span class="codeplus">parse(geboortedatum)</span>;
+<span class="comment">// maak van date object een string</span>
+String geboortedatum = sdf.<span class="codeplus">format(date)</span>;
+</pre>
+
+			<p>Uiteraard kun je er voor kiezen om een string in de database op te slaan en deze te converteren
+			naar een Date object mocht dat nodig zijn. Je moet er dan wel voor zorgen dat de String het juiste patroon
+			heeft. Voordeel van het opslaan van het type date is dat je er op kunt sorteren en selecteren. In onze
+				sport app is het voorstelbaar dat je alleen leden in een junioren team kunt plaatsen die jonger zijn
+				dan een bepaalde leeftijd.</p>
 		<div class="bs-callout bs-callout-warning">
 			<h3>Test</h3>
 			<p>
@@ -711,15 +775,16 @@ public ArrayList&lt;Lid&gt; getTeamspelers(Team team)  {
 
 		<h3>Resultaten sorteren</h3>
 		<p>Met de volgende code wordt het overzicht van spelers oplopend
-			gesorteerd op achtereenvolgens roepnaam en achternaam. Let op dat het
-			even kan duren voor datastore de gesorteerde resultaten terug geeft.</p>
+			gesorteerd op roepnaam en aflopend gesorteerd op geboortedatum. Let op dat het
+			even kan duren voor datastore deze properties ge&iuml;ndexeerd heeft en de resultaten
+			correct gesorteerd terug geeft.</p>
 
 		<pre class="code">
 public ArrayList&lt;Lid&gt; getLedenLijst() {
     ArrayList&lt;Lid&gt; leden = new ArrayList&lt;Lid&gt;();
     Query q = new Query("Lid")
-        <span class="codeplus">.addSort("roepnaam", SortDirection.ASCENDING)</span>
-        .addSort("achternaam", SortDirection.ASCENDING);
+        <span class="codeplus">.addSort("achternaam", SortDirection.ASCENDING)</span>
+        .addSort("geboortedatum", SortDirection.<span class="codeplus">DESCENDING</span>);
     PreparedQuery pq = datastore.prepare(q);
     <span class="comment">//zie eerdere code</span>
     ...

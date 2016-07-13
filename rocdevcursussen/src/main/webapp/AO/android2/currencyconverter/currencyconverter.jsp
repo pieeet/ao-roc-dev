@@ -146,7 +146,7 @@ http://api.fixer.io/latest<span class="codeplus">?base=USD</span>
 </pre>
             <p>Een JSON object begint en eindigt met een accolade. Daartussen zie je zogenaamde key-value pairs. De key
                 is een string waarmee de value kan worden opgehaald. De eerste twee (&quot;base&quot; en
-                &quot;date&quot; in bovenstaand
+                &quot;date&quot;) in bovenstaand
                 resultaat zijn gewone key-value pairs waarbij de values strings zijn. De derde (&quot;rates&quot;) is
                 ook een key-value pair, alleen is
                 de value

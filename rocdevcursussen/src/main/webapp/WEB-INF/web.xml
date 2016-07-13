@@ -599,6 +599,17 @@
         <servlet-name>VoegGerechtenToeServlet</servlet-name>
         <url-pattern>/AO/receptenboek/voeg-gerecht-toe</url-pattern>
     </servlet-mapping>
+    
+    
+    <!--GCP coupons-->
+    <servlet>
+        <servlet-name>Coupons</servlet-name>
+        <servlet-class>mvsite.gcpcoupons.CouponServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Coupons</servlet-name>
+        <url-pattern>/AO/gcpcoupons</url-pattern>
+    </servlet-mapping>
 
 
     <!-- inlog-only area -->
