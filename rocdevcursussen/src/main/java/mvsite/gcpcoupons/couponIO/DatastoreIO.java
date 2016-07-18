@@ -10,106 +10,64 @@ import java.util.List;
  * Created by piet on 12-07-16.
  */
 public class DatastoreIO {
-
-
     private static final String TABEL_NAAM = "Coupon";
-    private static final String PROPERTY_CODE = "coupon_code";
     private static final String PROPERTY_SCHOOLJAAR = "schooljaar";
-    private static final String PROPERTY_EMAILGEBRUIKER = "email_gebruiker";
+    private static final String PROPERTY_GEBRUIKER = "email_gebruiker";
+    private static final String PROPERTY_LEEG = "";
 
+    DatastoreService datastore;
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
-
-    public void voegCouponToe(Coupon coupon) {
-        Entity ent = new Entity(TABEL_NAAM, coupon.getCode());
-        ent.setProperty(PROPERTY_CODE, coupon.getCode());
-        ent.setProperty(PROPERTY_SCHOOLJAAR, coupon.getSchooljaar());
-        ent.setProperty(PROPERTY_EMAILGEBRUIKER, coupon.getEmailUser());
-
-        datastore.put(ent);
+    public DatastoreIO() {
+        datastore = DatastoreServiceFactory.getDatastoreService();
     }
 
-
-
+    public void voegCouponToe(Coupon coupon) {
+        //code = key
+        Entity ent = new Entity(TABEL_NAAM, coupon.getCode());
+        ent.setProperty(PROPERTY_SCHOOLJAAR, coupon.getSchooljaar());
+        ent.setProperty(PROPERTY_GEBRUIKER, coupon.getEmailUser());
+        datastore.put(ent);
+    }
 
     //haalt coupon van gebruiker
     public Coupon[] getCoupons(int schooljaar, String emailUser) {
         Coupon[] coupons = null;
         Query.Filter jaarFilter = new Query.FilterPredicate(PROPERTY_SCHOOLJAAR, Query.FilterOperator.EQUAL,
                 schooljaar);
-        Query.Filter userFilter = new Query.FilterPredicate(PROPERTY_EMAILGEBRUIKER, Query.FilterOperator.EQUAL,
+
+        //haalt alle coupons van gebruiker
+        Query.Filter userFilter = new Query.FilterPredicate(PROPERTY_GEBRUIKER, Query.FilterOperator.EQUAL,
                 emailUser);
         Query.CompositeFilter jaarEnUserFilter = Query.CompositeFilterOperator.and(jaarFilter, userFilter);
-        Query q = new Query(TABEL_NAAM).setFilter(jaarEnUserFilter);
+
+        //we hebben alleen de keys (couponcodes) nodig
+        Query q = new Query(TABEL_NAAM).setFilter(jaarEnUserFilter).setKeysOnly();
         List<Entity> results = datastore.prepare(q).asList(FetchOptions.Builder.withDefaults());
-        //gebruiker heeft al een coupon
+
+        //als gebruiker al coupons heeft is lijst niet leeg
         if (!results.isEmpty()) {
             coupons = new Coupon[results.size()];
             for (int i = 0; i < results.size(); i++) {
-                String code = (String) results.get(i).getProperty((PROPERTY_CODE));
-                coupons[i] = new Coupon(schooljaar, code, emailUser);
+                coupons[i] = new Coupon(schooljaar, results.get(i).getKey().getName(), emailUser);
             }
 
-        // er wprdt een coupon gezocht
+        //gebruiker heeft geen coupons, er wprdt een ongebruikte coupon gehaald (gebruiker == "")
         } else {
-            userFilter = new Query.FilterPredicate(PROPERTY_EMAILGEBRUIKER, Query.FilterOperator.EQUAL, "");
+            userFilter = new Query.FilterPredicate(PROPERTY_GEBRUIKER, Query.FilterOperator.EQUAL, PROPERTY_LEEG);
             jaarEnUserFilter = Query.CompositeFilterOperator.and(jaarFilter, userFilter);
-            q = new Query(TABEL_NAAM).setFilter(jaarEnUserFilter);
+            q = new Query(TABEL_NAAM).setFilter(jaarEnUserFilter).setKeysOnly();
+
+            //we hoeven maar één ongebruikte code (limit == 1)
             results = datastore.prepare(q).asList(FetchOptions.Builder.withLimit(1));
+
+            //als er nog een ongebruikte coupon is
             if (!results.isEmpty()) {
-                Entity en = results.get(0);
-                String code = (String) en.getProperty(PROPERTY_CODE);
+                Entity entity = results.get(0);
                 coupons = new Coupon[1];
-                coupons[0] = new Coupon(schooljaar, code, emailUser);
+                coupons[0] = new Coupon(schooljaar, entity.getKey().getName(), emailUser);
                 voegCouponToe(coupons[0]);
             }
         }
         return coupons;
-
     }
-
-
-    public ArrayList<Coupon> getBeschikbareCouponsVanJaar(int schooljaar) {
-        ArrayList<Coupon> coupons = getAlleCouponsVanJaar(schooljaar);
-        ArrayList<Coupon> beschikbareCoupons = new ArrayList<>();
-        for (Coupon coupon: coupons) {
-            if (coupon.getEmailUser() == null) {
-                beschikbareCoupons.add(coupon);
-            }
-        }
-
-        return beschikbareCoupons;
-    }
-
-    public ArrayList<Coupon> getGebruikteCouponsVanJaar(int schooljaar) {
-        ArrayList<Coupon> coupons = getAlleCouponsVanJaar(schooljaar);
-        ArrayList<Coupon> gebruikteCoupons = new ArrayList<>();
-        for (Coupon coupon: coupons) {
-            if (coupon.getEmailUser() != null) {
-                gebruikteCoupons.add(coupon);
-            }
-        }
-        return gebruikteCoupons;
-    }
-
-    private ArrayList<Coupon> getAlleCouponsVanJaar(int schooljaar) {
-        ArrayList<Coupon> coupons = new ArrayList<>();
-        Query.Filter schooljaarFilter = new Query.FilterPredicate(PROPERTY_SCHOOLJAAR,
-                Query.FilterOperator.EQUAL,
-                schooljaar);
-        Query q = new Query(TABEL_NAAM).setFilter(schooljaarFilter);
-        PreparedQuery pq = datastore.prepare(q);
-        for (Entity e: pq.asIterable()) {
-            int schljr = (int) (long) e.getProperty(PROPERTY_SCHOOLJAAR);
-            String code = (String) e.getProperty(PROPERTY_CODE);
-            String emailUser = (String) e.getProperty(PROPERTY_EMAILGEBRUIKER);
-            Coupon coupon = new Coupon(schljr, code, emailUser);
-            coupons.add(coupon);
-        }
-        return coupons;
-    }
-
-
-
 }
