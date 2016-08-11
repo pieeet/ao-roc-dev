@@ -269,18 +269,18 @@ public class Lid implements Serializable {
 	public JSONObject getlidAsJSONObject() {
 		JSONObject lid = new JSONObject();
 		try {
-			lid.put("spelerscode", this.spelerscode);
+			lid.put("spelerscode", this.getSpelerscodeEsc());
 			lid.put("spelersnummer", this.nr);
-			lid.put("roepnaam", this.roepnaam);
-			lid.put("tussenvoegsels", this.tussenvoegsels);
-			lid.put("achternaam", this.achternaam);
-			lid.put("adres", this.adres);
-			lid.put("postcode", this.postcode);
-			lid.put("woonplaats", this.woonplaats);
-			lid.put("telefoon", this.telefoon);
-			lid.put("email", this.email);
-			lid.put("geboortedatum", this.geboortedatum);
-			lid.put("geslacht", this.geslacht);
+			lid.put("roepnaam", this.getRoepnaamEsc());
+			lid.put("tussenvoegsels", this.getTussenvoegselsEsc());
+			lid.put("achternaam", this.getAchternaamEsc());
+			lid.put("adres", this.getAdresEsc());
+			lid.put("postcode", this.getPostcodeEsc());
+			lid.put("woonplaats", this.getWoonplaatsEsc());
+			lid.put("telefoon", this.getTelefoonEsc());
+			lid.put("email", this.getEmailEsc());
+			lid.put("geboortedatum", this.getGeboortedatumEsc());
+			lid.put("geslacht", this.getGeslachtEsc());
 			lid.put("blobKey", this.blobKey);
 
 		} catch (JSONException e) {
