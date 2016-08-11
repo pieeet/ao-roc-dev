@@ -297,12 +297,29 @@ $(document).ready(function() {
  
     
 	//inladen gegevens tab 2 leden
+	// $(document).on('click', '#ui-id-2', function() {
+	// 	$.get("/sporthtml?leden_overzicht=x", function(responseText) {
+	// 		//$("#sport_tab-1_content").fadeOut(spinner);
+	// 		$("#sport_tab-1_content").html(responseText).hide().fadeIn(fadeInTime);
+	//     });
+    // });
+
+	//alternatief laad JSON array
 	$(document).on('click', '#ui-id-2', function() {
-		$.get("/sporthtml?leden_overzicht=x", function(responseText) { 
+		$.get("/AO/jsp/sport?leden_overzicht=x", function(responseText) {
 			//$("#sport_tab-1_content").fadeOut(spinner);
-			$("#sport_tab-1_content").html(responseText).hide().fadeIn(fadeInTime); 
-	    });
-    });
+			var ledentabel = maakLedenOverzicht(responseText);
+			$("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+			$(ledentabel).ready(function() {
+				setTimeout(function(){
+					downloadImages(responseText); }, 2000);
+				
+			});
+		});
+	});
+
+
+	
 	
 	
 
@@ -353,6 +370,51 @@ $(document).ready(function() {
 			});
 		});
     });
+
+	function maakLedenOverzicht(jsonString) {
+		var jsonArray = JSON.parse(jsonString);
+		var html = "<div id=\"ledentabel\">";
+		html += "<div class=\"voegtoeknop\">";
+		html += "<button type=\"button\" id=\"open_nieuw_lid\">Lid toevoegen</button></div>";
+		if (jsonArray.length === 0) {
+			html += "<p>Er zijn nog geen leden ingevoerd</p>"
+		} else {
+			html += "<div class=\"scrolltabel\">";
+			html += "<table id=\"ledentabel\">";
+			for (var i = 0; i < jsonArray.length; i++ ) {
+				var jsonObject = jsonArray[i];
+				html += "<tr>";
+				html += "<td><img src=\"/AO/JSP_Java_DB/images/geen_foto_thumb.jpg\" " +
+					"id=\"" +  jsonObject.spelerscode.replace(".", "")  + "\" class=\"thumb_lid\" width=\"32px\">";
+				html += "<td><b>" + jsonObject.naam + "</b><br>";
+				html += jsonObject.adres + "<br>";
+				html += jsonObject.woonplaats + "</td>";
+				html += "<td><button type=\"button\" class=\"lid_data\" data-spelerscode=\"" +
+					jsonObject.spelerscode + "\">info/wijzig</button></td></tr>";
+				html += "</table></div></div>";
+			}
+		}
+		return html;
+	}
+
+	function downloadImages(jsonString) {
+		console.log('download gestart');
+		var jsonArray = JSON.parse(jsonString);
+		if (jsonArray.length > 0) {
+			for (var i = 0; i < jsonArray.length; i++) {
+				var jsonObject = jsonArray[i];
+				console.log("downloadUrl: " + jsonObject.thumbUrl);
+				var downloadThumb = $("<img>");
+				downloadThumb.on('load', function() {
+					$("img#" + jsonObject.spelerscode.replace(".", "")).attr("src", $(this).attr("src"));
+					console.log('download uitgevoerd');
+				});
+				downloadThumb.attr("src", jsonObject.thumbUrl);
+			}
+		}
+	}
+
+
   
 });
 

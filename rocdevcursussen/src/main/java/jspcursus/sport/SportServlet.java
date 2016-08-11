@@ -13,7 +13,13 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.ServingUrlOptions;
 import jspcursus.sport.vereniging.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class SportServlet extends HttpServlet {
@@ -27,7 +33,26 @@ public class SportServlet extends HttpServlet {
         if (req.getParameter("nieuwlidform") != null) {
             this.voegNieuwLidToe(req);
             resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
-        } else if (req.getParameter("verwijderlid") != null) {
+        } else if (req.getParameter("leden_overzicht") != null) {
+            admin = new Administratie();
+            ArrayList<Lid> leden = admin.getLedenlijst();
+            JSONArray ledenArray = new JSONArray();
+            for (Lid lid: leden) {
+                JSONObject lidJsonObject = lid.getlidOverzichtDataAsJSONObject();
+//                if (lid.getBlobkey() != null && !lid.getBlobkey().equals("")) {
+                    try {
+                        lidJsonObject.put("thumbUrl", maakThumbServingUrl(lid.getBlobkey()));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+//                }
+                ledenArray.put(lidJsonObject);
+                resp.getWriter().print(ledenArray.toString());
+            }
+        }
+
+
+        else if (req.getParameter("verwijderlid") != null) {
             this.verwijderLid(req, resp);
             resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
         } else if (req.getParameter("wijziglid") != null) {
@@ -201,6 +226,22 @@ public class SportServlet extends HttpServlet {
         admin.verwijderTeamspeler(team, lid);
         resp.sendRedirect("/sporthtml?haal_team_gegevens=x&teamcode="
                 + team.getTeamcode());
+    }
+
+    private String maakThumbServingUrl(BlobKey blobkey) {
+        String fotoUrl;
+        if (blobkey == null || blobkey.equals("")) {
+            fotoUrl = "/AO/JSP_Java_DB/images/geen_foto_thumb.jpg";
+        } else {
+            ImagesService imagesService = ImagesServiceFactory.getImagesService();
+            fotoUrl = imagesService
+                    .getServingUrl(ServingUrlOptions
+                            .Builder
+                            .withBlobKey(blobkey)
+                            .imageSize(32)
+                            .crop(true));
+        }
+        return fotoUrl;
     }
 
 }

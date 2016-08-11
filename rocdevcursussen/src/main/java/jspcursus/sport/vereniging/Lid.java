@@ -266,21 +266,14 @@ public class Lid implements Serializable {
 	}
 
 
-	public JSONObject getlidAsJSONObject() {
+	public JSONObject getlidOverzichtDataAsJSONObject() {
 		JSONObject lid = new JSONObject();
 		try {
 			lid.put("spelerscode", this.getSpelerscodeEsc());
-			lid.put("spelersnummer", this.nr);
-			lid.put("roepnaam", this.getRoepnaamEsc());
-			lid.put("tussenvoegsels", this.getTussenvoegselsEsc());
-			lid.put("achternaam", this.getAchternaamEsc());
+			lid.put("naam", this.getNaamEsc());
 			lid.put("adres", this.getAdresEsc());
 			lid.put("postcode", this.getPostcodeEsc());
 			lid.put("woonplaats", this.getWoonplaatsEsc());
-			lid.put("telefoon", this.getTelefoonEsc());
-			lid.put("email", this.getEmailEsc());
-			lid.put("geboortedatum", this.getGeboortedatumEsc());
-			lid.put("geslacht", this.getGeslachtEsc());
 			lid.put("blobKey", this.blobKey);
 
 		} catch (JSONException e) {
