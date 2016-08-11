@@ -24,34 +24,34 @@
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-    <%
+<%
 
-	UserService userService = UserServiceFactory.getUserService();
-	User user = userService.getCurrentUser();
-	boolean admin = false;
-	if (request.getAttribute("admins") == null) {
-		response.sendRedirect("/_admin");
-	} else {
-		if (user != null) {
-			String[] admins = (String[]) request.getAttribute("admins");
-			
-			for (String s: admins) {
-				if (s.equals(user.getEmail())) {
-					admin = true;
-				}
-			}
-		}
-		
-		if (user != null && admin) {
-			pageContext.setAttribute("user", user);
-			ArrayList<Student> studenten = (ArrayList<Student>) request.getAttribute("studentlijst");
-			Student student = null;
-			if (request.getAttribute("student") != null) {
-				student = (Student) request.getAttribute("student");
-			}
-			
-			
-	%>
+UserService userService = UserServiceFactory.getUserService();
+User user = userService.getCurrentUser();
+boolean admin = false;
+if (request.getAttribute("admins") == null) {
+    response.sendRedirect("/_admin");
+} else {
+    if (user != null) {
+        String[] admins = (String[]) request.getAttribute("admins");
+
+        for (String s: admins) {
+            if (s.equals(user.getEmail())) {
+                admin = true;
+            }
+        }
+    }
+
+    if (user != null && admin) {
+        pageContext.setAttribute("user", user);
+        ArrayList<Student> studenten = (ArrayList<Student>) request.getAttribute("studentlijst");
+        Student student = null;
+        if (request.getAttribute("student") != null) {
+            student = (Student) request.getAttribute("student");
+        }
+
+
+%>
 
 <!-- als gebruiker is geregistreerd als admin...-->
 
@@ -233,46 +233,38 @@
 
 
     <%
-		} else { %>
+} else { %>
 <h2>Sorry, alleen moderators hebben toegang tot deze pagina </h2>
 <p>Log in met een <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">roc-dev moderator account</a>
     voor toegang tot de site</p>
 
 
-    <% }
-	%>
+<% } %>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 <script>
-    $(document).ready(
-            function () {
-                $(document).on(
-                        'click',
-                        '#verzend_codes_button',
-                        function () {
-                            var codesStr = $("#input_codes").val();
-                            var schooljaar = $("#schooljaar").val();
-                            $.ajax({
-                                url: "/AO/gcpcoupons",
-                                type: "POST",
-                                data: {
-                                    nieuwe_coupon: "x",
-                                    jaar_coupon: schooljaar,
-                                    coupon_code: codesStr
-                                },
-                                success: function(response) {
-                                    $("#invoerCodesResult").text("Er zijn " + response + " codes toegevoegd");
-                                    $("#input_codes").val("");
-                                }
-                            });
-
-                        });
-
+    $(document).ready(function () {
+        $(document).on('click', '#verzend_codes_button', function () {
+            var codesStr = $("#input_codes").val();
+            var schooljaar = $("#schooljaar").val();
+            $.ajax({
+                url: "/AO/gcpcoupons",
+                type: "POST",
+                data: {
+                    nieuwe_coupon: "x",
+                    jaar_coupon: schooljaar,
+                    coupon_code: codesStr
+                },
+                success: function (response) {
+                    $("#invoerCodesResult").text("Er zijn " + response + " codes toegevoegd");
+                    $("#input_codes").val("");
+                }
             });
-
+        });
+    });
 </script>
 
     <% } %>

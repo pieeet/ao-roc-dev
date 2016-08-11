@@ -14,6 +14,8 @@ import org.apache.commons.lang3.StringEscapeUtils;
 
 
 import com.google.appengine.api.blobstore.BlobKey;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 @SuppressWarnings("serial")
@@ -44,7 +46,6 @@ public class Lid implements Serializable {
 	
 	/**
 	 * maakt een nieuw lid-object obv invoer
-	 * @param spelersnr
 	 * @param roepnaam
 	 * @param tussenvoegsels
 	 * @param achternaam
@@ -262,6 +263,30 @@ public class Lid implements Serializable {
 
 	public void setBlobkey(BlobKey blobkey) {
 		this.blobKey = blobkey;
+	}
+
+
+	public JSONObject getlidAsJSONObject() {
+		JSONObject lid = new JSONObject();
+		try {
+			lid.put("spelerscode", this.spelerscode);
+			lid.put("spelersnummer", this.nr);
+			lid.put("roepnaam", this.roepnaam);
+			lid.put("tussenvoegsels", this.tussenvoegsels);
+			lid.put("achternaam", this.achternaam);
+			lid.put("adres", this.adres);
+			lid.put("postcode", this.postcode);
+			lid.put("woonplaats", this.woonplaats);
+			lid.put("telefoon", this.telefoon);
+			lid.put("email", this.email);
+			lid.put("geboortedatum", this.geboortedatum);
+			lid.put("geslacht", this.geslacht);
+			lid.put("blobKey", this.blobKey);
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return lid;
 	}
 	
 	

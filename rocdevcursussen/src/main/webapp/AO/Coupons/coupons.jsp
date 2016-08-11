@@ -22,7 +22,7 @@
 
         <h1>GCP Couponcodes</h1>
         <p>Je kunt met je roc-dev account een Google Cloud Platform coupon krijgen ter waarde van
-            $400,-. Deze is een jaar geldig. Volgend jaar hopen we weer nieuwe coupons te krijgen.</p>
+            $200,-. Deze is een jaar geldig. Volgend jaar hopen we weer nieuwe coupons te krijgen.</p>
 
 
         <input type="hidden" id="schooljaar" value="2016">
@@ -40,11 +40,13 @@
         </div>
 
 
-        <p>Je kunt je coupon verzilveren op <a href="http://cloud.google.com/redeem" target="_blank">
+        <p>Je kunt je coupon <b><u>tot 30 september 2016</u></b> verzilveren op <a href="http://cloud.google.com/redeem"
+                                                                                   target="_blank">
             cloud.google.com/redeem
-        </a>. Je wordt dan gevraagd om eerst een &quot;billing account&quot; aan te maken. Hiervoor moet je een
+        </a>. Je krediet is een jaar geldig vanaf het moment dat je hem verzilvert. Je wordt gevraagd om eerst een
+            &quot;billing account&quot; aan te maken. Hiervoor moet je een
             bankrekening nummer opgeven. Bij bedrijfsnaam (verplicht) kun je gewoon je naam invullen. Je krijgt
-            ook nog een regulier free-trial krediet, maar deze is maar 60 dagen geldig.</p>
+            ook nog een regulier free-trial krediet van $300,- maar deze is maar 60 dagen geldig.</p>
         <div class="bs-callout bs-callout-danger">
             <h3>Let op!</h3>
             <p>Als je
@@ -66,42 +68,33 @@
 <%@ include file="/AO/Coupons/includes/bottom.html" %>
 
 <script>
-    $(document).ready(
-            function () {
-                $("#resultaat").hide();
-                var schooljaar = $("#schooljaar").val();
-                var userName = $("#username").text();
-                var listItems = "";
+    $(document).ready(function () {
+        $("#resultaat").hide();
+        var schooljaar = $("#schooljaar").val();
+        var listItems = "";
 
 
-                $(document).on(
-                        'click',
-                        '#get_coupon_button',
-                        function () {
+        $(document).on('click', '#get_coupon_button', function () {
 
-                            $.post("/AO/gcpcoupons", {
-                                        get_coupon_button: "x",
-                                        schooljaar: schooljaar,
-                                        username: userName
-                                    },
-                            function (response) {
-                                $("#get_coupon_button").hide();
-                                var jsonArray = JSON.parse(response);
-
-                                var i = 0;
-                                jsonArray.forEach(function (entry) {
-                                    listItems += "<li>" + entry + "</li>";
-                                });
-                                $("#code_response").html(listItems);
-                                $("#resultaat").show();
-
-                            }
-
-                            )
-                            ;
-
-                        });
+            $.ajax({
+                method: "POST",
+                url: "/AO/gcpcoupons",
+                data: {
+                    get_coupon_button: "x",
+                    schooljaar: schooljaar
+                },
+                success: function (resp) {
+                    $("#get_coupon_button").hide();
+                    var jsonArray = JSON.parse(resp);
+                    jsonArray.forEach(function (entry) {
+                        listItems += "<li>" + entry + "</li>";
+                    });
+                    $("#code_response").html(listItems);
+                    $("#resultaat").show();
+                }
             });
+        });
+    });
 
 </script>
 

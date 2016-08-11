@@ -81,7 +81,9 @@ public class HtmlFactoryServlet extends HttpServlet {
 			for (Lid lid: leden) {
 				String url = this.maakThumbServingUrl(lid.getBlobkey());
 				out.println("<tr>");
-				out.println("<td><img src=\"" + url +"\" class=\"thumb_lid\" width=\"32px\">");
+				//out.println("<td><img src=\"" + url +"\" class=\"thumb_lid\" width=\"32px\">");
+				//laad geen_foto
+				out.println("<td><img src=\"/AO/JSP_Java_DB/images/geen_foto_thumb.jpg\" class=\"thumb_lid\" width=\"32px\">");
 				out.println("<td><b>" + lid.getNaamEsc() + "</b><br>");
 				out.println(lid.getAdresEsc() + "<br>");
 				out.println(lid.getPostcodeEsc() + " " + lid.getWoonplaatsEsc() + "</td>");
