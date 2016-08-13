@@ -8,11 +8,6 @@ import java.util.Date;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
-
-
-
-
-
 import com.google.appengine.api.blobstore.BlobKey;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,16 +41,16 @@ public class Lid implements Serializable {
 	
 	/**
 	 * maakt een nieuw lid-object obv invoer
-	 * @param roepnaam
-	 * @param tussenvoegsels
-	 * @param achternaam
-	 * @param adres
-	 * @param postcode
-	 * @param woonplaats
-	 * @param telefoon
-	 * @param email
-	 * @param geboortedatum
-	 * @param geslacht
+	 * @param roepnaam roepnaam
+	 * @param tussenvoegsels tussenvoegsels
+	 * @param achternaam achternaam
+	 * @param adres adres
+	 * @param postcode postcode
+	 * @param woonplaats woonplaats
+	 * @param telefoon telefoon
+	 * @param email email
+	 * @param geboortedatum geboortedatum
+	 * @param geslacht geslacht
 	 */
 	public Lid (String roepnaam, String tussenvoegsels,
             String achternaam, String adres, String postcode, String woonplaats, String telefoon, 

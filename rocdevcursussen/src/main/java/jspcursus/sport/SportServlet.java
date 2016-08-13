@@ -17,12 +17,16 @@ import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
 import jspcursus.sport.vereniging.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class SportServlet extends HttpServlet {
+
+    private static final String PLACEHOLDER_URL = "/AO/JSP_Java_DB/images/geen_foto_thumb.jpg";
+
     private Administratie admin;
 
     @Override
@@ -33,22 +37,28 @@ public class SportServlet extends HttpServlet {
         if (req.getParameter("nieuwlidform") != null) {
             this.voegNieuwLidToe(req);
             resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
+
         } else if (req.getParameter("leden_overzicht") != null) {
             admin = new Administratie();
             ArrayList<Lid> leden = admin.getLedenlijst();
             JSONArray ledenArray = new JSONArray();
             for (Lid lid: leden) {
+                String thumbUrl;
                 JSONObject lidJsonObject = lid.getlidOverzichtDataAsJSONObject();
-//                if (lid.getBlobkey() != null && !lid.getBlobkey().equals("")) {
-                    try {
-                        lidJsonObject.put("thumbUrl", maakThumbServingUrl(lid.getBlobkey()));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-//                }
+                if (lid.getBlobkey() != null ) {
+                    thumbUrl = maakThumbServingUrl(lid.getBlobkey());
+                } else {
+                    thumbUrl = PLACEHOLDER_URL;
+                }
+                try {
+                    lidJsonObject.put("thumbUrl", thumbUrl);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 ledenArray.put(lidJsonObject);
-                resp.getWriter().print(ledenArray.toString());
             }
+            System.out.print(ledenArray.toString());
+            resp.getWriter().print(ledenArray.toString());
         }
 
 
@@ -230,8 +240,8 @@ public class SportServlet extends HttpServlet {
 
     private String maakThumbServingUrl(BlobKey blobkey) {
         String fotoUrl;
-        if (blobkey == null || blobkey.equals("")) {
-            fotoUrl = "/AO/JSP_Java_DB/images/geen_foto_thumb.jpg";
+        if (blobkey.equals("")) {
+            fotoUrl = PLACEHOLDER_URL;
         } else {
             ImagesService imagesService = ImagesServiceFactory.getImagesService();
             fotoUrl = imagesService
