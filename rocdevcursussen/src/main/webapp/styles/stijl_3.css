@@ -573,7 +573,8 @@ div#ledenoverzicht {
 }
 
 img.sport_logo {
-    max-width: 90%;
+    max-width: 100%;
+
 }
 
 #tabs_sport .ui-tabs-anchor:hover {
