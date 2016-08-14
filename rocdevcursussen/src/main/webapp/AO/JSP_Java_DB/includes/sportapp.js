@@ -41,15 +41,14 @@ $(document).ready(function () {
 
 
     $(document).on('click', '#annuleer_nieuw_lid_button', function () {
-        $("#sport_tab-1_content").fadeOut(fadeOutTime, function () {
-            $("#sport_tab-1_content").html(loadingSpinner);
-            $("#sport_tab-1_content").fadeIn(spinner, function () {
-                $.get("/sporthtml?leden_overzicht=x", function (responseText) {
-                    $("#sport_tab-1_content").fadeOut(spinner, function () {
-                        $("#sport_tab-1_content").html(responseText).fadeIn(fadeInTime);
+        $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
+            var ledentabel = maakLedenOverzicht(responseText);
+            $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+            $(ledentabel).ready(function () {
+                setTimeout(function () {
+                    downloadImages(responseText);
+                }, 2000);
 
-                    });
-                });
             });
         });
     });
@@ -111,7 +110,16 @@ $(document).ready(function () {
                     },
                     success: function (responseText) {
                         $("#sport_tab-1_content").fadeOut(spinner, function () {
-                            $("#sport_tab-1_content").html(responseText).fadeIn(fadeInTime);
+                            $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
+                                var ledentabel = maakLedenOverzicht(responseText);
+                                $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+                                $(ledentabel).ready(function () {
+                                    setTimeout(function () {
+                                        downloadImages(responseText);
+                                    }, 2000);
+
+                                });
+                            });
                         });
                     }
                 });
@@ -213,8 +221,13 @@ $(document).ready(function () {
                         //alert("complete");
                     },
                     success: function (responseText) {
-                        $("#sport_tab-1_content").fadeOut(spinner, function () {
-                            $("#sport_tab-1_content").html(responseText).fadeIn(fadeInTime);
+                        var ledentabel = maakLedenOverzicht(responseText);
+                        $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+                        $(ledentabel).ready(function () {
+                            setTimeout(function () {
+                                downloadImages(responseText);
+                            }, 1000);
+
                         });
                     }
                 });
@@ -252,8 +265,12 @@ $(document).ready(function () {
                 $("#sport_tab-1_content").fadeIn(spinner, function () {
                     $.get("/AO/jsp/sport?verwijderlid=x"
                         + "&spelerscode=" + spelerscode, function (responseText) {
-                        $("#sport_tab-1_content").fadeOut(spinner, function () {
-                            $("#sport_tab-1_content").html(responseText).fadeIn(fadeInTime);
+                        var ledentabel = maakLedenOverzicht(responseText);
+                        $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+                        $(ledentabel).ready(function () {
+                            setTimeout(function () {
+                                downloadImages(responseText);
+                            }, 2000);
 
                         });
                     });
@@ -357,6 +374,7 @@ $(document).ready(function () {
     });
 
     function maakLedenOverzicht(jsonString) {
+
         var jsonArray = JSON.parse(jsonString);
         var html = "<div id=\"ledenoverzicht\">";
         html += "<div class=\"voegtoeknop\">";

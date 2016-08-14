@@ -34,40 +34,23 @@ public class SportServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // check parameters
+
+        // nieuw lid gemaakt
         if (req.getParameter("nieuwlidform") != null) {
             this.voegNieuwLidToe(req);
-            resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
+            resp.getWriter().print("ok");
 
         } else if (req.getParameter("leden_overzicht") != null) {
-            admin = new Administratie();
-            ArrayList<Lid> leden = admin.getLedenlijst();
-            JSONArray ledenArray = new JSONArray();
-            for (Lid lid: leden) {
-                String thumbUrl;
-                JSONObject lidJsonObject = lid.getlidOverzichtDataAsJSONObject();
-                if (lid.getBlobkey() != null ) {
-                    thumbUrl = maakThumbServingUrl(lid.getBlobkey());
-                } else {
-                    thumbUrl = PLACEHOLDER_URL;
-                }
-                try {
-                    lidJsonObject.put("thumbUrl", thumbUrl);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                ledenArray.put(lidJsonObject);
-            }
-            System.out.print(ledenArray.toString());
-            resp.getWriter().print(ledenArray.toString());
+            resp.getWriter().print(maakLedenOverzicht());
         }
 
 
         else if (req.getParameter("verwijderlid") != null) {
             this.verwijderLid(req, resp);
-            resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
+            resp.getWriter().print(maakLedenOverzicht());
         } else if (req.getParameter("wijziglid") != null) {
             this.wijzigLid(req, resp);
-            resp.sendRedirect("/sporthtml?leden_overzicht=x&gewijzigd=true");
+            resp.getWriter().print(maakLedenOverzicht());
         } else if (req.getParameter("nieuwteamform") != null) {
             this.voegNieuwTeamToe(req, resp);
             resp.sendRedirect("/sporthtml?teams_overzicht=x&gewijzigd=true");
@@ -252,6 +235,30 @@ public class SportServlet extends HttpServlet {
                             .crop(true));
         }
         return fotoUrl;
+    }
+
+
+    private String maakLedenOverzicht() {
+        admin = new Administratie();
+        ArrayList<Lid> leden = admin.getLedenlijst();
+        JSONArray ledenArray = new JSONArray();
+        for (Lid lid: leden) {
+            String thumbUrl;
+            JSONObject lidJsonObject = lid.getlidOverzichtDataAsJSONObject();
+            if (lid.getBlobkey() != null ) {
+                thumbUrl = maakThumbServingUrl(lid.getBlobkey());
+            } else {
+                thumbUrl = PLACEHOLDER_URL;
+            }
+            try {
+                lidJsonObject.put("thumbUrl", thumbUrl);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            ledenArray.put(lidJsonObject);
+        }
+        return ledenArray.toString();
+
     }
 
 }
