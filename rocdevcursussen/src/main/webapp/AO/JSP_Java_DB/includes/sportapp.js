@@ -8,6 +8,7 @@ $(document).ready(function () {
     var timeOutTime = 500;
     var spinner = 0;
     var loadingSpinner = "<img class=\"loading_spinner\" src=\"/AO/JSP_Java_DB/images/loading_spinner.gif\">";
+    var ledentabel = "";
 
     $("#tabs_sport").tabs();
 
@@ -41,16 +42,18 @@ $(document).ready(function () {
 
 
     $(document).on('click', '#annuleer_nieuw_lid_button', function () {
+
         $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
-            var ledentabel = maakLedenOverzicht(responseText);
+            ledentabel = maakLedenOverzicht(responseText);
             $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
             $(ledentabel).ready(function () {
                 setTimeout(function () {
                     downloadImages(responseText);
-                }, 2000);
-
+                }, 0);
             });
         });
+
+
     });
 
 
@@ -111,7 +114,7 @@ $(document).ready(function () {
                     success: function (responseText) {
                         $("#sport_tab-1_content").fadeOut(spinner, function () {
                             $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
-                                var ledentabel = maakLedenOverzicht(responseText);
+                                ledentabel = maakLedenOverzicht(responseText);
                                 $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
                                 $(ledentabel).ready(function () {
                                     setTimeout(function () {
@@ -221,7 +224,7 @@ $(document).ready(function () {
                         //alert("complete");
                     },
                     success: function (responseText) {
-                        var ledentabel = maakLedenOverzicht(responseText);
+                        ledentabel = maakLedenOverzicht(responseText);
                         $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
                         $(ledentabel).ready(function () {
                             setTimeout(function () {
@@ -265,12 +268,12 @@ $(document).ready(function () {
                 $("#sport_tab-1_content").fadeIn(spinner, function () {
                     $.get("/AO/jsp/sport?verwijderlid=x"
                         + "&spelerscode=" + spelerscode, function (responseText) {
-                        var ledentabel = maakLedenOverzicht(responseText);
+                        ledentabel = maakLedenOverzicht(responseText);
                         $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
                         $(ledentabel).ready(function () {
                             setTimeout(function () {
                                 downloadImages(responseText);
-                            }, 2000);
+                            }, 1000);
 
                         });
                     });
@@ -313,14 +316,16 @@ $(document).ready(function () {
     //alternatief laad JSON array
     $(document).on('click', '#ui-id-2', function () {
         $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
-            var ledentabel = maakLedenOverzicht(responseText);
-            $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
-            $(ledentabel).ready(function () {
-                setTimeout(function () {
-                    downloadImages(responseText);
-                }, 2000);
+            if (ledentabel.length < 3) {
+                ledentabel = maakLedenOverzicht(responseText);
+                $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);
+                $(ledentabel).ready(function () {
+                    setTimeout(function () {
+                        downloadImages(responseText);
+                    }, 1000);
+                });
+            }
 
-            });
         });
     });
 
