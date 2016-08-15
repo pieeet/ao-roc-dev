@@ -287,4 +287,9 @@ Toast.makeText(getApplicationContext(), "Lijst ververst", Toast.LENGTH_SHORT).sh
 </div>
 
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#hnreaderfirebase").addClass("selected");
+    })
+</script>
 </html>

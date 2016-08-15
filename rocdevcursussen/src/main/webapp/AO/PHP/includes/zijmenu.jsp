@@ -4,13 +4,13 @@
 	<div id="menu">
 		<h3>Inhoud</h3>
 		<ol>
-			<li></li>
+			<li class="list-group-item"></li>
 		</ol>
 
 
 		<h3>Web Links</h3>
 		<ul>
-			<li></li>
+			<li class="list-group-item"></li>
 		</ul>
 	</div>
 </div>

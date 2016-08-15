@@ -755,4 +755,9 @@
     </div>
 </div>
 <%@ include file="/AO/Examen/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#kt-1").addClass("selected");
+    })
+</script>
 </html>

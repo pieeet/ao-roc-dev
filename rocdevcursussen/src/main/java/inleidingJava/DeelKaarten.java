@@ -47,9 +47,15 @@ public class DeelKaarten {
         return kaart;
     }
 
+    public String deelEnkeleKaart() {
+        return speler1[new Random().nextInt(13)];
+    }
+
+
+
     public String maakTabel() {
 
-        String tabel = "<table id=\"kaart_tabel\">" +
+        String tabel = "<table class=\"table\" id=\"kaart_tabel\">" +
                 "<tr><th>Speler 1</th><th>Speler 2</th><th>Speler 3</th><th>Speler 4</th></tr>";
         for (int i = 0; i < 13; i++) {
             tabel += "<tr>";
@@ -62,6 +68,8 @@ public class DeelKaarten {
         tabel += "</table>";
         return tabel;
     }
+
+
 }
 
 

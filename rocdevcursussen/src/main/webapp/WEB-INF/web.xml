@@ -185,6 +185,16 @@
         <url-pattern>/eindspel</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DeelKaartenServlet</servlet-name>
+        <servlet-class>inleidingJava.DeelKaartenServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeelKaartenServlet</servlet-name>
+        <url-pattern>/deelKaarten</url-pattern>
+    </servlet-mapping>
+
+
     <!--Greenfoot-->
     <servlet>
         <servlet-name>Greenfoot</servlet-name>

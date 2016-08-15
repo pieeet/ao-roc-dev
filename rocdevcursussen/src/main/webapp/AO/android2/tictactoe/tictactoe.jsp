@@ -204,4 +204,9 @@ public void nieuwSpel(View view) {
     </div>
 </div>
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#tictactoe").addClass("selected");
+    })
+</script>
 </html>

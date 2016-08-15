@@ -403,4 +403,9 @@ public class Stringarrays extends Applet {
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
+<script>
+	$(document).ready(function() {
+		$("li#ij-h12").addClass("selected");
+	})
+</script>
 </html>

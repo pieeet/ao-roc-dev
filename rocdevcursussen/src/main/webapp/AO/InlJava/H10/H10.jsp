@@ -490,4 +490,9 @@ public class Switch extends Applet {
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
+<script>
+	$(document).ready(function() {
+		$("li#ij-h10").addClass("selected");
+	})
+</script>
 </html>

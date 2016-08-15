@@ -643,4 +643,9 @@ insert into bestelling(datum, factuurnummer)
 </div>
 
 <%@ include file="/AO/Examen/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#kt-2").addClass("selected");
+    })
+</script>
 </html>

@@ -179,4 +179,9 @@ startActivity(telefoonIntent);
 </div>
 
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#hackernewsreader").addClass("selected");
+    })
+</script>
 </html>

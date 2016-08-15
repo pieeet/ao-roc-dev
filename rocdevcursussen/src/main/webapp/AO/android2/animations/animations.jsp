@@ -222,4 +222,9 @@ image.animate()
     </div>
 </div>
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#animaties").addClass("selected");
+    })
+</script>
 </html>

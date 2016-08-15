@@ -110,4 +110,9 @@ timer.start();
 </div>
 </div>
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#eggtimer").addClass("selected");
+    })
+</script>
 </html>

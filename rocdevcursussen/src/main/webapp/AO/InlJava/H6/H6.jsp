@@ -436,4 +436,9 @@ public class Reken extends Applet {
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
+<script>
+	$(document).ready(function() {
+		$("li#ij-h6").addClass("selected");
+	})
+</script>
 </html>

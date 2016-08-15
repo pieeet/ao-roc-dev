@@ -3,36 +3,36 @@
         <div id="menu">
           <h3>Inhoud</h3>
           <ol>
-			<li><a href="/AO/inleiding-java/h1">Ontwikkelomgeving</a></li>
-			<li><a href="/AO/inleiding-java/h2">Applets</a></li>
-			<li><a href="/AO/inleiding-java/h3">Theorie</a></li>
-			<li><a href="/AO/inleiding-java/h4">Tekenen</a></li>
-			<li><a href="/AO/inleiding-java/h5">Variabelen</a></li>
-			<li><a href="/AO/inleiding-java/h6">Getallen</a></li>
-			<li><a href="/AO/inleiding-java/h7">Vensters 1</a></li>
-			<li><a href="/AO/inleiding-java/h8">Knoppen en tekstvakken</a></li>
-			<li><a href="/AO/inleiding-java/h9">Vensters 2</a></li>
-			<li><a href="/AO/inleiding-java/h10">Beslissingen</a></li>
-			<li><a href="/AO/inleiding-java/h11">Herhaling</a></li>
-			<li><a href="/AO/inleiding-java/h12">Tabellen</a></li>
-			<li><a href="/AO/inleiding-java/h13">Methodes</a></li>
-			<li><a href="/AO/inleiding-java/h14">Multimedia</a></li>
+			  <a href="/AO/inleiding-java/h1"><li class="list-group-item" id="ij-h1">Ontwikkelomgeving</li></a>
+			  <a href="/AO/inleiding-java/h2"><li class="list-group-item" id="ij-h2">Applets</li></a>
+			  <a href="/AO/inleiding-java/h3"><li class="list-group-item" id="ij-h3">Theorie</li></a>
+			  <a href="/AO/inleiding-java/h4"><li class="list-group-item" id="ij-h4">Tekenen</li></a>
+			  <a href="/AO/inleiding-java/h5"><li class="list-group-item" id="ij-h5">Variabelen</li></a>
+			  <a href="/AO/inleiding-java/h6"><li class="list-group-item" id="ij-h6">Getallen</li></a>
+			  <a href="/AO/inleiding-java/h7"><li class="list-group-item" id="ij-h7">Vensters 1</li></a>
+			  <a href="/AO/inleiding-java/h8"><li class="list-group-item" id="ij-h8">Knoppen en tekstvakken</li></a>
+			  <a href="/AO/inleiding-java/h9"><li class="list-group-item" id="ij-h9">Vensters 2</li></a>
+			  <a href="/AO/inleiding-java/h10"><li class="list-group-item" id="ij-h10">Beslissingen</li></a>
+			  <a href="/AO/inleiding-java/h11"><li class="list-group-item" id="ij-h11">Herhaling</li></a>
+			  <a href="/AO/inleiding-java/h12"><li class="list-group-item" id="ij-h12">Tabellen</li></a>
+			  <a href="/AO/inleiding-java/h13"><li class="list-group-item" id="ij-h13">Methodes</li></a>
+			  <a href="/AO/inleiding-java/h14"><li class="list-group-item" id="ij-h14">Multimedia</li></a>
 		</ol>
 
 		<h3>Bijlagen</h3>
 		<ul>
-			<li><a href="/AO/inleiding-java/bijlage-1">Kleuren</a></li>
-			<li><a href="/AO/inleiding-java/bijlage-2">Primitieve typen</a></li>
-			<li><a href="/AO/inleiding-java/bijlage-3">Logische operatoren</a></li>
+			<a href="/AO/inleiding-java/bijlage-1"><li class="list-group-item">Kleuren</li></a>
+			<a href="/AO/inleiding-java/bijlage-2"><li class="list-group-item">Primitieve typen</li></a>
+			<a href="/AO/inleiding-java/bijlage-3"><li class="list-group-item">Logische operatoren</li></a>
 		</ul>
 		
 		<h3>Web Links</h3>
 		<ul>
-			<li><a href="https://drive.google.com/open?id=0B3XneerL-ZIcUnVoUVd0alR2N2s&authuser=0" target="_blank">Werkboek (pdf)</a></li>
-			<li><a href="https://groups.google.com/a/roc-dev.com/forum/?hl=nl#!forum/inleiding-java" target="_blank">Cursus forum</a></li>
-			<li><a href="http://docs.oracle.com/javase/7/docs/api/" target="_blank">Java API</a></li>
-			<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java JDK</a></li>
-			<li><a href="http://nl.wikipedia.org/wiki/Java_(programmeertaal)" target="_blank">Java Wikipedia</a></li>
+			<li class="list-group-item"><a href="https://drive.google.com/open?id=0B3XneerL-ZIcUnVoUVd0alR2N2s&authuser=0" target="_blank">Werkboek (pdf)</a></li>
+			<li class="list-group-item"><a href="https://groups.google.com/a/roc-dev.com/forum/?hl=nl#!forum/inleiding-java" target="_blank">Cursus forum</a></li>
+			<li class="list-group-item"><a href="http://docs.oracle.com/javase/7/docs/api/" target="_blank">Java API</a></li>
+			<li class="list-group-item"><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java JDK</a></li>
+			<li class="list-group-item"><a href="http://nl.wikipedia.org/wiki/Java_(programmeertaal)" target="_blank">Java Wikipedia</a></li>
 		</ul>
         </div>
       </div>

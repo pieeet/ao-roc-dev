@@ -702,4 +702,9 @@ long maxWaarde = 900000000000000000L;
 	</div>
 </div>
 <%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+<script>
+	$(document).ready(function() {
+		$("li#deel-1").addClass("selected");
+	});
+</script>
 </html>

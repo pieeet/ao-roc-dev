@@ -141,4 +141,9 @@ if (score > highScore) {
 </div>
 </div>
 <%@ include file="/AO/android2/includes/bottom.html" %>
+<script>
+    $(document).ready(function() {
+        $("li#braintrainer").addClass("selected");
+    })
+</script>
 </html>

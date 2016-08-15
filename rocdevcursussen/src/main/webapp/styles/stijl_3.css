@@ -48,6 +48,12 @@ img#rocdevlogo {
     color: #800000;
     text-decoration: none;
 }
+#menu li {
+    background-color: transparent;
+}
+#menu li.selected {
+    background-color: #dadada;
+}
 
 img, .embed-responsive {
     max-width: 100%;

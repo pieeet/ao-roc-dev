@@ -385,5 +385,9 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
-
+<script>
+	$(document).ready(function() {
+		$("li#ij-h1").addClass("selected");
+	})
+</script>
 </html>

@@ -376,5 +376,9 @@ void tekenDriehoek( Graphics g, int x1, int y1, int x2, int y2, int x3, int y3);
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
-
+<script>
+	$(document).ready(function() {
+		$("li#ij-h13").addClass("selected");
+	})
+</script>
 </html>

@@ -452,6 +452,8 @@ public class RekenmachineServlet extends HttpServlet {
 	$(document).ready(
 			function() {
 
+				$("li#deel-5").addClass("selected");
+
 				$(document).on(
 						'click',
 						'#vorige',

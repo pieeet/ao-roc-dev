@@ -137,5 +137,9 @@ public class Show extends Applet {
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
-
+<script>
+	$(document).ready(function() {
+		$("li#ij-h7").addClass("selected");
+	})
+</script>
 </html>

@@ -121,5 +121,9 @@ public void paint(Graphics g) {
 	</div>
 </div>
 <%@ include file="/AO/InlJava/includes/bottom.html"%>
-
+<script>
+    $(document).ready(function() {
+        $("li#ij-h14").addClass("selected");
+    })
+</script>
 </html>

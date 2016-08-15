@@ -925,4 +925,9 @@ finally {
 	</div>
 </div>
 <%@ include file="/AO/JSP_Java_DB/includes/bottom.html"%>
+<script>
+	$(document).ready(function() {
+		$("li#deel-2").addClass("selected");
+	});
+</script>
 </html>

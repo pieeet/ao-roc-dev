@@ -804,4 +804,9 @@ public ArrayList&lt;Lid&gt; getLedenLijst() {
 
 <!-- JQuery voor sportapp UNDER CONSTRUCTION -->
 <script src="<c:url value="/AO/JSP_Java_DB/includes/sportapp.js"/>"></script>
+<script>
+	$(document).ready(function() {
+		$("li#deel-4").addClass("selected");
+	});
+</script>
 </html>

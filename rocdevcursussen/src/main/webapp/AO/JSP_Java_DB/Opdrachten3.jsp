@@ -654,6 +654,8 @@ public class AutoLijst {
     $(document).ready(
             function () {
 
+                $("li#deel-3").addClass("selected");
+
                 /***********  Rekenmachine  **********/
 
                 $(document).on(
