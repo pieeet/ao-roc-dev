@@ -854,3 +854,11 @@ div.jemeppe_bijlage img.jemeppe_logo {
     right: 20px;
     width: 100px;
 }
+
+.footer {
+    height: 6em;
+    text-align: center;
+}
+img#to-top:hover {
+    cursor: pointer;
+}

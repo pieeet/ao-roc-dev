@@ -1,6 +1,13 @@
+<div class="footer">
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <img src="/images/backtotop.png" width="100" id="to-top">
 
+        </div>
+    </div>
 
-<!--  TODO FOOTER -->
+</div>
 </body>
 
 <script src="/javascript/js.js" type="text/javascript"></script>
@@ -16,6 +23,11 @@ $(document).ready (function () {
     $("li#menu-item-web-apps").addClass("active");
     $("li#menu-item-jsp").addClass("active");
     $("h1#page-title-heading").text("JSP & Databases");
+
+
+    $('#to-top').click(function(){
+        $('html, body').animate({scrollTop:0}, 500);
+    });
     
 });
 </script>

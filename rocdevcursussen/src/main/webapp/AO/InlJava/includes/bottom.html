@@ -1,5 +1,14 @@
 
-<!--  TODO FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <img src="/images/backtotop.png" width="100" id="to-top">
+
+        </div>
+    </div>
+
+</div>
 
 
 </body>
@@ -14,6 +23,9 @@
         $("li#menu-item-programmeren").addClass("active");
         $("li#menu-item-java").addClass("active");
         $("h1#page-title-heading").text("Inleiding Java");
+        $('#to-top').click(function(){
+            $('html, body').animate({scrollTop:0}, 500);
+        });
 
     }); //einde ready event;
 </script>
