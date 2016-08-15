@@ -149,34 +149,8 @@ public class DatastoreIO implements DataIOInterface {
 		PreparedQuery pq = datastore.prepare(q);
 		
 		for (Entity result: pq.asIterable()) {
-			Key k = result.getKey();
-			Lid lid = new Lid();
-			try {
-				Entity ent = datastore.get(k);
-				lid.setSpelerscode((String) ent.getProperty("spelerscode"));
-				long l = (long) ent.getProperty("lidnr");
-				int lidnummer = (int) l;
-				lid.setNr(lidnummer);
-				lid.setRoepnaam((String) ent.getProperty("roepnaam"));
-				lid.setTussenvoegsels((String) ent.getProperty("tussenvoegsels"));
-				lid.setAchternaam((String) ent.getProperty("achternaam"));
-				lid.setAdres((String) ent.getProperty("adres"));
-				lid.setPostcode((String) ent.getProperty("postcode"));
-				lid.setWoonplaats((String) ent.getProperty("woonplaats"));
-				lid.setTelefoon((String) ent.getProperty("telefoon"));
-				lid.setEmail((String) ent.getProperty("email"));
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				Date gd = (Date) ent.getProperty("geboortedatum");
-				lid.setGeboortedatum(sdf.format(gd));
-				lid.setGeslacht((String) ent.getProperty("geslacht"));
-				if (ent.getProperty("blobKeyString") != null) {
-					BlobKey bk = new BlobKey((String) ent.getProperty("blobKeyString"));
-					lid.setBlobkey(bk);
-				}
-			} catch (EntityNotFoundException | NullPointerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String spelerscode = result.getKey().getName();
+			Lid lid = this.getLid(spelerscode);
 			leden.add(lid);
 		}		
 		return leden;
