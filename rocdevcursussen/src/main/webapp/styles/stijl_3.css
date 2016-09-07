@@ -694,7 +694,7 @@ img.loading_spinner {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 120px;
+    width: 32px;
 }
 
 div.sport_content {
@@ -861,4 +861,7 @@ div.jemeppe_bijlage img.jemeppe_logo {
 }
 img#to-top:hover {
     cursor: pointer;
+}
+img#to-top {
+    width: 60px;
 }

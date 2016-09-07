@@ -3,20 +3,20 @@
         <div id="menu">
           <h3>Inhoud</h3>
           <ol>
-			  <a href="/AO/inleiding-java/h1"><li class="list-group-item" id="ij-h1">Ontwikkelomgeving</li></a>
-			  <a href="/AO/inleiding-java/h2"><li class="list-group-item" id="ij-h2">Applets</li></a>
-			  <a href="/AO/inleiding-java/h3"><li class="list-group-item" id="ij-h3">Theorie</li></a>
-			  <a href="/AO/inleiding-java/h4"><li class="list-group-item" id="ij-h4">Tekenen</li></a>
-			  <a href="/AO/inleiding-java/h5"><li class="list-group-item" id="ij-h5">Variabelen</li></a>
-			  <a href="/AO/inleiding-java/h6"><li class="list-group-item" id="ij-h6">Getallen</li></a>
-			  <a href="/AO/inleiding-java/h7"><li class="list-group-item" id="ij-h7">Vensters 1</li></a>
-			  <a href="/AO/inleiding-java/h8"><li class="list-group-item" id="ij-h8">Knoppen en tekstvakken</li></a>
-			  <a href="/AO/inleiding-java/h9"><li class="list-group-item" id="ij-h9">Vensters 2</li></a>
-			  <a href="/AO/inleiding-java/h10"><li class="list-group-item" id="ij-h10">Beslissingen</li></a>
-			  <a href="/AO/inleiding-java/h11"><li class="list-group-item" id="ij-h11">Herhaling</li></a>
-			  <a href="/AO/inleiding-java/h12"><li class="list-group-item" id="ij-h12">Tabellen</li></a>
-			  <a href="/AO/inleiding-java/h13"><li class="list-group-item" id="ij-h13">Methodes</li></a>
-			  <a href="/AO/inleiding-java/h14"><li class="list-group-item" id="ij-h14">Multimedia</li></a>
+			  <a href="/AO/inleiding-java/h1"><li class="list-group-item" id="ij-h1">1 Ontwikkelomgeving</li></a>
+			  <a href="/AO/inleiding-java/h2"><li class="list-group-item" id="ij-h2">2 Applets</li></a>
+			  <a href="/AO/inleiding-java/h3"><li class="list-group-item" id="ij-h3">3 Theorie</li></a>
+			  <a href="/AO/inleiding-java/h4"><li class="list-group-item" id="ij-h4">4 Tekenen</li></a>
+			  <a href="/AO/inleiding-java/h5"><li class="list-group-item" id="ij-h5">5 Variabelen</li></a>
+			  <a href="/AO/inleiding-java/h6"><li class="list-group-item" id="ij-h6">6 Getallen</li></a>
+			  <a href="/AO/inleiding-java/h7"><li class="list-group-item" id="ij-h7">7 Vensters 1</li></a>
+			  <a href="/AO/inleiding-java/h8"><li class="list-group-item" id="ij-h8">8 Knoppen en tekstvakken</li></a>
+			  <a href="/AO/inleiding-java/h9"><li class="list-group-item" id="ij-h9">9 Vensters 2</li></a>
+			  <a href="/AO/inleiding-java/h10"><li class="list-group-item" id="ij-h10">10 Beslissingen</li></a>
+			  <a href="/AO/inleiding-java/h11"><li class="list-group-item" id="ij-h11">11 Herhaling</li></a>
+			  <a href="/AO/inleiding-java/h12"><li class="list-group-item" id="ij-h12">12 Tabellen</li></a>
+			  <a href="/AO/inleiding-java/h13"><li class="list-group-item" id="ij-h13">13 Methodes</li></a>
+			  <a href="/AO/inleiding-java/h14"><li class="list-group-item" id="ij-h14">14 Multimedia</li></a>
 		</ol>
 
 		<h3>Bijlagen</h3>
