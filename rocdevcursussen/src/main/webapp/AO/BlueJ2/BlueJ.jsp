@@ -1,7 +1,7 @@
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
 
-<%@ include file="/AO/BlueJ/includes/zijmenu.jsp" %>
+<%@ include file="/AO/BlueJ2/includes/zijmenu.jsp" %>
       
       <div class="col-md-9">
 	        <h2>Introductie</h2>
@@ -18,18 +18,9 @@
 	        </div>
 	        <div class="bs-callout bs-callout-info">
 		        <h2>Studeeraanwijzingen</h2>
-				<p>Kopieer de map met voorbeelden naar een werk-map. Bewaar de oorspronkelijke bestanden voor het
-				geval er iets mis gaat.</p>
+				<p>Kopieer de <a href="https://github.com/ROC-DEV/bluej-voorbeelden" target="_blank">map met
+					voorbeelden</a> naar een map op je computer. Je kunt de voorbeelden openen in BlueJ.</p>
 	        </div>
-	        
-	        
-			
-			<p>Uitgangspunt is het werkboek BlueJ van Gertjan Laan. Je kunt het boek 
-			<a href="http://www.instruct.nl/shop/?ac=category&id=44">hier</a> bestellen.</p>
-			<p><a href="/AO/BlueJ/CDRom/index.html">Installeer BlueJ</a> en zonodig 
-			<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java jdk</a>.</p>
-			<p>Kopi&euml;er de voorbeelden van de bij het boek meegeleverde CD ROM of download <a href="/AO/BlueJ/CDRom/Voorbeelden.zip">zip bestand</a> naar
-			je harde schijf.</p>
 			
 			<h2>BlueJ</h2>
 			<p>In deze cursus werken we met een - voornamelijk voor educatieve doeleinden ontwikkelde &quot;IDE&quot;. 
@@ -42,6 +33,6 @@
 					
 	</div>
 </div>
-<%@ include file="/AO/BlueJ/includes/bottom.html" %>
+<%@ include file="/AO/BlueJ2/includes/bottom.html" %>
 </html>
 

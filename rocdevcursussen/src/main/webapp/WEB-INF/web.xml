@@ -209,7 +209,7 @@
     <!--BlueJ-->
     <servlet>
         <servlet-name>BlueJ0</servlet-name>
-        <jsp-file>/AO/BlueJ/BlueJ.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/BlueJ.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ0</servlet-name>
@@ -217,7 +217,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BlueJ1</servlet-name>
-        <jsp-file>/AO/BlueJ/H1.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/H1.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ1</servlet-name>
@@ -225,7 +225,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BlueJ2</servlet-name>
-        <jsp-file>/AO/BlueJ/H2.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/H2.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ2</servlet-name>
@@ -233,7 +233,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BlueJ3</servlet-name>
-        <jsp-file>/AO/BlueJ/H3.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/H3.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ3</servlet-name>
@@ -241,7 +241,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BlueJ4</servlet-name>
-        <jsp-file>/AO/BlueJ/H4.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/H4.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ4</servlet-name>
@@ -249,7 +249,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BlueJ5</servlet-name>
-        <jsp-file>/AO/BlueJ/H5.jsp</jsp-file>
+        <jsp-file>/AO/BlueJ2/H5.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlueJ5</servlet-name>
