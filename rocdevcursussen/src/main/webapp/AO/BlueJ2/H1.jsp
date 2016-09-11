@@ -22,14 +22,6 @@
             </ul>
 
         </div>
-        <%--<div class="bs-callout bs-callout-info">--%>
-        <%--<h2>Studeeraanwijzingen</h2>--%>
-        <%--<p>--%>
-        <%--De antwoorden op de vragen kun je <a--%>
-        <%--href="/AO/BlueJ/CDRom/index.html">hier</a> vinden.--%>
-        <%--</p>--%>
-        <%--</div>--%>
-
 
         <h3>Inleiding</h3>
         <p>
@@ -44,7 +36,7 @@
             manier bedienen. Een tv kun je aan- en uitzetten en je kunt het geluid harder of zachter zetten of je kunt
             een
             andere zender kiezen.</p>
-        <p>Objecten in java hebben ook een geheugen. Ze kunnen verschilklende dingen onthouden zoals een kleur een
+        <p>Objecten in java hebben ook een geheugen. Ze kunnen verschillende dingen onthouden zoals een kleur een
             naam of een waarde. En je kunt een object iets laten doen. Iets optellen bijvoorbeeld of aangeven hoe oud
             een
             bepaalde persoon is. Hoe dat allemaal in zijn werk gaat is het onderwerp van dit hoofdstuk.</p>
