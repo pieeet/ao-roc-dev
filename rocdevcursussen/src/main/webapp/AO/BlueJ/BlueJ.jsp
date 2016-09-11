@@ -42,6 +42,6 @@
 					
 	</div>
 </div>
-<%@ include file="/AO/BlueJ/includes/bottom.html" %>
+<%@ include file="/AO/BlueJ2/includes/bottom.html" %>
 </html>
 

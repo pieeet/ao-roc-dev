@@ -107,16 +107,16 @@ public class Show extends Applet {
 				getallen hebben dezelfde functie als bij drawOval(): de twee
 				co&ouml;rdinaten en de breedte en de hoogte van de rechthoek om de
 				ellips heen. De twee volgende getallen zijn de starthoek van de boog
-				en de sluithoek van de boog in graden:
+				en het aantal graden vanaf de starthoek dat getekend moet worden:
 			</p>
 			<p>
-				<b>g.drawArc(20, 20, 100, 50, 90, 135);</b>
+				<b>g.drawArc(20, 20, 100, 50, 90, 45);</b>
 			</p>
 
 			<img src="<c:url value="/AO/InlJava/H4/images/boog.png"/>">
 
 			<p>
-				Met <b>g.fillArc(20, 20, 100, 50, 90, 135);</b> wordt de boog een
+				Met <b>g.fillArc(20, 20, 100, 50, 90, 45);</b> wordt de boog een
 				taartpunt.
 			</p>
 			<p>Let op, want de graden beginnen in het oosten en niet in het
