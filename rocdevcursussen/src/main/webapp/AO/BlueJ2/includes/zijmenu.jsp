@@ -4,13 +4,13 @@
 	<div id="menu">
 		<h3>Inhoud</h3>
 		<ol>
-			<li class="list-group-item"><a href="/AO/BlueJ/intro">1 Introductie</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-1">2 Objecten in BlueJ</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-2">3 De Schildpad</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-3">4 Klassen</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-4">5 Objecten met objecten</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-5">6 Collecties</a></li>
-			<li class="list-group-item"><a href="/AO/BlueJ/bluej-5">7 Keuzes en herhalingen</a></li>
+			<li class="list-group-item" id="h1"><a href="/AO/BlueJ/intro">1 Introductie</a></li>
+			<li class="list-group-item" id="h2"><a href="/AO/BlueJ/bluej-1">2 Objecten in BlueJ</a></li>
+			<li class="list-group-item" id="h3"><a href="/AO/BlueJ/bluej-2">3 De Schildpad</a></li>
+			<li class="list-group-item" id="h4"><a href="/AO/BlueJ/bluej-3">4 Klassen</a></li>
+			<li class="list-group-item" id="h5"><a href="/AO/BlueJ/bluej-4">5 Objecten met objecten</a></li>
+			<li class="list-group-item" id="h6"><a href="/AO/BlueJ/bluej-5">6 Collecties</a></li>
+			<li class="list-group-item" id="h7"><a href="/AO/BlueJ/bluej-5">7 Keuzes en herhalingen</a></li>
 
 		</ol>
 

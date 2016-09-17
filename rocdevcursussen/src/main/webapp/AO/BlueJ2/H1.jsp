@@ -208,5 +208,10 @@ public <span class="codeplus">void</span> aan() {
     </div>
 </div>
 <%@ include file="/AO/BlueJ2/includes/bottom.html" %>
+<script>
+    $(document).ready(function () {
+        $("li#h2").addClass("selected");
+    })
+</script>
 </html>
 

@@ -1,7 +1,7 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
 
-	<%@ include file="/AO/BlueJ/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/BlueJ2/includes/zijmenu.jsp"%>
 
 
 	<div class="col-md-9">
@@ -71,5 +71,10 @@ for <span class="codeplus">(Leerling leerling: leerlingen)</span> {
 
 	</div>
 </div>
-<%@ include file="/AO/BlueJ/includes/bottom.html"%>
+<%@ include file="/AO/BlueJ2/includes/bottom.html"%>
+<script>
+	$(document).ready(function () {
+		$("li#h6").addClass("selected");
+	})
+</script>
 </html>

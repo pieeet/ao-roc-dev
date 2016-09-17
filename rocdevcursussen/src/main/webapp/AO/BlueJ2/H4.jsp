@@ -1,7 +1,7 @@
 <%@ include file="/includes/pagetop-all.jsp"%>
 <div class="container">
 
-	<%@ include file="/AO/BlueJ/includes/zijmenu.jsp"%>
+	<%@ include file="/AO/BlueJ2/includes/zijmenu.jsp"%>
 
 	<div class="col-md-9">
 		<h2>Objecten met objecten</h2>
@@ -55,5 +55,10 @@ Speler speler1 = new Speler(arg0, arg1, arg2)
 
 	</div>
 </div>
-<%@ include file="/AO/BlueJ/includes/bottom.html"%>
+<%@ include file="/AO/BlueJ2/includes/bottom.html"%>
+<script>
+	$(document).ready(function () {
+		$("li#h5").addClass("selected");
+	})
+</script>
 </html>
