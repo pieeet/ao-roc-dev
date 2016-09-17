@@ -296,4 +296,9 @@
 </div>
 </div>
 <%@ include file="/AO/BlueJ2/includes/bottom.html" %>
+<script>
+    $(document).ready(function () {
+        $("li#h3").addClass("selected");
+    })
+</script>
 </html>
