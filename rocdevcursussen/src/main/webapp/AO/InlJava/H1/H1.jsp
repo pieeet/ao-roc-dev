@@ -347,11 +347,11 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     bestaand project kopi&euml;ren.
                 </p>
 
-                <%--<div class="embed-responsive embed-responsive-16by9">--%>
-                <%--<iframe width="560" height="315"--%>
-                <%--src="https://www.youtube.com/embed/Nfiuh314zZc" frameborder="0"--%>
-                <%--allowfullscreen></iframe>--%>
-                <%--</div>--%>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ykZCFCFmaRc?rel=0"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
 
                 <p>
                     Je kunt de repository gebruiken voor de opdrachten van deze cursus.
@@ -363,8 +363,6 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     <code>Add</code>
                     voor je de wijzigingen kunt committen en pushen.
                 </p>
-
-
 
 
             </div>
