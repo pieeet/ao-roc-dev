@@ -515,7 +515,7 @@ public class Tekstvak extends Applet {
 					<%--src="https://www.youtube.com/embed/Dzo9tZgFzZM" frameborder="0"--%>
 					<%--allowfullscreen></iframe>--%>
 			<%--</div>--%>
-			<img src="/AO/InlJava/H8/images/staafdiagramMetInvoer.png">
+			<img src="/AO/InlJava/H8/images/staafdiagramMetInvoer.png" height="400px">
 
 
 		</div>
