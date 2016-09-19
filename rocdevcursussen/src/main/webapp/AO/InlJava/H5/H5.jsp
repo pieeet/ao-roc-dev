@@ -144,8 +144,8 @@ public class Show extends Applet{
 			<div class="opdrachten">
 				<h2>Opdracht 5.2</h2>
 				<p>Maak opgave 4.4 (staafdiagram) nu opnieuw, maar nu zodanig
-					dat als je het gewicht van de kinderen in de methode init()
-					verandert het staafdiagram automatisch de staven tekent.</p>
+					dat als je het gewicht van de kinderen
+					verandert de staven automatisch worden aangepast als je de Applet uitvoert.</p>
 				<%--<div class="embed-responsive embed-responsive-16by9">--%>
 					<%--<iframe width="560" height="315"--%>
 						<%--src="https://www.youtube.com/embed/IrcdzscWRMU" frameborder="0"--%>
