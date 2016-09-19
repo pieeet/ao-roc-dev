@@ -21,7 +21,6 @@
                 <li>wijzigingen in een repository kunt committen en
                     synchroniseren naar GitHub of naar je lokale repository
                 </li>
-
             </ul>
         </div>
 
