@@ -509,12 +509,14 @@ public class Tekstvak extends Applet {
 
 			<h2>Uitbreiding staafdiagram</h2>
 			<p>Voeg labels, invoervelden en een knop toe zodat de gebruiker
-				de waardes van het staafdiagram kan veranderen</p>
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe width="560" height="315"
-					src="https://www.youtube.com/embed/Dzo9tZgFzZM" frameborder="0"
-					allowfullscreen></iframe>
-			</div>
+				de waardes van het staafdiagram kan veranderen.</p>
+			<%--<div class="embed-responsive embed-responsive-16by9">--%>
+				<%--<iframe width="560" height="315"--%>
+					<%--src="https://www.youtube.com/embed/Dzo9tZgFzZM" frameborder="0"--%>
+					<%--allowfullscreen></iframe>--%>
+			<%--</div>--%>
+			<img src="/AO/InlJava/H8/images/staafdiagramMetInvoer.png">
+
 
 		</div>
 	</div>
