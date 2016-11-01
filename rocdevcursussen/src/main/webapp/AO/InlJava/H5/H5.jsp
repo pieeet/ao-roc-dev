@@ -84,9 +84,9 @@
 					van deze aanpak?
 				</p>
 
-				<%--<div class="toonknopcontainer">--%>
-					<%--<button class="toonknop" id="toon5.1" onclick="toon('uitw5.1')">Toon--%>
-						<%--uitwerking</button>--%>
+				<div class="toonknopcontainer">
+					<button class="toonknop" id="toon5.1" onclick="toon('uitw5.1')">Toon
+						uitwerking</button>
 				</div>
 				<div class="uitwerking" id="uitw5.1">
 					<p>In een java klasse kun je variabelen gebruiken. Een
@@ -144,8 +144,8 @@ public class Show extends Applet{
 			<div class="opdrachten">
 				<h2>Opdracht 5.2</h2>
 				<p>Maak opgave 4.4 (staafdiagram) nu opnieuw, maar nu zodanig
-					dat als je het gewicht van de kinderen in de methode init()
-					verandert het staafdiagram automatisch de staven tekent.</p>
+					dat als je het gewicht van de kinderen
+					verandert de staven automatisch worden aangepast als je de Applet uitvoert.</p>
 				<%--<div class="embed-responsive embed-responsive-16by9">--%>
 					<%--<iframe width="560" height="315"--%>
 						<%--src="https://www.youtube.com/embed/IrcdzscWRMU" frameborder="0"--%>
