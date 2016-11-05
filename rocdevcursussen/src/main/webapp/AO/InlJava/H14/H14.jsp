@@ -38,7 +38,7 @@
             genereren, dat betekent dat telkens als de functie aangeroepen wordt
             er een willekeurig getal van 0.0 tot 1.0 wordt aangemaakt. Let op: De
             1.0 komt dus nooit voor.</p>
-		<pre class="code">
+        <pre class="code">
 <span class="comment">//Voorbeeld 14.1</span>
 
 import java.awt.*;
@@ -70,7 +70,7 @@ public class Random extends Applet {
             Het volgende programma laat zien hoe een dobbelsteen wordt
             gesimuleerd:</p>
 
-		<pre class="code">
+        <pre class="code">
 <span class="comment">//Voorbeeld 14.2</span>
 
 import java.awt.*;
@@ -125,11 +125,18 @@ public class Random extends Applet {
             een tekenprogramma zoals Paint of Paintshop converteren naar het
             juiste formaat.</p>
         <p>De klasse Image maakt het mogelijk in Java te werken met
-            afbeeldingen. Globaal zijn er twee stappen nodig om een afbeelding in
+            afbeeldingen. Allereerst moet je de afbeelding in je project plaatsen. Ga als
+            volgt te werk:</p>
+        <p>Maak in je src map een package voor je afbeeldingen. Je zou deze map bijvoorbeeld
+            &quot;resources&quot; kunnen noemen. Kopieer de afbeelding die je wilt gebruiken
+            naar deze map.</p>
+
+
+        <p>Er zijn twee stappen nodig om een afbeelding in
             het venster van de applet te tonen. De eerste is de afbeelding van
             schijf inlezen en de tweede is de afbeelding in het venster van de
             applet te tonen. Het programma hieronder laat dit zien.</p>
-		<pre class="code">
+        <pre class="code">
 <span class="comment">//Voorbeeld 14.3</span>
 
 import java.awt.*;
@@ -142,7 +149,7 @@ public class Afbeelding extends Applet {
     <span class="codeplus">URL</span> pad;
 	
     public void init() {
-        pad = <span class="codeplus">getDocumentBase();</span>
+        pad = <span class="codeplus">Afbeelding.class.getResource(&quot;/resources/&quot;)</span>
         afbeelding = <span class="codeplus">getImage(pad, &quot;Afbeelding.gif&quot;);</span>		
     }
 
@@ -183,7 +190,7 @@ public class Afbeelding extends Applet {
         <p>Ook geluid is in Java niet moeilijk te realiseren. Het lijkt
             heel veel op de wijze waarop afbeeldingen ingelezen en getoond
             worden. Zie het volgende voorbeeld:</p>
-		<pre class="code">
+        <pre class="code">
 <span class="comment">//Voorbeeld 14.4</span>
 
 import java.awt.*;
@@ -242,7 +249,8 @@ public class LoadAndPlay extends Applet {
                         bij de uitwerking vinden.</p> -->
 
 
-            <button type="button" id="deelKaartenButton" class="btn btn-danger" value="Deel Kaarten">Deel kaarten</button>
+            <button type="button" id="deelKaartenButton" class="btn btn-danger" value="Deel Kaarten">Deel kaarten
+            </button>
 
             <div id="kaarten-delen"></div>
 
@@ -344,14 +352,14 @@ public class LoadAndPlay extends Applet {
 
                 $("li#ij-h14").addClass("selected");
 
-                $(document).on('click', '#deelKaartenButton', function() {
-                    $.get("/deelKaarten?alle-kaarten", function(resp) {
+                $(document).on('click', '#deelKaartenButton', function () {
+                    $.get("/deelKaarten?alle-kaarten", function (resp) {
                         $("#kaarten-delen").html(resp);
                     });
                 });
 
-                $(document).on('click', '#deelKaartButton', function() {
-                    $.get("/deelKaarten?enkele-kaart", function(resp) {
+                $(document).on('click', '#deelKaartButton', function () {
+                    $.get("/deelKaarten?enkele-kaart", function (resp) {
                         $("#deel-kaart").text(resp);
                     });
                 });
