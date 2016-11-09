@@ -616,6 +616,7 @@
         <servlet-name>Coupons</servlet-name>
         <servlet-class>mvsite.gcpcoupons.CouponServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Coupons</servlet-name>
         <url-pattern>/AO/gcpcoupons</url-pattern>
@@ -629,7 +630,7 @@
             <url-pattern>/AO/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <!--suppress WebProperties -->
+            <!--suppress WebProperties -->E
             <role-name>*</role-name>
         </auth-constraint>
     </security-constraint>
@@ -638,6 +639,15 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
+
+    <servlet>
+        <servlet-name>ElanceServlet</servlet-name>
+        <servlet-class>elance.ElanceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ElanceServlet</servlet-name>
+        <url-pattern>/elance</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
