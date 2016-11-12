@@ -1,8 +1,7 @@
 package elance;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.*;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,9 +19,10 @@ import java.net.URL;
 
 /**
  * Created by Piet de Vries on 07-11-16.
- *
  */
 public class ElanceServlet extends HttpServlet {
+
+    private static final String SERVER_KEY = "AIzaSyAIgCFJpqh8z7oUTu5wxUo0mIoSZUi-SRc";
 
 
     protected void doPost(HttpServletRequest request,
@@ -43,75 +43,77 @@ public class ElanceServlet extends HttpServlet {
 //            response.getWriter().print("SUCCES!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
 
-        if (request.getParameter("sendInvite") != null) {
-            final String serverKey = "AIzaSyAIgCFJpqh8z7oUTu5wxUo0mIoSZUi-SRc";
-            URL url = new URL("https://fcm.googleapis.com/fcm/send");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Authorization", "key=" + serverKey);
-
-            JSONObject notification = new JSONObject();
-            JSONObject notificationObject = new JSONObject();
-            String token = "cCBOJKfEWOI:APA91bH0A0xhgry58k_C2gYZF8p8-htaf_Hwe_7A7K4y9AadThy-rvrkwlmtLLjhniZ0RCmi6p178qjoKJd0ZUbaCpgcJzVVDeS-vPpANYSe4EE1w6UjV63XpnEUtz1jIXiLNkulYifi";
+        if (request.getParameter("sendAfspraakInvites") != null) {
+            JSONArray deelnemers = null;
             try {
-                notification.put("to", token);
-                notificationObject.put("title", "Nieuwe afspraak");
-                notificationObject.put("body", "... heeft afspraak gemaakt");
-                notification.put("notification", notificationObject);
-
-                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-                wr.write(notification.toString());
-                wr.flush();
-
-                response.getWriter().print(notification.toString());
+                deelnemers = new JSONArray(request.getParameter("deelnemers"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            String afspraakId = request.getParameter("afspraakId");
+            String locatie = request.getParameter("locatie");
+            String tijdString = request.getParameter("tijd");
 
-            //display what returns the POST request
+            if (deelnemers != null) {
 
-            StringBuilder sb = new StringBuilder();
-            int HttpResult = connection.getResponseCode();
-            if (HttpResult == HttpURLConnection.HTTP_OK) {
-                BufferedReader br = new BufferedReader(
-                        new InputStreamReader(connection.getInputStream(), "utf-8"));
-                String line = null;
-                while ((line = br.readLine()) != null) {
-                    sb.append(line + "\n");
+                for (int i = 0; i < deelnemers.length(); i++) {
+                    try {
+                        JSONObject deelnemer = (JSONObject) deelnemers.get(i);
+                        String id = deelnemer.getString("id");
+                        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+                        Key key = KeyFactory.createKey("ElanceUser", id);
+                        Entity e = datastore.get(key);
+                        String token = (String) e.getProperty("token");
+                        URL url = new URL("https://fcm.googleapis.com/fcm/send");
+                        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                        connection.setDoOutput(true);
+                        connection.setRequestMethod("POST");
+                        connection.setRequestProperty("Content-Type", "application/json");
+                        connection.setRequestProperty("Authorization", "key=" + SERVER_KEY);
+
+                        JSONObject notification = new JSONObject();
+                        JSONObject notificationObject = new JSONObject();
+                        JSONObject dataObject = new JSONObject();
+                        dataObject.put("afspraakId", afspraakId);
+                        dataObject.put("locatie", locatie);
+                        dataObject.put("tijd", tijdString);
+
+                        notification.put("to", token);
+                        notificationObject.put("title", "Nieuwe afspraak");
+                        notificationObject.put("body", "Er is een nieuwe afspraak met je gemaakt.");
+//                        notification.put("notification", notificationObject);
+                        notification.put("data", dataObject);
+
+                        OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+                        writer.write(notification.toString());
+                        writer.flush();
+
+                        response.getWriter().print(notification.toString());
+
+
+                        //display what returns the POST request
+
+                        StringBuilder sb = new StringBuilder();
+                        int HttpResult = connection.getResponseCode();
+                        if (HttpResult == HttpURLConnection.HTTP_OK) {
+                            BufferedReader br = new BufferedReader(
+                                    new InputStreamReader(connection.getInputStream(), "utf-8"));
+                            String line = null;
+                            while ((line = br.readLine()) != null) {
+                                sb.append(line + "\n");
+                            }
+                            br.close();
+                            response.getWriter().print(sb.toString());
+                        } else {
+                            response.getWriter().print((connection.getResponseMessage()));
+                            response.getWriter().print((connection.getResponseCode()));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 }
-                br.close();
-                response.getWriter().print(sb.toString());
-            } else {
-                response.getWriter().print((connection.getResponseMessage()));
-                response.getWriter().print((connection.getResponseCode()));
-
             }
-
-
-
-//            try {
-//                Sender sender = new FCMSender(serverKey);
-//                Message message = new Message.Builder()
-//                        .collapseKey("message")
-//                        .timeToLive(3)
-//                        .delayWhileIdle(true)
-//                        .addData("message", "Notification from Java application")
-//
-//                        .build();
-//
-//                // Use the same token(or registration id) that was earlier
-//                // used to send the message to the client directly from
-//                // Firebase Console's Notification tab.
-//                Result result = sender.send(message,
-//                        "d9HF-JtETgk:APA91bGUH7g8d1Nq-Eo5HLXX8LCUPw6dPxvLhP0bZ8dn845SdvpQspV2GlQCPCEImNQRBCuXaeRXPNed1FYduQuhPkvWyA73Eza8A6KMFlAlRa_faZGhjQQuCCSe9Ti8lrQg-O-FoYlJ",
-//                        1);
-//                //System.out.println("Result: " + result.toString());
-//                response.getWriter().print(result.toString());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
 
 
         }
