@@ -17,12 +17,13 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static elance.ServerKey.ELANCE_SERVER_KEY;
+
 /**
  * Created by Piet de Vries on 07-11-16.
  */
 public class ElanceServlet extends HttpServlet {
 
-    private static final String SERVER_KEY = "AIzaSyAIgCFJpqh8z7oUTu5wxUo0mIoSZUi-SRc";
 
 
     protected void doPost(HttpServletRequest request,
@@ -69,7 +70,7 @@ public class ElanceServlet extends HttpServlet {
                         connection.setDoOutput(true);
                         connection.setRequestMethod("POST");
                         connection.setRequestProperty("Content-Type", "application/json");
-                        connection.setRequestProperty("Authorization", "key=" + SERVER_KEY);
+                        connection.setRequestProperty("Authorization", "key=" + ELANCE_SERVER_KEY);
 
                         JSONObject notification = new JSONObject();
                         JSONObject notificationObject = new JSONObject();
