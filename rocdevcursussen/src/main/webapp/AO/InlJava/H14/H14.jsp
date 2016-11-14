@@ -141,12 +141,12 @@ public class Random extends Applet {
 
 import java.awt.*;
 import java.applet.*;
-<span class="codeplus">import java.net.*;</span>
+<span class="codeplus">import java.net.URL;</span>
 
 public class Afbeelding extends Applet {
 	
     private <span class="codeplus">Image</span> afbeelding;
-    <span class="codeplus">URL</span> pad;
+    private <span class="codeplus">URL</span> pad;
 	
     public void init() {
         pad = <span class="codeplus">Afbeelding.class.getResource(&quot;/resources/&quot;)</span>
@@ -187,7 +187,21 @@ public class Afbeelding extends Applet {
         </p>
 
         <h3>Geluid</h3>
-        <p>Ook geluid is in Java niet moeilijk te realiseren. Het lijkt
+
+        <p>Ook geluid is in Java niet moeilijk te realiseren.</p>
+
+        <div><audio controls>
+            <source src="/AO/InlJava/H14/images/scream1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio><br>
+        <a href="/AO/InlJava/H14/images/scream1.wav" download="scream.wav">Download scream.wav</a><br>
+        <audio controls>
+            <source src="/AO/InlJava/H14/images/applaus.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio><br>
+        <a href="/AO/InlJava/H14/images/scream1.wav" download="applaus.wav">Download applaus.wav</a>
+        </div><br>
+        <p>Het lijkt
             heel veel op de wijze waarop afbeeldingen ingelezen en getoond
             worden. Zie het volgende voorbeeld:</p>
         <pre class="code">
@@ -195,15 +209,17 @@ public class Afbeelding extends Applet {
 
 import java.awt.*;
 import java.applet.*;
-<span class="codeplus">import javax.swing.*;</span>
+import java.net.URL;
 
 public class LoadAndPlay extends Applet {
-	
+
+    private URL pad;
     private <span class="codeplus">AudioClip</span> sound;
-    
 	
     public void init() {
-        sound = <span class="codeplus">getAudioClip(getDocumentBase(), &quot;flourish.mid&quot;);</span>
+
+        pad = <span class="codeplus">LoadAndPlay.class.getResource(&quot;/resources/&quot;)</span>
+        sound = <span class="codeplus">getAudioClip(pad, &quot;scream.wav&quot;);</span>
         		
     }
 
@@ -216,8 +232,8 @@ public class LoadAndPlay extends Applet {
         <p>
             Allereerst wordt er een instantie van de klasse <b>AudioClip</b>
             gedeclareerd. De klasse AudioClip kan verschillende soorten
-            geluidsbestanden aan, waarvan midi en wav de bekendste zijn. aan <b>sound</b>
-            wordt in dit geval een midi-bestand gekoppeld in de functie <b>init()</b>.
+            geluidsbestanden aan, waarvan midi en wav de bekendste zijn. Aan <b>sound</b>
+            wordt in dit geval een wav-bestand gekoppeld in de functie <b>init()</b>.
             Dat gebeurt op dezelfde wijze als een afbeelding wordt ingelezen.
             Vervolgens wordt in de functie <b>paint()</b> het bestand afgespeeld.
         </p>
