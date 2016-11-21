@@ -157,8 +157,11 @@
                         </a>
                             <ul class="dropdown-menu">
                                 <li class="menu-item menu-sub-item"
+                                    id="menu-item-android-nano-beginners"><a
+                                        href="/AO/android-nano-beginners/intro">Android Beginners Nanodegree</a></li>
+                                <li class="menu-item menu-sub-item"
                                     id="menu-item-android"><a
-                                        href="/AO/android/animaties">Android</a></li>
+                                        href="/AO/android/animaties">Android Maak 6 apps</a></li>
 
                             </ul>
                         </li>

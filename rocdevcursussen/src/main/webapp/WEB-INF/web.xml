@@ -348,7 +348,6 @@
     </servlet-mapping>
 
 
-
     <!--Android 2-->
     <servlet>
         <servlet-name>AndroidAnimaties</servlet-name>
@@ -408,8 +407,32 @@
     </servlet-mapping>
 
 
+    <!--Android for beginners Nanodegree-->
+    <servlet>
+        <servlet-name>AndroidBasicsIntro</servlet-name>
+        <jsp-file>/AO/android_nano_basics/introductie/intro.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsIntro</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/intro</url-pattern>
+    </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>AndroidBasicsUserInterface</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_basics_1/user_interface.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsUserInterface</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/user-interface</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AndroidBasicsUserInput</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_basics_2/user_input.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsUserInput</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/user-input</url-pattern>
+    </servlet-mapping>
 
 
     <!-- JQuery -->
@@ -609,8 +632,8 @@
         <servlet-name>VoegGerechtenToeServlet</servlet-name>
         <url-pattern>/AO/receptenboek/voeg-gerecht-toe</url-pattern>
     </servlet-mapping>
-    
-    
+
+
     <!--GCP coupons-->
     <servlet>
         <servlet-name>Coupons</servlet-name>
