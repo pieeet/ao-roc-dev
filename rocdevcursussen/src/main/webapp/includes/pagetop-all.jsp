@@ -146,6 +146,8 @@
                                         href="/AO/jquery/jquery1">JQuery</a></li>
                                 <li class="menu-item menu-sub-item" id="menu-item-gcp"><a
                                         href="/AO/gcpcoupons">GCP</a></li>
+                                <li class="menu-item menu-sub-item" id="menu-item-frienlyChat"><a
+                                        href="/AO/friendly-chat">Firebase Code Lab</a></li>
                             </ul>
                         </li>
 

@@ -426,13 +426,30 @@
         <url-pattern>/AO/android-nano-beginners/user-interface</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>AndroidBasicsUserInput</servlet-name>
-        <jsp-file>/AO/android_nano_basics/android_basics_2/user_input.jsp</jsp-file>
-    </servlet>
+    <servlet-name>AndroidBasicsUserInput</servlet-name>
+    <jsp-file>/AO/android_nano_basics/android_basics_2/user_input.jsp</jsp-file>
+</servlet>
     <servlet-mapping>
         <servlet-name>AndroidBasicsUserInput</servlet-name>
         <url-pattern>/AO/android-nano-beginners/user-input</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AndroidBasicsMultiscreent</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_basics_3/multiscreen_apps.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsMultiscreent</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/multiscreen</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AndroidBasicsNetworking</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_nano_basics_4/networking.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsNetworking</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/networking</url-pattern>
+    </servlet-mapping>
+
 
 
     <!-- JQuery -->
@@ -645,6 +662,17 @@
         <url-pattern>/AO/gcpcoupons</url-pattern>
     </servlet-mapping>
 
+
+    <!--Firebase Friendly Chat-->
+    <servlet>
+        <servlet-name>FriendlyChat</servlet-name>
+        <jsp-file>/AO/FireBase/FriendlyChat/index.html</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FriendlyChat</servlet-name>
+        <url-pattern>/AO/friendly-chat</url-pattern>
+    </servlet-mapping>
 
     <!-- inlog-only area -->
     <security-constraint>

@@ -12,6 +12,12 @@
             <a href="/AO/android-nano-beginners/user-input">
                 <li class="list-group-item" id="user_input">User Input</li>
             </a>
+            <a href="/AO/android-nano-beginners/multiscreen">
+                <li class="list-group-item" id="multiscreen">Multiscreen Apps</li>
+            </a>
+            <a href="/AO/android-nano-beginners/networking">
+                <li class="list-group-item" id="networking">Networking</li>
+            </a>
 
 
         </ol>
@@ -22,6 +28,10 @@
             <li class="list-group-item"><a
                     href="https://developer.android.com/sdk/installing/studio.html"
                     target="_blank">Android Studio</a></li>
+            <li class="list-group-item"><a
+                    href="/AO/android_nano_basics/includes/cheat_sheet_views.pdf">Views cheat sheet</a></li>
+            <li class="list-group-item"><a
+                    href="/AO/android_nano_basics/includes/cheat_sheet_layouts.pdf">Layouts cheat sheet</a></li>
 
         </ul>
     </div>
