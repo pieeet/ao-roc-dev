@@ -18,6 +18,9 @@
             <a href="/AO/android-nano-beginners/networking">
                 <li class="list-group-item" id="networking">Networking</li>
             </a>
+            <a href="/AO/android-nano-beginners/datastorage">
+                <li class="list-group-item" id="datastorage">Data Storage</li>
+            </a>
 
 
         </ol>

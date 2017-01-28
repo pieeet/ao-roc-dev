@@ -15,7 +15,7 @@
             <a href="https://www.udacity.com/course/android-basics-nanodegree-by-google--nd803"
                target="_blank">Android for beginners Nanodegree</a></h2>
         <h3>Android Basics: <a
-                href="dhttps://classroom.udacity.com/courses/ud843/lessons/1335cf7d-bb4f-48c6-8503-f14b127d2abc/concepts/468e9b19-e84b-4c6a-8c48-c82b24aac9a"
+                href="https://classroom.udacity.com/courses/ud843/lessons/1335cf7d-bb4f-48c6-8503-f14b127d2abc/concepts/468e9b19-e84b-4c6a-8c48-c82b24aac9ad"
                 target="_blank">Networking</a></h3>
         <p>Benodigde tijd: ca 40 uur</p>
 
@@ -23,7 +23,6 @@
             <h3>Leerdoelen</h3>
             <p>Na het voltooien van deze cursus kun je:</p>
             <ul>
-
                 <li>data van een <strong>API</strong> gebruiken</li>
                 <li><strong>JSON</strong> data gebruiken</li>
                 <li>in Java <strong>JSON Objecten</strong> en <strong>JSON Arrays</strong> maken</li>
@@ -37,12 +36,33 @@
                 <strong>BufferedReader</strong></li>
                 <li><strong>Exceptionsafvangen (catch)</strong> met een
                     <strong>try/catch/finally block</strong></li>
-                <li>taken in een achtergrond <strong>thread</strong> uitvoeren met de <strong>AsyncTask</strong> klasse</li>
+                <li>taken in een achtergrond <strong>thread</strong> uitvoeren met de <strong>AsyncTask</strong> en
+                    de AsyncTaskLoader klassen</li>
+                <li>een <strong>Empty State View</strong> gebruiken</li>
+                <li>checken of het apparaat verbonden is met een netwerk met de
+                    <strong>ConnectivityManager</strong> klasse</li>
+                <li><strong>menu-items</strong> aan het <strong>options-menu</strong> toevoegen</li>
+                <li>een <strong>PreferenceFragment</strong> in een SettingsActivity maken</li>
+                <li>kleine hoeveelheden data opslaan in <strong>SharedPreferences</strong></li>
+                <li>een <strong>Uri.Builder</strong> gebruiken om een URL met <strong>query parameters</strong> te
+                    bouwen</li>
 
             </ul>
 
         </div>
 
+
+        <div class="opdrachten">
+            <h2>Project</h2>
+        <div class="ninja_level_uitleg">
+            <img class="ninja_img_uitleg" alt="master" src="<c:url value="/images/master.png"/>">
+            <p>Maak een news reader app met behulp van een bestaande API.
+                Voor meer info zie
+                <a href="https://classroom.udacity.com/courses/ud843/lessons/6752095343239847/concepts/78222105900923#"
+                   target="_blank">Project Overview</a>.</p>
+
+
+            <p>Voorbeeld <a href="https://play.google.com/store/apps/details?id=com.rocdev.guardianreader">roc-dev</a></p></div>
 
 
         <h3>JSON objecten</h3>

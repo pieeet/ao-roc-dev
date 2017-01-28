@@ -31,40 +31,51 @@
             alsnog in korte tijd het nanodegree te halen om het op je cv en in je portfolio te zetten.
             Al het werk heb je dan namelijk al gedaan. Bewaar je werk dus
             zorgvuldig!</p>
-        <div class='paysa-wij' data-max-width='320px'
-             data-params='{"title":"Android Developer","company":"","locality":"","selectable":false,"iframed":null}'
-             data-type='salary'><p> Discover more salary details for <a
-                href='http://www.paysa.com/salaries/android-developer--t?utm_source=widget' target='_blank'>Android
-            Developer</a>. Browse salaries by <a href='https://www.paysa.com/salaries-list/title?utm_source=widget'
-                                                 target='_blank'>job title</a>, <a
-                href='https://www.paysa.com/salaries-list/company?utm_source=widget' target='_blank'>company</a>, <a
-                href='https://www.paysa.com/salaries-list/locality?utm_source=widget' target='_blank'>location</a>, <a
-                href='https://www.paysa.com/salaries-list/school?utm_source=widget' target='_blank'>school</a> on <a
-                href="https://www.paysa.com/?utm_source=widget">Paysa</a></p></div>
-        <script deferred src='//media.paysa.com/assets/widgets/loader.js'></script>
+        <%--<div class='paysa-wij' data-max-width='320px'--%>
+             <%--data-params='{"title":"android developer","company":"","locality":"","selectable":false,"iframed":null}'--%>
+             <%--data-type='salary'><p> Discover more salary details for <a--%>
+                <%--href='https://www.paysa.com/salaries/android-developer--t?utm_source=widget' target='_blank'>Android--%>
+            <%--Developer</a>. Browse salaries by <a href='https://www.paysa.com/salaries-list/title?utm_source=widget'--%>
+                                                 <%--target='_blank'>job title</a>, <a--%>
+                <%--href='https://www.paysa.com/salaries-list/company?utm_source=widget' target='_blank'>company</a>, <a--%>
+                <%--href='https://www.paysa.com/salaries-list/locality?utm_source=widget' target='_blank'>location</a>, <a--%>
+                <%--href='https://www.paysa.com/salaries-list/school?utm_source=widget' target='_blank'>school</a> on <a--%>
+                <%--href="https://www.paysa.com/?utm_source=widget">Paysa</a></p></div>--%>
+        <%--<script deferred src='//media.paysa.com/assets/widgets/loader.js'></script>--%>
 
-        <h3>Het cursustraject</h3>
-
+        <h3>Het nanodegree traject</h3>
         <div class="bs-callout bs-callout-warning">
-            <h3>Android Basics: User Interface</h3>
-            <p>Project: Maak een simpele app met &eacute;&eacute;n scherm die informatie over een klein bedrijf of
-                bijvoorbeeld een vereniging toont.</p>
+            <h3>Android Basics: <a href="/AO/android-nano-beginners/user-interface">User Interface</a></h3>
+            <p>Project: Design and implement a simple app that displays information about a small business.</p>
             <p>tijdsbesteding ca 12 uur</p>
         </div>
         <div class="bs-callout bs-callout-warning">
-            <h3>Android Basics: User input</h3>
-            <p>Project 1: maak een app die de score van een sportwedstrijd bijhoudt</p>
-            <p>Project 2: ontwerp en maak een quiz app over een onderwerp waar jij vertrouwd mee bent</p>
+            <h3>Android Basics: <a href="/AO/android-nano-beginners/user-input">User input</a></h3>
+            <p>Project 1: Implement an app to track scores between two teams within a basketball game.</p>
+            <p>Project 2: Design and implement a short quiz app about some topic you are familiar with.</p>
             <p>tijdsbesteding ca 20 uur</p>
         </div>
+
         <div class="bs-callout bs-callout-warning">
-            <h3>Android Basics: Multi-screen apps</h3>
-            <p>Project 1: maak een app waarmee muziek afgespeeld wordt</p>
-            <p>Project 2: Maak een java klasse om een rapport van een student te modelleren </p>
-            <p>Project 3: maak een app waarmee een gebruiker door een stad of gebied geleid wordt</p>
+            <h3>Android Basics: <a href="/AO/android-nano-beginners/multiscreen">Multi-screen apps</a></h3>
+            <p>Project 1: Architect the user experience and technical design of an app to play music for a user.</p>
+            <p>Project 2: Create a custom Java class to model the information in a student report card.</p>
+            <p>Project 3: Create an app to guide a user around a city or location of your choice</p>
             <p>tijdsbesteding ca 40 uur</p>
         </div>
-
+        <div class="bs-callout bs-callout-warning">
+            <h3>Android Basics: <a href="/AO/android-nano-beginners/networking">Networking</a></h3>
+            <p>Project 1: Create an app to list the published books on a given topic using the Google Books API.</p>
+            <p>Project 2: Create an app to display recent news stories on a topic of your choice using a web API. </p>
+            <p>tijdsbesteding ca 40 uur</p>
+        </div>
+        <div class="bs-callout bs-callout-warning">
+            <h3>Android Basics: <a href="#">Data Storage</a></h3>
+            <p>Project 1: Create an app to track your habits</p>
+            <p>Project 2: Create an app to track the inventory of a retail store, including current stock and
+                supplier information.</p>
+            <p>tijdsbesteding ca ... uur</p>
+        </div>
 
 
     </div>

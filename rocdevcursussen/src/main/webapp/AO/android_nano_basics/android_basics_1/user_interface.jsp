@@ -57,7 +57,7 @@
             <h2>Project</h2>
             <p>Maak een app die informatie geeft over bijvoorbeeld een bedrijf, een winkel of een
                 vereniging. Voor meer info zie <a
-                        href="https://classroom.udacity.com/courses/ud834/lessons/6774550984239847/concepts/74065285400923#"
+                        href="https://classroom.udacity.com/courses/ud834/lessons/46e6b33a-0d6e-433d-9ac4-701a2156d584/concepts/438e4ee4-c6a2-40d4-9c9b-762124e52a2d#"
                         target="_blank">Project Prep</a>. Het mooist is natuurlijk als je een echte opdrachtgever voor
                 je app kunt vinden.</p>
         </div>

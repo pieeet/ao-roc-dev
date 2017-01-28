@@ -449,6 +449,14 @@
         <servlet-name>AndroidBasicsNetworking</servlet-name>
         <url-pattern>/AO/android-nano-beginners/networking</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AndroidBasicsDataStorage</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_basics_5/data-storage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AndroidBasicsDataStorage</servlet-name>
+        <url-pattern>/AO/android-nano-beginners/datastorage</url-pattern>
+    </servlet-mapping>
 
 
 

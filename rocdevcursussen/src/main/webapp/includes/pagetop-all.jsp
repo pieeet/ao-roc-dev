@@ -57,7 +57,7 @@
         <div class="col-md-3">
             <div id="logo">
                 <a href="/"><img id="rocdevlogo"
-                                 src="/images/roc-dev-googlefont.png"></a>
+                                 src="/images/roc-dev-logo-zwart-small.png"></a>
             </div>
         </div>
 
