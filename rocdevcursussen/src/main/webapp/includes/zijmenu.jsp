@@ -16,7 +16,7 @@
             <li class="list-group-item"><a href="<c:url value="/AO/greenfoot/greenfoot"/>">Greenfoot</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/jsp/deel1"/>">JSP/Databases</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/jquery/jquery1"/>">JQuery</a></li>
-            <li class="list-group-item"><a href="<c:url value="/AO/android/animaties"/>">Android</a></li>
+            <li class="list-group-item"><a href="<c:url value="/AO/android-nano-beginners/intro"/>">Android</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/examen/jemeppe"/>">Examen</a></li>
         </ul>
         <h3>Studenten</h3>
