@@ -378,7 +378,7 @@ public class Stringarrays extends Applet {
 			<p>Maak een applet waarin vijf tekstvakken (uiteraard in een
 				tabel) worden getoond. In de tekstvakken moet de gebruiker getallen
 				in kunnen voeren. Als de gebruiker op de Ok-knop klikt worden de
-				getallen in de invoervolgorde gesorteerd getoond.</p>
+				getallen in oplopende volgorde gesorteerd getoond in de tekstvakken.</p>
 			<h2>Opdracht 12.4</h2>
 			<p>Zorg ervoor dat de lus waarin gezocht wordt naar een bepaalde
 				waarde in voorbeeld 12.5 stopt als de waarde gevonden is.</p>
