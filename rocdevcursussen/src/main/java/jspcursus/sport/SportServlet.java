@@ -24,28 +24,26 @@ import org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class SportServlet extends HttpServlet {
-
     private static final String PLACEHOLDER_URL = "/AO/JSP_Java_DB/images/geen_foto_thumb.jpg";
-
     private Administratie admin;
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // check parameters
-
-        // nieuw lid gemaakt
-        if (req.getParameter("nieuwlidform") != null) {
+        //warm up request
+        if (req.getParameter("warmUp") != null) {
+            resp.getWriter().print("ok");
+            admin = new Administratie();
+            admin.getLedenlijst();
+            admin.getTeamlijst();
+            admin.getTeamspelers();
+        } else if (req.getParameter("nieuwlidform") != null) {
             this.voegNieuwLidToe(req);
             resp.getWriter().print("ok");
-
         } else if (req.getParameter("leden_overzicht") != null) {
             resp.getWriter().print(maakLedenOverzicht());
-        }
-
-
-        else if (req.getParameter("verwijderlid") != null) {
+        } else if (req.getParameter("verwijderlid") != null) {
             this.verwijderLid(req, resp);
             resp.getWriter().print(maakLedenOverzicht());
         } else if (req.getParameter("wijziglid") != null) {
@@ -82,7 +80,7 @@ public class SportServlet extends HttpServlet {
         doGet(req, resp);
     }
 
-    /*************
+    /******************
      * hulpmethoden
      *****************/
 
@@ -110,7 +108,6 @@ public class SportServlet extends HttpServlet {
             admin = new Administratie();
             admin.voegLidToe(lid);
         }
-
     }
 
     private void verwijderLid(HttpServletRequest req, HttpServletResponse resp)
@@ -126,7 +123,6 @@ public class SportServlet extends HttpServlet {
             admin.verwijderTeamspeler(team, lid);
         }
         admin.verwijderLid(lid);
-
     }
 
     private void wijzigLid(HttpServletRequest req, HttpServletResponse resp)
@@ -159,7 +155,6 @@ public class SportServlet extends HttpServlet {
         } catch (NullPointerException e) {
         }
         admin.wijzigLid(lid);
-
     }
 
     private void voegNieuwTeamToe(HttpServletRequest req,
@@ -182,9 +177,7 @@ public class SportServlet extends HttpServlet {
         for (Lid l : teamspelers) {
             admin.verwijderTeamspeler(team, l);
         }
-
         admin.verwijderTeam(team);
-
     }
 
     private void wijzigTeam(HttpServletRequest req, HttpServletResponse resp)
@@ -237,7 +230,6 @@ public class SportServlet extends HttpServlet {
         return fotoUrl;
     }
 
-
     private String maakLedenOverzicht() {
         admin = new Administratie();
         ArrayList<Lid> leden = admin.getLedenlijst();
@@ -258,9 +250,5 @@ public class SportServlet extends HttpServlet {
             ledenArray.put(lidJsonObject);
         }
         return ledenArray.toString();
-
-
-
     }
-
 }

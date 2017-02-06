@@ -12,6 +12,10 @@ $(document).ready(function () {
 
     $("#tabs_sport").tabs();
 
+    //warm-up request voor ledenlijst, vult mem-cache en start servlet
+    $.get("/AO/jsp/sport?warmUp=x", function (responseText) {
+    });
+
     $(document).on('click', '#open_nieuw_lid', function () {
         $("#sport_tab-1_content").fadeOut(fadeOutTime, function () {
             $("#sport_tab-1_content").html(loadingSpinner);
@@ -42,7 +46,6 @@ $(document).ready(function () {
 
 
     $(document).on('click', '#annuleer_nieuw_lid_button', function () {
-
         $.get("/AO/jsp/sport?leden_overzicht=x", function (responseText) {
             ledentabel = maakLedenOverzicht(responseText);
             $("#sport_tab-1_content").html(ledentabel).hide().fadeIn(fadeInTime);

@@ -21,7 +21,6 @@ public class Administratie implements DataIOInterface {
 		io = new DatastoreIO();
 		cache = MemcacheServiceFactory.getMemcacheService();
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -103,7 +102,7 @@ public class Administratie implements DataIOInterface {
 			}
 		}
 		teamspelers = this.getTeamspelers();
-		ArrayList<Teamspeler> teamspelersNieuw = new ArrayList<Teamspeler>();
+		ArrayList<Teamspeler> teamspelersNieuw = new ArrayList<>();
 		boolean lijstVeranderd = false;
 		for (Teamspeler ts: teamspelers) {
 			if (!ts.getSpelerscode().equals(lid.getSpelerscode())) {
@@ -207,9 +206,6 @@ public class Administratie implements DataIOInterface {
 		return team;
 	}
 	
-
-	
-	
 	@Override
 	public ArrayList<Lid> getTeamspelers(Team team) {
 		teamspelers = this.getTeamspelers();
@@ -268,7 +264,6 @@ public class Administratie implements DataIOInterface {
 		io.setTeamspeler(team, lid);
 		
 	}
-
 	
 	class LidComparator implements Comparator<Lid> {
 	    @Override
