@@ -363,6 +363,29 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     voor je de wijzigingen kunt committen en pushen.
                 </p>
 
+                <h3 id="git-repo-pushen">Een bestaande repo uploaden</h3>
+                <p>Als je al een project hebt dat je naar GitHub wilt pushen dan kun je als volgt te
+                werk gaan.</p>
+                <p>Maak op GitHub een nieuwe repository maar maak geen README.md file en ook geen
+                .gitignore. Maak van je project een git repository en add/commit de bestanden
+                    met de volgende commando&#39;s in je terminal:</p>
+                <pre class="code">
+git init
+git add .
+git commit -m &#39;&lt;je commit message&gt;&#39;</pre>
+
+                <p>Voeg nu de repository die je op GitHub hebt gemaakt toe als remote en push je project.
+                Vervang in onderstaand commando je gebruikersnaam en projectnaam.</p>
+<pre class="code">
+git remote add origin https://github.com/&lt;gebruikersnaam&gt;/&lt;naam-repository&gt;
+git push -u origin master
+</pre>
+                <p>Het volgende filmpje demonsteert hoe het werkt.</p>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/cByS4Uf8pVs?rel=0"
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+
 
             </div>
         </div>

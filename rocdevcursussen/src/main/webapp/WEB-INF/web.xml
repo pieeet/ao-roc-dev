@@ -689,10 +689,41 @@
             <url-pattern>/AO/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <!--suppress WebProperties -->E
+            <!--suppress WebProperties -->
             <role-name>*</role-name>
         </auth-constraint>
     </security-constraint>
+
+
+    <!-- enforce https everywhere-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>profile</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>profile</web-resource-name>
+            <url-pattern>/*/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>profile</web-resource-name>
+            <url-pattern>/*/*/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
 
 
     <welcome-file-list>
@@ -707,6 +738,16 @@
         <servlet-name>ElanceServlet</servlet-name>
         <url-pattern>/elance</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LetsEncryptServlet</servlet-name>
+        <servlet-class>letsencrypt.LetsEncryptServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LetsEncryptServlet</servlet-name>
+        <url-pattern>/.well-known/acme-challenge/48beoq-vRkNxYAfCKl6_zNN_vErhVAND7466rvotAWA</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

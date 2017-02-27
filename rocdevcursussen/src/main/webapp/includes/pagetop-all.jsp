@@ -23,7 +23,7 @@
           content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="format-detection" content="telephone=no"/>
     <link
-            href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto|Cabin:700|Lato'
+            href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto|Cabin:700|Lato'
             rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"

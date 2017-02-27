@@ -36,6 +36,9 @@
             <li class="list-group-item"><a
                     href="/AO/android_nano_basics/includes/cheat_sheet_layouts.pdf">Layouts cheat sheet</a></li>
 
+            <li class="list-group-item"><a
+                    href="/AO/android_nano_basics/includes/sql-sqlite-commands-cheat-sheet.pdf">SQLite cheat sheet</a></li>
+
         </ul>
     </div>
 </div>
