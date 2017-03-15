@@ -674,7 +674,7 @@
     <!--Firebase Friendly Chat-->
     <servlet>
         <servlet-name>FriendlyChat</servlet-name>
-        <jsp-file>/AO/FireBase/FriendlyChat/index.html</jsp-file>
+        <jsp-file>/FireBase/FriendlyChat/index.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>

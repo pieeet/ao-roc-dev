@@ -71,6 +71,29 @@
         <a href="https://developer.android.com/training/basics/activity-lifecycle/index.html" target="_blank">
         <img src="/AO/android_nano_basics/android_basics_3/lifecycle.png"></a>
 
+        <h3>Adapters</h3>
+        <p>Een <a href="http://developer.android.com/guide/topics/ui/layout/listview.html"
+                  target="_blank">ListView</a>
+            is een <a href="http://developer.android.com/reference/android/view/ViewGroup.html" target="_blank">ViewGroup</a>
+            met items waar je doorheen kan scrollen. De items worden net als bij een spinner
+            gemaakt met een
+            <a href="http://developer.android.com/reference/android/widget/Adapter.html" target="_blank">Adapter</a>.
+        </p>
+        <p>In onderstaand filmpje
+            wordt uitgelegd waarom een adapter wordt gebruik en waarom dit effici&euml;nter
+            is dan bijvoorbeeld een LinearLayout in een ScrollView plaatsen, wat hetzelfde effect zou hebben.</p>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-VPM6ICgCk8" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+        <p>Zie <a href="https://github.com/ROC-DEV/Adapters" target="_blank">voorbeeld</a> project waarin een ListView
+            met zowel zowel
+        een <a href="https://developer.android.com/reference/android/widget/BaseAdapter.html"
+               target="_blank">BaseAdapter</a> als een <a
+                    href="https://developer.android.com/reference/android/widget/ArrayAdapter.html" target="_blank">
+                ArrayAdapter</a> is gebruikt.</p>
+
+
 
         <div class="opdrachten">
             <h2>Project</h2>
