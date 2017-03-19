@@ -78,6 +78,9 @@ div.img_met_bijschrift p, div.img_met_bijschrift img {
 .codeplus, .css {
     background-color: #FFF300;
 }
+.parameter {
+    background-color: #f2cbed;
+}
 
 .jsp, .html {
     color: red;
