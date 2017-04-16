@@ -15,7 +15,7 @@
             <a href="https://www.udacity.com/course/android-basics-nanodegree-by-google--nd803"
                target="_blank">Android for beginners Nanodegree</a></h2>
         <h3>Android Basics: <a
-                href="https://classroom.udacity.com/courses/ud843/lessons/1335cf7d-bb4f-48c6-8503-f14b127d2abc/concepts/468e9b19-e84b-4c6a-8c48-c82b24aac9ad"
+                href="https://classroom.udacity.com/courses/ud843/lessons/1335cf7d-bb4f-48c6-8503-f14b127d2abc/concepts/7e580b0e-b0fb-4395-9e24-c3df3383d300#"
                 target="_blank">Networking</a></h3>
         <p>Benodigde tijd: ca 40 uur</p>
 
@@ -27,25 +27,29 @@
                 <li><strong>JSON</strong> data gebruiken</li>
                 <li>in Java <strong>JSON Objecten</strong> en <strong>JSON Arrays</strong> maken</li>
                 <li>een <strong>Date</strong> object maken met behulp van de <strong>Unix</strong> tijd in
-                milliseconden</li>
+                    milliseconden
+                </li>
                 <li>Datum en tijd strings maken met de klasse <strong>SimpleDateFormat</strong></li>
                 <li>op verschillende manieren een <strong>substring</strong> uit een string halen</li>
                 <li><strong>permissions</strong> in het <strong>Android Manifest</strong> van de app declareren</li>
                 <li>verbinding met een web server tot stand brengen met een <strong>HttpURLConnection</strong></li>
                 <li>binnekomende data-streams kunt uitlezen met een <strong>InputStreamReader</strong> en een
-                <strong>BufferedReader</strong></li>
+                    <strong>BufferedReader</strong></li>
                 <li><strong>Exceptionsafvangen (catch)</strong> met een
                     <strong>try/catch/finally block</strong></li>
                 <li>taken in een achtergrond <strong>thread</strong> uitvoeren met de <strong>AsyncTask</strong> en
-                    de AsyncTaskLoader klassen</li>
+                    de AsyncTaskLoader klassen
+                </li>
                 <li>een <strong>Empty State View</strong> gebruiken</li>
                 <li>checken of het apparaat verbonden is met een netwerk met de
-                    <strong>ConnectivityManager</strong> klasse</li>
+                    <strong>ConnectivityManager</strong> klasse
+                </li>
                 <li><strong>menu-items</strong> aan het <strong>options-menu</strong> toevoegen</li>
                 <li>een <strong>PreferenceFragment</strong> in een SettingsActivity maken</li>
                 <li>kleine hoeveelheden data opslaan in <strong>SharedPreferences</strong></li>
                 <li>een <strong>Uri.Builder</strong> gebruiken om een URL met <strong>query parameters</strong> te
-                    bouwen</li>
+                    bouwen
+                </li>
 
             </ul>
 
@@ -54,16 +58,18 @@
 
         <div class="opdrachten">
             <h2>Project</h2>
-        <div class="ninja_level_uitleg">
-            <img class="ninja_img_uitleg" alt="master" src="<c:url value="/images/master.png"/>">
-            <p>Maak een news reader app met behulp van een bestaande API.
-                Voor meer info zie
-                <a href="https://classroom.udacity.com/courses/ud843/lessons/6752095343239847/concepts/78222105900923#"
-                   target="_blank">Project Overview</a>.</p>
+            <div class="ninja_level_uitleg">
+                <img class="ninja_img_uitleg" alt="master" src="<c:url value="/images/master.png"/>">
+                <p>Maak een news reader app met behulp van een bestaande API.
+                    Voor meer info zie
+                    <a href="https://classroom.udacity.com/courses/ud843/lessons/6752095343239847/concepts/78222105900923#"
+                       target="_blank">Project Overview</a>.</p>
 
 
-            <p>Voorbeeld <a href="https://play.google.com/store/apps/details?id=com.rocdev.guardianreader">roc-dev</a></p></div>
-
+                <p>Voorbeeld <a
+                        href="https://play.google.com/store/apps/details?id=com.rocdev.guardianreader">roc-dev</a></p>
+            </div>
+        </div>
 
         <h3>JSON objecten</h3>
         <p>Als je het volgende &quot;get-request&quot; vanuit een browser verstuurt ktijg je een String met een JSON
@@ -115,7 +121,8 @@ try {
         <p>We kunnen nu de verschillende values opvragen met behulp van hun keys.</p>
         <pre class="code">
 String date = jsonObject.<span class="codeplus">getString</span>(<span class="codeplus">&quot;date&quot;</span>);
-JSONObject rates = jsonObject.<span class="codeplus">getJSONObject</span>(<span class="codeplus">&quot;rates&quot;</span>);
+JSONObject rates = jsonObject.<span class="codeplus">getJSONObject</span>(<span
+                class="codeplus">&quot;rates&quot;</span>);
 Double australianDollar = rates.<span class="codeplus">getDouble</span>(<span class="codeplus">&quot;AUD&quot;</span>);
 </pre>
 
@@ -223,12 +230,93 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 </pre>
 
+        <h3>Een AsyncTaskLoader gebruiken</h3>
+        <p>Als data vanuit een achtergrond thread in een User Interface moet worden getoond kun je beter een
+            Loader gebruiken. Zorg dat de
+        Activity waarin de data moet worden geladen de Interface LoaderManager.LoaderCallbacks&lt;D&gt;
+        implementeert, waarbij de D staat voor de data die wordt gebruikt. In de Earthquake app van de Udacity
+        cursus was D een List met Earthquakes. Zie codefragment.</p>
+
+        <pre class="code">
+public class EarthquakeActivity extends AppCompatActivity
+        implements LoaderManager.<span class="codeplus">LoaderCallbacks&lt;List&lt;Earthquake&gt;&gt;</span>  {
+        </pre>
+
+        <p>Je moet nu drie methoden implementeren:</p>
+        <ul>
+            <li>onCreateLoader: deze methode instantieert een custom Loader (die je zelf moet maken) en geeft hem
+            door aan:</li>
+            <li>onLoadFinished</li>
+            <li>onLoaderReset</li>
+        </ul>
+        <p>De custom loader maak je door een subklasse van AsyncTaskLoader&lt;D&gt; te maken.</p>
+        <pre class="code">
+public class EarthquakeLoader extends <span class="codeplus">AsyncTaskLoader&lt;List&lt;Earthquake&gt;&gt;</span> {
+
+    private String <span class="codeplus">mUrl</span>;
+
+    <span class="comment">/**
+     * Constructor
+     * @param context de Activity
+     * @param url de earthquake api url waarvan data wordt opgehaald
+     */</span>
+    public EarthquakeLoader(Context context, String url) {
+        super(context);
+        <span class="codeplus">mUrl</span> = url;
+    }
+
+    <span class="comment">
+    /**
+     * De background taak
+     * @return lijst met Earthquakes
+     */</span>
+    @Override
+    public List&lt;Earthquake&gt; loadInBackground() {
+        return QueryUtils.extractEarthquakes(<span class="codeplus">mUrl</span>);
+    }
+
+    @Override
+    protected void onStartLoading() {
+        forceLoad();
+    }
+}
+        </pre>
+
+        <p>In de onCreateLoader methode kun je nu een object van je custom loader maken. Als de data is geladen, wordt
+        de methode onLoadFinished aangeroepen.</p>
+
+        <pre class="code">
+    @Override
+    public Loader&lt;List&lt;Earthquake&gt;&gt; onCreateLoader(int id, Bundle args) {
+        <span class="comment">//TODO bouw een uri</span>
+        return new <span class="codeplus">EarthquakeLoader(this, uri.toString())</span>;
+    }
+
+    @Override
+        public void onLoadFinished(Loader&lt;List&lt;Earthquake&gt;&gt; loader, <span class="codeplus">List&lt;Earthquake&gt; data</span>) {
+        adapter.clear();
+        if (data != null) {
+            adapter.addAll(<span class="codeplus">data</span>);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader&lt;List&lt;Earthquake&gt;&gt; loader) {
+        adapter.clear();
+    }
+        </pre>
+
+        <p>In je onCreate methode kun je de loader starten. Je moet een loaderId meegeven. Dit is
+            een int getal dat je zelf mag kiezen, het tweede argument is een Bundle argumenten.
+            Deze :</p>
+        <pre class="code">
+getLoaderManager().initLoader(LOADER_ID, null, this);</pre>
+
+
+
 
 
     </div>
-
-
-</div>
 </div>
 <%@ include file="/AO/android_nano_basics/includes/bottom.html" %>
 <script>

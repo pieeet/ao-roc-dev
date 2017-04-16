@@ -96,7 +96,8 @@
                     href="https://developer.android.com/reference/android/widget/ArrayAdapter.html" target="_blank">
                 ArrayAdapter</a> is gebruikt.</p>
         <img src="/AO/android_nano_basics/images/adapter_result.png">
-        <h4>Stap voor stap</h4>
+        <h3>Stap voor stap</h3>
+        <h4>ListView en ListItem</h4>
         <p>In de layout file van je activity (<a
                 href="https://github.com/ROC-DEV/Adapters/blob/master/app/src/main/res/layout/activity_main.xml"
                 target="_blank">activity_main.xml</a>) gebruik je een ListView</p>
@@ -117,7 +118,8 @@
 </pre>
 
         <p>Maak een layout voor het listitem (<a
-                href="https://github.com/ROC-DEV/Adapters/blob/master/app/src/main/res/layout/list_item.xml" target="_blank">
+                href="https://github.com/ROC-DEV/Adapters/blob/master/app/src/main/res/layout/list_item.xml"
+                target="_blank">
             list_item.xml</a>) dat gebruikt wordt in de ListView. In onderstaand
             voorbeeld is een horizontale LinearLayout gebruikt
             met twee TextViews. Geef beide TextViews een id. Om beide TextViews evenveel ruimte te geven kun je het
@@ -147,8 +149,10 @@
 
 &lt;/LinearLayout&gt;
 </pre>
+        <h4>Model klassen</h4>
         <p>Om een adapter te maken heb je een lijst nodig met <strong>objecten</strong> die de relevante data bevat die
-            je nodig hebt om listitems te maken. In dit geval het merk en de prijs van een auto. Hiervoor gebruiken we een
+            je nodig hebt om listitems te maken. In dit geval het merk en de prijs van een auto. Hiervoor gebruiken we
+            een
             zogenaamde model-klasse. Model klassen representeren iets uit de werkelijkheid - in dit geval een auto - en
             hebben altijd dezelfde basisstructuur.</p>
         <pre class="code">
@@ -189,15 +193,20 @@ public class Auto {
     }
 }
 </pre>
-        <p>Model-klassen voor objecten met veel attributen bevatten veel code. Gelukkig wordt er - als je een moderne
+        <p>Model-klassen voor objecten met veel attributen bevatten veel
+            <a href="https://en.wikipedia.org/wiki/Boilerplate_code" target="_blank">boilerplate code</a>. Gelukkig
+            wordt er - als je een moderne
             java IDE gebruikt - veel werk uit handen genomen. Onderstaand filmpje toont hoe je in Android studio op
-        eenvoudige wijze een klasse Auto kunt maken.</p>
+            eenvoudige wijze een klasse Auto kunt maken.</p>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/CldT41uYKjQ?rel=0" frameborder="0"
-                    allowfullscreen></iframe></div>
+                    allowfullscreen></iframe>
+        </div>
         <p>Nu kunnen we in MainActivity auto objecten maken en ze in een
-        <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList</a>
-            stoppen. Die hebben we straks namelijk nodig om een Adapter te maken.</p>
+            <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList</a>
+            stoppen. Die hebben we straks namelijk nodig om een Adapter te maken. Vaak komt de data voor dit soort
+            objecten
+            uit een database, maar voor nu gaan we de objecten &quot;hard coderen&quot;.</p>
 
         <pre class="code">
 public class MainActivity extends AppCompatActivity {
@@ -226,9 +235,10 @@ public class MainActivity extends AppCompatActivity {
         autos.add(new Auto(&quot;Honda&quot;, 2500.95));
     }
 }</pre>
+        <h4>Base- en ArrayAdapter</h4>
         <p>Met de autolijst kunnen we een adapter maken. Het gemakkelijkst is om een ArrayAdapter te maken, maar omdat
-        dit een afstammeling is van de klasse BaseAdapter gaan we die laatste eerst gebruiken, zodat je wat meer
-        inzicht krijgt wat er op de achtergrond gebeurt.</p>
+            dit een afstammeling is van de klasse BaseAdapter gaan we die laatste eerst gebruiken, zodat je wat meer
+            inzicht krijgt wat er op de achtergrond gebeurt.</p>
 
         <pre class="code">
 public class AutoLijstBaseAdapter extends <span class="codeplus">BaseAdapter</span> {
@@ -305,6 +315,90 @@ public class AutoLijstBaseAdapter extends <span class="codeplus">BaseAdapter</sp
         return decimalFormat.format(prijs);
     }
 }</pre>
+
+        <p>Als je data zich in een <a href="https://developer.android.com/reference/java/util/List.html"
+                                      target="_blank">List</a> (bijvoorbeeld een ArrayList) of een array bevindt, kun je
+            een ArrayAdapter gebruiken. ArrayAdapter is een subklasse van BaseAdapter. Voor een ArrayAdapter heb je wat
+            minder code nodig. Onderstaande ArrayAdapter toont de belangrijkste verschillen.</p>
+
+        <pre class="code">
+public class AutoLijstArrayAdapter extends <span class="codeplus">ArrayAdapter&lt;Auto&gt;</span> {
+
+    <span class="comment">// we hebben geen ArrayList nodig</span>
+
+    private LayoutInflater inflater;
+
+    <span class="comment">/**
+     * Geeft context en data door aan superklasse
+     * @param context de Activity
+     * @param autoList de data
+     */</span>
+    public AutoLijstArrayAdapter(Context context, List&lt;Auto&gt; autoList) {
+        <span class="codeplus">super(context, 0, autoList);</span>
+        inflater = LayoutInflater.from(context);
+    }
+
+    <span class="comment">/**
+     *
+     * @param position de betreffende auto uit lijst
+     * @param convertView evr view die gerecycled kan worden
+     * @param parent niet gebruikt
+     * @return view met data
+    */</span>
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = convertView;
+        if (view == null) {
+            view = inflater.inflate(R.layout.list_item, null);
+        }
+        <span class="codeplus">Auto auto = getItem(position);</span>
+        TextView merkTextView = (TextView) view.findViewById(R.id.merk);
+        TextView prijsTextView = (TextView) view.findViewById(R.id.prijs);
+        merkTextView.setText(auto.getMerk());
+        prijsTextView.setText(maakPrijsFormat(auto.getPrijs()));
+        return view;
+    }
+
+    <span class="comment">/**
+     * hulpmethode om van double prijs een geformatteerde String te maken
+     * @param prijs de prijs van de auto
+     * @return gefomatteerde String
+     */</span>
+    private String maakPrijsFormat(double prijs) {
+        // set scheidingstekens voor DecimalFormat
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(&#039;,&#039;);
+        symbols.setGroupingSeparator(&#039;.&#039;);
+
+        // formatteer prijs string met scheidingstekens
+        DecimalFormat decimalFormat = new DecimalFormat(&quot;&euro; #,##0.00&quot;, symbols);
+        return decimalFormat.format(prijs);
+    }
+}
+        </pre>
+
+        <p>De laatste stap die we nog moeten zetten is in MainActivity een object van &eacute;&eacute;n van onze
+            adapterklassen maken en deze aan de listview koppelen. Het eerste argument van de constructor is de
+            context. De context is de Activity dus kun je this gebruiken. Het tweede argument is de lijst met auto&#39;s.</p>
+
+        <pre class="code">
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        vulAutoLijst();
+
+        <span class="comment">// Maak een referentie naar de ListView</span>
+        ListView listView = (ListView) findViewById(R.id.autolist);
+
+        <span class="comment">// Maak een BaseAdapter of een ArrayAdapter</span>
+<span class="comment">//        AutoLijstBaseAdapter adapter = new AutoLijstBaseAdapter(this, autos);</span>
+        AutoLijstArrayAdapter adapter = new AutoLijstArrayAdapter(<span class="codeplus">this</span> , autos);
+
+        <span class="comment">// Koppel adapter aan ListView</span>
+        listView.setAdapter(adapter);
+    }</pre>
 
 
         <div class="opdrachten">
