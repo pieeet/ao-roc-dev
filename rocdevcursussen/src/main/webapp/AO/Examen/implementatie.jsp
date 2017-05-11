@@ -426,11 +426,11 @@
             <p>Voer de acceptatietest uit. Doe dat in de volgende stappen:</p>
             <ul>
                 <li>Stel een gegevens set voor de acceptatietest samen.</li>
-                <li>Schrijf testscenario’s voor de belangrijkste functies van
+                <li>Schrijf testscenario&#39;s voor de belangrijkste functies van
                     de applicatie.
                 </li>
                 <li>Stel ten minste vijf vragen op die je later stelt aan de
-                    opdrachtgever.
+                    opdrachtgever. De antwoorden kun je gebruiken bij de evaluatie.
                 </li>
                 <li>Maak een registratiesysteem voor het bijhouden van de
                     resultaten van de acceptatietest.
