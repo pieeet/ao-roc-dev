@@ -57,18 +57,24 @@
 
 
         <div class="opdrachten">
-            <h2>Project</h2>
-            <div class="ninja_level_uitleg">
-                <img class="ninja_img_uitleg" alt="master" src="<c:url value="/images/master.png"/>">
-                <p>Maak een news reader app met behulp van een bestaande API.
-                    Voor meer info zie
-                    <a href="https://classroom.udacity.com/courses/ud843/lessons/6752095343239847/concepts/78222105900923#"
-                       target="_blank">Project Overview</a>.</p>
-
-
-                <p>Voorbeeld <a
-                        href="https://play.google.com/store/apps/details?id=com.rocdev.guardianreader">roc-dev</a></p>
-            </div>
+            <h2>Project 1 Book Listing App</h2>
+            <p>The goal is to design and create the structure of a Book Listing app which would allow a user
+                to get a list of published books on a given topic. You will be using the google books api in
+                order to fetch results and display them to the user.
+                Voor meer info zie
+                <a href="https://classroom.udacity.com/courses/ud843/lessons/c013e654-996a-41f6-92ee-5a303e74e8f7/concepts/ace02bc1-ca18-4a41-8416-3fb8019a5f84"
+                   target="_blank">Project Overview</a>.</p>
+        </div>
+        <div class="opdrachten">
+            <h2>Project 2 News App</h2>
+            <p>The goal is to create a News feed app which gives a user regularly-updated news from the internet
+                related to a particular topic, person, or location. The presentation of the information as well as the
+                topic is up to you.
+                Voor meer info zie
+                <a href="https://classroom.udacity.com/courses/ud843/lessons/6752095343239847/concepts/78222105900923"
+                   target="_blank">Project Overview</a>.</p>
+            <p>Voorbeeld <a
+                    href="https://play.google.com/store/apps/details?id=com.rocdev.guardianreader">roc-dev</a></p>
         </div>
 
         <h3>JSON objecten</h3>
@@ -233,9 +239,9 @@ protected void onCreate(Bundle savedInstanceState) {
         <h3>Een AsyncTaskLoader gebruiken</h3>
         <p>Als data vanuit een achtergrond thread in een User Interface moet worden getoond kun je beter een
             Loader gebruiken. Zorg dat de
-        Activity waarin de data moet worden geladen de Interface LoaderManager.LoaderCallbacks&lt;D&gt;
-        implementeert, waarbij de D staat voor de data die wordt gebruikt. In de Earthquake app van de Udacity
-        cursus was D een List met Earthquakes. Zie codefragment.</p>
+            Activity waarin de data moet worden geladen de Interface LoaderManager.LoaderCallbacks&lt;D&gt;
+            implementeert, waarbij de D staat voor de data die wordt gebruikt. In de Earthquake app van de Udacity
+            cursus was D een List met Earthquakes. Zie codefragment.</p>
 
         <pre class="code">
 public class EarthquakeActivity extends AppCompatActivity
@@ -245,7 +251,8 @@ public class EarthquakeActivity extends AppCompatActivity
         <p>Je moet nu drie methoden implementeren:</p>
         <ul>
             <li>onCreateLoader: deze methode instantieert een custom Loader (die je zelf moet maken) en geeft hem
-            door aan:</li>
+                door aan:
+            </li>
             <li>onLoadFinished</li>
             <li>onLoaderReset</li>
         </ul>
@@ -283,7 +290,7 @@ public class EarthquakeLoader extends <span class="codeplus">AsyncTaskLoader&lt;
         </pre>
 
         <p>In de onCreateLoader methode kun je nu een object van je custom loader maken. Als de data is geladen, wordt
-        de methode onLoadFinished aangeroepen.</p>
+            de methode onLoadFinished aangeroepen.</p>
 
         <pre class="code">
     @Override
@@ -311,9 +318,6 @@ public class EarthquakeLoader extends <span class="codeplus">AsyncTaskLoader&lt;
             Deze :</p>
         <pre class="code">
 getLoaderManager().initLoader(LOADER_ID, null, this);</pre>
-
-
-
 
 
     </div>

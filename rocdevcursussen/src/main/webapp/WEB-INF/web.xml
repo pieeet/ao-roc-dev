@@ -695,34 +695,34 @@
     </security-constraint>
 
 
-    <!-- enforce https everywhere-->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>profile</web-resource-name>
-            <url-pattern>/*</url-pattern>
-        </web-resource-collection>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>profile</web-resource-name>
-            <url-pattern>/*/*</url-pattern>
-        </web-resource-collection>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>profile</web-resource-name>
-            <url-pattern>/*/*/*</url-pattern>
-        </web-resource-collection>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
+     <!--enforce https everywhere-->
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>profile</web-resource-name>-->
+            <!--<url-pattern>/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>profile</web-resource-name>-->
+            <!--<url-pattern>/*/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>profile</web-resource-name>-->
+            <!--<url-pattern>/*/*/*</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<user-data-constraint>-->
+            <!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
 
 
 
@@ -745,7 +745,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LetsEncryptServlet</servlet-name>
-        <url-pattern>/.well-known/acme-challenge/48beoq-vRkNxYAfCKl6_zNN_vErhVAND7466rvotAWA</url-pattern>
+        <url-pattern>/.well-known/acme-challenge/MjVXmlPGdGIr0Sixg1Tsy7U2K7jl23iQkZAJPSO2Q0c</url-pattern>
     </servlet-mapping>
 
 

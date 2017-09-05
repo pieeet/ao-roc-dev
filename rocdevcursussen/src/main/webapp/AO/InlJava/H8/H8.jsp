@@ -507,15 +507,15 @@ public class Tekstvak extends Applet {
 				tweede tekstvak wordt leeggemaakt.</p>
 			<img src="<c:url value="/AO/InlJava/H8/images/rekenmachine.jpg"/>">
 
-			<h2>Uitbreiding staafdiagram</h2>
-			<p>Voeg labels, invoervelden en een knop toe zodat de gebruiker
-				de waardes van het staafdiagram kan veranderen.</p>
-			<%--<div class="embed-responsive embed-responsive-16by9">--%>
-				<%--<iframe width="560" height="315"--%>
-					<%--src="https://www.youtube.com/embed/Dzo9tZgFzZM" frameborder="0"--%>
-					<%--allowfullscreen></iframe>--%>
-			<%--</div>--%>
-			<img src="/AO/InlJava/H8/images/staafdiagramMetInvoer.png" height="400px">
+			<%--<h2>Uitbreiding staafdiagram</h2>--%>
+			<%--<p>Voeg labels, invoervelden en een knop toe zodat de gebruiker--%>
+				<%--de waardes van het staafdiagram kan veranderen.</p>--%>
+			<%--&lt;%&ndash;<div class="embed-responsive embed-responsive-16by9">&ndash;%&gt;--%>
+				<%--&lt;%&ndash;<iframe width="560" height="315"&ndash;%&gt;--%>
+					<%--&lt;%&ndash;src="https://www.youtube.com/embed/Dzo9tZgFzZM" frameborder="0"&ndash;%&gt;--%>
+					<%--&lt;%&ndash;allowfullscreen></iframe>&ndash;%&gt;--%>
+			<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+			<%--<img src="/AO/InlJava/H8/images/staafdiagramMetInvoer.png" height="400px">--%>
 
 
 		</div>

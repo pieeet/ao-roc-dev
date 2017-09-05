@@ -13,7 +13,7 @@ public class LetsEncryptServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("48beoq-vRkNxYAfCKl6_zNN_vErhVAND7466rvotAWA.X2_jOnuY3gaW7OXgUi-VRFgQm2blZCuoGYI4o1lOiyM");
+        resp.getWriter().print("MjVXmlPGdGIr0Sixg1Tsy7U2K7jl23iQkZAJPSO2Q0c.X2_jOnuY3gaW7OXgUi-VRFgQm2blZCuoGYI4o1lOiyM");
     }
 
     @Override
