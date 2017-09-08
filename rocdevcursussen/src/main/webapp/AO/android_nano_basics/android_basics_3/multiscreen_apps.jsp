@@ -16,7 +16,7 @@
                 <a href="https://www.udacity.com/course/android-basics-nanodegree-by-google--nd803"
                    target="_blank">Android for beginners Nanodegree</a></h2>
             <h3>Android Basics: <a
-                    href="https://classroom.udacity.com/courses/ud839/lessons/7633778648/concepts/75563354790923#"
+                    href="https://www.udacity.com/course/android-basics-multiscreen-apps--ud839"
                     target="_blank">Multiscreen Apps</a></h3>
             <p>Benodigde tijd: ca 30 uur</p>
         </div>

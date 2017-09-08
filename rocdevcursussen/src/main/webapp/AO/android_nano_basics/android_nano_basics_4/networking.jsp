@@ -15,7 +15,7 @@
             <a href="https://www.udacity.com/course/android-basics-nanodegree-by-google--nd803"
                target="_blank">Android for beginners Nanodegree</a></h2>
         <h3>Android Basics: <a
-                href="https://classroom.udacity.com/courses/ud843/lessons/1335cf7d-bb4f-48c6-8503-f14b127d2abc/concepts/7e580b0e-b0fb-4395-9e24-c3df3383d300#"
+                href="https://www.udacity.com/course/android-basics-networking--ud843"
                 target="_blank">Networking</a></h3>
         <p>Benodigde tijd: ca 40 uur</p>
 
