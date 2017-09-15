@@ -379,16 +379,18 @@ public class Stringarrays extends Applet {
 				tabel) worden getoond. In de tekstvakken moet de gebruiker getallen
 				in kunnen voeren. Als de gebruiker op de Ok-knop klikt worden de
 				getallen in oplopende volgorde gesorteerd getoond in de tekstvakken.</p>
+
 			<h2>Opdracht 12.4</h2>
-			<p>Zorg ervoor dat de lus waarin gezocht wordt naar een bepaalde
-				waarde in voorbeeld 12.5 stopt als de waarde gevonden is.</p>
-			<h2>Opdracht 12.5</h2>
 			<p>Maak een applet met een tabel met getallen, waarin de
 				gebruiker een getal kan intikken in een tekstvak. Als de gebruiker
 				op de OK-knop klikt dan wordt de waarde opgezocht in de tabel en
 				staat op het scherm niet alleen dat de waarde is gevonden maar ook
 				de index. Als de waarde niet is gevonden dan wordt daarvan melding
 				gedaan.</p>
+			<h2>Opdracht 12.5</h2>
+			<p>Zorg ervoor dat de lus waarin gezocht wordt naar een bepaalde
+				waarde in voorbeeld 12.4 stopt als de waarde gevonden is. Zoek op internet
+				hoe je dit kunt doen.</p>
 			<h2>Opdracht 12.6</h2>
 			<p>Maak een tabel, waarin elementen dezelfde waarde hebben. In de
 				applet kan de gebruiker een waarde intikken. Vervolgens laat het

@@ -162,8 +162,20 @@
                                     id="menu-item-android-nano-beginners"><a
                                         href="/AO/android-nano-beginners/intro">Android Beginners Nanodegree</a></li>
                                 <li class="menu-item menu-sub-item"
-                                    id="menu-item-android"><a
-                                        href="/AO/android/animaties">Android Maak 6 apps</a></li>
+                                    id="menu-item-developing-android-apps"><a
+                                        href="https://www.udacity.com/course/new-android-fundamentals--ud851"
+                                        target="_blank">Developing Android Apps (intermediate)</a></li>
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-advanced-android-app-development"><a
+                                        href="https://www.udacity.com/course/advanced-android-app-development--ud855"
+                                        target="_blank">Advanced Android Development</a></li>
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-android-certificate"><a
+                                        href="https://developers.google.com/training/certification/associate-android-developer/"
+                                        target="_blank">Android certification by Google</a></li>
+                                <%--<li class="menu-item menu-sub-item"--%>
+                                    <%--id="menu-item-android"><a--%>
+                                        <%--href="/AO/android/animaties">Android Maak 6 apps</a></li>--%>
 
                             </ul>
                         </li>
