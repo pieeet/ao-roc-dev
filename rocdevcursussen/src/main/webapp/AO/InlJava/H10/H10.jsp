@@ -459,8 +459,9 @@ public class Switch extends Applet {
 
 
 			<h2>Opdracht 10.1</h2>
-			<p>Schrijf een applet, waarin de gebruiker getallen kan intikken
-				en op het scherm bijgehouden wordt welk getal het hoogst is.</p>
+			<p>Schrijf een applet, waarin de gebruiker in een tekstvak een getal kan intikken.
+				Op het scherm wordt bijgehouden wat het hoogste getal is dat de gebruiker tot dan
+				toe heeft ingevoerd.</p>
 			<h2>Opdracht 10.2</h2>
 			<p>Breid de applet uit opdracht 1 zo uit dat ook het laagste
 				getal bijgehouden wordt.</p>
