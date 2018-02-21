@@ -426,9 +426,9 @@
         <url-pattern>/AO/android-nano-beginners/user-interface</url-pattern>
     </servlet-mapping>
     <servlet>
-    <servlet-name>AndroidBasicsUserInput</servlet-name>
-    <jsp-file>/AO/android_nano_basics/android_basics_2/user_input.jsp</jsp-file>
-</servlet>
+        <servlet-name>AndroidBasicsUserInput</servlet-name>
+        <jsp-file>/AO/android_nano_basics/android_basics_2/user_input.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AndroidBasicsUserInput</servlet-name>
         <url-pattern>/AO/android-nano-beginners/user-input</url-pattern>
@@ -457,7 +457,6 @@
         <servlet-name>AndroidBasicsDataStorage</servlet-name>
         <url-pattern>/AO/android-nano-beginners/datastorage</url-pattern>
     </servlet-mapping>
-
 
 
     <!-- JQuery -->
@@ -707,7 +706,7 @@
     </security-constraint>
 
 
-     <!--enforce https everywhere-->
+    <!--enforce https everywhere-->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>profile</web-resource-name>
@@ -737,7 +736,6 @@
     </security-constraint>
 
 
-
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
@@ -759,7 +757,6 @@
         <servlet-name>LetsEncryptServlet</servlet-name>
         <url-pattern>/.well-known/acme-challenge/MjVXmlPGdGIr0Sixg1Tsy7U2K7jl23iQkZAJPSO2Q0c</url-pattern>
     </servlet-mapping>
-
 
 
 </web-app>
