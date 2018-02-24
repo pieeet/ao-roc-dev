@@ -868,3 +868,16 @@ img#to-top:hover {
 img#to-top {
     width: 60px;
 }
+
+label.error {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+td.klik_user {
+    color: #337ab7;
+}
+
+td.klik_user:hover {
+    cursor: pointer;
+}

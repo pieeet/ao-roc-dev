@@ -675,11 +675,30 @@
         <servlet-name>WeekPlan</servlet-name>
         <servlet-class>dailystandups.DailyStandUpServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>WeekPlan</servlet-name>
         <url-pattern>/AO/planning</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PlanningOverzicht</servlet-name>
+        <servlet-class>dailystandups.OverviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlanningOverzicht</servlet-name>
+        <url-pattern>/AO/planning__</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PlanningenStudent</servlet-name>
+        <servlet-class>dailystandups.OverviewStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PlanningenStudent</servlet-name>
+        <url-pattern>/AO/student__</url-pattern>
+    </servlet-mapping>
+
+
 
 
     <!--Firebase Friendly Chat-->

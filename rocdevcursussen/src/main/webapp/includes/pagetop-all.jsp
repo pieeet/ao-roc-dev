@@ -81,8 +81,7 @@
         <div class="col-md-3">
             <!-- gebruikersnaam en log uit -->
             <p class="loguit"><span id="username">${fn:escapeXml(user.nickname)}</span>:
-                <a
-                        href="http://ao.roc-dev.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://ao.roc-dev.com/Welkom.jsp%26service%3Dah">afmelden</a>
+                <a href="http://ao.roc-dev.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://ao.roc-dev.com/Welkom.jsp%26service%3Dah">afmelden</a>
             </p>
         </div>
         <%
@@ -145,9 +144,9 @@
                                 <li class="menu-item menu-sub-item" id="menu-item-jquery"><a
                                         href="/AO/jquery/jquery1">JQuery</a></li>
                                 <%--<li class="menu-item menu-sub-item" id="menu-item-gcp"><a--%>
-                                        <%--href="/AO/gcpcoupons">GCP</a></li>--%>
+                                <%--href="/AO/gcpcoupons">GCP</a></li>--%>
                                 <%--<li class="menu-item menu-sub-item" id="menu-item-frienlyChat"><a--%>
-                                        <%--href="/AO/friendly-chat">Firebase Code Lab</a></li>--%>
+                                <%--href="/AO/friendly-chat">Firebase Code Lab</a></li>--%>
                             </ul>
                         </li>
 
@@ -174,8 +173,8 @@
                                         href="https://developers.google.com/training/certification/associate-android-developer/"
                                         target="_blank">Android certification by Google</a></li>
                                 <%--<li class="menu-item menu-sub-item"--%>
-                                    <%--id="menu-item-android"><a--%>
-                                        <%--href="/AO/android/animaties">Android Maak 6 apps</a></li>--%>
+                                <%--id="menu-item-android"><a--%>
+                                <%--href="/AO/android/animaties">Android Maak 6 apps</a></li>--%>
 
                             </ul>
                         </li>

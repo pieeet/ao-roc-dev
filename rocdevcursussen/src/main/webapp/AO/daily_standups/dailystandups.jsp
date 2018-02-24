@@ -7,8 +7,6 @@
   Time: 11:46
   To change this template use File | Settings | File Templates.
 --%>
-
-
 <%
     if (request.getAttribute("fromservlet") == null) {
         response.sendRedirect("/AO/planning");
@@ -19,20 +17,11 @@
         standUpUser = planning.getUser();
     }
 %>
-
-<style>
-    label.error {
-        color: #d9534f;
-        font-weight: bold;
-    }
-</style>
-
-
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
-    <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
 
-    <div class="col-md-7">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <h1>Planningsformulier</h1>
         <p>In dit formulier geef je aan wat je afgelopen week hebt gedaan en wat je de komende week wilt gaan doen.</p>
         <form role="form" id="planning_form">
@@ -43,7 +32,7 @@
                     <%
                         if (standUpUser != null) {
                     %>
-                    <option value="<%=standUpUser.getGroep()%>"><%=standUpUser.getGroep()%></option>
+                    <option value="<%=standUpUser.getGroepEsc()%>"><%=standUpUser.getGroepEsc()%></option>
 
                     <%} else {%>
                     <option value="">Kiezen...</option>
@@ -70,7 +59,7 @@
                     } else {
                 %>
                 <input class="form-control required" id="naam_input" name="naam_input"
-                       value="<%=standUpUser.getNaam()%>">
+                       value="<%=standUpUser.getNaamEsc()%>">
 
                 <%
                     }
@@ -90,10 +79,10 @@
                     <p>Datum ingevuld: <%= planning.getDateFormat()%>
                     </p>
                     <h3>Gepland werk</h3>
-                    <p><%= planning.getPlanning() %>
+                    <p><%= planning.getPlanningEsc() %>
                     </p>
                     <h3>Belemmeringen</h3>
-                    <p><%=planning.getBelemmeringen()%>
+                    <p><%=planning.getBelemmeringenEsc()%>
                     </p>
                     <%
                         }%>

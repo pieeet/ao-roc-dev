@@ -91,15 +91,8 @@ class DataUtils {
         Entity planningEntity;
         try {
             planningEntity = datastore.get(planningKey);
-            Planning planning = new Planning();
+            Planning planning = getPlanningFromEntity(planningEntity);
             planning.setUser(user);
-            planning.setDate((Date) planningEntity.getProperty(PROPERTY_DATE));
-            planning.setPlanning((String) planningEntity.getProperty(PROPERTY_PLANNING));
-            planning.setBelemmeringen((String) planningEntity.getProperty(PROPERTY_BELEMMERINGEN));
-            planning.setAfgerond((Boolean) planningEntity.getProperty(PROPERTY_AFGEROND));
-            planning.setGedaan((String) planningEntity.getProperty(PROPERTY_GEDAAN));
-            planning.setNogTeDoen((String) planningEntity.getProperty(PROPERTY_NOG_DOEN));
-            planning.setRedenNietAf((String) planningEntity.getProperty(PROPERTY_REDEN_NIET_AF));
             return planning;
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
@@ -107,9 +100,22 @@ class DataUtils {
         }
     }
 
+    private static Planning getPlanningFromEntity(Entity entity) {
+        Planning planning = new Planning();
+        planning.setDate((Date) entity.getProperty(PROPERTY_DATE));
+        planning.setPlanning((String) entity.getProperty(PROPERTY_PLANNING));
+        planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
+        planning.setAfgerond((Boolean) entity.getProperty(PROPERTY_AFGEROND));
+        planning.setGedaan((String) entity.getProperty(PROPERTY_GEDAAN));
+        planning.setNogTeDoen((String) entity.getProperty(PROPERTY_NOG_DOEN));
+        planning.setRedenNietAf((String) entity.getProperty(PROPERTY_REDEN_NIET_AF));
+        return planning;
+    }
+
     static List<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort) {
         ArrayList<StandUpUser> users = new ArrayList<>();
-        Query.Filter propertyFilter= new Query.FilterPredicate(PROPERTY_COHORT, Query.FilterOperator.EQUAL, cohort);
+        Query.Filter propertyFilter= new Query.FilterPredicate(PROPERTY_COHORT,
+                Query.FilterOperator.EQUAL, cohort);
         Query q = new Query(KIND_USER).addSort(PROPERTY_NAAM,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
@@ -121,4 +127,21 @@ class DataUtils {
         }
         return users;
     }
+
+
+    static ArrayList<Planning> getPlanningenFromUser(String email) {
+        ArrayList<Planning> planningen = new ArrayList<>();
+        Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_EMAIL,
+                Query.FilterOperator.EQUAL, email);
+        Query q = new Query(KIND_PLANNING).addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING)
+                .setFilter(propertyFilter);
+        PreparedQuery pq = datastore.prepare(q);
+        for (Entity entity: pq.asIterable()) {
+            planningen.add(getPlanningFromEntity(entity));
+        }
+        return planningen;
+    }
+
+
+
 }

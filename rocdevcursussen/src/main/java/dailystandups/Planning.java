@@ -1,5 +1,7 @@
 package dailystandups;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -46,12 +48,20 @@ public class Planning {
         return planning;
     }
 
+    public String getPlanningEsc() {
+        return StringEscapeUtils.escapeHtml4(planning);
+    }
+
     public void setPlanning(String planning) {
         this.planning = planning;
     }
 
     public String getBelemmeringen() {
         return belemmeringen;
+    }
+
+    public String getBelemmeringenEsc() {
+        return StringEscapeUtils.escapeHtml4(belemmeringen);
     }
 
     public void setBelemmeringen(String belemmeringen) {
@@ -70,12 +80,20 @@ public class Planning {
         return gedaan;
     }
 
+    public String getGedaanEsc() {
+        return StringEscapeUtils.escapeHtml4(gedaan);
+    }
+
     public void setGedaan(String gedaan) {
         this.gedaan = gedaan;
     }
 
     public String getNogTeDoen() {
         return nogTeDoen;
+    }
+
+    public String getNogTeDoenEsc() {
+        return StringEscapeUtils.escapeHtml4(nogTeDoen);
     }
 
     public void setNogTeDoen(String nogTeDoen) {
@@ -86,7 +104,19 @@ public class Planning {
         return redenNietAf;
     }
 
+    public String getRedenNietAfEsc() {
+        return StringEscapeUtils.escapeHtml4(redenNietAf);
+    }
+
     public void setRedenNietAf(String redenNietAf) {
         this.redenNietAf = redenNietAf;
+    }
+
+    public String getAfgerondString() {
+        if (isAfgerond()) {
+            return "Ja";
+        } else {
+            return "Nee";
+        }
     }
 }
