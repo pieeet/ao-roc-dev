@@ -3,7 +3,10 @@ package dailystandups;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created by Piet de Vries on 15-02-18.
@@ -35,9 +38,12 @@ public class Planning {
         return date;
     }
 
-    public String getDateFormat() {
+    public String getDateFormat(Locale locale) {
+
+        Calendar cal = new GregorianCalendar(locale);
+        cal.setTime(date);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        return sdf.format(date);
+        return sdf.format(cal.getTime());
     }
 
     public void setDate(Date date) {

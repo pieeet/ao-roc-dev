@@ -8,6 +8,7 @@
 --%>
 
 <%
+    @SuppressWarnings("unchecked")
     ArrayList<Planning> planningen = (ArrayList<Planning>) request.getAttribute("planningen");
     if (planningen == null) {
         response.sendRedirect("/AO/planning");
@@ -37,7 +38,7 @@
                 for (Planning p: planningen) {
             %>
             <tr>
-                <td><%=p.getDateFormat()%></td>
+                <td><%=p.getDateFormat(request.getLocale())%></td>
                 <td><%=p.getPlanningEsc()%></td>
                 <td><%=p.getBelemmeringenEsc()%></td>
                 <td><%=p.getAfgerondString()%></td>

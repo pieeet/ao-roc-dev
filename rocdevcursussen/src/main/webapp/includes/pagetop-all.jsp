@@ -180,6 +180,23 @@
                         </li>
                         <li class="menu-item" id="menu-item-examen"><a
                                 href="/AO/examen/jemeppe">Examen</a></li>
+
+
+                        <li class="dropdown menu-item" id="menu-item-planning"><a
+                                href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                role="button" aria-haspopup="true" aria-expanded="false">Planning
+                            <span class="caret"></span>
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-planning-form"><a
+                                        href="/AO/planning">Planning</a></li>
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-planning-history"><a
+                                        href="/AO/student__?email=<%=user.getEmail()%>">Overzicht</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                     <!-- /.navbar-collapse -->
                 </div>

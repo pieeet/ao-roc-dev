@@ -76,7 +76,7 @@
                     <p>Je hebt nog geen planning</p>
                     <%
                     } else { %>
-                    <p>Datum ingevuld: <%= planning.getDateFormat()%>
+                    <p>Datum ingevuld: <%= planning.getDateFormat(request.getLocale())%>
                     </p>
                     <h3>Gepland werk</h3>
                     <p><%= planning.getPlanningEsc() %>

@@ -43,7 +43,6 @@
 
 </div>
 
-</div>
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
 <script
         src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"

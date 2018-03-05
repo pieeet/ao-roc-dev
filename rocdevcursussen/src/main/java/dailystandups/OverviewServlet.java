@@ -50,13 +50,13 @@ public class OverviewServlet extends HttpServlet {
         if (req.getParameter("kies_cohort_btn") != null) {
             int cohort = Integer.parseInt(req.getParameter("cohort_kiezer"));
             List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
-            resp.getWriter().print(maakTabel(users));
+            resp.getWriter().print(maakTabel(users, req));
         }
     }
 
 
-    private String maakTabel(List<StandUpUser> users) {
-        StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed\">" +
+    private String maakTabel(List<StandUpUser> users, HttpServletRequest req) {
+        StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
                 "<th>Naam</th>" +
                 "<th>Datum/tijd</th>" +
@@ -72,7 +72,7 @@ public class OverviewServlet extends HttpServlet {
             html.append("<tr>")
                     .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
                     .append(user.getNaam()).append("</td>").append("<td>")
-                    .append(user.getVorigePlanning().getDateFormat()).append("</td>")
+                    .append(user.getVorigePlanning().getDateFormat(req.getLocale())).append("</td>")
                     .append("<td>").append(user.getVorigePlanning().getPlanning()).append("</td>")
                     .append("<td>").append(user.getVorigePlanning().getBelemmeringen())
                     .append("</td>").append("<td>").append(user.getVorigePlanning().getAfgerondString())
@@ -80,8 +80,8 @@ public class OverviewServlet extends HttpServlet {
                     .append("</td>").append("<td>").append(user.getVorigePlanning().getNogTeDoen())
                     .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAf())
                     .append("</td>").append("</tr>");
-            html.append("<tr>" + "<td>").append(user.getNaam()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getDateFormat()).append("</td>").append("<td>")
+            html.append("<tr>" + "<td>").append("").append("</td>").append("<td>")
+                    .append(user.getHuidigePlanning().getDateFormat(req.getLocale())).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getPlanning()).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getBelemmeringen()).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getAfgerondString()).append("</td>").append("<td>")

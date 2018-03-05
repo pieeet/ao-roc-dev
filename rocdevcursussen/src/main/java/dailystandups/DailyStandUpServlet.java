@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Piet de Vries on 15-02-18.
@@ -54,6 +56,7 @@ public class DailyStandUpServlet extends HttpServlet {
                 laatstePlanning.setGedaan(req.getParameter("wat_wel_gedaan"));
                 laatstePlanning.setNogTeDoen(req.getParameter("wat_nog doen"));
                 laatstePlanning.setRedenNietAf(req.getParameter("waarom_niet_gelukt"));
+                // user wordt nu nog niet bewaard
                 DataUtils.saveUserAndPlanning(laatstePlanning, 0, false);
             }
             Planning nieuwePlanning = new Planning();
@@ -62,6 +65,7 @@ public class DailyStandUpServlet extends HttpServlet {
             nieuwePlanning.setDate(new Date());
             nieuwePlanning.setPlanning(req.getParameter("plannen_komende_week"));
             nieuwePlanning.setBelemmeringen(req.getParameter("hulp_nodig"));
+            //user wordt hier wél bewaard
             DataUtils.saveUserAndPlanning(nieuwePlanning, laatstePlanningId, true);
             resp.getWriter().print("ok");
         }

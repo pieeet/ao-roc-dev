@@ -15,7 +15,7 @@ class DataUtils {
     private static DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
     private static final String KIND_USER = "StandUpUser";
-    private static final String KIND_PLANNING = "planning";
+    private static final String KIND_PLANNING = "Planning";
     private static final String PROPERTY_GROEP = "groep";
     private static final String PROPERTY_COHORT = "cohort";
     private static final String PROPERTY_NAAM = "naam";
