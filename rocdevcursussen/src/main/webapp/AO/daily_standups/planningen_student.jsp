@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.Planning" %><%--
+<%@ page import="dailystandups.Planning" %>
+<%@ page import="java.util.Locale" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 23-02-18
@@ -38,7 +39,7 @@
                 for (Planning p: planningen) {
             %>
             <tr>
-                <td><%=p.getDateFormat(request.getLocale())%></td>
+                <td><%=p.getDateFormat()%></td>
                 <td><%=p.getPlanningEsc()%></td>
                 <td><%=p.getBelemmeringenEsc()%></td>
                 <td><%=p.getAfgerondString()%></td>

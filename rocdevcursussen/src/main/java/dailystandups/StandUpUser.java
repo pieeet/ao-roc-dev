@@ -116,6 +116,5 @@ public class StandUpUser {
             }
         }
         this.naam = naam;
-
     }
 }

@@ -37,7 +37,12 @@ class DataUtils {
         if (isNew) {
             userEntity.setProperty(PROPERTY_GROEP, standUpUser.getGroep());
             userEntity.setProperty(PROPERTY_COHORT, standUpUser.getCohort());
-            userEntity.setProperty(PROPERTY_NAAM, standUpUser.getNaam());
+
+            //zorg dat naam begint met hoofdletter
+            String naam = standUpUser.getNaam();
+            String eersteLetter = naam.substring(0, 1).toUpperCase();
+            naam = eersteLetter + naam.substring(1);
+            userEntity.setProperty(PROPERTY_NAAM, naam);
             userEntity.setProperty(PROPERTY_EMAIL, standUpUser.getEmail());
             userEntity.setProperty(PROPERTY_LATEST_PLANNING_ID, planning.getDate().getTime());
             if (vorigePlanningId > 0) userEntity.setProperty(PROPERTY_FORMER_PLANNING_ID, vorigePlanningId);
@@ -95,7 +100,6 @@ class DataUtils {
             planning.setUser(user);
             return planning;
         } catch (EntityNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -116,6 +120,7 @@ class DataUtils {
         ArrayList<StandUpUser> users = new ArrayList<>();
         Query.Filter propertyFilter= new Query.FilterPredicate(PROPERTY_COHORT,
                 Query.FilterOperator.EQUAL, cohort);
+
         Query q = new Query(KIND_USER).addSort(PROPERTY_NAAM,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
@@ -128,20 +133,16 @@ class DataUtils {
         return users;
     }
 
-
     static ArrayList<Planning> getPlanningenFromUser(String email) {
         ArrayList<Planning> planningen = new ArrayList<>();
-        Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_EMAIL,
-                Query.FilterOperator.EQUAL, email);
-        Query q = new Query(KIND_PLANNING).addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING)
-                .setFilter(propertyFilter);
+        Key ancestorKey = KeyFactory.createKey(KIND_USER, email);
+        Query q = new Query(KIND_PLANNING)
+                .setAncestor(ancestorKey)
+                .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity: pq.asIterable()) {
             planningen.add(getPlanningFromEntity(entity));
         }
         return planningen;
     }
-
-
-
 }

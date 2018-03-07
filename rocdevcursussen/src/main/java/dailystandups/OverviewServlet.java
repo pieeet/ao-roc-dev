@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Piet de Vries on 19-02-18.
@@ -56,6 +57,9 @@ public class OverviewServlet extends HttpServlet {
 
 
     private String maakTabel(List<StandUpUser> users, HttpServletRequest req) {
+
+
+
         StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
                 "<th>Naam</th>" +
@@ -69,19 +73,22 @@ public class OverviewServlet extends HttpServlet {
                 "</tr>");
 
         for (StandUpUser user : users) {
-            html.append("<tr>")
-                    .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
-                    .append(user.getNaam()).append("</td>").append("<td>")
-                    .append(user.getVorigePlanning().getDateFormat(req.getLocale())).append("</td>")
-                    .append("<td>").append(user.getVorigePlanning().getPlanning()).append("</td>")
-                    .append("<td>").append(user.getVorigePlanning().getBelemmeringen())
-                    .append("</td>").append("<td>").append(user.getVorigePlanning().getAfgerondString())
-                    .append("</td>").append("<td>").append(user.getVorigePlanning().getGedaan())
-                    .append("</td>").append("<td>").append(user.getVorigePlanning().getNogTeDoen())
-                    .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAf())
-                    .append("</td>").append("</tr>");
-            html.append("<tr>" + "<td>").append("").append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getDateFormat(req.getLocale())).append("</td>").append("<td>")
+            if (user.getVorigePlanning() != null) {
+                html.append("<tr>")
+                        .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
+                        .append(user.getNaamEsc()).append("</td>").append("<td>")
+                        .append(user.getVorigePlanning().getDateFormat()).append("</td>")
+                        .append("<td>").append(user.getVorigePlanning().getPlanning()).append("</td>")
+                        .append("<td>").append(user.getVorigePlanning().getBelemmeringen())
+                        .append("</td>").append("<td>").append(user.getVorigePlanning().getAfgerondString())
+                        .append("</td>").append("<td>").append(user.getVorigePlanning().getGedaan())
+                        .append("</td>").append("<td>").append(user.getVorigePlanning().getNogTeDoen())
+                        .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAf())
+                        .append("</td>").append("</tr>");
+            }
+            html.append("<tr>").append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
+                    .append(user.getNaamEsc()).append("</td>").append("<td>")
+                    .append(user.getHuidigePlanning().getDateFormat()).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getPlanning()).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getBelemmeringen()).append("</td>").append("<td>")
                     .append(user.getHuidigePlanning().getAfgerondString()).append("</td>").append("<td>")

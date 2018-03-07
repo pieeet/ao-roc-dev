@@ -191,9 +191,15 @@
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-form"><a
                                         href="/AO/planning">Planning</a></li>
+                                <%
+                                    if (user != null) {
+                                %>
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-history"><a
                                         href="/AO/student__?email=<%=user.getEmail()%>">Overzicht</a></li>
+                                <%
+                                    }
+                                %>
                             </ul>
                         </li>
 

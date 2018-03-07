@@ -38,12 +38,16 @@ public class Planning {
         return date;
     }
 
-    public String getDateFormat(Locale locale) {
+    public String getDateFormat() {
 
-        Calendar cal = new GregorianCalendar(locale);
-        cal.setTime(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        return sdf.format(cal.getTime());
+        try {
+            Date datePlus = new Date(date.getTime() + 1000 * 60 * 60);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            return sdf.format(datePlus);
+        } catch (Exception e) {
+            return "null";
+        }
+
     }
 
     public void setDate(Date date) {

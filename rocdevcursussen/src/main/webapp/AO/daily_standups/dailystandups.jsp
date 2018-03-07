@@ -28,7 +28,6 @@
             <div class="form-group">
                 <label for="groep_kiezer">Groep</label>
                 <select class="form-control required" id="groep_kiezer" name="groep_kiezer">
-
                     <%
                         if (standUpUser != null) {
                     %>
@@ -57,6 +56,7 @@
                        placeholder="Naam">
                 <%
                     } else {
+
                 %>
                 <input class="form-control required" id="naam_input" name="naam_input"
                        value="<%=standUpUser.getNaamEsc()%>">
@@ -76,7 +76,7 @@
                     <p>Je hebt nog geen planning</p>
                     <%
                     } else { %>
-                    <p>Datum ingevuld: <%= planning.getDateFormat(request.getLocale())%>
+                    <p>Datum ingevuld: <%= planning.getDateFormat()%>
                     </p>
                     <h3>Gepland werk</h3>
                     <p><%= planning.getPlanningEsc() %>
@@ -86,7 +86,6 @@
                     </p>
                     <%
                         }%>
-
                 </div>
             </div>
 

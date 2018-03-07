@@ -12,6 +12,7 @@
             <div class="col-md-9">
 
                 <h2>Welkom ${fn:escapeXml(user.nickname)}!</h2>
+
                 <div class="bs-callout bs-callout-warning">
                     <h3>Leerdoelen</h3>
                     <p>
