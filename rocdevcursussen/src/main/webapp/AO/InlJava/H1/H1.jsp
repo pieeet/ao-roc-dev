@@ -5,6 +5,16 @@
     <%@ include file="/AO/InlJava/includes/zijmenu.jsp" %>
     <div class="col-md-9">
         <h2>H1 installeren ontwikkelomgeving</h2>
+
+
+        <div class="bs-callout bs-callout-succes">
+
+            <p>Ticketcode: IJ01</p>
+            <p>Aantal uren: 6</p>
+        </div>
+
+
+
         <!-- Leerdoelen -->
         <div class="bs-callout bs-callout-warning">
             <h3>Leerdoelen</h3>
