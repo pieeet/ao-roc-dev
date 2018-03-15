@@ -89,7 +89,7 @@
                             Ticket[] tickets = planning.getTickets();
                             for (Ticket ticket : tickets) {
                         %>
-                        <li><%=ticket.getNaamVak()%> - <%=ticket.getCodeTicket()%> - <%=ticket.getAantalUren()%>uur</li>
+                        <li><%=ticket.getNaamVak()%> - <%=ticket.getCodeTicket()%> - <%=ticket.getAantalUren()%> punten</li>
                         <%
                             }
                         %>
@@ -113,7 +113,6 @@
                 volgende keer wel te laten lukken?</p>
 
             <h3>Vorige planning</h3>
-
 
             <div class="form-group">
                 <label for="planning_gehaald">Heb je je planning gehaald?</label>
@@ -214,7 +213,7 @@
                     <h2>Planning komende week</h2>
                     <p>Zorg dat het aantal uren ongeveer overeenkomt met het aantal uren op je rooster voor
                         Applicatieontwikkeling.</p>
-                    <p>Totaal uren geselecteerde tickets: <span id="totaal_uren">0</span></p>
+                    <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
                     <h3>Tickets</h3>
                     <ul id="tickets_list"></ul>
                 </div>
@@ -309,7 +308,7 @@
                         let ticketCode = selectedItem.data("code");
                         let urenTicket = selectedItem.data("uren");
                         $("#tickets_list").append('<li data-ticketcode=' + ticketCode + '>' + vak +
-                            ' ' + ticketCode + ' ' + urenTicket + ' uur</li>');
+                            ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
                         let uurSpan = $("#totaal_uren");
                         let totaalUren = Number(uurSpan.text());
                         totaalUren += Number(urenTicket);
