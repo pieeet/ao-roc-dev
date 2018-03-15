@@ -15,6 +15,7 @@ public class PlanningV2 {
     private Date entryDate;
     private Ticket[] tickets;
     private String[] ticketIds;
+    private String planning;
     private String belemmeringen;
     private boolean isAfgerond;
     private String gedaan;
@@ -125,5 +126,16 @@ public class PlanningV2 {
 
     public void setAfgerond(boolean afgerond) {
         isAfgerond = afgerond;
+    }
+
+    public String getPlanning() {
+        return planning;
+    }
+    public String getPlanningEsc() {
+        return StringEscapeUtils.escapeHtml4(planning);
+    }
+
+    public void setPlanning(String planning) {
+        this.planning = planning;
     }
 }

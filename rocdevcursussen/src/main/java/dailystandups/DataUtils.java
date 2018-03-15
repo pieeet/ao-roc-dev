@@ -127,13 +127,11 @@ class DataUtils {
     }
 
     static PlanningV2 getPlanningV2(String userId, boolean isLatest) {
-        System.out.println("getPlanningV2 triggered");  //check!
         Key userKey = KeyFactory.createKey(KIND_USER, userId);
         try {
             Entity userEntity = datastore.get(userKey);
             return getPlanningV2(makeUserFromEntity(userEntity), isLatest);
         } catch (EntityNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -171,11 +169,9 @@ class DataUtils {
     }
 
     private static PlanningV2 getPlanningV2(StandUpUser user, boolean isLatest) {
-        System.out.println("getPlanningV2 with user triggered"); //check!
         long planningId;
         if (isLatest) planningId = user.getLaatstePlanningId();
         else planningId = user.getVorigePlanningId();
-        System.out.println("user email: " + user.getEmail()); //check
         Key planningKey = new KeyFactory.Builder(KIND_USER, user.getEmail())
                 .addChild(KIND_PLANNING, planningId)
                 .getKey();
@@ -183,17 +179,11 @@ class DataUtils {
         try {
             planningEntity = datastore.get(planningKey);
             PlanningV2 planning = getPlanningV2FromEntity(planningEntity);
-            System.out.println("Test");
             planning.setUser(user);
-            System.out.println("getPlanningV2 planning email: " + planning.getUser().getEmail());
             List<Ticket> tickets = getTicketsFromPlanning(planning);
-            for (Ticket ticket: tickets) {
-                System.out.println("getPlanningV2 ticket code: " + ticket.getCodeTicket());
-            }
             planning.setTickets(tickets.toArray(new Ticket[tickets.size()]));
             return planning;
         } catch (EntityNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -213,6 +203,7 @@ class DataUtils {
     private static PlanningV2 getPlanningV2FromEntity(Entity entity) {
         PlanningV2 planning = new PlanningV2();
         planning.setEntryDate((Date) entity.getProperty(PROPERTY_DATE));
+        planning.setPlanning((String) entity.getProperty(PROPERTY_PLANNING));
         planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
         planning.setAfgerond((Boolean) entity.getProperty(PROPERTY_AFGEROND));
         planning.setGedaan((String) entity.getProperty(PROPERTY_GEDAAN));
@@ -251,7 +242,6 @@ class DataUtils {
         return planningen;
     }
 
-
     static void voegVakToe(Vak vak) {
         Entity entity = new Entity(KIND_VAK, vak.getNaam());
         entity.setProperty(PROPERTY_NAAM, vak.getNaam());
@@ -265,7 +255,6 @@ class DataUtils {
         for (Entity e: pq.asIterable()) {
             String naam = (String) e.getProperty(PROPERTY_NAAM);
             vakken.add(new Vak(naam));
-
         }
         return vakken;
     }
@@ -276,23 +265,6 @@ class DataUtils {
         entity.setProperty(PROPERTY_CODE, ticket.getCodeTicket());
         entity.setProperty(PROPERTY_AANTAL_UREN, ticket.getAantalUren());
         datastore.put(entity);
-    }
-
-
-    static Ticket getTicket(String ticketCode) {
-        Key key = KeyFactory.createKey(KIND_TICKET, ticketCode);
-        Ticket ticket = null;
-        try {
-            Entity ent = datastore.get(key);
-            String naamVak = (String) ent.getProperty(PROPERTY_VAK);
-            String code = (String) ent.getProperty(PROPERTY_CODE);
-            int aantalUren = (int) (long) ent.getProperty(PROPERTY_AANTAL_UREN);
-            ticket = new Ticket(naamVak, code, aantalUren);
-
-        } catch (EntityNotFoundException e) {
-            e.printStackTrace();
-        }
-        return ticket;
     }
 
     static List<Ticket> getTickets(Vak vak) {
@@ -311,34 +283,25 @@ class DataUtils {
     }
 
     static List<Ticket> getTicketsFromPlanning(PlanningV2 planning) {
-        System.out.println("getTicketsFromPlanning triggered"); //check
         List<Ticket> tickets = new ArrayList<>();
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 planning.getUser().getEmail());
-        System.out.println("email filter: " + planning.getUser().getEmail()); //check
         Query.Filter planningFilter = new Query.FilterPredicate(PROPERTY_PLANNING_ID, Query.FilterOperator.EQUAL,
                 planning.getEntryDate().getTime());
 
         Query.Filter compositeFilter = Query.CompositeFilterOperator.and(emailFilter, planningFilter);
         Query q = new Query(KIND_PLANNING_TICKET).setFilter(compositeFilter).addSort(PROPERTY_TICKET_CODE);
         PreparedQuery pq = datastore.prepare(q);
-        System.out.println("Size of pq: " + pq.countEntities(FetchOptions.Builder.withLimit(10))); //check 2 entities
         for (Entity e: pq.asIterable()) {
-            System.out.println("planning filter: " + planning.getEntryDate().getTime());
             String ticketCode = (String) e.getProperty(PROPERTY_TICKET_CODE);
-            System.out.println("ticketcode: " + ticketCode);
             Key key = KeyFactory.createKey(KIND_TICKET, ticketCode);
-
             try {
                 Entity ticketEntity = datastore.get(key);
                 String vak = (String) ticketEntity.getProperty(PROPERTY_VAK);
                 int aantalUren = (int) (long) ticketEntity.getProperty(PROPERTY_AANTAL_UREN);
-                System.out.println("Test voortgang");
                 String code = (String) ticketEntity.getProperty(PROPERTY_CODE);
-                System.out.println("naam vak: " + vak + "code: " + code);
                 tickets.add(new Ticket(vak, code, aantalUren));
-            } catch (EntityNotFoundException e1) {
-                e1.printStackTrace();
+            } catch (EntityNotFoundException ignored) {
             }
         }
         return tickets;

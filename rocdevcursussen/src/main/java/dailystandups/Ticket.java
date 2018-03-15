@@ -14,6 +14,7 @@ public class Ticket {
         this.naamVak = naamVak;
         this.codeTicket = codeTicket;
         this.aantalUren = aantalUren;
+        this.isAfgerond = false;
     }
 
     public String getNaamVak() {

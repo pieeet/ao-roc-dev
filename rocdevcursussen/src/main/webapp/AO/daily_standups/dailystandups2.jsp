@@ -14,8 +14,15 @@
     } else {
         PlanningV2 planning = (PlanningV2) request.getAttribute("planning");
         StandUpUser standUpUser = null;
+        Ticket[] tickets = null;
+        boolean hasPlanning = planning != null;
+        boolean hasTickets = false;
         if (planning != null) {
             standUpUser = planning.getUser();
+            hasTickets = planning.getTickets() != null && planning.getTickets().length > 0;
+            if (hasTickets) {
+                tickets = planning.getTickets();
+            }
         }
         @SuppressWarnings("unchecked")
         ArrayList<Vak> vakken = (ArrayList<Vak>) request.getAttribute("vakken");
@@ -75,33 +82,67 @@
 
             <div class="bs-callout bs-callout-warning">
                 <h2>Huidige planning</h2>
-                <div id="planning_wrapper">
-                    <%
-                        if (planning == null) { %>
-                    <p>Je hebt nog geen planning</p>
-                    <%
-                    } else { %>
-                    <p>Datum ingevuld: <%= planning.getEntryDateFormat()%>
-                    </p>
-                    <h3>Tickets</h3>
-                    <ul>
-                        <%
-                            Ticket[] tickets = planning.getTickets();
-                            for (Ticket ticket : tickets) {
-                        %>
-                        <li><%=ticket.getNaamVak()%> - <%=ticket.getCodeTicket()%> - <%=ticket.getAantalUren()%> punten</li>
-                        <%
-                            }
-                        %>
+                <%
+                    if (planning == null) { %>
+                <p>Je hebt nog geen planning</p>
+                <%
+                } else { %>
 
-                    </ul>
-
-                    <h3>Belemmeringen</h3>
-                    <p><%=planning.getBelemmeringenEsc()%>
-                    </p>
+                <%--user heeft een planning--%>
+                <p>Datum ingevuld: <%= planning.getEntryDateFormat()%>
+                </p>
+                <h3>Tickets</h3>
+                <%
+                    if (hasTickets) {
+                %>
+                <ul>
                     <%
-                        }%>
-                </div>
+                        for (Ticket ticket : tickets) {
+                    %>
+                    <li><%=ticket.getNaamVak()%> - <%=ticket.getCodeTicket()%> - <%=ticket.getAantalUren()%> punten</li>
+                    <%
+                        }
+                    %>
+                </ul>
+                <%
+                } else {
+                %>
+                <p>Je hebt nog geen tickets</p>
+                <%
+                    }
+                %>
+
+                <%--gepland werk (voor oude planningen)--%>
+
+                <%
+                    String geplandWerk = planning.getPlanningEsc();
+                    if (geplandWerk != null && !geplandWerk.equals("")) {
+                %>
+
+                <h2>Gepland werk</h2>
+                <p><%=geplandWerk%>
+                </p>
+
+                <%
+                    }
+                %>
+
+                <%--evt belemmeringen--%>
+
+
+                <%
+                    String belemmeringen = planning.getBelemmeringenEsc();
+                    if (belemmeringen != null && !belemmeringen.equals("")) {
+                %>
+
+                <h3>Belemmeringen</h3>
+                <p><%=planning.getBelemmeringenEsc()%>
+                </p>
+                <%
+                    }
+                %>
+                <%
+                    } %>
             </div>
 
             <%
