@@ -881,3 +881,7 @@ td.klik_user {
 td.klik_user:hover {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}

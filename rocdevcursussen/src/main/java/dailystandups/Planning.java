@@ -23,6 +23,7 @@ public class Planning {
     private String nogTeDoen;
     private String redenNietAf;
 
+
     public Planning() {
     }
 

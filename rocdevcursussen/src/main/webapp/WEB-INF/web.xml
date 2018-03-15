@@ -673,7 +673,7 @@
     <!--Daily Stand-up servlet-->
     <servlet>
         <servlet-name>WeekPlan</servlet-name>
-        <servlet-class>dailystandups.DailyStandUpServlet</servlet-class>
+        <servlet-class>dailystandups.DailyStandUpServletV2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WeekPlan</servlet-name>
@@ -698,6 +698,16 @@
         <url-pattern>/AO/student__</url-pattern>
     </servlet-mapping>
 
+
+    <!--admin vakken en tickets toevoegen-->
+    <servlet>
+        <servlet-name>AdminPlanning</servlet-name>
+        <servlet-class>dailystandups.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminPlanning</servlet-name>
+        <url-pattern>/AO/planning/admin</url-pattern>
+    </servlet-mapping>
 
 
 

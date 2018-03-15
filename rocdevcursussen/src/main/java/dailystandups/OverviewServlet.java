@@ -18,24 +18,11 @@ import java.util.Locale;
  */
 public class OverviewServlet extends HttpServlet {
 
-    private static String[] administrators = {
-            "pdevries@roc-dev.com",
-            "janjaap@roc-dev.com",
-            "tvanbeuningen@roc-dev.com",
-            "edirkse@roc-dev.com",
-            "test@example.com"
-    };
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         User user = UserServiceFactory.getUserService().getCurrentUser();
-        boolean isAdmin = false;
-        for (String admin: administrators) {
-           if (admin.equals(user.getEmail())) {
-               isAdmin = true;
-           }
-        }
+        boolean isAdmin = AdminServlet.isAdmin(user);
         if (!isAdmin) {
             resp.sendRedirect("/AO/planning");
             return;
