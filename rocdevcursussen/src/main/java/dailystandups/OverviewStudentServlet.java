@@ -17,36 +17,21 @@ import java.util.ArrayList;
  */
 public class OverviewStudentServlet extends HttpServlet {
 
-    private static String[] administrators = {
-            "pdevries@roc-dev.com",
-            "janjaap@roc-dev.com",
-            "tvanbeuningen@roc-dev.com",
-            "edirkse@roc-dev.com",
-            "test@example.com"
-    };
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        boolean isAdmin = false;
-        for (String s: administrators) {
-            if (user.getEmail().equals(s)) {
-                isAdmin = true;
-            }
-        }
+        boolean isAdmin = AdminServlet.isAdmin(user);
         if (req.getParameter("email") != null) {
             String email = req.getParameter("email");
             if (email.equals(user.getEmail()) || isAdmin) {
-                ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
+                ArrayList<PlanningV2> plannings = DataUtils.getPlanningenV2FromUser(email);
                 req.setAttribute("planningen", plannings);
                 RequestDispatcher disp = req
                         .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");
                 disp.forward(req, resp);
             }
         }
-
-
     }
 }

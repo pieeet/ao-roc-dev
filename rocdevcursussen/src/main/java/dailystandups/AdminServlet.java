@@ -34,21 +34,22 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (!isAdmin(UserServiceFactory.getUserService().getCurrentUser())) {
+        User user = UserServiceFactory.getUserService().getCurrentUser();
+        if (!isAdmin(user)) {
             resp.sendRedirect("/AO/planning");
             return;
         }
         if (req.getParameter("submit_vak_btn") != null) {
             String naam = req.getParameter("naam_vak_input").trim();
-            Vak vak = new Vak(naam);
+            Vak vak = new Vak(naam, user.getEmail());
             DataUtils.voegVakToe(vak);
             resp.getWriter().print("ok");
         }
         else if (req.getParameter("submit_ticket_btn") != null) {
-            String naamVak = req.getParameter("vak_kiezer").trim();
+            long vakId = Long.parseLong(req.getParameter("vak_kiezer"));
             String ticketCode = req.getParameter("ticket_code_input").trim();
             int aantalUren = Integer.parseInt(req.getParameter("ticket_uren_input").trim());
-            Ticket ticket = new Ticket(naamVak, ticketCode, aantalUren);
+            Ticket ticket = new Ticket(vakId, ticketCode, aantalUren);
             DataUtils.voegTicketToe(ticket);
             resp.getWriter().print("ok");
         }

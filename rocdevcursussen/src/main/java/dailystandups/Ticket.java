@@ -5,22 +5,30 @@ package dailystandups;
  *
  */
 public class Ticket {
-    private String naamVak;
+    private long id;
+    private long vakId;
     private String codeTicket;
     private int aantalUren;
-    private boolean isAfgerond;
+    private long isAfgerond;
+    private Vak vak;
 
-    public Ticket(String naamVak, String codeTicket, int aantalUren) {
-        this.naamVak = naamVak;
+
+    public Ticket(long vakId, String codeTicket, int aantalUren) {
+        this.vakId = vakId;
         this.codeTicket = codeTicket;
         this.aantalUren = aantalUren;
-        this.isAfgerond = false;
+        isAfgerond = -1;
     }
 
-    public String getNaamVak() {
-        return naamVak;
+    public Ticket(long id, long vakId, String codeTicket, int aantalUren, long isAfgerond) {
+        this(vakId, codeTicket, aantalUren);
+        this.id = id;
+        this.isAfgerond = isAfgerond;
     }
 
+    public long getVakId() {
+        return vakId;
+    }
 
     public String getCodeTicket() {
         return codeTicket;
@@ -30,11 +38,30 @@ public class Ticket {
         return aantalUren;
     }
 
-    public boolean isAfgerond() {
+    public long getIsAfgerond() {
         return isAfgerond;
     }
 
-    public void setAfgerond(boolean afgerond) {
-        isAfgerond = afgerond;
+    public void setIsAfgerond(long isAfgerond) {
+        this.isAfgerond = isAfgerond;
     }
+
+    public Vak getVak() {
+        return vak;
+    }
+
+    public void setVak(Vak vak) {
+        this.vak = vak;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+
 }

@@ -1,6 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.Planning" %>
-<%@ page import="java.util.Locale" %><%--
+<%@ page import="dailystandups.Ticket" %>
+<%@ page import="dailystandups.PlanningV2" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 23-02-18
@@ -10,7 +10,7 @@
 
 <%
     @SuppressWarnings("unchecked")
-    ArrayList<Planning> planningen = (ArrayList<Planning>) request.getAttribute("planningen");
+    ArrayList<PlanningV2> planningen = (ArrayList<PlanningV2>) request.getAttribute("planningen");
     if (planningen == null) {
         response.sendRedirect("/AO/planning");
     } else {
@@ -28,23 +28,30 @@
             <table class="table table-bordered table-condensed">
             <tr>
                 <th>Datum/tijd</th>
-                <th>Planning</th>
+                <th>Tickets</th>
                 <th>Hulp nodig</th>
-                <th>Voltooid</th>
-                <th>Wel gedaan</th>
                 <th>Nog te doen</th>
                 <th>Reden niet af</th>
             </tr>
             <%
-                for (Planning p: planningen) {
+                for (PlanningV2 p: planningen) {
+                    Ticket[] tickets = p.getTickets();
+                    StringBuilder geplandeTickets = new StringBuilder();
+                    for (Ticket ticket: tickets) {
+                        geplandeTickets.append(ticket.getCodeTicket()).append("<br>");
+                    }
+                    StringBuilder ticketsNietAf = new StringBuilder();
+                    for (Ticket ticket: tickets) {
+                        if (ticket.getIsAfgerond() <= 0) {
+                            ticketsNietAf.append(ticket.getCodeTicket()).append("<br>");
+                        }
+                    }
             %>
             <tr>
-                <td><%=p.getDateFormat()%></td>
-                <td><%=p.getPlanningEsc()%></td>
+                <td><%=p.getEntryDateFormat()%></td>
+                <td><%=geplandeTickets.toString()%></td>
                 <td><%=p.getBelemmeringenEsc()%></td>
-                <td><%=p.getAfgerondString()%></td>
-                <td><%=p.getGedaanEsc()%></td>
-                <td><%=p.getNogTeDoenEsc()%></td>
+                <td><%=ticketsNietAf.toString()%></td>
                 <td><%=p.getRedenNietAfEsc()%></td>
             </tr>
             <%

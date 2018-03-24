@@ -1,0 +1,29 @@
+<!-- Indices written at Tue, 20 Mar 2018 14:11:10 CET -->
+
+<datastore-indexes autoGenerate="true">
+
+    <!-- Used 68 times in query history -->
+    <datastore-index kind="Planning_Ticket" ancestor="false" source="auto">
+        <property name="email" direction="asc"/>
+        <property name="planning_id" direction="asc"/>
+        <property name="ticketcode" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 4 times in query history -->
+    <datastore-index kind="Planning" ancestor="true" source="auto">
+        <property name="date" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 4 times in query history -->
+    <datastore-index kind="StandUpUser" ancestor="false" source="auto">
+        <property name="cohort" direction="asc"/>
+        <property name="naam" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 3 times in query history -->
+    <datastore-index kind="Ticket" ancestor="false" source="auto">
+        <property name="Vak" direction="asc"/>
+        <property name="code" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

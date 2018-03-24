@@ -14,7 +14,6 @@ import java.util.Locale;
 
 /**
  * Created by Piet de Vries on 19-02-18.
- *
  */
 public class OverviewServlet extends HttpServlet {
 
@@ -35,8 +34,8 @@ public class OverviewServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (UserServiceFactory.getUserService().getCurrentUser() == null) return;
-        if (req.getParameter("kies_cohort_btn") != null) {
-            int cohort = Integer.parseInt(req.getParameter("cohort_kiezer"));
+        if (req.getParameter("cohort") != null) {
+            int cohort = Integer.parseInt(req.getParameter("cohort"));
             List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
             resp.getWriter().print(maakTabel(users, req));
         }
@@ -45,47 +44,64 @@ public class OverviewServlet extends HttpServlet {
 
     private String maakTabel(List<StandUpUser> users, HttpServletRequest req) {
 
-
-
         StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
                 "<th>Naam</th>" +
                 "<th>Datum/tijd</th>" +
                 "<th>Planning</th>" +
+                "<th>Niet af</th>" +
                 "<th>Hulp nodig</th>" +
-                "<th>Voltooid</th>" +
-                "<th>Wel gedaan</th>" +
-                "<th>Nog te doen</th>" +
                 "<th>Reden niet af</th>" +
                 "</tr>");
 
         for (StandUpUser user : users) {
             if (user.getVorigePlanning() != null) {
+                List<Ticket> ticketsVorigePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
+                        user.getVorigePlanningId());
                 html.append("<tr>")
                         .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
                         .append(user.getNaamEsc()).append("</td>").append("<td>")
-                        .append(user.getVorigePlanning().getDateFormat()).append("</td>")
-                        .append("<td>").append(user.getVorigePlanning().getPlanning()).append("</td>")
-                        .append("<td>").append(user.getVorigePlanning().getBelemmeringen())
-                        .append("</td>").append("<td>").append(user.getVorigePlanning().getAfgerondString())
-                        .append("</td>").append("<td>").append(user.getVorigePlanning().getGedaan())
-                        .append("</td>").append("<td>").append(user.getVorigePlanning().getNogTeDoen())
-                        .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAf())
+                        .append(user.getVorigePlanning().getEntryDateFormat()).append("</td>")
+                        .append("<td>").append(maakTicketString(ticketsVorigePlanning))
+                        .append("</td>")
+                        .append("<td>").append(maakNogDoenString(ticketsVorigePlanning))
+
+                        .append("<td>").append(user.getVorigePlanning().getBelemmeringenEsc())
+                        .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAfEsc())
                         .append("</td>").append("</tr>");
             }
+            List<Ticket> ticketsLaatstePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
+                    user.getLaatstePlanningId());
             html.append("<tr>").append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
-                    .append(user.getNaamEsc()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getDateFormat()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getPlanning()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getBelemmeringen()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getAfgerondString()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getGedaan()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getNogTeDoen()).append("</td>").append("<td>")
-                    .append(user.getHuidigePlanning().getRedenNietAf()).append("</td>")
+                    .append(user.getNaamEsc()).append("</td>")
+                    .append("<td>").append(user.getHuidigePlanning().getEntryDateFormat()).append("</td>")
+                    .append("<td>").append(maakTicketString(ticketsLaatstePlanning)).append("</td>")
+                    .append("<td> - </td>")
+                    .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
+                    .append("<td>").append(user.getHuidigePlanning().getRedenNietAfEsc()).append("</td>")
                     .append("</tr>");
         }
         html.append("</table>");
         return html.toString();
 
+    }
+
+    private String maakTicketString(List<Ticket> tickets) {
+        StringBuilder sb = new StringBuilder("");
+        for (Ticket ticket : tickets) {
+            sb.append(ticket.getCodeTicket()).append("(");
+            sb.append(ticket.getAantalUren()).append(")<br>");
+        }
+        return sb.toString();
+    }
+
+    private String maakNogDoenString(List<Ticket> tickets) {
+        StringBuilder sb = new StringBuilder("");
+        for (Ticket ticket : tickets) {
+            if (ticket.getIsAfgerond() > 0) {
+                sb.append(ticket.getCodeTicket()).append("<br>");
+            }
+        }
+        return sb.toString();
     }
 }

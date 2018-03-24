@@ -686,7 +686,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PlanningOverzicht</servlet-name>
-        <url-pattern>/AO/planning__</url-pattern>
+        <url-pattern>/AO/planning/admin/planningoverzicht</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -695,7 +695,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PlanningenStudent</servlet-name>
-        <url-pattern>/AO/student__</url-pattern>
+        <url-pattern>/AO/planning/studentplanningen</url-pattern>
     </servlet-mapping>
 
 

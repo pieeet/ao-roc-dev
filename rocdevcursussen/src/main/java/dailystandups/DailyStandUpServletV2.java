@@ -1,5 +1,6 @@
 package dailystandups;
 
+import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 
@@ -26,20 +27,27 @@ public class DailyStandUpServletV2 extends HttpServlet {
             if (req.getParameter("vak").equals("")) {
                 resp.getWriter().print("<p class=\"error\">Kies een vak</p>");
             } else {
-                ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getTickets(
-                        new Vak(req.getParameter("vak")));
+                long id = Long.parseLong(req.getParameter("vak"));
+                ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getTicketsFromVak(id);
                 resp.getWriter().print(makeHtmlSelectorFromTickets(tickets));
             }
 
         } else {
             PlanningV2 laatstePlanning;
+            StandUpUser standUpUser;
             try {
                 laatstePlanning = DataUtils.getPlanningV2(user.getEmail(), true);
-
+                standUpUser = laatstePlanning.getUser();
             } catch (Exception e) {
                 laatstePlanning = null;
+                try {
+                    standUpUser = DataUtils.getStandUpUser(user.getEmail());
+                } catch (EntityNotFoundException e1) {
+                    standUpUser = null;
+                }
             }
             req.setAttribute("planning", laatstePlanning);
+            req.setAttribute("standupuser", standUpUser);
             ArrayList<Vak> vakken = DataUtils.getVakken();
             req.setAttribute("vakken", vakken);
             req.setAttribute("fromservlet", "true");
@@ -52,11 +60,12 @@ public class DailyStandUpServletV2 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        Planning laatstePlanning;
+        PlanningV2 laatstePlanning;
         long laatstePlanningId = -1;
+        Date currentDate = new Date();
         try {
-            laatstePlanning = DataUtils.getPlanning(user.getEmail(), true);
-            laatstePlanningId = laatstePlanning != null ? laatstePlanning.getDate().getTime() : -1;
+            laatstePlanning = DataUtils.getPlanningV2(user.getEmail(), true);
+            laatstePlanningId = laatstePlanning != null ? laatstePlanning.getEntryDate().getTime() : -1;
         } catch (Exception e) {
             laatstePlanning = null;
         }
@@ -64,23 +73,33 @@ public class DailyStandUpServletV2 extends HttpServlet {
 
             // eerst huidige planning opslaan dan nieuwe planning!!
             if (laatstePlanning != null) {
-                laatstePlanning.setAfgerond("Ja".equals(req.getParameter("planning_gehaald")));
-                laatstePlanning.setGedaan(req.getParameter("wat_wel_gedaan"));
-                laatstePlanning.setNogTeDoen(req.getParameter("wat_nog doen"));
                 laatstePlanning.setRedenNietAf(req.getParameter("waarom_niet_gelukt"));
-                // user wordt nu nog niet bewaard
+                // user wordt pas bewaard bij nieuwe planning (isNew = false
                 DataUtils.saveUserAndPlanning(laatstePlanning, 0, false);
+                // set tickets afgerond
+                if (req.getParameter("ticketsAfgerond") != null) {
+                    String paramTicketsAfgerond = req.getParameter("ticketsAfgerond").substring(2);
+                    String[] afgerondeTicketIds = paramTicketsAfgerond.split("__");
+                    for (String ticket: afgerondeTicketIds) {
+                        long id = Long.parseLong(ticket);
+                        DataUtils.setTicketAfgerond(id, currentDate, user.getEmail());
+                    }
+                }
             }
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     req.getParameter("groep_kiezer"));
-            PlanningV2 nieuwePlanning = new PlanningV2(standUpUser, new Date(), req.getParameter("hulp_nodig"));
+            PlanningV2 nieuwePlanning = new PlanningV2(standUpUser, currentDate, req.getParameter("hulp_nodig"));
 
             //remove underscores at beginning of string
-            String paramTickets = req.getParameter("ticketcodes").substring(2);
-            String[] ticketIds = paramTickets.split("__");
+            String paramTickets = req.getParameter("ticketIds").substring(2);
+            String[] ticketIdStrings = paramTickets.split("__");
+            long[] ticketIds = new long[ticketIdStrings.length];
+            for (int i = 0; i < ticketIds.length; i++) {
+                ticketIds[i] = Long.parseLong(ticketIdStrings[i]);
+            }
             nieuwePlanning.setTicketIds(ticketIds);
 
-            //user wordt hier wél bewaard
+            //user wordt hier wél bewaard (isNew = true)
             DataUtils.saveUserAndPlanning(nieuwePlanning, laatstePlanningId, true);
             resp.getWriter().print("ok");
         }
@@ -93,8 +112,10 @@ public class DailyStandUpServletV2 extends HttpServlet {
             html.append("<option value=\"").append(ticket.getCodeTicket())
                     .append("\" data-uren=\"").append(ticket.getAantalUren())
                     .append("\" data-code=\"").append(ticket.getCodeTicket())
+                    .append("\" data-ticket_id=\"").append(ticket.getId())
+                    .append("\" data-vak_naam=\"").append(ticket.getVak().getNaam())
                     .append("\" data-vak=\"")
-                    .append(ticket.getNaamVak()).append("\">")
+                    .append(ticket.getVakId()).append("\">")
                     .append(ticket.getCodeTicket()).append(" (").append(ticket.getAantalUren())
                     .append(" punten)").append("</option>");
         }

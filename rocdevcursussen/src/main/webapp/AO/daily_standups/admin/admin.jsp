@@ -22,9 +22,8 @@
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
 
-    <div class="col-md-2"></div>
+    <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
     <div class="col-md-8">
-
         <h2>Voeg vak/project toe</h2>
         <form role="form" id="voeg_vak_toe_form">
 
@@ -40,8 +39,6 @@
                 </button>
             </div>
         </form>
-
-
 
 
         <h2>Voeg ticket toe</h2>
@@ -64,7 +61,7 @@
                     <%
                         for (Vak vak : vakken) {
                     %>
-                    <option value="<%=vak.getNaam()%>"><%=vak.getNaam()%>
+                    <option value="<%=vak.getId()%>"><%=vak.getNaam()%>
                     </option>
                     <%
                         }
@@ -106,7 +103,6 @@
                 },
                 messages: {
                     naam_vak_input: {required: "Geef een naam"}
-
                 },
                 submitHandler: function (form) {
                     const url = "/AO/planning/admin";
@@ -129,7 +125,7 @@
                     ticket_code_input: {required: true},
                     ticket_uren_input: {
                         required: true,
-                        number : true
+                        number: true
                     }
                 },
                 messages: {
@@ -153,10 +149,7 @@
                     return false; // override default submit
                 }
             });
-
-
-
-
+            $('#tickets_maken').addClass('selected');
         });
 
 </script>

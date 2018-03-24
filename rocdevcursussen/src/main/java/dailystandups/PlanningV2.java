@@ -11,15 +11,10 @@ import java.util.Date;
  */
 public class PlanningV2 {
     private StandUpUser user;
-
     private Date entryDate;
     private Ticket[] tickets;
-    private String[] ticketIds;
-    private String planning;
+    private long[] ticketIds;
     private String belemmeringen;
-    private boolean isAfgerond;
-    private String gedaan;
-    private String nogTeDoen;
     private String redenNietAf;
 
 
@@ -79,63 +74,27 @@ public class PlanningV2 {
         return StringEscapeUtils.escapeHtml4(belemmeringen);
     }
 
-    public String getGedaan() {
-        return gedaan;
-    }
-    public String getGedaanEsc() {
-        return StringEscapeUtils.escapeHtml4(gedaan);
-    }
-
-    public String getNogTeDoen() {
-        return nogTeDoen;
-    }
-    public String getNogTeDoenEsc() {
-        return StringEscapeUtils.escapeHtml4(nogTeDoen);
-    }
-
     public String getRedenNietAf() {
         return redenNietAf;
     }
-    public String getRedenNietAfRsc() {
+    public String getRedenNietAfEsc() {
         return StringEscapeUtils.escapeHtml4(redenNietAf);
-    }
-
-    public void setGedaan(String gedaan) {
-        this.gedaan = gedaan;
-    }
-
-    public void setNogTeDoen(String nogTeDoen) {
-        this.nogTeDoen = nogTeDoen;
     }
 
     public void setRedenNietAf(String redenNietAf) {
         this.redenNietAf = redenNietAf;
     }
 
-    public String[] getTicketIds() {
+    public long[] getTicketIds() {
         return ticketIds;
     }
 
-    public void setTicketIds(String[] ticketIds) {
+    public void setTicketIds(long[] ticketIds) {
         this.ticketIds = ticketIds;
     }
 
-    public boolean isAfgerond() {
-        return isAfgerond;
+    public long getId() {
+        return entryDate.getTime();
     }
 
-    public void setAfgerond(boolean afgerond) {
-        isAfgerond = afgerond;
-    }
-
-    public String getPlanning() {
-        return planning;
-    }
-    public String getPlanningEsc() {
-        return StringEscapeUtils.escapeHtml4(planning);
-    }
-
-    public void setPlanning(String planning) {
-        this.planning = planning;
-    }
 }

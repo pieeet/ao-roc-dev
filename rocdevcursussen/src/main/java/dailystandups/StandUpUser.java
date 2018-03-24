@@ -18,6 +18,8 @@ public class StandUpUser {
     private long laatstePlanningId;
     private long vorigePlanningId;
     private int cohort;
+    private PlanningV2 huidigePlanning;
+    private PlanningV2 vorigePlanning;
 
     public long getVorigePlanningId() {
         return vorigePlanningId;
@@ -27,14 +29,13 @@ public class StandUpUser {
         this.vorigePlanningId = vorigePlanningId;
     }
 
-    private Planning huidigePlanning;
-    private Planning vorigePlanning;
 
-    public Planning getVorigePlanning() {
+
+    public PlanningV2 getVorigePlanning() {
         return vorigePlanning;
     }
 
-    public void setVorigePlanning(Planning vorigePlanning) {
+    public void setVorigePlanning(PlanningV2 vorigePlanning) {
         this.vorigePlanning = vorigePlanning;
     }
 
@@ -50,11 +51,11 @@ public class StandUpUser {
         return laatstePlanningId;
     }
 
-    public Planning getHuidigePlanning() {
+    public PlanningV2 getHuidigePlanning() {
         return huidigePlanning;
     }
 
-    public void setHuidigePlanning(Planning huidigePlanning) {
+    public void setHuidigePlanning(PlanningV2 huidigePlanning) {
         this.huidigePlanning = huidigePlanning;
     }
 
@@ -88,8 +89,6 @@ public class StandUpUser {
     public String getNaamEsc() {
         return StringEscapeUtils.escapeHtml4(naam);
     }
-
-
 
     public void setNaam(String naam) {
         this.naam = naam;

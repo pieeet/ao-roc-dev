@@ -1,22 +1,22 @@
-<div class="col-md-3">
+<div class="col-md-2">
     <!--Zijmenu -->
     <div id="menu">
-        <h3>Inhoud</h3>
+        <h3>Admin</h3>
         <ol>
             <!--
             TODO make links in web.xml
             -->
-            <a href="/AO/android-nano-beginners/intro">
-                <li class="list-group-item" id="intro">Formulier</li>
+            <a href="/AO/planning/admin">
+                <li class="list-group-item" id="tickets_maken">Tickets maken</li>
             </a>
-            <a href="/AO/android-nano-beginners/user-interface">
-                <li class="list-group-item" id="user_interface">Mijn planning</li>
+            <a href="/AO/planning/admin/planningoverzicht">
+                <li class="list-group-item" id="overzicht_planningen">Overzicht planningen</li>
             </a>
 
         </ol>
 
 
-        <h3>Web Links</h3>
+        <%--<h3>Web Links</h3>--%>
         <%--<ul>--%>
             <%--<li class="list-group-item"><a--%>
                     <%--href="https://developer.android.com/sdk/installing/studio.html"--%>
