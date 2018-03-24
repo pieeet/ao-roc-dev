@@ -1,4 +1,4 @@
-package dailystandups;
+package dailystandups.model;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Piet de Vries on 09-03-18.
  *
  */
-public class PlanningV2 {
+public class Planning {
     private StandUpUser user;
     private Date entryDate;
     private Ticket[] tickets;
@@ -18,10 +18,10 @@ public class PlanningV2 {
     private String redenNietAf;
 
 
-    public PlanningV2() {
+    public Planning() {
     }
-    public PlanningV2(StandUpUser user, Date entryDate,
-                      String belemmeringen) {
+    public Planning(StandUpUser user, Date entryDate,
+                    String belemmeringen) {
         this.user = user;
         this.entryDate = entryDate;
         this.tickets = tickets;

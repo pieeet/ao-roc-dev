@@ -6,13 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.*" %>
+<%@ page import="dailystandups.model.Planning" %>
+<%@ page import="dailystandups.model.StandUpUser" %>
+<%@ page import="dailystandups.model.Ticket" %>
+<%@ page import="dailystandups.model.Vak" %>
 
 <%
     if (request.getAttribute("fromservlet") == null) {
         response.sendRedirect("/AO/planning");
     } else {
-        PlanningV2 planning = (PlanningV2) request.getAttribute("planning");
+        Planning planning = (Planning) request.getAttribute("planning");
         StandUpUser standUpUser = (StandUpUser) request.getAttribute("standupuser");
         Ticket[] tickets = null;
         boolean hasTickets = false;
@@ -124,7 +127,7 @@
                 <textarea class="form-control required" id="waarom_niet_gelukt" name="waarom_niet_gelukt"></textarea>
             </div>
             <%}%>
-            <h2>Tickets komende week</h2>
+            <h2>Planning komende week</h2>
             <p>Voeg tickets toe. Een punt staat voor een lesuur van een gemiddelde student. Zorg dus dat het aantal
                 punten ongeveer overeenkomt met het aantal lesuren op je rooster voor
                 Applicatieontwikkeling.</p>
@@ -179,7 +182,7 @@
                 <textarea class="form-control" id="hulp_nodig" name="hulp_nodig"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-danger btn-lg" name="submit_planning_btn"
+            <button type="submit" class="btn btn-primary btn-danger btn-lg btn-block" name="submit_planning_btn"
                     id="submit_planning_btn">Submit
             </button>
         </form>
@@ -307,9 +310,14 @@
         });
 </script>
 <style>
-    .btn-block {
+    #btn_select_ticket {
         width: 8em;
         margin-top: -.3em;
+    }
+
+    #submit_planning_btn {
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
 
     select {

@@ -1,8 +1,11 @@
-package dailystandups;
+package dailystandups.servlet;
 
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.util.DataUtils;
+import dailystandups.model.Ticket;
+import dailystandups.model.Vak;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -1,7 +1,9 @@
-package dailystandups;
+package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.util.DataUtils;
+import dailystandups.model.Planning;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,7 +28,7 @@ public class OverviewStudentServlet extends HttpServlet {
         if (req.getParameter("email") != null) {
             String email = req.getParameter("email");
             if (email.equals(user.getEmail()) || isAdmin) {
-                ArrayList<PlanningV2> plannings = DataUtils.getPlanningenV2FromUser(email);
+                ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
                 req.setAttribute("planningen", plannings);
                 RequestDispatcher disp = req
                         .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");

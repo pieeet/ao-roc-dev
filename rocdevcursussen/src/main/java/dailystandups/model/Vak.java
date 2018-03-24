@@ -1,4 +1,4 @@
-package dailystandups;
+package dailystandups.model;
 
 import javax.annotation.Nullable;
 

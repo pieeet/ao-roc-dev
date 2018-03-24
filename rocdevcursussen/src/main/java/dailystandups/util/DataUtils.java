@@ -1,6 +1,10 @@
-package dailystandups;
+package dailystandups.util;
 
 import com.google.appengine.api.datastore.*;
+import dailystandups.model.Planning;
+import dailystandups.model.StandUpUser;
+import dailystandups.model.Ticket;
+import dailystandups.model.Vak;
 
 import java.util.*;
 
@@ -8,16 +12,22 @@ import java.util.*;
  * Created by Piet de Vries on 15-02-18.
  *
  */
-class DataUtils {
+public class DataUtils {
 
     private static DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
+    /*
+     *****************TABLE NAMES************************
+     */
     private static final String KIND_USER = "StandUpUser";
     private static final String KIND_PLANNING = "Planning";
     private static final String KIND_VAK = "Vak";
     private static final String KIND_TICKET = "Ticket";
     private static final String KIND_PLANNING_TICKET = "Planning_Ticket";
 
+     /*
+     *****************COLUMN NAMES************************
+     */
     private static final String PROPERTY_GROEP = "groep";
     private static final String PROPERTY_COHORT = "cohort";
     private static final String PROPERTY_NAAM = "naam";
@@ -36,7 +46,7 @@ class DataUtils {
     private static final String PROPERTY_DOCENT = "docent";
 
 
-    static void saveUserAndPlanning(PlanningV2 planning, long vorigePlanningId, boolean isNew) {
+    public static void saveUserAndPlanning(Planning planning, long vorigePlanningId, boolean isNew) {
 
         //save the user
         StandUpUser standUpUser = planning.getUser();
@@ -46,8 +56,8 @@ class DataUtils {
             //update user
             userEntity.setProperty(PROPERTY_GROEP, standUpUser.getGroep());
             userEntity.setProperty(PROPERTY_COHORT, standUpUser.getCohort());
-            //zorg dat naam begint met hoofdletter
             String naam = standUpUser.getNaam();
+            //zorg dat naam begint met hoofdletter
             String eersteLetter = naam.substring(0, 1).toUpperCase();
             naam = eersteLetter + naam.substring(1);
             userEntity.setProperty(PROPERTY_NAAM, naam);
@@ -80,14 +90,12 @@ class DataUtils {
         planningEntity.setProperty(PROPERTY_BELEMMERINGEN, planning.getBelemmeringen());
         planningEntity.setProperty(PROPERTY_REDEN_NIET_AF, planning.getRedenNietAf());
         datastore.put(planningEntity);
-
-
     }
 
-    static PlanningV2 getPlanningV2(String userId, boolean isLatest) throws EntityNotFoundException {
+    public static Planning getPlanning(String userId) throws EntityNotFoundException {
         Key userKey = KeyFactory.createKey(KIND_USER, userId);
         Entity userEntity = datastore.get(userKey);
-        return getPlanningV2(makeUserFromEntity(userEntity), isLatest);
+        return getPlanning(makeUserFromEntity(userEntity), true);
     }
 
     private static StandUpUser makeUserFromEntity(Entity userEntity) {
@@ -105,7 +113,7 @@ class DataUtils {
     }
 
 
-    private static PlanningV2 getPlanningV2(StandUpUser user, boolean isLatest) {
+    private static Planning getPlanning(StandUpUser user, boolean isLatest) {
         long planningId;
         if (isLatest) planningId = user.getLaatstePlanningId();
         else planningId = user.getVorigePlanningId();
@@ -115,7 +123,7 @@ class DataUtils {
         Entity planningEntity;
         try {
             planningEntity = datastore.get(planningKey);
-            PlanningV2 planning = getPlanningV2FromEntity(planningEntity);
+            Planning planning = getPlanningFromEntity(planningEntity);
             planning.setUser(user);
             List<Ticket> tickets = getTicketsFromPlanning(user.getEmail(), planning.getId());
             planning.setTickets(tickets.toArray(new Ticket[tickets.size()]));
@@ -125,15 +133,15 @@ class DataUtils {
         }
     }
 
-    private static PlanningV2 getPlanningV2FromEntity(Entity entity) {
-        PlanningV2 planning = new PlanningV2();
+    private static Planning getPlanningFromEntity(Entity entity) {
+        Planning planning = new Planning();
         planning.setEntryDate((Date) entity.getProperty(PROPERTY_DATE));
         planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
         planning.setRedenNietAf((String) entity.getProperty(PROPERTY_REDEN_NIET_AF));
         return planning;
     }
 
-    static List<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort) {
+    public static List<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort) {
         ArrayList<StandUpUser> users = new ArrayList<>();
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_COHORT,
                 Query.FilterOperator.EQUAL, cohort);
@@ -143,22 +151,22 @@ class DataUtils {
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity : pq.asIterable()) {
             StandUpUser user = makeUserFromEntity(entity);
-            user.setHuidigePlanning(getPlanningV2(user, true));
-            user.setVorigePlanning(getPlanningV2(user, false));
+            user.setHuidigePlanning(getPlanning(user, true));
+            user.setVorigePlanning(getPlanning(user, false));
             users.add(user);
         }
         return users;
     }
 
-    static ArrayList<PlanningV2> getPlanningenV2FromUser(String email) {
-        ArrayList<PlanningV2> planningen = new ArrayList<>();
+    public static ArrayList<Planning> getPlanningenFromUser(String email) {
+        ArrayList<Planning> planningen = new ArrayList<>();
         Key ancestorKey = KeyFactory.createKey(KIND_USER, email);
         Query q = new Query(KIND_PLANNING)
                 .setAncestor(ancestorKey)
                 .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity : pq.asIterable()) {
-            PlanningV2 pv2 = getPlanningV2FromEntity(entity);
+            Planning pv2 = getPlanningFromEntity(entity);
             List<Ticket> ticketsList = getTicketsFromPlanning(email, pv2.getId());
             Ticket[] tickets = new Ticket[ticketsList.size()];
             ticketsList.toArray(tickets);
@@ -168,14 +176,14 @@ class DataUtils {
         return planningen;
     }
 
-    static void voegVakToe(Vak vak) {
+    public static void voegVakToe(Vak vak) {
         Entity entity = new Entity(KIND_VAK);
         entity.setProperty(PROPERTY_NAAM, vak.getNaam());
         entity.setProperty(PROPERTY_DOCENT, vak.getDocent());
         datastore.put(entity);
     }
 
-    static ArrayList<Vak> getVakken() {
+    public static ArrayList<Vak> getVakken() {
         ArrayList<Vak> vakken = new ArrayList<>();
         Query q = new Query(KIND_VAK).addSort(PROPERTY_NAAM);
         PreparedQuery pq = datastore.prepare(q);
@@ -187,7 +195,7 @@ class DataUtils {
         return vakken;
     }
 
-    static void voegTicketToe(Ticket ticket) {
+    public static void voegTicketToe(Ticket ticket) {
         Entity entity = new Entity(KIND_TICKET);
         entity.setProperty(PROPERTY_VAK, ticket.getVakId());
         entity.setProperty(PROPERTY_CODE, ticket.getCodeTicket());
@@ -195,7 +203,7 @@ class DataUtils {
         datastore.put(entity);
     }
 
-    static List<Ticket> getTicketsFromVak(long id) {
+    public static List<Ticket> getTicketsFromVak(long id) {
         ArrayList<Ticket> tickets = new ArrayList<>();
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_VAK,
                 Query.FilterOperator.EQUAL, id);
@@ -207,7 +215,7 @@ class DataUtils {
         return tickets;
     }
 
-    static List<Ticket> getTicketsFromPlanning(String email, long planningId) {
+    public static List<Ticket> getTicketsFromPlanning(String email, long planningId) {
         List<Ticket> tickets = new ArrayList<>();
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
@@ -246,7 +254,7 @@ class DataUtils {
         return ticket;
     }
 
-    public static Vak getVak(long id) {
+    private static Vak getVak(long id) {
         Key vakKey = KeyFactory.createKey(KIND_VAK, id);
         try {
             Entity vakEntity = datastore.get(vakKey);
@@ -259,7 +267,7 @@ class DataUtils {
         }
     }
 
-    static void setTicketAfgerond(long ticketId, Date currentDate, String email) {
+    public static void setTicketAfgerond(long ticketId, Date currentDate, String email) {
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
         Query.Filter ticketFilter = new Query.FilterPredicate(PROPERTY_TICKET_ID, Query.FilterOperator.EQUAL,
@@ -274,7 +282,7 @@ class DataUtils {
         }
     }
 
-    static StandUpUser getStandUpUser(String email) throws EntityNotFoundException {
+    public static StandUpUser getStandUpUser(String email) throws EntityNotFoundException {
         Key key = KeyFactory.createKey(KIND_USER, email);
             Entity entity = datastore.get(key);
             return makeUserFromEntity(entity);

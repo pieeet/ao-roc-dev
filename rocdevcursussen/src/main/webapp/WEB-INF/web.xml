@@ -673,7 +673,7 @@
     <!--Daily Stand-up servlet-->
     <servlet>
         <servlet-name>WeekPlan</servlet-name>
-        <servlet-class>dailystandups.DailyStandUpServletV2</servlet-class>
+        <servlet-class>dailystandups.servlet.DailyStandUpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WeekPlan</servlet-name>
@@ -682,7 +682,7 @@
 
     <servlet>
         <servlet-name>PlanningOverzicht</servlet-name>
-        <servlet-class>dailystandups.OverviewServlet</servlet-class>
+        <servlet-class>dailystandups.servlet.OverviewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PlanningOverzicht</servlet-name>
@@ -691,7 +691,7 @@
 
     <servlet>
         <servlet-name>PlanningenStudent</servlet-name>
-        <servlet-class>dailystandups.OverviewStudentServlet</servlet-class>
+        <servlet-class>dailystandups.servlet.OverviewStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PlanningenStudent</servlet-name>
@@ -702,7 +702,7 @@
     <!--admin vakken en tickets toevoegen-->
     <servlet>
         <servlet-name>AdminPlanning</servlet-name>
-        <servlet-class>dailystandups.AdminServlet</servlet-class>
+        <servlet-class>dailystandups.servlet.AdminServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminPlanning</servlet-name>

@@ -1,6 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.Ticket" %>
-<%@ page import="dailystandups.PlanningV2" %><%--
+<%@ page import="dailystandups.model.Ticket" %>
+<%@ page import="dailystandups.model.Planning" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 23-02-18
@@ -10,7 +10,7 @@
 
 <%
     @SuppressWarnings("unchecked")
-    ArrayList<PlanningV2> planningen = (ArrayList<PlanningV2>) request.getAttribute("planningen");
+    ArrayList<Planning> planningen = (ArrayList<Planning>) request.getAttribute("planningen");
     if (planningen == null) {
         response.sendRedirect("/AO/planning");
     } else {
@@ -34,7 +34,7 @@
                 <th>Reden niet af</th>
             </tr>
             <%
-                for (PlanningV2 p: planningen) {
+                for (Planning p: planningen) {
                     Ticket[] tickets = p.getTickets();
                     StringBuilder geplandeTickets = new StringBuilder();
                     for (Ticket ticket: tickets) {

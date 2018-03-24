@@ -1,8 +1,13 @@
-package dailystandups;
+package dailystandups.servlet;
 
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.model.Planning;
+import dailystandups.model.StandUpUser;
+import dailystandups.model.Ticket;
+import dailystandups.model.Vak;
+import dailystandups.util.DataUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +22,7 @@ import java.util.Date;
  * Created by Piet de Vries on 09-03-18.
  *
  */
-public class DailyStandUpServletV2 extends HttpServlet {
+public class DailyStandUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,10 +38,10 @@ public class DailyStandUpServletV2 extends HttpServlet {
             }
 
         } else {
-            PlanningV2 laatstePlanning;
+            Planning laatstePlanning;
             StandUpUser standUpUser;
             try {
-                laatstePlanning = DataUtils.getPlanningV2(user.getEmail(), true);
+                laatstePlanning = DataUtils.getPlanning(user.getEmail());
                 standUpUser = laatstePlanning.getUser();
             } catch (Exception e) {
                 laatstePlanning = null;
@@ -51,7 +56,7 @@ public class DailyStandUpServletV2 extends HttpServlet {
             ArrayList<Vak> vakken = DataUtils.getVakken();
             req.setAttribute("vakken", vakken);
             req.setAttribute("fromservlet", "true");
-            RequestDispatcher disp = req.getRequestDispatcher("/AO/daily_standups/dailystandups2.jsp");
+            RequestDispatcher disp = req.getRequestDispatcher("/AO/daily_standups/dailystandups.jsp");
             disp.forward(req, resp);
         }
     }
@@ -60,12 +65,12 @@ public class DailyStandUpServletV2 extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        PlanningV2 laatstePlanning;
+        Planning laatstePlanning;
         long laatstePlanningId = -1;
         Date currentDate = new Date();
         try {
-            laatstePlanning = DataUtils.getPlanningV2(user.getEmail(), true);
-            laatstePlanningId = laatstePlanning != null ? laatstePlanning.getEntryDate().getTime() : -1;
+            laatstePlanning = DataUtils.getPlanning(user.getEmail());
+            laatstePlanningId = laatstePlanning != null ? laatstePlanning.getId() : -1;
         } catch (Exception e) {
             laatstePlanning = null;
         }
@@ -88,7 +93,7 @@ public class DailyStandUpServletV2 extends HttpServlet {
             }
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     req.getParameter("groep_kiezer"));
-            PlanningV2 nieuwePlanning = new PlanningV2(standUpUser, currentDate, req.getParameter("hulp_nodig"));
+            Planning nieuwePlanning = new Planning(standUpUser, currentDate, req.getParameter("hulp_nodig"));
 
             //remove underscores at beginning of string
             String paramTickets = req.getParameter("ticketIds").substring(2);

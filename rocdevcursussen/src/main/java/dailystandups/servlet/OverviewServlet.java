@@ -1,7 +1,10 @@
-package dailystandups;
+package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.util.DataUtils;
+import dailystandups.model.StandUpUser;
+import dailystandups.model.Ticket;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by Piet de Vries on 19-02-18.
+ *
  */
 public class OverviewServlet extends HttpServlet {
 
@@ -37,12 +40,12 @@ public class OverviewServlet extends HttpServlet {
         if (req.getParameter("cohort") != null) {
             int cohort = Integer.parseInt(req.getParameter("cohort"));
             List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
-            resp.getWriter().print(maakTabel(users, req));
+            resp.getWriter().print(maakTabel(users));
         }
     }
 
 
-    private String maakTabel(List<StandUpUser> users, HttpServletRequest req) {
+    private String maakTabel(List<StandUpUser> users) {
 
         StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
@@ -83,7 +86,6 @@ public class OverviewServlet extends HttpServlet {
         }
         html.append("</table>");
         return html.toString();
-
     }
 
     private String maakTicketString(List<Ticket> tickets) {

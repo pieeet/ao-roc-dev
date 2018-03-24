@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.Vak" %>
+<%@ page import="dailystandups.model.Vak" %>
 <%--
   Created by IntelliJ IDEA.
   User: piet

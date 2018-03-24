@@ -1,6 +1,5 @@
-package dailystandups;
+package dailystandups.model;
 
-import com.google.appengine.api.users.User;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import javax.annotation.Nonnull;
@@ -18,8 +17,8 @@ public class StandUpUser {
     private long laatstePlanningId;
     private long vorigePlanningId;
     private int cohort;
-    private PlanningV2 huidigePlanning;
-    private PlanningV2 vorigePlanning;
+    private Planning huidigePlanning;
+    private Planning vorigePlanning;
 
     public long getVorigePlanningId() {
         return vorigePlanningId;
@@ -29,13 +28,11 @@ public class StandUpUser {
         this.vorigePlanningId = vorigePlanningId;
     }
 
-
-
-    public PlanningV2 getVorigePlanning() {
+    public Planning getVorigePlanning() {
         return vorigePlanning;
     }
 
-    public void setVorigePlanning(PlanningV2 vorigePlanning) {
+    public void setVorigePlanning(Planning vorigePlanning) {
         this.vorigePlanning = vorigePlanning;
     }
 
@@ -51,11 +48,11 @@ public class StandUpUser {
         return laatstePlanningId;
     }
 
-    public PlanningV2 getHuidigePlanning() {
+    public Planning getHuidigePlanning() {
         return huidigePlanning;
     }
 
-    public void setHuidigePlanning(PlanningV2 huidigePlanning) {
+    public void setHuidigePlanning(Planning huidigePlanning) {
         this.huidigePlanning = huidigePlanning;
     }
 
@@ -77,10 +74,6 @@ public class StandUpUser {
     }
     public String getGroepEsc() {
         return StringEscapeUtils.escapeHtml4(groep);
-    }
-
-    public void setGroep(String groep) {
-        this.groep = groep;
     }
 
     public String getNaam() {

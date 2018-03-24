@@ -1,4 +1,4 @@
-package dailystandups;
+package dailystandups.model;
 
 /**
  * Created by Piet de Vries on 09-03-18.
@@ -40,10 +40,6 @@ public class Ticket {
 
     public long getIsAfgerond() {
         return isAfgerond;
-    }
-
-    public void setIsAfgerond(long isAfgerond) {
-        this.isAfgerond = isAfgerond;
     }
 
     public Vak getVak() {
