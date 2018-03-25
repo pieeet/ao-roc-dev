@@ -132,12 +132,12 @@
                 punten ongeveer overeenkomt met het aantal lesuren op je rooster voor
                 Applicatieontwikkeling.</p>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="select_vak">Kies vak/project</label><br>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <select id="select_vak" class="ignore">
                         <option value="">Kies...</option>
                         <%for (Vak vak : vakken) {%>
@@ -164,6 +164,32 @@
                     </div>
                 </div>
             </div>
+
+            <div id="custom_ticket_maker" class="hidden">
+
+
+                <label for="naam_project_input">Naam project</label><br>
+                <input id="naam_project_input" name="naam_project_input">
+                <p class="error hidden" id="error_project_input">Geef een naam</p>
+
+
+                <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
+                <input id="ticket_beschrijving_input"
+                       name="ticket_beschrijving_input">
+                <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijving</p>
+
+                <label for="aantal_uren_input">Inschatting aantal uren</label><br>
+                <input type="number" id="aantal_uren_input" name="aantal_uren_input">
+                <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
+
+                <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
+                        id="btn_custom_ticket">Voeg toe
+                </button>
+
+
+            </div>
+
+
             <div id="tickets" class="hidden">
                 <div class="bs-callout bs-callout-warning">
                     <h2>Tickets komende week</h2>
@@ -201,7 +227,7 @@
                     groep_kiezer: {required: true},
                     naam_input: {required: true},
                     planning_gehaald: {required: true},
-                    waarom_niet_gelukt : {required: true}
+                    waarom_niet_gelukt: {required: true}
                 },
                 messages: {
                     groep_kiezer: {required: "Selecteer een groep"},
@@ -214,6 +240,7 @@
                     let submitBtn = $("#submit_planning_btn");
                     submitBtn.attr('disabled', 'disabled');
                     let formData = $(form).serialize();
+                    console.log(formData);
                     let tickets = "";
                     $("ul#tickets_list li").each(function () {
                         tickets += '__' + $(this).data('ticket_id');
@@ -243,17 +270,32 @@
                 }
             });
             $("#select_vak").on('change', function () {
-                let vak = $("#select_vak").val();
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    data: {vak: vak},
-                    success: function (data) {
-                        $("#ticket_kiezer").html(data);
-                        $("#ticket_kiezer_wrapper").removeClass('hidden');
+                const selectVak = $("#select_vak");
+                const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
+                const customTicketMaker = $("#custom_ticket_maker");
+                let vakNaam = selectVak.find(':selected').data("naam_vak");
+                if (vakNaam === "Project") {
+                    customTicketMaker.removeClass("hidden");
+                    if (!ticketKiezerWrapper.hasClass("hidden")) {
+                        ticketKiezerWrapper.addClass("hidden");
                     }
-                });
+                } else {
+                    if (!(customTicketMaker.hasClass("hidden"))) {
+                        customTicketMaker.addClass("hidden");
+                    }
+                    let vakId = selectVak.val();
+                    const url = "/AO/planning";
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {vak: vakId},
+                        success: function (data) {
+                            $("#ticket_kiezer").html(data);
+                            ticketKiezerWrapper.removeClass('hidden');
+                        }
+                    });
+                }
+
             });
             // on function necessary for dynamically generated elements
             $(document).on('click', '#btn_select_ticket', function () {
@@ -307,6 +349,42 @@
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 }
             }
+
+            $(document).on('click', '#btn_custom_ticket', function() {
+
+                let projectNaam = $("#naam_project_input"). val();
+                if (projectNaam === "") {
+                    $("#error_project_input").removeClass("hidden");
+                    return;
+                } else {
+                    $("#error_project_input").addClass("hidden");
+                }
+
+                let ticketBeschrijving = $("#ticket_beschrijving_input").val();
+                if (ticketBeschrijving === "") {
+                    $("#error_omschrijving_ticket").removeClass('hidden');
+                    return;
+                } else {
+                    $("#error_project_input").addClass("hidden");
+                }
+                let aantalUur = $("#aantal_uren_input").val();
+                let number = Math.ceil(aantalUur);
+                if (isNaN(number) || number === 0) {
+                    $("#error_aantal_uren").removeClass('hidden');
+                    return;
+                } else {
+                    $("#error_project_input").addClass("hidden");
+
+                }
+                $("#custom_ticket_maker").find(".error").addClass('hidden');
+
+
+
+
+            });
+
+
+
         });
 </script>
 <style>
@@ -328,5 +406,14 @@
         margin-top: 1em;
         font-weight: bold;
     }
+
+    div#custom_ticket_maker input {
+        width: 100%;
+    }
+
+    button#btn_custom_ticket {
+        margin-top: 2em;
+    }
+
 </style>
 <%}%>

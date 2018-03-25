@@ -869,7 +869,7 @@ img#to-top {
     width: 60px;
 }
 
-label.error {
+.error {
     color: #d9534f;
     font-weight: bold;
 }
