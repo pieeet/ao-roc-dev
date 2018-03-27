@@ -2,6 +2,7 @@ package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.model.Ticket;
 import dailystandups.util.DataUtils;
 import dailystandups.model.Planning;
 
@@ -29,7 +30,10 @@ public class OverviewStudentServlet extends HttpServlet {
             String email = req.getParameter("email");
             if (email.equals(user.getEmail()) || isAdmin) {
                 ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
+                ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getAfgerondeTickets(DataUtils
+                        .getStandUpUser(user.getEmail()));
                 req.setAttribute("planningen", plannings);
+                req.setAttribute("afgerondetickets", tickets);
                 RequestDispatcher disp = req
                         .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");
                 disp.forward(req, resp);

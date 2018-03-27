@@ -49,8 +49,7 @@ public class OverviewServlet extends HttpServlet {
 
         StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
-                "<th>Naam</th>" +
-                "<th>Datum/tijd</th>" +
+                "<th>Naam/tijd</th>" +
                 "<th>Planning</th>" +
                 "<th>Nog doen</th>" +
                 "<th>Hulp nodig</th>" +
@@ -63,8 +62,8 @@ public class OverviewServlet extends HttpServlet {
                         user.getVorigePlanningId());
                 html.append("<tr>")
                         .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
-                        .append(user.getNaamEsc()).append("</td>").append("<td>")
-                        .append(user.getVorigePlanning().getEntryDateFormat()).append("</td>")
+                        .append(user.getNaamEsc()).append("<br>").append(user.getVorigePlanning().getEntryDateFormat()).append("</td>")
+
                         .append("<td>").append(maakTicketString(ticketsVorigePlanning))
                         .append("</td>")
                         .append("<td>").append(maakNogDoenString(ticketsVorigePlanning))
@@ -76,8 +75,8 @@ public class OverviewServlet extends HttpServlet {
             List<Ticket> ticketsLaatstePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
                     user.getLaatstePlanningId());
             html.append("<tr>").append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
-                    .append(user.getNaamEsc()).append("</td>")
-                    .append("<td>").append(user.getHuidigePlanning().getEntryDateFormat()).append("</td>")
+                    .append(user.getNaamEsc())
+                    .append("<br>").append(user.getHuidigePlanning().getEntryDateFormat()).append("</td>")
                     .append("<td>").append(maakTicketString(ticketsLaatstePlanning)).append("</td>")
                     .append("<td> - </td>")
                     .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
@@ -91,7 +90,7 @@ public class OverviewServlet extends HttpServlet {
     private String maakTicketString(List<Ticket> tickets) {
         StringBuilder sb = new StringBuilder("");
         for (Ticket ticket : tickets) {
-            sb.append(ticket.getTicketRegel()).append("<br>");
+            sb.append(ticket.getTicketRegel()).append("<br><br>");
         }
         return sb.toString();
     }
@@ -100,7 +99,7 @@ public class OverviewServlet extends HttpServlet {
         StringBuilder sb = new StringBuilder("");
         for (Ticket ticket : tickets) {
             if (ticket.getIsAfgerond() < 1) {
-                sb.append(ticket.getTicketRegel()).append("<br>");
+                sb.append(ticket.getTicketRegel()).append("<br><br>");
             }
         }
         return sb.toString();

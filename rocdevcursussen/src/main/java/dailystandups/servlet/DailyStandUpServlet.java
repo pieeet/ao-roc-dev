@@ -1,6 +1,5 @@
 package dailystandups.servlet;
 
-import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.*;
@@ -42,11 +41,7 @@ public class DailyStandUpServlet extends HttpServlet {
                 standUpUser = laatstePlanning.getUser();
             } catch (Exception e) {
                 laatstePlanning = null;
-                try {
-                    standUpUser = DataUtils.getStandUpUser(user.getEmail());
-                } catch (EntityNotFoundException e1) {
-                    standUpUser = null;
-                }
+                standUpUser = DataUtils.getStandUpUser(user.getEmail());
             }
             req.setAttribute("planning", laatstePlanning);
             req.setAttribute("standupuser", standUpUser);
@@ -70,15 +65,8 @@ public class DailyStandUpServlet extends HttpServlet {
             long vak = Long.parseLong(req.getParameter("vak_id"));
             ProjectTicket ticket = new ProjectTicket(vak, aantalUur, beschrijvingTicket, projectNaam);
             long ticketId = DataUtils.voegTicketToe(ticket);
-            System.out.println("Projectnaam: " + projectNaam);
-            System.out.println("Beschrijving ticket: " + beschrijvingTicket);
-            System.out.println("Aantal uur: " + aantalUur);
-            System.out.println("Vak Id: " + vak);
-            System.out.println("Ticket Id: " + ticketId);
             resp.getWriter().print(ticketId);
-        }
-
-        else if (req.getParameter("submit_planning_btn") != null) {
+        } else if (req.getParameter("submit_planning_btn") != null) {
             Planning laatstePlanning;
             long laatstePlanningId = -1;
             Date currentDate = new Date();
@@ -97,7 +85,7 @@ public class DailyStandUpServlet extends HttpServlet {
                 if (req.getParameter("ticketsAfgerond") != null) {
                     String paramTicketsAfgerond = req.getParameter("ticketsAfgerond").substring(2);
                     String[] afgerondeTicketIds = paramTicketsAfgerond.split("__");
-                    for (String ticket: afgerondeTicketIds) {
+                    for (String ticket : afgerondeTicketIds) {
                         long id = Long.parseLong(ticket);
                         DataUtils.setTicketAfgerond(id, currentDate, user.getEmail());
                     }
@@ -125,7 +113,7 @@ public class DailyStandUpServlet extends HttpServlet {
     private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets) {
         StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
                 "<option value=\"Kies\">Kies ticket...</option>");
-        for (Ticket ticket: tickets) {
+        for (Ticket ticket : tickets) {
             html.append("<option value=\"").append(ticket.getCodeTicket())
                     .append("\" data-uren=\"").append(ticket.getAantalUren())
                     .append("\" data-code=\"").append(ticket.getCodeTicket())
@@ -138,9 +126,6 @@ public class DailyStandUpServlet extends HttpServlet {
         html.append("</select>");
         return html.toString();
     }
-
-
-
 
 
 }

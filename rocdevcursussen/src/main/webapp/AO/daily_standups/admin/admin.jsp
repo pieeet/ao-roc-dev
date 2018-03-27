@@ -24,7 +24,7 @@
 
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
     <div class="col-md-8">
-        <h2>Voeg vak/projectNaam toe</h2>
+        <h2>Voeg vak/project toe</h2>
         <form role="form" id="voeg_vak_toe_form">
 
             <div class="form-group">
@@ -55,7 +55,7 @@
             %>
 
             <div class="form-group">
-                <label for="vak_kiezer">Kies vak/projectNaam</label>
+                <label for="vak_kiezer">Kies vak/project</label>
                 <select class="form-control required" id="vak_kiezer" name="vak_kiezer">
                     <option value="">Kiezen</option>
                     <%

@@ -126,9 +126,7 @@
             </div>
             <%}%>
             <h2>Planning komende week</h2>
-            <p>Voeg tickets toe. Een punt staat voor een lesuur van een gemiddelde student. Zorg dus dat het aantal
-                punten ongeveer overeenkomt met het aantal lesuren op je rooster voor
-                Applicatieontwikkeling.</p>
+            <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen.</p>
             <div class="row">
                 <div class="col-md-12">
                     <label for="select_vak">Kies vak/project</label><br>

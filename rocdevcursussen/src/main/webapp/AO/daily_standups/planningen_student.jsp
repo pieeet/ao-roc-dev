@@ -11,6 +11,8 @@
 <%
     @SuppressWarnings("unchecked")
     ArrayList<Planning> planningen = (ArrayList<Planning>) request.getAttribute("planningen");
+    @SuppressWarnings("unchecked")
+    ArrayList<Ticket> afgerondeTickets = (ArrayList<Ticket>) request.getAttribute("afgerondetickets");
     if (planningen == null) {
         response.sendRedirect("/AO/planning");
     } else {
@@ -23,40 +25,62 @@
 
     <div class="col-md-12">
 
-        <div class="table-responsive" id="plannings_tabel">
-
-            <table class="table table-bordered table-condensed">
-            <tr>
-                <th>Datum/tijd</th>
-                <th>Tickets</th>
-                <th>Nog te doen</th>
-                <th>Hulp nodig</th>
-                <th>Reden niet af</th>
-            </tr>
+        <h2>Afgeronde tickets</h2>
+        <ul>
             <%
-                for (Planning p: planningen) {
-                    Ticket[] tickets = p.getTickets();
-                    StringBuilder geplandeTickets = new StringBuilder();
-                    for (Ticket ticket: tickets) {
-                        geplandeTickets.append(ticket.getTicketRegel()).append("<br>");
-                    }
-                    StringBuilder ticketsNietAf = new StringBuilder();
-                    for (Ticket ticket: tickets) {
-                        if (ticket.getIsAfgerond() <= 0) {
-                            ticketsNietAf.append(ticket.getTicketRegel()).append("<br>");
-                        }
-                    }
+                int aantalPunten = 0;
+                for (Ticket ticket : afgerondeTickets) {
+                    aantalPunten += ticket.getAantalUren();
             %>
-            <tr>
-                <td><%=p.getEntryDateFormat()%></td>
-                <td><%=geplandeTickets.toString()%></td>
-                <td><%=ticketsNietAf.toString()%></td>
-                <td><%=p.getBelemmeringenEsc()%></td>
-                <td><%=p.getRedenNietAfEsc()%></td>
-            </tr>
+
+            <li><%=ticket.getTicketRegel()%>
+            </li>
+
             <%
                 }
             %>
+
+        </ul>
+        <h3>Totaal punten: <%=aantalPunten%></h3>
+        <div class="table-responsive" id="plannings_tabel">
+
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th>Datum/tijd</th>
+                    <th>Tickets</th>
+                    <th>Nog te doen</th>
+                    <th>Hulp nodig</th>
+                    <th>Reden niet af</th>
+                </tr>
+                <%
+                    for (Planning p : planningen) {
+                        Ticket[] tickets = p.getTickets();
+                        StringBuilder geplandeTickets = new StringBuilder();
+                        for (Ticket ticket : tickets) {
+                            geplandeTickets.append(ticket.getTicketRegel()).append("<br>");
+                        }
+                        StringBuilder ticketsNietAf = new StringBuilder();
+                        for (Ticket ticket : tickets) {
+                            if (ticket.getIsAfgerond() <= 0) {
+                                ticketsNietAf.append(ticket.getTicketRegel()).append("<br>");
+                            }
+                        }
+                %>
+                <tr>
+                    <td><%=p.getEntryDateFormat()%>
+                    </td>
+                    <td><%=geplandeTickets.toString()%>
+                    </td>
+                    <td><%=ticketsNietAf.toString()%>
+                    </td>
+                    <td><%=p.getBelemmeringenEsc()%>
+                    </td>
+                    <td><%=p.getRedenNietAfEsc()%>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
 
             </table>
 
@@ -67,9 +91,8 @@
 </div>
 
 
-
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
 
- <%
- }
- %>
+<%
+    }
+%>
