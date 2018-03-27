@@ -45,8 +45,8 @@
                 <p>In Eclipse maak je in je projectstructuur een java klasse.
                     Klassen bevinden zich in zogenaamde &quot;packages&quot; in de map
                     &quot;src&quot; (source).</p>
-                <img src="<c:url value="/AO/JSP_Java_DB/images/project.png"/>"
-                     alt="Java klasse in Eclipse project">
+                <img src="<c:url value="/AO/JSP_Java_DB/images/projectNaam.png"/>"
+                     alt="Java klasse in Eclipse projectNaam">
                 <h3>De java klasse</h3>
                 <p>We maken een java klasse met een constructor en twee methoden
                     om van Celsius naar Fahrenheit en vice versa te rekenen. We geven

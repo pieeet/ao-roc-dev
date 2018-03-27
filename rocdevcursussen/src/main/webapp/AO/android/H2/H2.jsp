@@ -39,7 +39,7 @@
 
 		<h2>De opbouw van het scherm (activity_fooi_calculator.xml)</h2>
 		<p>
-			De default layout die studio aanmaakt bij een nieuw project is <em>&quot;RelativeLayout&quot;</em>.
+			De default layout die studio aanmaakt bij een nieuw projectNaam is <em>&quot;RelativeLayout&quot;</em>.
 			Deze layout positioneert de elementen op het scherm relatief ten
 			opzichte van elkaar.
 		</p>

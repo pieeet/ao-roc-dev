@@ -10,7 +10,7 @@
 		<!-- oranje border links -->
 		<div class="bs-callout bs-callout-warning">
 			<h2>Leerdoelen</h2>
-			<p>Dit project is bedoeld ter voorbereiding op je examen. Het
+			<p>Dit projectNaam is bedoeld ter voorbereiding op je examen. Het
 				examen bestaat uit 4 kerntaken:</p>
 			<ul>
 				<li>Kerntaak 1: Ontwerp</li>
@@ -341,7 +341,7 @@
 
 		<p>Volgens de eigenaar moet er een website komen waarop klanten
 			een kamer voor een bepaalde periode kunnen reserveren. Op de
-			hoofdpagina wil zij een uitgebreide beschrijving van het kasteel en
+			hoofdpagina wil zij een uitgebreide beschrijvingTicket van het kasteel en
 			de kamers. Verder wil zij dat na de reservering er meteen een factuur
 			getoond kan worden die de klant indien hij dat wil, kan uitdraaien en
 			die de klant dan meteen kan betalen. Daarnaast wil de eigenaar een

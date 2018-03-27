@@ -24,7 +24,7 @@
 
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
     <div class="col-md-8">
-        <h2>Voeg vak/project toe</h2>
+        <h2>Voeg vak/projectNaam toe</h2>
         <form role="form" id="voeg_vak_toe_form">
 
             <div class="form-group">
@@ -55,7 +55,7 @@
             %>
 
             <div class="form-group">
-                <label for="vak_kiezer">Kies vak/project</label>
+                <label for="vak_kiezer">Kies vak/projectNaam</label>
                 <select class="form-control required" id="vak_kiezer" name="vak_kiezer">
                     <option value="">Kiezen</option>
                     <%
@@ -129,7 +129,7 @@
                     }
                 },
                 messages: {
-                    vak_kiezer: {required: "Kies een vak/project"},
+                    vak_kiezer: {required: "Kies een vak/projectNaam"},
                     ticket_code_input: {required: "Geef een code"},
                     ticket_uren_input: {
                         required: "Geef aantal uren aan",

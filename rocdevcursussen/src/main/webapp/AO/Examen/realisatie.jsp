@@ -64,7 +64,7 @@
                 <li>De documentatie Gegevensverzameling heeft een voorblad. Het
                     voorblad bevat de volgende elementen.
                     <ul>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Gegevensverzameling</li>
                         <li>De datum, waarop het product is ingeleverd.</li>
                         <li>De naam of namen van de personen die aan het product
@@ -99,7 +99,7 @@
             <h3>Uitwerking op onderdelen</h3>
             <ol>
                 <li><h4>Datadictionary</h4>
-                    <p>Een datadictionary is een beschrijving van de entiteiten met
+                    <p>Een datadictionary is een beschrijvingTicket van de entiteiten met
                         de velden en de relaties op databaseniveau. Bovendien wordt er op
                         de verschillende onderdelen een toelichting gegeven. Zie het
                         volgende voorbeeld:</p>
@@ -182,7 +182,7 @@
                     <p>Zorg ervoor dat onderlinge verwijzingen tussen tabellen
                         juist zijn!</p></li>
                 <li><h4>Software</h4>
-                    <p>Geef een korte beschrijving van de software die gebruikt
+                    <p>Geef een korte beschrijvingTicket van de software die gebruikt
                         wordt om de gegevensverzameling te beheren. Beschrijf eventueel
                         aanvullende modules die nodig zijn om de gegevensverzameling te
                         kunnen beheren.</p></li>
@@ -255,7 +255,7 @@ insert into bestelling(datum, factuurnummer)
                 <li>Het kwaliteitshandboek heeft een voorblad. Het voorblad
                     bevat de volgende elementen:
                     <ul>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Gegevensverzameling</li>
                         <li>De datum waarop het product is ingeleverd.</li>
                         <li>De naam of namen van degenen die aan het product hebben
@@ -297,7 +297,7 @@ insert into bestelling(datum, factuurnummer)
                 <li>De applicatie of delen ervan zijn in het kwaliteitshandboek
                     vastgelegd.
                 </li>
-                <li>In het technisch gesprek wordt het verloop van het project,
+                <li>In het technisch gesprek wordt het verloop van het projectNaam,
                     de problemen die zijn voorgekomen en de techniek van de applicatie
                     besproken.
                 </li>
@@ -420,9 +420,9 @@ insert into bestelling(datum, factuurnummer)
                 Tijdens dit gesprek is het de bedoeling dat je laat zien wat jouw
                 kennis van programmeren is. Dit gesprek is bestemd voor vakgenoten.
                 Met name voor de projectleider, zodat hij op de hoogte is van de
-                gang van zaken en de gebruikte technieken tijdens het project. In
+                gang van zaken en de gebruikte technieken tijdens het projectNaam. In
                 dit deel gebruik je vaktaal.</p>
-            <p>In het technisch gesprek vertel je hoe het project is
+            <p>In het technisch gesprek vertel je hoe het projectNaam is
                 verlopen. Wat ging er goed? Welke problemen ben je tegengekomen?
                 Welke oplossingen heb je gevonden? Ook kun je de technische werking
                 uitleggen van die delen van de applicatie waaraan je gewerkt hebt.
@@ -472,7 +472,7 @@ insert into bestelling(datum, factuurnummer)
                 <li>Het testrapport heeft een voorblad. Het voorblad bevat de
                     volgende elementen.
                     <ul>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Gegevensverzameling</li>
                         <li>De datum waarop het product is ingeleverd.</li>
                         <li>De naam of namen van de personen die aan het product

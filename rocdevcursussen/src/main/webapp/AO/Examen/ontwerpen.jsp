@@ -57,7 +57,7 @@
                 <li>Het document Behoefteanalyse heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>de naam van het project</li>
+                        <li>de naam van het projectNaam</li>
                         <li>de naam van het product: Behoefteanalyse</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -73,12 +73,12 @@
             </ul>
             <h3>Inhoudseisen</h3>
             <ul>
-                <li>De kern van het project in maximaal vijf regels</li>
-                <li>Algemene beschrijving van het bedrijf van de opdrachtgever</li>
+                <li>De kern van het projectNaam in maximaal vijf regels</li>
+                <li>Algemene beschrijvingTicket van het bedrijf van de opdrachtgever</li>
                 <li>De aanleiding om een nieuwe web applicatie en / of app te
                     realiseren
                 </li>
-                <li>Algemene beschrijving van de applicatie</li>
+                <li>Algemene beschrijvingTicket van de applicatie</li>
                 <li>Beschrijving van de doelen van de applicatie</li>
                 <li>Beschrijving van de doelgroepen van de applicatie</li>
                 <li>Beschrijving van de vormgeving van de website met
@@ -102,7 +102,7 @@
                     besproken met de projectleider. Als het plan van aanpak door de
                     projectleider is goedgekeurd, dan wordt het overhandigd aan de
                     opdrachtgever. Deze weet dan wanneer producten worden opgeleverd en
-                    wanneer hij informatie voor het project moet geven.</p>
+                    wanneer hij informatie voor het projectNaam moet geven.</p>
             </div>
             <p>Maak een plan van aanpak. Doe dat in de volgende stappen:</p>
             <ul>
@@ -130,7 +130,7 @@
                 <li>Het document Plan van aanpak heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Plan van aanpak</li>
                         <li>De datum, waarop het product is ingeleverd.</li>
                         <li>De naam of namen van degenen die aan het product hebben
@@ -149,7 +149,7 @@
             <ol>
                 <li>Inleiding</li>
                 <li>Doelstelling</li>
-                <li>Omschrijving van het project</li>
+                <li>Omschrijving van het projectNaam</li>
                 <li>Leden van de projectgroep</li>
                 <li>Benodigdheden</li>
                 <li>Takenlijst</li>
@@ -164,10 +164,10 @@
                         andere onderwerpen aan toegevoegd worden.</p></li>
                 <li><h4>Doelstelling</h4>
                     <p>Onder de doelstelling komt te staan wat het doel van het
-                        project is. Dit kan heel kort en heel globaal met hooguit een of
+                        projectNaam is. Dit kan heel kort en heel globaal met hooguit een of
                         twee zinnen.</p></li>
-                <li><h4>De omschrijving van het project</h4>
-                    <p>De omschrijving van het project bevat niet alleen het maken
+                <li><h4>De omschrijving van het projectNaam</h4>
+                    <p>De omschrijving van het projectNaam bevat niet alleen het maken
                         van een applicatie, maar ook globaal wat de functionaliteit van de
                         applicatie is voor zover bekend.</p></li>
                 <li><h4>Leden van de projectgroep</h4>
@@ -179,7 +179,7 @@
                         activiteiten van de projectgroep betrokken.</p></li>
                 <li><h4>Benodigdheden</h4>
                     <p>In een lijst noem je op welke zaken nodig zijn om dit
-                        project tot een goed einde te brengen. In de lijst kunnen
+                        projectNaam tot een goed einde te brengen. In de lijst kunnen
                         kantoorartikelen staan, hardware, software, beschikbare ruimtes en
                         dergelijke.</p></li>
                 <li><h4>De takenlijst</h4>
@@ -194,7 +194,7 @@
                 <li><h4>Planning</h4>
                     <p>De planning bestaat uit twee onderdelen: de algemene
                         projectplanning en de planning voor de huidige taak.</p>
-                    <p>De algemene planning van het gehele project bevat de
+                    <p>De algemene planning van het gehele projectNaam bevat de
                         takenlijst met daarachter de begin- en einddatum en de duur van
                         het betreffende onderdeel.</p>
                     <table class="table table-bordered">
@@ -388,7 +388,7 @@
                 <li>Het document Functioneel ontwerp heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Functioneel ontwerp</li>
                         <li>De datum, waarop het product is ingeleverd.</li>
                         <li>De naam of namen van degenen die aan het product hebben
@@ -535,7 +535,7 @@
                 <li>Het document Technisch ontwerp heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>De naam van het project</li>
+                        <li>De naam van het projectNaam</li>
                         <li>De naam van het product: Technisch ontwerp</li>
                         <li>De datum, waarop het product is ingeleverd.</li>
                         <li>De naam of namen van degenen die aan het product hebben

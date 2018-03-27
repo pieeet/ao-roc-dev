@@ -95,7 +95,7 @@
 		<p>Als gebruiker op een artikel klikt wordt de Item Activity van
 			het artikel geopend die meer informatie geeft over het gekozen
 			artikel. Deze activity heeft een titel, publicatiedatum, een
-			beschrijving en een link naar het originele artikel. Als gebruiker op
+			beschrijvingTicket en een link naar het originele artikel. Als gebruiker op
 			deze link klikt wordt de default browser van het toestel geopend. Dit
 			vindt buiten de app plaats. Met de &quot;terug-knop&quot; kan de
 			gebruiker terugkeren naar de app.</p>

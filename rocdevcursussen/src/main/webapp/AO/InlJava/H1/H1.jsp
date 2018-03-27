@@ -25,9 +25,9 @@
                     programma&#39;s te ontwikkelen en uit te voeren
                 </li>
                 <li>een &quot;Integrated Development Environment&quot; (IDE)
-                    hebt ge&iuml;nstalleerd en een java project kunt maken
+                    hebt ge&iuml;nstalleerd en een java projectNaam kunt maken
                 </li>
-                <li>een GitHub project kunt forken en clonen naar je computer</li>
+                <li>een GitHub projectNaam kunt forken en clonen naar je computer</li>
                 <li>wijzigingen in een repository kunt committen en
                     synchroniseren naar GitHub of naar je lokale repository
                 </li>
@@ -199,14 +199,14 @@ c = a + b;
             </div>
 
             <div class="opdrachten">
-                <h2>Opdracht 1.3 Maak een project</h2>
+                <h2>Opdracht 1.3 Maak een projectNaam</h2>
                 <p>
-                    Open InteliJ en maak een java project. In het project zie je als het goed is een src (source) map.
+                    Open InteliJ en maak een java projectNaam. In het projectNaam zie je als het goed is een src (source) map.
 
                 </p>
 
                 <p>
-                    Open het project in de explorer en klik met je rechtse muisknop op
+                    Open het projectNaam in de explorer en klik met je rechtse muisknop op
                     de src map, kies
                     <code>New</code>
                     &#8594;
@@ -281,7 +281,7 @@ git version
                         repo die je kunt gaan gebruiken
                     </li>
                     <li>open de terminal en ga met cd (change directory) naar de
-                        map waar je het project lokaal wilt opslaan. Kopieer op GitHub de
+                        map waar je het projectNaam lokaal wilt opslaan. Kopieer op GitHub de
                         https link naar je repo.
                     </li>
                     <li>voer in je terminal het volgend commando uit:<br>
@@ -292,9 +292,9 @@ git clone https://github.com/[je gebruikersnaam]/inleiding-java.git
                         De repo wordt naar je computer gekopieerd en is automatisch gelinkt met
                         je online (remote) repository op GitHub.
                     </li>
-                    <li>in IntelliJ kun je het project nu openen met <code>File</code>
-                        &#8594; <code>Open...</code> &#8594; Browse naar de map waar het project zich
-                        bevindt (de map direct boven de src map) en importeer het project.
+                    <li>in IntelliJ kun je het projectNaam nu openen met <code>File</code>
+                        &#8594; <code>Open...</code> &#8594; Browse naar de map waar het projectNaam zich
+                        bevindt (de map direct boven de src map) en importeer het projectNaam.
                         Als het goed is ziet IntelliJ dat het een git repo is.
                     </li>
                     <li>Open de src map in de explorer. Hierin zie je een <em>package</em>.
@@ -322,7 +322,7 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     <li>de volgende stap is om je repo te synchroniseren met je
                         online repo op GitHub. Ga opnieuw naar <code>VCS</code> <code>Git</code>en kies
                         nu <code>Push...</code>. Als het goed is worden je
-                        wijzigingen nu naar GitHub ge&uuml;pload. Open je project op
+                        wijzigingen nu naar GitHub ge&uuml;pload. Open je projectNaam op
                         GitHub en check of de wijzigingen zijn doorgevoerd.
                     </li>
                     <li>je kunt ook op GitHub zelf online wijzigingen in je code
@@ -350,10 +350,10 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     bestanden en bestandstypen die
                     niet gesynchroniseerd moeten worden. Op GitHub vind je veel
                     voorgedefinieerde .gitignore bestanden die je kunt gebruiken. Je README bestand is een
-                    beschrijving van je project. Nadat
+                    beschrijvingTicket van je projectNaam. Nadat
                     je op GitHub een lege repo hebt aangemaakt kun je hem clonen naar
-                    je computer. In de lege map kun je nu een project aanmaken of een
-                    bestaand project kopi&euml;ren.
+                    je computer. In de lege map kun je nu een projectNaam aanmaken of een
+                    bestaand projectNaam kopi&euml;ren.
                 </p>
 
                 <div class="embed-responsive embed-responsive-16by9">
@@ -374,17 +374,17 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                 </p>
 
                 <h3 id="git-repo-pushen">Een bestaande repo uploaden</h3>
-                <p>Als je al een project hebt dat je naar GitHub wilt pushen dan kun je als volgt te
+                <p>Als je al een projectNaam hebt dat je naar GitHub wilt pushen dan kun je als volgt te
                 werk gaan.</p>
                 <p>Maak op GitHub een nieuwe repository maar maak geen README.md file en ook geen
-                .gitignore. Maak van je project een git repository en add/commit de bestanden
+                .gitignore. Maak van je projectNaam een git repository en add/commit de bestanden
                     met de volgende commando&#39;s in je terminal:</p>
                 <pre class="code">
 git init
 git add .
 git commit -m &#39;&lt;je commit message&gt;&#39;</pre>
 
-                <p>Voeg nu de repository die je op GitHub hebt gemaakt toe als remote en push je project.
+                <p>Voeg nu de repository die je op GitHub hebt gemaakt toe als remote en push je projectNaam.
                 Vervang in onderstaand commando je gebruikersnaam en projectnaam.</p>
 <pre class="code">
 git remote add origin https://github.com/&lt;gebruikersnaam&gt;/&lt;naam-repository&gt;

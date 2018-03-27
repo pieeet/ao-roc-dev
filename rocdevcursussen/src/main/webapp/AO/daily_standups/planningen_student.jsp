@@ -29,8 +29,8 @@
             <tr>
                 <th>Datum/tijd</th>
                 <th>Tickets</th>
-                <th>Hulp nodig</th>
                 <th>Nog te doen</th>
+                <th>Hulp nodig</th>
                 <th>Reden niet af</th>
             </tr>
             <%
@@ -38,20 +38,20 @@
                     Ticket[] tickets = p.getTickets();
                     StringBuilder geplandeTickets = new StringBuilder();
                     for (Ticket ticket: tickets) {
-                        geplandeTickets.append(ticket.getCodeTicket()).append("<br>");
+                        geplandeTickets.append(ticket.getTicketRegel()).append("<br>");
                     }
                     StringBuilder ticketsNietAf = new StringBuilder();
                     for (Ticket ticket: tickets) {
                         if (ticket.getIsAfgerond() <= 0) {
-                            ticketsNietAf.append(ticket.getCodeTicket()).append("<br>");
+                            ticketsNietAf.append(ticket.getTicketRegel()).append("<br>");
                         }
                     }
             %>
             <tr>
                 <td><%=p.getEntryDateFormat()%></td>
                 <td><%=geplandeTickets.toString()%></td>
-                <td><%=p.getBelemmeringenEsc()%></td>
                 <td><%=ticketsNietAf.toString()%></td>
+                <td><%=p.getBelemmeringenEsc()%></td>
                 <td><%=p.getRedenNietAfEsc()%></td>
             </tr>
             <%

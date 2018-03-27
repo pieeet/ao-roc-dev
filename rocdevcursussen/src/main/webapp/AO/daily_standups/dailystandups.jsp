@@ -6,10 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dailystandups.model.Planning" %>
-<%@ page import="dailystandups.model.StandUpUser" %>
-<%@ page import="dailystandups.model.Ticket" %>
-<%@ page import="dailystandups.model.Vak" %>
+<%@ page import="dailystandups.model.*" %>
 
 <%
     if (request.getAttribute("fromservlet") == null) {
@@ -27,6 +24,8 @@
         }
         @SuppressWarnings("unchecked")
         ArrayList<Vak> vakken = (ArrayList<Vak>) request.getAttribute("vakken");
+
+
 %>
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
@@ -76,10 +75,9 @@
                 <h3>Tickets</h3>
                 <%if (hasTickets) {%>
                 <ul>
-                    <%for (Ticket ticket : tickets) {%>
-                    <li><%=ticket.getVak().getNaam()%> - <%=ticket.getCodeTicket()%> - <%=ticket.getAantalUren()%>
-                        punten
-                    </li>
+                    <%for (Ticket ticket : tickets) {
+                    %>
+                    <li><%=ticket.getTicketRegel()%></li>
                     <%}%>
                 </ul>
                 <%} else {%>
@@ -114,7 +112,7 @@
                 <%for (Ticket ticket : tickets) {%>
                 <input type="checkbox" class="ticket_checkbox" value="<%=ticket.getId()%>"
                        title="<%=ticket.getCodeTicket()%>">
-                <%=ticket.getVak().getNaam()%> - <%=ticket.getCodeTicket()%><br>
+                <%=ticket.getTicketRegel()%><br>
                 <%
                     }
                 %>
@@ -154,10 +152,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4" id="ticket_kiezer">
+                    <div class="col-md-12" id="ticket_kiezer">
 
                     </div>
-                    <div class="col-md-8">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
                                 id="btn_select_ticket">Voeg toe
                         </button>
@@ -169,17 +169,17 @@
 
 
                 <label for="naam_project_input">Naam project</label><br>
-                <input id="naam_project_input" name="naam_project_input">
+                <input id="naam_project_input" class="custom_ticket_input" name="naam_project_input">
                 <p class="error hidden" id="error_project_input">Geef een naam</p>
 
 
                 <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
-                <input id="ticket_beschrijving_input"
+                <input id="ticket_beschrijving_input" class="custom_ticket_input"
                        name="ticket_beschrijving_input">
-                <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijving</p>
+                <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
 
                 <label for="aantal_uren_input">Inschatting aantal uren</label><br>
-                <input type="number" id="aantal_uren_input" name="aantal_uren_input">
+                <input type="number" id="aantal_uren_input" class="custom_ticket_input" name="aantal_uren_input">
                 <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
 
                 <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
@@ -195,9 +195,9 @@
                     <h2>Tickets komende week</h2>
                     <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
                     <h3>Tickets</h3>
-                    <ul id="tickets_list"></ul>
+                    <ul id="tickets_list"><%-- Hier komen de geselecteerd tickets --%></ul>
                 </div>
-                <%-- Hier komen de geselecteerd tickets --%>
+
             </div>
             <h3>Zijn er belemmeringen?</h3>
             <p>Geef hier aan of je problemen verwacht. Zijn er nog zaken die je niet begrijpt of nog niet hebt geoefend.
@@ -309,16 +309,20 @@
                         let urenTicket = selectedItem.data("uren");
                         $("#tickets_list").append('<li data-ticket_id=' + ticketId + '>' + vak +
                             ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
-                        let uurSpan = $("#totaal_uren");
-                        let totaalUren = Number(uurSpan.text());
-                        totaalUren += Number(urenTicket);
-                        uurSpan.text(totaalUren);
+                        verhoogUren(urenTicket);
                         $("#tickets").removeClass('hidden');
                         selectedItem.hide();
                         ticketSelector.val("Kies");
                     }
                 }
             });
+            function verhoogUren(uren) {
+                let uurSpan = $("#totaal_uren");
+                let totaalUren = Number(uurSpan.text());
+                totaalUren += Number(uren);
+                uurSpan.text(totaalUren);
+            }
+
             $('#planning_gehaald').on('change', function () {
                 let keuze = this.value;
                 let ticketsCheckbox = $('#tickets_checkbox');
@@ -350,16 +354,14 @@
                 }
             }
 
-            $(document).on('click', '#btn_custom_ticket', function() {
-
-                let projectNaam = $("#naam_project_input"). val();
+            $(document).on('click', '#btn_custom_ticket', function () {
+                let projectNaam = $("#naam_project_input").val();
                 if (projectNaam === "") {
                     $("#error_project_input").removeClass("hidden");
                     return;
                 } else {
                     $("#error_project_input").addClass("hidden");
                 }
-
                 let ticketBeschrijving = $("#ticket_beschrijving_input").val();
                 if (ticketBeschrijving === "") {
                     $("#error_omschrijving_ticket").removeClass('hidden');
@@ -368,8 +370,8 @@
                     $("#error_project_input").addClass("hidden");
                 }
                 let aantalUur = $("#aantal_uren_input").val();
-                let number = Math.ceil(aantalUur);
-                if (isNaN(number) || number === 0) {
+                let aantalUurNumber = Math.ceil(aantalUur);
+                if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
                     $("#error_aantal_uren").removeClass('hidden');
                     return;
                 } else {
@@ -377,12 +379,32 @@
 
                 }
                 $("#custom_ticket_maker").find(".error").addClass('hidden');
+                const selectVak = $("#select_vak");
+                let vakId = selectVak.val();
+                let vak = selectVak.find(":selected").text();
 
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        maak_project_ticket: "x",
+                        project_naam: projectNaam,
+                        beschrijving_ticket: ticketBeschrijving,
+                        aantal_uur: aantalUur,
+                        vak_id: vakId},
+                    success: function (data) {
+                        $("#tickets_list").append('<li data-ticket_id=' + data + '>' + projectNaam +
+                            ' - ' + ticketBeschrijving + ' - ' + aantalUur + ' punten</li>');
+                        verhoogUren(aantalUur);
+                        $("#tickets").removeClass('hidden');
+                        $(".custom_ticket_input").val("");
 
+                    }
+                });
 
 
             });
-
 
 
         });

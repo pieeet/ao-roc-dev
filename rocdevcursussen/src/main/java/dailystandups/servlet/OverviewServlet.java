@@ -52,7 +52,7 @@ public class OverviewServlet extends HttpServlet {
                 "<th>Naam</th>" +
                 "<th>Datum/tijd</th>" +
                 "<th>Planning</th>" +
-                "<th>Niet af</th>" +
+                "<th>Nog doen</th>" +
                 "<th>Hulp nodig</th>" +
                 "<th>Reden niet af</th>" +
                 "</tr>");
@@ -91,8 +91,7 @@ public class OverviewServlet extends HttpServlet {
     private String maakTicketString(List<Ticket> tickets) {
         StringBuilder sb = new StringBuilder("");
         for (Ticket ticket : tickets) {
-            sb.append(ticket.getCodeTicket()).append("(");
-            sb.append(ticket.getAantalUren()).append(")<br>");
+            sb.append(ticket.getTicketRegel()).append("<br>");
         }
         return sb.toString();
     }
@@ -100,8 +99,8 @@ public class OverviewServlet extends HttpServlet {
     private String maakNogDoenString(List<Ticket> tickets) {
         StringBuilder sb = new StringBuilder("");
         for (Ticket ticket : tickets) {
-            if (ticket.getIsAfgerond() > 0) {
-                sb.append(ticket.getCodeTicket()).append("<br>");
+            if (ticket.getIsAfgerond() < 1) {
+                sb.append(ticket.getTicketRegel()).append("<br>");
             }
         }
         return sb.toString();

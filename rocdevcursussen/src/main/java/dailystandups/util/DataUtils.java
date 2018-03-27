@@ -1,10 +1,7 @@
 package dailystandups.util;
 
 import com.google.appengine.api.datastore.*;
-import dailystandups.model.Planning;
-import dailystandups.model.StandUpUser;
-import dailystandups.model.Ticket;
-import dailystandups.model.Vak;
+import dailystandups.model.*;
 
 import java.util.*;
 
@@ -44,6 +41,9 @@ public class DataUtils {
     private static final String PROPERTY_PLANNING_ID = "planning_id";
     private static final String PROPERTY_TICKET_ID = "ticket_id";
     private static final String PROPERTY_DOCENT = "docent";
+    private static final String PROPERTY_BESCHRIJVING = "beschrijving";
+    private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
+
 
 
     public static void saveUserAndPlanning(Planning planning, long vorigePlanningId, boolean isNew) {
@@ -123,7 +123,7 @@ public class DataUtils {
         Entity planningEntity;
         try {
             planningEntity = datastore.get(planningKey);
-            Planning planning = getPlanningFromEntity(planningEntity);
+            Planning planning = makePlanningFromEntity(planningEntity);
             planning.setUser(user);
             List<Ticket> tickets = getTicketsFromPlanning(user.getEmail(), planning.getId());
             planning.setTickets(tickets.toArray(new Ticket[tickets.size()]));
@@ -133,7 +133,7 @@ public class DataUtils {
         }
     }
 
-    private static Planning getPlanningFromEntity(Entity entity) {
+    private static Planning makePlanningFromEntity(Entity entity) {
         Planning planning = new Planning();
         planning.setEntryDate((Date) entity.getProperty(PROPERTY_DATE));
         planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
@@ -166,7 +166,7 @@ public class DataUtils {
                 .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity : pq.asIterable()) {
-            Planning pv2 = getPlanningFromEntity(entity);
+            Planning pv2 = makePlanningFromEntity(entity);
             List<Ticket> ticketsList = getTicketsFromPlanning(email, pv2.getId());
             Ticket[] tickets = new Ticket[ticketsList.size()];
             ticketsList.toArray(tickets);
@@ -195,13 +195,20 @@ public class DataUtils {
         return vakken;
     }
 
-    public static void voegTicketToe(Ticket ticket) {
+    public static long voegTicketToe(Ticket ticket) {
         Entity entity = new Entity(KIND_TICKET);
         entity.setProperty(PROPERTY_VAK, ticket.getVakId());
         entity.setProperty(PROPERTY_CODE, ticket.getCodeTicket());
         entity.setProperty(PROPERTY_AANTAL_UREN, ticket.getAantalUren());
+        if (ticket instanceof ProjectTicket) {
+            entity.setProperty(PROPERTY_BESCHRIJVING, ((ProjectTicket) ticket).getBeschrijvingTicket());
+            entity.setProperty(PROPERTY_NAAM_PROJECT, ((ProjectTicket) ticket).getProjectNaam());
+        }
         datastore.put(entity);
+        return entity.getKey().getId();
     }
+
+
 
     public static List<Ticket> getTicketsFromVak(long id) {
         ArrayList<Ticket> tickets = new ArrayList<>();
@@ -210,7 +217,7 @@ public class DataUtils {
         Query q = new Query(KIND_TICKET).setFilter(propertyFilter).addSort(PROPERTY_CODE);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e : pq.asIterable()) {
-            tickets.add(makeTicketFromEntity(e, e.getKey().getId(), 0));
+            tickets.add(makeTicketFromEntity(e, 0));
         }
         return tickets;
     }
@@ -229,7 +236,7 @@ public class DataUtils {
             long afgerond = (long) e.getProperty(PROPERTY_AFGEROND);
             Key key = KeyFactory.createKey(KIND_TICKET, ticketCode);
             try {
-                tickets.add(makeTicketFromEntity(datastore.get(key), key.getId(), afgerond));
+                tickets.add(makeTicketFromEntity(datastore.get(key), afgerond));
             } catch (EntityNotFoundException ignored) {
             }
         }
@@ -244,12 +251,25 @@ public class DataUtils {
         return tickets;
     }
 
-    private static Ticket makeTicketFromEntity(Entity ticketEntity, long ticketId, long afgerond) {
+    private static Ticket makeTicketFromEntity(Entity ticketEntity, long afgerond) {
         long vakId = (long) ticketEntity.getProperty(PROPERTY_VAK);
         int aantalUren = (int) (long) ticketEntity.getProperty(PROPERTY_AANTAL_UREN);
         String code = (String) ticketEntity.getProperty(PROPERTY_CODE);
-
-        Ticket ticket = new Ticket(ticketId, vakId, code, aantalUren, afgerond);
+        long id = ticketEntity.getKey().getId();
+        Ticket ticket;
+        if (ticketEntity.getProperty(PROPERTY_NAAM_PROJECT) != null) {
+            String project = (String) ticketEntity.getProperty(PROPERTY_NAAM_PROJECT);
+            String beschrijving = (String) ticketEntity.getProperty(PROPERTY_BESCHRIJVING);
+            ticket = new ProjectTicket(
+                    id,
+                    vakId,
+                    aantalUren,
+                    afgerond,
+                    beschrijving,
+                    project);
+        } else {
+            ticket = new Ticket(id, vakId, code, aantalUren, afgerond);
+        }
         ticket.setVak(getVak(vakId));
         return ticket;
     }

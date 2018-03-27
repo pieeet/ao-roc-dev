@@ -73,7 +73,7 @@
                 <li>Het procedureboek heeft een voorblad. Het voorblad bevat de
                     volgende elementen:
                     <ol>
-                        <li>de naam van het project</li>
+                        <li>de naam van het projectNaam</li>
                         <li>de naam van het product: Procedureboek</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -191,7 +191,7 @@
                 <li>Het document <em>Format bestanden</em> heeft een voorblad.
                     Het voorblad bevat de volgende elementen:
                     <ol>
-                        <li>de naam van het project</li>
+                        <li>de naam van het projectNaam</li>
                         <li>de naam van het product: Format bestanden</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -239,7 +239,7 @@
                 <li>De documentatie van de snapshot heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>de naam van het project</li>
+                        <li>de naam van het projectNaam</li>
                         <li>de naam van het product: Procedure archivering</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -256,14 +256,14 @@
             <h3>Inhoudseisen</h3>
             <p>Het resultaat moet aan de volgende punten voldoen.</p>
             <ul>
-                <li>De documentatie bevat een volledige beschrijving in stappen
+                <li>De documentatie bevat een volledige beschrijvingTicket in stappen
                     van de procedure om een snapshot te kunnen maken.
                 </li>
-                <li>De documentatie bevat een volledige beschrijving in stappen
+                <li>De documentatie bevat een volledige beschrijvingTicket in stappen
                     van de procedure om de snapshot te kunnen terugzetten zodat
                     gegevens geraadpleegd kunnen worden.
                 </li>
-                <li>De documentatie bevat een beschrijving van het moment
+                <li>De documentatie bevat een beschrijvingTicket van het moment
                     waarop de snapshot is gemaakt.
                 </li>
                 <li>Een snapshot die geleverd wordt aan de opdrachtgever en die

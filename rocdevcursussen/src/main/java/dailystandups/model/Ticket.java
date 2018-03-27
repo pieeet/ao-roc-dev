@@ -12,6 +12,8 @@ public class Ticket {
     private long isAfgerond;
     private Vak vak;
 
+    public Ticket() {
+    }
 
     public Ticket(long vakId, String codeTicket, int aantalUren) {
         this.vakId = vakId;
@@ -56,6 +58,10 @@ public class Ticket {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getTicketRegel() {
+        return vak.getNaam() + " - " + codeTicket + " - " + aantalUren + " punten";
     }
 
 

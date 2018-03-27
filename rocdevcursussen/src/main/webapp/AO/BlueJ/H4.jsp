@@ -44,7 +44,7 @@ Speler speler1 = new Speler(arg0, arg1, arg2)
 </pre>
 		<p>
 			Om op deze manier een instantie van een andere klasse te maken moeten
-			beide klassen zich in hetzelfde <em>project</em> bevinden. Anders
+			beide klassen zich in hetzelfde <em>projectNaam</em> bevinden. Anders
 			moet de klasse ge&iuml;mporteerd worden. In de praktijk zul je in je
 			Java klassen heel veel gebruik maken van andere klassen die je zelf
 			hebt gemaakt of die je uit de Java klassenbibliotheken (API) leent

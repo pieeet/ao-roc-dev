@@ -112,14 +112,14 @@
 				liever mee werken.
 			</li>
 		</ul>
-		<h3>Opzetten van het project</h3>
+		<h3>Opzetten van het projectNaam</h3>
 		<p>
 			Maak in je <a href="https://appengine.google.com/" target="_blank">App
 				Engine console</a> een nieuwe applicatie en geef het een ID. Start in
-			Eclipse een nieuw app engine project en koppel het aan je gekozen ID.
+			Eclipse een nieuw app engine projectNaam en koppel het aan je gekozen ID.
 		</p>
 		<p>
-			Om je project overzichtelijk te houden en &quot;<a
+			Om je projectNaam overzichtelijk te houden en &quot;<a
 				href="http://nl.wikipedia.org/wiki/Spaghetticode" target="_blank">spaghetti
 				code</a>&quot; te vermijden, gaan we het opzetten volgens het
 			veelgebruikte <a href="#"> Model-View-Controller</a> ontwerp
@@ -132,7 +132,7 @@
 		<img src="<c:url value="/AO/JSP_Java_DB/images/projectstructuur.png"/>">
 		<h3>Model laag</h3>
 		<p>De &quot;model&quot; laag bestaat uit klassen die een
-			afspiegeling zijn van iets uit de werkelijkheid. In ons project
+			afspiegeling zijn van iets uit de werkelijkheid. In ons projectNaam
 			hebben we te maken met een vereniging met spelers en teams.</p>
 		<p>Maak de klasse &quot;Lid&quot;, geef hem een aantal attributen
 			zoals roepnaam, tussenvoegsels en achternaam. Ook hebben we een

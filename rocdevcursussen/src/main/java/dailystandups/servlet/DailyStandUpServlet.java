@@ -3,10 +3,7 @@ package dailystandups.servlet;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
-import dailystandups.model.Planning;
-import dailystandups.model.StandUpUser;
-import dailystandups.model.Ticket;
-import dailystandups.model.Vak;
+import dailystandups.model.*;
 import dailystandups.util.DataUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -65,17 +62,32 @@ public class DailyStandUpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        Planning laatstePlanning;
-        long laatstePlanningId = -1;
-        Date currentDate = new Date();
-        try {
-            laatstePlanning = DataUtils.getPlanning(user.getEmail());
-            laatstePlanningId = laatstePlanning != null ? laatstePlanning.getId() : -1;
-        } catch (Exception e) {
-            laatstePlanning = null;
-        }
-        if (req.getParameter("submit_planning_btn") != null) {
 
+        if (req.getParameter("maak_project_ticket") != null) {
+            String projectNaam = req.getParameter("project_naam");
+            String beschrijvingTicket = req.getParameter("beschrijving_ticket");
+            int aantalUur = Integer.parseInt(req.getParameter("aantal_uur"));
+            long vak = Long.parseLong(req.getParameter("vak_id"));
+            ProjectTicket ticket = new ProjectTicket(vak, aantalUur, beschrijvingTicket, projectNaam);
+            long ticketId = DataUtils.voegTicketToe(ticket);
+            System.out.println("Projectnaam: " + projectNaam);
+            System.out.println("Beschrijving ticket: " + beschrijvingTicket);
+            System.out.println("Aantal uur: " + aantalUur);
+            System.out.println("Vak Id: " + vak);
+            System.out.println("Ticket Id: " + ticketId);
+            resp.getWriter().print(ticketId);
+        }
+
+        else if (req.getParameter("submit_planning_btn") != null) {
+            Planning laatstePlanning;
+            long laatstePlanningId = -1;
+            Date currentDate = new Date();
+            try {
+                laatstePlanning = DataUtils.getPlanning(user.getEmail());
+                laatstePlanningId = laatstePlanning != null ? laatstePlanning.getId() : -1;
+            } catch (Exception e) {
+                laatstePlanning = null;
+            }
             // eerst huidige planning opslaan dan nieuwe planning!!
             if (laatstePlanning != null) {
                 laatstePlanning.setRedenNietAf(req.getParameter("waarom_niet_gelukt"));
@@ -121,8 +133,7 @@ public class DailyStandUpServlet extends HttpServlet {
                     .append("\" data-vak_naam=\"").append(ticket.getVak().getNaam())
                     .append("\" data-vak=\"")
                     .append(ticket.getVakId()).append("\">")
-                    .append(ticket.getCodeTicket()).append(" (").append(ticket.getAantalUren())
-                    .append(" punten)").append("</option>");
+                    .append(ticket.getTicketRegel()).append("</option>");
         }
         html.append("</select>");
         return html.toString();

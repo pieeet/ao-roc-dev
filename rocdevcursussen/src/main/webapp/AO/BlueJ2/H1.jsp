@@ -44,8 +44,8 @@
 
         <div class="opdrachten">
             <h2>De klasse Lamp</h2>
-            <p>Open in BlueJ het project Lamp. Dit project vind je in de map Voorbeelden.</p>
-            <img src="/AO/BlueJ2/images/2_1Lamp.png" alt="lamp-project">
+            <p>Open in BlueJ het projectNaam Lamp. Dit projectNaam vind je in de map Voorbeelden.</p>
+            <img src="/AO/BlueJ2/images/2_1Lamp.png" alt="lamp-projectNaam">
             <p>In dit venster zie je een rechthoek met de naam Lamp. Deze rechthoek stelt een <em>klasse</em> voor en
                 van deze klasse kun je <em>objecten</em> maken. Laten we een lamp-object maken. Dit kun je doen door met
                 je
@@ -192,7 +192,7 @@ public <span class="codeplus">void</span> aan() {
         <div class="opdrachten">
             <h2>Opgaven</h2>
             <ol>
-                <li>Open in BlueJ uit de map voorbeelden het project <code>GekleurdeLamp</code>. Wat is de toestand van
+                <li>Open in BlueJ uit de map voorbeelden het projectNaam <code>GekleurdeLamp</code>. Wat is de toestand van
                     de lamp?</li>
                 <li>Maak de lamp zichtbaar door de methode maakZichtbaar() aan te roepen. Wat is nu de toestand van
                     de lamp?</li>

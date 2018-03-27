@@ -210,8 +210,8 @@
 		</p>
 		<img src="/AO/JSP_Java_DB/images/mvc.png" alt="mvc patroon">
 		<p>
-			Onderstaande afbeelding toont de structuur van het project uit deel 4
-			opgezet volgens het mvc patroon. De broncode van het project met
+			Onderstaande afbeelding toont de structuur van het projectNaam uit deel 4
+			opgezet volgens het mvc patroon. De broncode van het projectNaam met
 			zowel een Datastore als een MySQL databaseklasse kun je <a
 				href="https://github.com/pieeet/sport-cloudsql" target="_blank">hier</a>
 			vinden.
@@ -382,7 +382,7 @@ Lid lid = request.getAttribute(&quot;lid&quot;);
 			&quot;Expression Language&quot; (EL).</p>
 
 		<h4>Uitwerking stap voor stap</h4>
-		<p>Maak een project met een package rekenmachine. Maak in de
+		<p>Maak een projectNaam met een package rekenmachine. Maak in de
 			package een java klasse Rekenmachine. Uiteindelijk moet de
 			rekenmachine twee strings kunnen tonen: de uitkomst van de berekening
 			en een eventuele waarschuwing als gebruiker bijvoorbeeld per ongeluk

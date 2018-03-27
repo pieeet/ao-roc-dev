@@ -45,9 +45,9 @@
                 <li>het attribuut <strong>weight</strong> gebruiken in een LinearLayout</li>
                 <li>elementen ten opzichte van elkaar positioneren in een <strong>Relative Layout</strong></li>
                 <li><strong>padding</strong> en <strong>margin</strong> gebruiken</li>
-                <li>een android project starten met Android Studio</li>
+                <li>een android projectNaam starten met Android Studio</li>
                 <li>een Android telefoon en/of een emulator gebruiken om je apps te testen</li>
-                <li>een foto naar de map drawable van je Android project kunt kopi&euml;ren en deze gebruiken in een
+                <li>een foto naar de map drawable van je Android projectNaam kunt kopi&euml;ren en deze gebruiken in een
                     ImageView
                 </li>
             </ul>

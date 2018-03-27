@@ -13,7 +13,7 @@
                 je:</p>
             <ul>
                 <li>weet hoe de Android Lifecycle er uit ziet en zijn verschillende methodes kunt gebruiken</li>
-                <li>weet hoe je Firebase in een project installeert</li>
+                <li>weet hoe je Firebase in een projectNaam installeert</li>
                 <li>een referentie naar een dataset in Firebase kunt maken</li>
                 <li>EventListeners aan een Firebase referentie kunt koppelen</li>
                 <li>diverse typen data uit een DataSnapshot kunt halen</li>
@@ -71,7 +71,7 @@
             schakelen.</p>
 
         <h3>Firebase</h3>
-        <p>Om Firebase te kunnen gebruiken moet je het in je project installeren. Dit is vrij eenvoudig in Android
+        <p>Om Firebase te kunnen gebruiken moet je het in je projectNaam installeren. Dit is vrij eenvoudig in Android
             Studio. Ga naar <code>File</code>, kies <code>Project Structure...</code>, Kies <code>Cloud</code> en
             vink
             Firebase aan. Je hoeft nu alleen nog de volgende regel code in de onCreate methode toe te voegen:</p>
@@ -95,7 +95,7 @@ Firebase ref = new Firebase(<span class="codeplus">&quot;https://hacker-news.fir
             <thead>
             <tr>
                 <th>methode</th>
-                <th>beschrijving</th>
+                <th>beschrijvingTicket</th>
             </tr>
             </thead>
             <tbody>
@@ -158,7 +158,7 @@ ref.addValueEventListener(new ValueEventListener() {
             <thead>
             <tr>
                 <th>methode</th>
-                <th>beschrijving</th>
+                <th>beschrijvingTicket</th>
                 <th>return-type</th>
             </tr>
             </thead>
