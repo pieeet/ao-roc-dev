@@ -17,6 +17,9 @@ public class Planning {
     private String belemmeringen;
     private String redenNietAf;
 
+    //i.v.m. eerdere versie
+    private String planning;
+
 
     public Planning() {
     }
@@ -26,6 +29,18 @@ public class Planning {
         this.entryDate = entryDate;
         this.tickets = tickets;
         this.belemmeringen = belemmeringen;
+    }
+
+    public String getPlanning() {
+        return planning;
+    }
+
+    public String getPlanningEsc() {
+        return StringEscapeUtils.escapeHtml4(planning);
+    }
+
+    public void setPlanning(String planning) {
+        this.planning = planning;
     }
 
     public void setUser(StandUpUser user) {

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Piet de Vries on 23-02-18.
@@ -30,8 +33,7 @@ public class OverviewStudentServlet extends HttpServlet {
             String email = req.getParameter("email");
             if (email.equals(user.getEmail()) || isAdmin) {
                 ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
-                ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getAfgerondeTickets(DataUtils
-                        .getStandUpUser(user.getEmail()));
+                ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
                 req.setAttribute("planningen", plannings);
                 req.setAttribute("afgerondetickets", tickets);
                 RequestDispatcher disp = req
@@ -39,5 +41,32 @@ public class OverviewStudentServlet extends HttpServlet {
                 disp.forward(req, resp);
             }
         }
+    }
+
+
+    private ArrayList<Ticket> getAfgerondeTickets(ArrayList<Planning> plannings) {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        for (Planning planning : plannings) {
+            Ticket[] ticks = planning.getTickets();
+            for (Ticket t : ticks) {
+                boolean isInList = false;
+                for (Ticket ticket : tickets) {
+                    if (ticket.getId() == t.getId()) {
+                        isInList = true;
+                        break;
+                    }
+                }
+                if (!isInList) tickets.add(t);
+            }
+        }
+        if (!tickets.isEmpty()) {
+            Collections.sort(tickets, new Comparator<Ticket>() {
+                @Override
+                public int compare(Ticket o1, Ticket o2) {
+                    return o1.getTicketRegel().compareToIgnoreCase(o2.getTicketRegel());
+                }
+            });
+        }
+        return tickets;
     }
 }

@@ -12,7 +12,8 @@
 
 		<h3>Web Links</h3>
 		<ul>
-			<li></li>
+			<li class="list-group-item"><a href="https://www.w3schools.com/jquery/default.asp"
+													   target="_blank">W3Schools</a>
 
 		</ul>
 	</div>

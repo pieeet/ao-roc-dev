@@ -22,76 +22,96 @@
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
     <%--<%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>--%>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bs-callout bs-callout-succes">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Afgeronde tickets</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="no_bullet">
+                            <%
+                                int aantalPunten = 0;
+                                for (Ticket ticket : afgerondeTickets) {
+                                    aantalPunten += ticket.getAantalUren();
+                            %>
+                            <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%>
+                            </li>
 
-    <div class="col-md-12">
-
-        <h2>Afgeronde tickets</h2>
-        <ul>
-            <%
-                int aantalPunten = 0;
-                for (Ticket ticket : afgerondeTickets) {
-                    aantalPunten += ticket.getAantalUren();
-            %>
-
-            <li><%=ticket.getTicketRegel()%>
-            </li>
-
-            <%
-                }
-            %>
-
-        </ul>
-        <h3>Totaal punten: <%=aantalPunten%></h3>
-        <div class="table-responsive" id="plannings_tabel">
-
-            <table class="table table-bordered table-condensed">
-                <tr>
-                    <th>Datum/tijd</th>
-                    <th>Tickets</th>
-                    <th>Nog te doen</th>
-                    <th>Hulp nodig</th>
-                    <th>Reden niet af</th>
-                </tr>
-                <%
-                    for (Planning p : planningen) {
-                        Ticket[] tickets = p.getTickets();
-                        StringBuilder geplandeTickets = new StringBuilder();
-                        for (Ticket ticket : tickets) {
-                            geplandeTickets.append(ticket.getTicketRegel()).append("<br>");
-                        }
-                        StringBuilder ticketsNietAf = new StringBuilder();
-                        for (Ticket ticket : tickets) {
-                            if (ticket.getIsAfgerond() <= 0) {
-                                ticketsNietAf.append(ticket.getTicketRegel()).append("<br>");
-                            }
-                        }
-                %>
-                <tr>
-                    <td><%=p.getEntryDateFormat()%>
-                    </td>
-                    <td><%=geplandeTickets.toString()%>
-                    </td>
-                    <td><%=ticketsNietAf.toString()%>
-                    </td>
-                    <td><%=p.getBelemmeringenEsc()%>
-                    </td>
-                    <td><%=p.getRedenNietAfEsc()%>
-                    </td>
-                </tr>
-                <%
-                    }
-                %>
-
-            </table>
-
+                            <%
+                                }
+                            %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Totaal punten: <%=aantalPunten%>
+                        </h3>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive" id="plannings_tabel">
+                <table class="table table-bordered table-condensed">
+                    <tr>
+                        <th>Datum/tijd</th>
+                        <th>Tickets</th>
+                        <th>Nog te doen</th>
+                        <th>Hulp nodig</th>
+                        <th>Reden niet af</th>
+                    </tr>
+                    <%
+                        for (Planning p : planningen) {
+                            Ticket[] tickets = p.getTickets();
+                            StringBuilder geplandeTickets = new StringBuilder();
+                            for (Ticket ticket : tickets) {
+                                geplandeTickets.append(ticket.getTicketRegel()).append("<br>");
+                            }
+                            StringBuilder ticketsNietAf = new StringBuilder();
+                            for (Ticket ticket : tickets) {
+                                if (ticket.getIsAfgerond() <= 0) {
+                                    ticketsNietAf.append(ticket.getTicketRegel()).append("<br>");
+                                }
+                            }
+                    %>
+                    <tr>
+                        <td><%=p.getEntryDateFormat()%>
+                        </td>
+                        <td><%=geplandeTickets.toString()%>
+                        </td>
+                        <td><%=ticketsNietAf.toString()%>
+                        </td>
+                        <td><%=p.getBelemmeringenEsc()%>
+                        </td>
+                        <td><%=p.getRedenNietAfEsc()%>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
+<style>
+    li.custom_img {
+        background: url('/images/check_box_clipart_24px.png') no-repeat left top;
+        padding: 1px 0 3px 25px;
+        /* reset styles (optional): */
+        list-style: none;
+        margin: 0;
+    }
+</style>
+
 
 <%
     }

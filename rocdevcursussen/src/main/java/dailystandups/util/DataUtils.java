@@ -43,6 +43,7 @@ public class DataUtils {
     private static final String PROPERTY_DOCENT = "docent";
     private static final String PROPERTY_BESCHRIJVING = "beschrijving";
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
+    private static final String PROPERTY_PLANNING = "planning";
 
 
 
@@ -138,6 +139,8 @@ public class DataUtils {
         planning.setEntryDate((Date) entity.getProperty(PROPERTY_DATE));
         planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
         planning.setRedenNietAf((String) entity.getProperty(PROPERTY_REDEN_NIET_AF));
+        planning.setPlanning((String) entity.getProperty(PROPERTY_PLANNING));
+
         return planning;
     }
 
@@ -173,6 +176,7 @@ public class DataUtils {
             pv2.setTickets(tickets);
             planningen.add(pv2);
         }
+
         return planningen;
     }
 
@@ -304,7 +308,7 @@ public class DataUtils {
 
     public static StandUpUser getStandUpUser(String email) {
         Key key = KeyFactory.createKey(KIND_USER, email);
-        Entity entity = null;
+        Entity entity;
         try {
             entity = datastore.get(key);
         } catch (EntityNotFoundException e) {
@@ -312,37 +316,4 @@ public class DataUtils {
         }
         return makeUserFromEntity(entity);
     }
-
-    public static List<Ticket> getAfgerondeTickets(StandUpUser user) {
-        List<Ticket> tickets = new ArrayList<>();
-        Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
-                user.getEmail());
-        Query.Filter afgerondFilter = new Query.FilterPredicate(PROPERTY_AFGEROND, Query.FilterOperator.GREATER_THAN,
-                0);
-        Query.Filter compositeFilter = Query.CompositeFilterOperator.and(emailFilter, afgerondFilter);
-        Query q = new Query(KIND_PLANNING_TICKET).setFilter(compositeFilter);
-        PreparedQuery pq = datastore.prepare(q);
-        for (Entity e: pq.asIterable()) {
-            long ticketId = (long) e.getProperty(PROPERTY_TICKET_ID);
-            Key key = KeyFactory.createKey(KIND_TICKET, ticketId);
-            try {
-                Entity ticketEntity = datastore.get(key);
-                Ticket ticket = makeTicketFromEntity(ticketEntity, (Long) e.getProperty(PROPERTY_AFGEROND));
-
-                boolean isInList = false;
-                for (int i = 0; i < tickets.size(); i++) {
-                    if (tickets.get(i).getId() == ticket.getId()) isInList = true;
-                }
-                if (!isInList) tickets.add(ticket);
-
-
-            } catch (EntityNotFoundException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return tickets;
-
-    }
-
-
 }

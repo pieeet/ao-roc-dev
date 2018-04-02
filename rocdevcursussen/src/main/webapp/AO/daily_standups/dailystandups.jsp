@@ -24,8 +24,6 @@
         }
         @SuppressWarnings("unchecked")
         ArrayList<Vak> vakken = (ArrayList<Vak>) request.getAttribute("vakken");
-
-
 %>
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
@@ -35,32 +33,40 @@
         <h1>Planningsformulier</h1>
         <p>In dit formulier geef je aan wat je afgelopen week hebt gedaan en wat je de komende week wilt gaan doen.</p>
         <form role="form" id="planning_form">
-            <div class="form-group">
-                <label for="groep_kiezer">Groep</label>
-                <select class="form-control required" id="groep_kiezer" name="groep_kiezer">
-                    <%if (standUpUser != null) {%>
-                    <option value="<%=standUpUser.getGroepEsc()%>"><%=standUpUser.getGroepEsc()%>
-                    </option>
-                    <%} else {%>
-                    <option value="">Kiezen...</option>
-                    <%}%>
-                    <option value="MMVAO5A">MMVAO5A</option>
-                    <option value="MMVAO6A">MMVAO6A</option>
-                    <option value="MMVAO6C">MMVAO6C</option>
-                    <option value="MMVAO7A">MMVAO7A</option>
-                    <option value="MMVAO7B">MMVAO7B</option>
-                </select>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="groep_kiezer">Groep</label>
+                        <select class="form-control required" id="groep_kiezer" name="groep_kiezer">
+                            <%if (standUpUser != null) {%>
+                            <option value="<%=standUpUser.getGroepEsc()%>"><%=standUpUser.getGroepEsc()%>
+                            </option>
+                            <%} else {%>
+                            <option value="">Kiezen...</option>
+                            <%}%>
+                            <option value="MMVAO5A">MMVAO5A</option>
+                            <option value="MMVAO6A">MMVAO6A</option>
+                            <option value="MMVAO6C">MMVAO6C</option>
+                            <option value="MMVAO7A">MMVAO7A</option>
+                            <option value="MMVAO7B">MMVAO7B</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="naam_input">Naam</label>
-                <%if (standUpUser == null) {%>
-                <input class="form-control required" id="naam_input" name="naam_input"
-                       placeholder="Naam">
-                <%} else {%>
-                <input class="form-control required" id="naam_input" name="naam_input"
-                       value="<%=standUpUser.getNaamEsc()%>">
-                <%}%>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="naam_input">Naam</label>
+                        <%if (standUpUser == null) {%>
+                        <input class="form-control required" id="naam_input" name="naam_input"
+                               placeholder="Naam">
+                        <%} else {%>
+                        <input class="form-control required" id="naam_input" name="naam_input"
+                               value="<%=standUpUser.getNaamEsc()%>">
+                        <%}%>
+                    </div>
+                </div>
             </div>
             <h2>Huidige planning</h2>
             <div class="bs-callout bs-callout-warning">
@@ -75,14 +81,28 @@
                 <h3>Tickets</h3>
                 <%if (hasTickets) {%>
                 <ul>
-                    <%for (Ticket ticket : tickets) {
+                    <%
+                        for (Ticket ticket : tickets) {
                     %>
-                    <li><%=ticket.getTicketRegel()%></li>
+                    <li><%=ticket.getTicketRegel()%>
+                    </li>
                     <%}%>
                 </ul>
                 <%} else {%>
                 <p>Je hebt nog geen tickets</p>
                 <%}%>
+
+                <%
+                    //oude versie planning
+                    if (planning.getPlanning() != null) {
+                %>
+
+                <h3>Gepland werk</h3>
+                <p><%=planning.getPlanningEsc()%></p>
+                <%
+                    }
+                %>
+
                 <%--evt belemmeringen--%>
                 <%
                     String belemmeringen = planning.getBelemmeringenEsc();
@@ -98,13 +118,18 @@
             <p>Geef aan of je je aan je eigen planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
                 juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
                 volgende keer wel te laten lukken?</p>
-            <div class="form-group">
-                <label for="planning_gehaald">Heb je je planning gehaald?</label>
-                <select class="form-control required" id="planning_gehaald" name="planning_gehaald">
-                    <option value="">Kiezen</option>
-                    <option value="Ja">Ja</option>
-                    <option value="Nee">Nee</option>
-                </select>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="planning_gehaald">Heb je je planning gehaald?</label>
+                        <select class="form-control required" id="planning_gehaald" name="planning_gehaald">
+                            <option value="">Kiezen</option>
+                            <option value="Ja">Ja</option>
+                            <option value="Nee">Nee</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
             <%if (hasTickets) {%>
             <label>Welke tickets heb je afgerond?</label><br>
@@ -314,6 +339,7 @@
                     }
                 }
             });
+
             function verhoogUren(uren) {
                 let uurSpan = $("#totaal_uren");
                 let totaalUren = Number(uurSpan.text());
@@ -339,6 +365,7 @@
             $('.ticket_checkbox').on('change', function () {
                 checkPlanningGehaald();
             });
+
             function checkPlanningGehaald() {
                 let ticketsCheckbox = $('#tickets_checkbox');
                 let ticketCount = ticketsCheckbox.children().length / 2; //break also counts
@@ -390,7 +417,8 @@
                         project_naam: projectNaam,
                         beschrijving_ticket: ticketBeschrijving,
                         aantal_uur: aantalUur,
-                        vak_id: vakId},
+                        vak_id: vakId
+                    },
                     success: function (data) {
                         $("#tickets_list").append('<li data-ticket_id=' + data + '>' + projectNaam +
                             ' - ' + ticketBeschrijving + ' - ' + aantalUur + ' punten</li>');
