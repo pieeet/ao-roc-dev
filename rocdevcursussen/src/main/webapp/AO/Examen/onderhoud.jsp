@@ -73,7 +73,7 @@
                 <li>Het procedureboek heeft een voorblad. Het voorblad bevat de
                     volgende elementen:
                     <ol>
-                        <li>de naam van het projectNaam</li>
+                        <li>de naam van het project</li>
                         <li>de naam van het product: Procedureboek</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -191,7 +191,7 @@
                 <li>Het document <em>Format bestanden</em> heeft een voorblad.
                     Het voorblad bevat de volgende elementen:
                     <ol>
-                        <li>de naam van het projectNaam</li>
+                        <li>de naam van het project</li>
                         <li>de naam van het product: Format bestanden</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben
@@ -239,7 +239,7 @@
                 <li>De documentatie van de snapshot heeft een voorblad. Het
                     voorblad bevat de volgende elementen:
                     <ol>
-                        <li>de naam van het projectNaam</li>
+                        <li>de naam van het project</li>
                         <li>de naam van het product: Procedure archivering</li>
                         <li>de datum, waarop het product is ingeleverd.</li>
                         <li>de naam of namen van degenen die aan het product hebben

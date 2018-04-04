@@ -56,7 +56,7 @@ public class OverviewStudentServlet extends HttpServlet {
                         break;
                     }
                 }
-                if (!isInList) tickets.add(t);
+                if (!isInList && t.getIsAfgerond() > 0) tickets.add(t);
             }
         }
         if (!tickets.isEmpty()) {

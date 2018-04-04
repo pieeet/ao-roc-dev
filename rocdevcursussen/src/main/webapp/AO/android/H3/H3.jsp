@@ -107,7 +107,7 @@
 
 		<div class="opdrachten">
 			<h2>Opdracht 3.1</h2>
-			<p>Maak een nieuw projectNaam waarin je de Fooi Calculator met een
+			<p>Maak een nieuw project waarin je de Fooi Calculator met een
 				Table Layout maakt.</p>
 		</div>
 
@@ -141,7 +141,7 @@
 </pre>
 		<div class="opdrachten">
 			<h2>Opdracht 3.2</h2>
-			<p>Maak een nieuw projectNaam met een welkom tekst op een foto zoals
+			<p>Maak een nieuw project met een welkom tekst op een foto zoals
 				bovenstaand voorbeeld.</p>
 		</div>
 

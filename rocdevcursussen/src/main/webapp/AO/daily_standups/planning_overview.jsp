@@ -75,7 +75,7 @@
             });
             $(document).on("click", ".klik_user", function() {
                 let email = $(this).data("email");
-                window.location = "/AO/planning/studentplanningen?email=" + email;
+                window.open("/AO/planning/studentplanningen?email=" + email);
             })
             $('#overzicht_planningen').addClass('selected');
         });

@@ -136,7 +136,7 @@ import android.support.v7.app.ActionBarActivity;
 				class="ninja_img_uitleg"><img
 				src="<c:url value="/AO/android/H5/ic_about.png"/>" class="ninja_img_uitleg">
 			<p>Kopieer de plaatjes in &eacute;&eacute;n van de
-				&quot;drawable&quot; mappen&quot; van je projectNaam. Bovenstaande
+				&quot;drawable&quot; mappen&quot; van je project. Bovenstaande
 				plaatjes zijn geschikt voor xhdpi. Voor deze oefening hoef je niet
 				verschillende plaatjes voor verschillende resoluties te maken, maar
 				als een app werkelijk &quot;in produktie&quot; gaat ga je dat
@@ -314,7 +314,7 @@ public class InfoActivity extends Activity {
 					Pas aan volgens onderstaand voorbeeld<br> <pre class="code">
 &lt;activity
     android:name=&quot;com.rocdev.InfoActivity&quot;<span
-							class="comment">//afhankelijk van je projectNaam</span>
+							class="comment">//afhankelijk van je project</span>
     android:label=&quot;@string/menu_info&quot;
     android:theme=&quot;@style/DialogTheme&quot;&gt;
 &lt;/activity&gt;

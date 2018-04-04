@@ -13,7 +13,7 @@
 			<ul>
 				<li>Android Studio hebt ge&iuml;nstalleerd</li>
 				<li>De SDK Manager kunt gebruiken</li>
-				<li>Een beeld hebt van de structuur van een Android projectNaam</li>
+				<li>Een beeld hebt van de structuur van een Android project</li>
 				<li>Een virtual device en/of een Android telefoon kunt
 					gebruiken om te testen</li>
 			</ul>
@@ -93,7 +93,7 @@
 		</p>
 		<img src="<c:url value="/AO/android/H1/studio_start.jpg"/>" width="800">
 		<h2>Projectstructuur</h2>
-		<p>Wanneer je een nieuw projectNaam start maakt studio een simpele app
+		<p>Wanneer je een nieuw project start maakt studio een simpele app
 			aan met &eacute;&eacute;n &quot;Activity&quot; (scherm ) die de tekst
 			"Hello world!" toont.</p>
 		<p>Aan de linkerkant zie je de projectstructuur en de bestanden

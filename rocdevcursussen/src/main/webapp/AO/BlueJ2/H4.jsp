@@ -65,8 +65,8 @@ public class Team {
         </p>
         <p>Met de uitdrukking new Leerling(...) wordt een object gemaakt met de constructor van Leerling. In een
             object kunnen dus objecten van andere klassen worden gemaakt.</p>
-        <p>Laten we de klasse gaan testen. Maak een nieuw projectNaam genaamd Sportweek en maak de klasse Team. De klasse
-            Leerling die je al had gemaakt kun je in het projectNaam importeren (<code>Project</code> &#8594;
+        <p>Laten we de klasse gaan testen. Maak een nieuw project genaamd Sportweek en maak de klasse Team. De klasse
+            Leerling die je al had gemaakt kun je in het project importeren (<code>Project</code> &#8594;
             <code>Import...</code>). Als het goed is zie je dat er in het venster van BlueJ een stippellijn loopt tussen
             de
             twee klassen. Dit is de manier van BlueJ om een associatie tussen de klassen aan te geven.</p>
@@ -287,7 +287,7 @@ System.out.println( naam2 + &quot; is &quot; + (leeftijd + 10) );
         </div>
         <div class="opdrachten">
             <h2>Opgave 5.5</h2>
-            <p>Voeg aan het projectNaam Sportweek een klasse Wedstrijd toe. De klasse bevat de volgende attributen: twee
+            <p>Voeg aan het project Sportweek een klasse Wedstrijd toe. De klasse bevat de volgende attributen: twee
             teams (die tegen elkaar spelen), een datum (waarop de wedstrijd wordt gespeeld) en de uitslag. Bedenk zelf
             op welke manier je de uitslag wilt opslaan.</p>
             <img src="/AO/BlueJ2/images/wedstrijddiagram.png">

@@ -17,7 +17,7 @@
                 <li>namen van klassen, attributen en methoden</li>
                 <li>case-sensitive</li>
                 <li>public en private</li>
-                <li>projectNaam</li>
+                <li>project</li>
                 <li>gebruik van de constructor en keyword &quot;this&quot;</li>
                 <li>gebruik verschillende soorten methoden</li>
                 <li>getters en setters</li>
@@ -75,9 +75,9 @@ public class Bankrekening {
         <p>merk op dat voor de attributen steeds het woord <em>private</em> staat. Dat betekent dat de gegevens niet
             openbaar zijn, ze kunnen niet zomaar veranderd of opgevraagd worden.</p>
 
-        <h3>Nieuw projectNaam maken in BlueJ</h3>
+        <h3>Nieuw project maken in BlueJ</h3>
         <p>BlueJ maakt gebruik van projecten om bij elkaar horende klassen op te bergen. Voor een nieuwe klasse
-            Bankrekening maken we een nieuw projectNaam. In het projectNaam maak je een klasse Bankrekening.</p>
+            Bankrekening maken we een nieuw project. In het project maak je een klasse Bankrekening.</p>
         <p>In het vensterzie je de klasse Bankrekening. Hij is gearceerd omdat hij nog niet gecompileerd is. Maar
             eerst ga je de klasse vullen met de attributen die onze Bankrekening nodig heeft. BlueJ maakt altijd
             standaard
@@ -325,7 +325,7 @@ public void setNaam(String naam) {
 
         <div class="opdrachten">
             <h2>Opgave 4.2</h2>
-            <p>Maak in BlueJ een nieuw projectNaam aan met de naam Leerling. Maak een nieuwe klasse met de naam Leerling
+            <p>Maak in BlueJ een nieuw project aan met de naam Leerling. Maak een nieuwe klasse met de naam Leerling
             en maak de broncode. Test de methoden, dat wil zeggen:
                 roep de methoden getNaam() aan, wijzig de naam met setNaam() en vraag daarna opnieuw de naam op.</p>
         </div>

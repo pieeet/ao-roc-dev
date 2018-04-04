@@ -10,7 +10,7 @@
 		<!-- oranje border links -->
 		<div class="bs-callout bs-callout-warning">
 			<h2>Leerdoelen</h2>
-			<p>Dit projectNaam is bedoeld ter voorbereiding op je examen. Het
+			<p>Dit project is bedoeld ter voorbereiding op je examen. Het
 				examen bestaat uit 4 kerntaken:</p>
 			<ul>
 				<li>Kerntaak 1: Ontwerp</li>

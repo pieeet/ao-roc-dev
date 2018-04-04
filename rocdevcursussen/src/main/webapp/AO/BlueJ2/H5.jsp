@@ -91,14 +91,14 @@ import java.util.*
         <h3>De praktijk</h3>
         <p>Laten we eerst eens kijken hoe we de nieuwe klassse Team met een ArrayList werkt.</p>
         <ul>
-            <li>Start in BlueJ ee nieuw projectNaam met de naam Sportweek2</li>
+            <li>Start in BlueJ ee nieuw project met de naam Sportweek2</li>
             <li>Maak een nieuwe klasse Team, gebruik de broncode uit de vorige paragraaf</li>
             <li>Sluit de editor</li>
         </ul>
-        <p>Importeer de eerder gemakte klasse Leerling in dit projectNaam.</p>
+        <p>Importeer de eerder gemakte klasse Leerling in dit project.</p>
         <ul>
             <li>Kies in de menubalk <code>Project</code> &#8594; <code>Import...</code></li>
-            <li>Navigeer naar het projectNaam Leerling, selecteer dit en klik op Import.</li>
+            <li>Navigeer naar het project Leerling, selecteer dit en klik op Import.</li>
             <li>Laat alles compileren door op Compile te klikken</li>
         </ul>
         <p>Als de vertaling gelukt is, kun je een team gaan samenstellen.</p>
@@ -137,7 +137,7 @@ for (Leerling lid: lijst) {
         nemen we voor de cijfers het type double. Het klassendiagram zie je hieronder.</p>
         <img src="/AO/BlueJ2/images/klassendiagram_cijferlijst.png">
         <ul>
-            <li>Open in BlueJ uit de map voorbeelden het projectNaam Cijferlijst</li>
+            <li>Open in BlueJ uit de map voorbeelden het project Cijferlijst</li>
             <li>Maak een object van de klasse Cijferlijst</li>
             <li>Roep een aantal maal de methode voegtoe() aan en voer een cijfer in (gebruik eventueel een decimale
             punt in de cijfers.</li>

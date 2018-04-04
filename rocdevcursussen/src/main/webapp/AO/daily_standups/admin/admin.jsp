@@ -129,7 +129,7 @@
                     }
                 },
                 messages: {
-                    vak_kiezer: {required: "Kies een vak/projectNaam"},
+                    vak_kiezer: {required: "Kies een vak/project"},
                     ticket_code_input: {required: "Geef een code"},
                     ticket_uren_input: {
                         required: "Geef aantal uren aan",

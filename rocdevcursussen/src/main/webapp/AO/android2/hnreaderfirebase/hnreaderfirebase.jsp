@@ -71,7 +71,7 @@
             schakelen.</p>
 
         <h3>Firebase</h3>
-        <p>Om Firebase te kunnen gebruiken moet je het in je projectNaam installeren. Dit is vrij eenvoudig in Android
+        <p>Om Firebase te kunnen gebruiken moet je het in je project installeren. Dit is vrij eenvoudig in Android
             Studio. Ga naar <code>File</code>, kies <code>Project Structure...</code>, Kies <code>Cloud</code> en
             vink
             Firebase aan. Je hoeft nu alleen nog de volgende regel code in de onCreate methode toe te voegen:</p>

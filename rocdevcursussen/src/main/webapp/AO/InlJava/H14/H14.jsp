@@ -125,7 +125,7 @@ public class Random extends Applet {
             een tekenprogramma zoals Paint of Paintshop converteren naar het
             juiste formaat.</p>
         <p>De klasse Image maakt het mogelijk in Java te werken met
-            afbeeldingen. Allereerst moet je de afbeelding in je projectNaam plaatsen. Ga als
+            afbeeldingen. Allereerst moet je de afbeelding in je project plaatsen. Ga als
             volgt te werk:</p>
         <p>Maak in je src map een package voor je afbeeldingen. Je zou deze map bijvoorbeeld
             &quot;resources&quot; kunnen noemen. Kopieer de afbeelding die je wilt gebruiken

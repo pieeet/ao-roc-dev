@@ -41,7 +41,7 @@
         <h3>De interface van de schildpad</h3>
         <p>Om met de schildpad te kunnen tekenen moet je eerst een instantie van de klasse Schildpad maken.</p>
         <ul>
-            <li>Open in BlueJ uit de map voorbeelden het projectNaam schildpad.</li>
+            <li>Open in BlueJ uit de map voorbeelden het project schildpad.</li>
             <li>Maak een object van Schildpad door met je rechtse muisknop op de klasse te klikken en
                 <code>new Schildpad()</code> te kiezen
             </li>
@@ -235,7 +235,7 @@
 
         <div class="opdrachten">
             <h2>Opgave 3.1</h2>
-            Open het projectNaam Schildpad en maak van de klasse Schildpad een object.<br>
+            Open het project Schildpad en maak van de klasse Schildpad een object.<br>
             Bedenk of vind uit hoe je de schildpad een gelijkzijdige driehoek kunt laten tekenen.<br>
             Noteer de opdrachten die je de schildpad hebt gegeven om tot zo&#39;n driehoek te komen.
         </div>

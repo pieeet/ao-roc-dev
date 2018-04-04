@@ -17,7 +17,7 @@
 				<li>namen van klassen, attributen en methoden</li>
 				<li>case-sensitive</li>
 				<li>public en private</li>
-				<li>projectNaam</li>
+				<li>project</li>
 				<li>gebruik van de constructor en keyword &quot;this&quot;</li>
 				<li>gebruik verschillende soorten methoden</li>
 				<li>getters en setters</li>

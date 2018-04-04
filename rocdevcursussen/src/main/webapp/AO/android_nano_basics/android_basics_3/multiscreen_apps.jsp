@@ -25,7 +25,7 @@
             <p>Na het voltooien van deze cursus kun je:</p>
             <ul>
 
-                <li>een nieuwe <strong>Activity</strong> in je projectNaam maken</li>
+                <li>een nieuwe <strong>Activity</strong> in je project maken</li>
                 <li>met een <strong>explicit intent</strong> een andere Activity binnen je app starten</li>
                 <li>op verschillende manieren een <strong>OnClickListener</strong> maken die click events op een view
                     afhandelt
@@ -47,8 +47,8 @@
                     een <strong>constructor</strong> en <strong>get-methoden (getters)</strong></li>
                 <li>een custom ArrayAdapter maken met behulp van een <a
                         href="https://github.com/udacity/ud839_CustomAdapter_Example" target="_blank">voorbeeld
-                    projectNaam</a></li>
-                <li>plaatjes voor verschillende schermresoluties aan je projectNaam toevoegen</li>
+                    project</a></li>
+                <li>plaatjes voor verschillende schermresoluties aan je project toevoegen</li>
                 <li>meerdere constructors maken (<strong>overloading</strong>)</li>
                 <li>in java een <strong>ImageResource</strong> aan een ImageView meegeven</li>
                 <li><strong>Constanten</strong> gebruiken</li>
@@ -89,7 +89,7 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/-VPM6ICgCk8" frameborder="0"
                     allowfullscreen></iframe>
         </div>
-        <p>Zie <a href="https://github.com/ROC-DEV/Adapters" target="_blank">voorbeeld</a> projectNaam waarin een ListView
+        <p>Zie <a href="https://github.com/ROC-DEV/Adapters" target="_blank">voorbeeld</a> project waarin een ListView
             met zowel
             een <a href="https://developer.android.com/reference/android/widget/BaseAdapter.html"
                    target="_blank">BaseAdapter</a> als een <a

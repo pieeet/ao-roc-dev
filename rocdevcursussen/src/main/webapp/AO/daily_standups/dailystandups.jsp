@@ -462,6 +462,9 @@
     button#btn_custom_ticket {
         margin-top: 2em;
     }
+    button#btn_select_ticket {
+        margin-top: .5em;
+    }
 
 </style>
 <%}%>

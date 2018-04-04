@@ -53,7 +53,7 @@
                 <li>Het implementatieplan heeft een voorblad. Het voorblad
                     bevat de volgende elementen.
                     <ul>
-                        <li>De naam van het projectNaam</li>
+                        <li>De naam van het projectm</li>
                         <li>De naam van het product: Implementatieplan</li>
                         <li>De datum, waarop het product is ingeleverd</li>
                         <li>De namen van degenen die aan het product hebben
@@ -307,7 +307,7 @@
                 <li>De documentatie van de implementatie heeft een voorblad.
                     Het voorblad bevat de volgende elementen.
                     <ul>
-                        <li>De naam van het projectNaam</li>
+                        <li>De naam van het project</li>
                         <li>De naam van het product: Implementatie</li>
                         <li>De datum, waarop het product is ingeleverd</li>
                         <li>De namen van degenen die aan het product hebben
@@ -454,7 +454,7 @@
                 <li>Het implementatieplan heeft een voorblad. Het voorblad
                     bevat de volgende elementen.
                     <ul>
-                        <li>De naam van het projectNaam</li>
+                        <li>De naam van het project</li>
                         <li>De naam van het product: Acceptatietest</li>
                         <li>De datum, waarop het product is ingeleverd</li>
                         <li>De namen van degenen die aan het product hebben
@@ -673,7 +673,7 @@
                 <li>Het implementatieplan heeft een voorblad. Het voorblad
                     bevat de volgende elementen.
                     <ul>
-                        <li>De naam van het projectNaam</li>
+                        <li>De naam van het project</li>
                         <li>De naam van het product: Evaluatie</li>
                         <li>De datum, waarop het product is ingeleverd</li>
                         <li>De namen van degenen die aan het product hebben
