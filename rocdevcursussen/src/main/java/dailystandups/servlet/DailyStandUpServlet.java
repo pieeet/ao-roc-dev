@@ -12,13 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.logging.Logger;
 
 /**
  * Created by Piet de Vries on 09-03-18.
  *
  */
 public class DailyStandUpServlet extends HttpServlet {
+
+    private static final Logger log = Logger.getLogger(DailyStandUpServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,7 +34,7 @@ public class DailyStandUpServlet extends HttpServlet {
             } else {
                 long id = Long.parseLong(req.getParameter("vak"));
                 ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getTicketsFromVak(id);
-                resp.getWriter().print(makeHtmlSelectorFromTickets(tickets));
+                resp.getWriter().print(makeHtmlSelectorFromTickets(tickets, user.getEmail()));
             }
 
         } else {
@@ -58,6 +62,7 @@ public class DailyStandUpServlet extends HttpServlet {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
 
+        //Maak custom ticket
         if (req.getParameter("maak_project_ticket") != null) {
             String projectNaam = req.getParameter("project_naam");
             String beschrijvingTicket = req.getParameter("beschrijving_ticket");
@@ -66,7 +71,18 @@ public class DailyStandUpServlet extends HttpServlet {
             ProjectTicket ticket = new ProjectTicket(vak, aantalUur, beschrijvingTicket, projectNaam);
             long ticketId = DataUtils.voegTicketToe(ticket);
             resp.getWriter().print(ticketId);
-        } else if (req.getParameter("submit_planning_btn") != null) {
+        // Handle submit
+        } else if (req.getParameter("change_ticket_afgerond") != null) {
+            long ticketId = Long.parseLong(req.getParameter("change_ticket_afgerond"));
+            String mode = req.getParameter("mode");
+            if (mode.equals("set_afgerond")) {
+                DataUtils.setTicketAfgerond(ticketId, new Date().getTime(), user.getEmail());
+            } else {
+                DataUtils.setTicketAfgerond(ticketId, -1, user.getEmail());
+            }
+            resp.getWriter().print("Ticket met id: " + ticketId + " is gewijzigd");
+        }
+        else if (req.getParameter("submit_planning_btn") != null) {
             Planning laatstePlanning;
             long laatstePlanningId = -1;
             Date currentDate = new Date();
@@ -81,15 +97,6 @@ public class DailyStandUpServlet extends HttpServlet {
                 laatstePlanning.setRedenNietAf(req.getParameter("waarom_niet_gelukt"));
                 // user wordt pas bewaard bij nieuwe planning (isNew = false
                 DataUtils.saveUserAndPlanning(laatstePlanning, 0, false);
-                // set tickets afgerond
-                if (req.getParameter("ticketsAfgerond") != null) {
-                    String paramTicketsAfgerond = req.getParameter("ticketsAfgerond").substring(2);
-                    String[] afgerondeTicketIds = paramTicketsAfgerond.split("__");
-                    for (String ticket : afgerondeTicketIds) {
-                        long id = Long.parseLong(ticket);
-                        DataUtils.setTicketAfgerond(id, currentDate, user.getEmail());
-                    }
-                }
             }
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     req.getParameter("groep_kiezer"));
@@ -110,18 +117,28 @@ public class DailyStandUpServlet extends HttpServlet {
         }
     }
 
-    private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets) {
+    private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets, String email) {
+
+        long[] afgerondeTickets = DataUtils.getAfgerondeTicketsFromUser(email);
         StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
                 "<option value=\"Kies\">Kies ticket...</option>");
         for (Ticket ticket : tickets) {
-            html.append("<option value=\"").append(ticket.getCodeTicket())
-                    .append("\" data-uren=\"").append(ticket.getAantalUren())
-                    .append("\" data-code=\"").append(ticket.getCodeTicket())
-                    .append("\" data-ticket_id=\"").append(ticket.getId())
-                    .append("\" data-vak_naam=\"").append(ticket.getVak().getNaam())
-                    .append("\" data-vak=\"")
-                    .append(ticket.getVakId()).append("\">")
-                    .append(ticket.getTicketRegel()).append("</option>");
+            boolean isAfgerond = false;
+            for (long l: afgerondeTickets) {
+                if (ticket.getId() == l) {
+                    isAfgerond = true;
+                }
+            }
+            if (!isAfgerond) {
+                html.append("<option value=\"").append(ticket.getCodeTicket())
+                        .append("\" data-uren=\"").append(ticket.getAantalUren())
+                        .append("\" data-code=\"").append(ticket.getCodeTicket())
+                        .append("\" data-ticket_id=\"").append(ticket.getId())
+                        .append("\" data-vak_naam=\"").append(ticket.getVak().getNaam())
+                        .append("\" data-vak=\"")
+                        .append(ticket.getVakId()).append("\">")
+                        .append(ticket.getTicketRegel()).append("</option>");
+            }
         }
         html.append("</select>");
         return html.toString();

@@ -19,7 +19,7 @@
         if (planning != null) {
             hasTickets = planning.getTickets() != null && planning.getTickets().length > 0;
             if (hasTickets) {
-                tickets = planning.getTickets();
+                tickets = planning.getTicketsSorted();
             }
         }
         @SuppressWarnings("unchecked")
@@ -263,23 +263,15 @@
                     let submitBtn = $("#submit_planning_btn");
                     submitBtn.attr('disabled', 'disabled');
                     let formData = $(form).serialize();
-                    console.log(formData);
                     let tickets = "";
                     $("ul#tickets_list li").each(function () {
                         tickets += '__' + $(this).data('ticket_id');
-                    });
-                    let ticketsAfgerond = "";
-                    $('#tickets_checkbox').find('input:checked').each(function () {
-                        ticketsAfgerond += '__' + $(this).val();
                     });
                     if (tickets === "") {
                         alert("Kies minimaal een ticket");
                         submitBtn.removeAttr('disabled');
                     } else {
                         formData += '&ticketIds=' + tickets;
-                        if (ticketsAfgerond !== "") {
-                            formData += '&ticketsAfgerond=' + ticketsAfgerond;
-                        }
                         $.ajax({
                             type: "POST",
                             url: url,
@@ -294,31 +286,36 @@
             });
             $("#select_vak").on('change', function () {
                 const selectVak = $("#select_vak");
-                const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
-                const customTicketMaker = $("#custom_ticket_maker");
-                let vakNaam = selectVak.find(':selected').data("naam_vak");
-                if (vakNaam === "Project") {
-                    customTicketMaker.removeClass("hidden");
-                    if (!ticketKiezerWrapper.hasClass("hidden")) {
-                        ticketKiezerWrapper.addClass("hidden");
-                    }
-                } else {
-                    if (!(customTicketMaker.hasClass("hidden"))) {
-                        customTicketMaker.addClass("hidden");
-                    }
-                    let vakId = selectVak.val();
-                    const url = "/AO/planning";
-                    $.ajax({
-                        type: "GET",
-                        url: url,
-                        data: {vak: vakId},
-                        success: function (data) {
-                            $("#ticket_kiezer").html(data);
-                            ticketKiezerWrapper.removeClass('hidden');
-                        }
-                    });
-                }
+                if ($("#planning_gehaald").find(":selected").text() === "Kiezen") {
+                    selectVak.val("");
+                    alert("Geef eerst aan of je je planning hebt gehaald");
 
+                } else {
+                    const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
+                    const customTicketMaker = $("#custom_ticket_maker");
+                    let vakNaam = selectVak.find(':selected').data("naam_vak");
+                    if (vakNaam === "Project") {
+                        customTicketMaker.removeClass("hidden");
+                        if (!ticketKiezerWrapper.hasClass("hidden")) {
+                            ticketKiezerWrapper.addClass("hidden");
+                        }
+                    } else {
+                        if (!(customTicketMaker.hasClass("hidden"))) {
+                            customTicketMaker.addClass("hidden");
+                        }
+                        let vakId = selectVak.val();
+                        const url = "/AO/planning";
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            data: {vak: vakId},
+                            success: function (data) {
+                                $("#ticket_kiezer").html(data);
+                                ticketKiezerWrapper.removeClass('hidden');
+                            }
+                        });
+                    }
+                }
             });
             // on function necessary for dynamically generated elements
             $(document).on('click', '#btn_select_ticket', function () {
@@ -353,9 +350,17 @@
                 let hasTickets = ticketsCheckbox.find(':checkbox').length > 0;
                 if (keuze === "Ja") {
                     ticketsCheckbox.find(':checkbox').prop('checked', true);
+                    ticketsCheckbox.find("input").each(function() {
+                        let ticketId = $(this).val();
+                        setTicketWelGehaald(ticketId);
+                    });
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 } else if (keuze === "Nee") {
                     ticketsCheckbox.find(':checkbox').prop('checked', false);
+                    ticketsCheckbox.find("input").each(function() {
+                        let ticketId = $(this).val();
+                        setTicketNietGehaald(ticketId);
+                    });
                     $('#waarom_niet_gelukt_wrapper').removeClass('hidden');
                 }
                 if (hasTickets) {
@@ -364,7 +369,44 @@
             });
             $('.ticket_checkbox').on('change', function () {
                 checkPlanningGehaald();
+                let ticketId = $(this).val();
+                const url = "/AO/planning";
+                if (this.checked) {
+                    setTicketWelGehaald(ticketId);
+                } else {
+                    setTicketNietGehaald(ticketId);
+                }
+
             });
+
+            function setTicketNietGehaald(ticketId) {
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        change_ticket_afgerond: ticketId,
+                        mode: "set_niet_afgerond"
+                    },
+                    success: function(data) {
+                    }
+                });
+            }
+
+            function setTicketWelGehaald(ticketId) {
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        change_ticket_afgerond: ticketId,
+                        mode: "set_afgerond"
+                    },
+                    success: function(data) {
+                    }
+                });
+            }
+
 
             function checkPlanningGehaald() {
                 let ticketsCheckbox = $('#tickets_checkbox');
@@ -428,10 +470,11 @@
 
                     }
                 });
-
-
             });
 
+            $("input.ticket_checkbox").change(function() {
+
+            });
 
         });
 </script>

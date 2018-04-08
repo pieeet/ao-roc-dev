@@ -51,36 +51,17 @@ public class OverviewServlet extends HttpServlet {
                 "<tr>" +
                 "<th>Naam/tijd</th>" +
                 "<th>Planning</th>" +
-                "<th>Nog doen</th>" +
                 "<th>Hulp nodig</th>" +
-                "<th>Reden niet af</th>" +
                 "</tr>");
 
         for (StandUpUser user : users) {
-            if (user.getVorigePlanning() != null) {
-                List<Ticket> ticketsVorigePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
-                        user.getVorigePlanningId());
-                html.append("<tr>")
-                        .append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
-                        .append(user.getNaamEsc()).append("<br>").append(user.getVorigePlanning().getEntryDateFormat()).append("</td>")
-
-                        .append("<td>").append(maakTicketString(ticketsVorigePlanning))
-                        .append("</td>")
-                        .append("<td>").append(maakNogDoenString(ticketsVorigePlanning))
-
-                        .append("<td>").append(user.getVorigePlanning().getBelemmeringenEsc())
-                        .append("</td>").append("<td>").append(user.getVorigePlanning().getRedenNietAfEsc())
-                        .append("</td>").append("</tr>");
-            }
             List<Ticket> ticketsLaatstePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
                     user.getLaatstePlanningId());
             html.append("<tr>").append("<td class=\"klik_user\" data-email=\"").append(user.getEmail()).append("\">")
                     .append(user.getNaamEsc())
                     .append("<br>").append(user.getHuidigePlanning().getEntryDateFormat()).append("</td>")
                     .append("<td>").append(maakTicketString(ticketsLaatstePlanning)).append("</td>")
-                    .append("<td> - </td>")
                     .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
-                    .append("<td>").append(user.getHuidigePlanning().getRedenNietAfEsc()).append("</td>")
                     .append("</tr>");
         }
         html.append("</table>");

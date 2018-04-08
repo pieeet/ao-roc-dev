@@ -3,6 +3,8 @@ package dailystandups.model;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -79,6 +81,16 @@ public class Planning {
     }
 
     public Ticket[] getTickets() {
+        return tickets;
+    }
+
+    public Ticket[] getTicketsSorted() {
+        Arrays.sort(tickets, new Comparator<Ticket>() {
+            @Override
+            public int compare(Ticket o1, Ticket o2) {
+                return o1.getTicketRegel().compareTo(o2.getTicketRegel());
+            }
+        });
         return tickets;
     }
 

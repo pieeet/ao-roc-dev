@@ -291,7 +291,7 @@ public class DataUtils {
         }
     }
 
-    public static void setTicketAfgerond(long ticketId, Date currentDate, String email) {
+    public static void setTicketAfgerond(long ticketId, long date, String email) {
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
         Query.Filter ticketFilter = new Query.FilterPredicate(PROPERTY_TICKET_ID, Query.FilterOperator.EQUAL,
@@ -301,7 +301,7 @@ public class DataUtils {
         Query q = new Query(KIND_PLANNING_TICKET).setFilter(compositeFilter);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e: pq.asIterable()) {
-            e.setProperty(PROPERTY_AFGEROND, currentDate.getTime());
+            e.setProperty(PROPERTY_AFGEROND, date);
             datastore.put(e);
         }
     }
@@ -316,4 +316,24 @@ public class DataUtils {
         }
         return makeUserFromEntity(entity);
     }
+
+    public static long[] getAfgerondeTicketsFromUser(String email) {
+        Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
+                email);
+        Query.Filter afgerondFilter = new Query.FilterPredicate(PROPERTY_AFGEROND, Query.FilterOperator.GREATER_THAN,
+                0);
+
+        Query.Filter compositeFilter = Query.CompositeFilterOperator.and(emailFilter, afgerondFilter);
+        Query q = new Query(KIND_PLANNING_TICKET).setFilter(compositeFilter);
+        PreparedQuery pq = datastore.prepare(q);
+        long[] afgerondeTickets = new long[pq.countEntities(FetchOptions.Builder.withDefaults())];
+        int index = 0;
+        for (Entity e: pq.asIterable()) {
+            afgerondeTickets[index] = (long) e.getProperty(PROPERTY_TICKET_ID);
+            index++;
+        }
+        return afgerondeTickets;
+    }
+
+
 }
