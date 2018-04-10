@@ -289,7 +289,6 @@
                 if ($("#planning_gehaald").find(":selected").text() === "Kiezen") {
                     selectVak.val("");
                     alert("Geef eerst aan of je je planning hebt gehaald");
-
                 } else {
                     const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
                     const customTicketMaker = $("#custom_ticket_maker");
@@ -336,7 +335,6 @@
                     }
                 }
             });
-
             function verhoogUren(uren) {
                 let uurSpan = $("#totaal_uren");
                 let totaalUren = Number(uurSpan.text());
@@ -378,7 +376,6 @@
                 }
 
             });
-
             function setTicketNietGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -392,7 +389,6 @@
                     }
                 });
             }
-
             function setTicketWelGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -406,11 +402,10 @@
                     }
                 });
             }
-
-
             function checkPlanningGehaald() {
                 let ticketsCheckbox = $('#tickets_checkbox');
-                let ticketCount = ticketsCheckbox.children().length / 2; //break also counts
+                let ticketCount = ticketsCheckbox.find('.ticket_checkbox').length;
+                // let ticketCount = ticketsCheckbox.children().length / 2; //break also counts
                 let checkedBoxes = ticketsCheckbox.find('input:checked').length;
                 if (checkedBoxes < ticketCount) {
                     $('#planning_gehaald').val("Nee");
@@ -420,7 +415,6 @@
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 }
             }
-
             $(document).on('click', '#btn_custom_ticket', function () {
                 let projectNaam = $("#naam_project_input").val();
                 if (projectNaam === "") {
@@ -443,13 +437,11 @@
                     return;
                 } else {
                     $("#error_project_input").addClass("hidden");
-
                 }
                 $("#custom_ticket_maker").find(".error").addClass('hidden');
                 const selectVak = $("#select_vak");
                 let vakId = selectVak.val();
                 let vak = selectVak.find(":selected").text();
-
                 const url = "/AO/planning";
                 $.ajax({
                     type: "POST",
@@ -471,11 +463,6 @@
                     }
                 });
             });
-
-            $("input.ticket_checkbox").change(function() {
-
-            });
-
         });
 </script>
 <style>
