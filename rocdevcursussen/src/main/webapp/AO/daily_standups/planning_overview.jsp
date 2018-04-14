@@ -15,12 +15,8 @@
 
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
-
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
-
     <div class="col-md-8">
-
-
         <form role="form" id="planning_overview_form">
             <div class="form-group">
                 <label for="cohort_kiezer">Cohort:</label>

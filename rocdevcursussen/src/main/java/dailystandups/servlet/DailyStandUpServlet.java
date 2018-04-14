@@ -5,15 +5,23 @@ import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.*;
 import dailystandups.util.DataUtils;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
@@ -81,8 +89,7 @@ public class DailyStandUpServlet extends HttpServlet {
                 DataUtils.setTicketAfgerond(ticketId, -1, user.getEmail());
             }
             resp.getWriter().print("Ticket met id: " + ticketId + " is gewijzigd");
-        }
-        else if (req.getParameter("submit_planning_btn") != null) {
+        } else if (req.getParameter("submit_planning_btn") != null) {
             Planning laatstePlanning;
             long laatstePlanningId = -1;
             Date currentDate = new Date();
@@ -100,8 +107,8 @@ public class DailyStandUpServlet extends HttpServlet {
             }
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     req.getParameter("groep_kiezer"));
-            Planning nieuwePlanning = new Planning(standUpUser, currentDate, req.getParameter("hulp_nodig"));
-
+            String hulpvraag = req.getParameter("hulp_nodig");
+            Planning nieuwePlanning = new Planning(standUpUser, currentDate, hulpvraag);
             //remove underscores at beginning of string
             String paramTickets = req.getParameter("ticketIds").substring(2);
             String[] ticketIdStrings = paramTickets.split("__");
@@ -114,11 +121,13 @@ public class DailyStandUpServlet extends HttpServlet {
             //user wordt hier wél bewaard (isNew = true)
             DataUtils.saveUserAndPlanning(nieuwePlanning, laatstePlanningId, true);
             resp.getWriter().print("ok");
+            if (req.getParameter("stuur_email") != null) {
+                sendEmailHulpNodig(standUpUser, hulpvraag);
+            }
         }
     }
 
     private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets, String email) {
-
         long[] afgerondeTickets = DataUtils.getAfgerondeTicketsFromUser(email);
         StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
                 "<option value=\"Kies\">Kies ticket...</option>");
@@ -142,6 +151,23 @@ public class DailyStandUpServlet extends HttpServlet {
         }
         html.append("</select>");
         return html.toString();
+    }
+
+    private void sendEmailHulpNodig(StandUpUser user, String hulpvraag) {
+        try {
+            Properties props = new Properties();
+            Session session = Session.getDefaultInstance(props, null);
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(
+                    "pdevries@roc-dev.com", "Weekly Stand-ups"));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+                    "admins"));
+            msg.setSubject(user.getNaamEsc() + " heeft hulp nodig");
+            msg.setText(user.getNaamEsc() + " heeft hulp nodig bij het volgende:\n" + hulpvraag);
+            Transport.send(msg);
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 
