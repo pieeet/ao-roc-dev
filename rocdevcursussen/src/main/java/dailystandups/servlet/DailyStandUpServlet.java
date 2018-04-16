@@ -79,7 +79,8 @@ public class DailyStandUpServlet extends HttpServlet {
             ProjectTicket ticket = new ProjectTicket(vak, aantalUur, beschrijvingTicket, projectNaam);
             long ticketId = DataUtils.voegTicketToe(ticket);
             resp.getWriter().print(ticketId);
-        // Handle submit
+
+            // handle tickets afgerond
         } else if (req.getParameter("change_ticket_afgerond") != null) {
             long ticketId = Long.parseLong(req.getParameter("change_ticket_afgerond"));
             String mode = req.getParameter("mode");
@@ -89,13 +90,13 @@ public class DailyStandUpServlet extends HttpServlet {
                 DataUtils.setTicketAfgerond(ticketId, -1, user.getEmail());
             }
             resp.getWriter().print("Ticket met id: " + ticketId + " is gewijzigd");
+
+            // Handle submit
         } else if (req.getParameter("submit_planning_btn") != null) {
             Planning laatstePlanning;
-            long laatstePlanningId = -1;
             Date currentDate = new Date();
             try {
                 laatstePlanning = DataUtils.getPlanning(user.getEmail());
-                laatstePlanningId = laatstePlanning != null ? laatstePlanning.getId() : -1;
             } catch (Exception e) {
                 laatstePlanning = null;
             }
@@ -103,7 +104,7 @@ public class DailyStandUpServlet extends HttpServlet {
             if (laatstePlanning != null) {
                 laatstePlanning.setRedenNietAf(req.getParameter("waarom_niet_gelukt"));
                 // user wordt pas bewaard bij nieuwe planning (isNew = false
-                DataUtils.saveUserAndPlanning(laatstePlanning, 0, false);
+                DataUtils.saveUserAndPlanning(laatstePlanning, false);
             }
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     req.getParameter("groep_kiezer"));
@@ -119,7 +120,7 @@ public class DailyStandUpServlet extends HttpServlet {
             nieuwePlanning.setTicketIds(ticketIds);
 
             //user wordt hier wél bewaard (isNew = true)
-            DataUtils.saveUserAndPlanning(nieuwePlanning, laatstePlanningId, true);
+            DataUtils.saveUserAndPlanning(nieuwePlanning, true);
             resp.getWriter().print("ok");
             if (req.getParameter("stuur_email") != null) {
                 sendEmailHulpNodig(standUpUser, hulpvraag);

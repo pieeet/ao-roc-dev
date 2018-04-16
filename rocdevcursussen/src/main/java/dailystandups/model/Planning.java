@@ -69,7 +69,6 @@ public class Planning {
         return entryDate;
     }
     public String getEntryDateFormat() {
-
         try {
             Date datePlus = new Date(entryDate.getTime() + 1000 * 60 * 60);
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");

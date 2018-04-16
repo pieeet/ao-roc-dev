@@ -47,24 +47,23 @@ public class DataUtils {
 
 
 
-    public static void saveUserAndPlanning(Planning planning, long vorigePlanningId, boolean isNew) {
+    public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
         //save the user
         StandUpUser standUpUser = planning.getUser();
         Entity userEntity = new Entity(KIND_USER, standUpUser.getEmail());
         if (isNew) {
-
             //update user
             userEntity.setProperty(PROPERTY_GROEP, standUpUser.getGroep());
             userEntity.setProperty(PROPERTY_COHORT, standUpUser.getCohort());
             String naam = standUpUser.getNaam();
-            //zorg dat naam begint met hoofdletter
+            //zorg dat naam begint met hoofdletter ivm sorteren
             String eersteLetter = naam.substring(0, 1).toUpperCase();
             naam = eersteLetter + naam.substring(1);
             userEntity.setProperty(PROPERTY_NAAM, naam);
             userEntity.setProperty(PROPERTY_EMAIL, standUpUser.getEmail());
             userEntity.setProperty(PROPERTY_LATEST_PLANNING_ID, planning.getId());
-            if (vorigePlanningId > 0) userEntity.setProperty(PROPERTY_FORMER_PLANNING_ID, vorigePlanningId);
+//            if (vorigePlanningId > 0) userEntity.setProperty(PROPERTY_FORMER_PLANNING_ID, vorigePlanningId);
             datastore.put(userEntity);
 
             //save new tickets
@@ -96,7 +95,7 @@ public class DataUtils {
     public static Planning getPlanning(String userId) throws EntityNotFoundException {
         Key userKey = KeyFactory.createKey(KIND_USER, userId);
         Entity userEntity = datastore.get(userKey);
-        return getPlanning(makeUserFromEntity(userEntity), true);
+        return getPlanning(makeUserFromEntity(userEntity));
     }
 
     private static StandUpUser makeUserFromEntity(Entity userEntity) {
@@ -105,19 +104,13 @@ public class DataUtils {
         String groep = (String) userEntity.getProperty(PROPERTY_GROEP);
         StandUpUser user = new StandUpUser(email, naam, groep);
         user.setLaatstePlanningId((long) userEntity.getProperty(PROPERTY_LATEST_PLANNING_ID));
-        if (userEntity.getProperty(PROPERTY_FORMER_PLANNING_ID) != null) {
-            user.setVorigePlanningId((long) userEntity.getProperty(PROPERTY_FORMER_PLANNING_ID));
-        } else {
-            user.setVorigePlanningId(-1L);
-        }
         return user;
     }
 
 
-    private static Planning getPlanning(StandUpUser user, boolean isLatest) {
+    private static Planning getPlanning(StandUpUser user) {
         long planningId;
-        if (isLatest) planningId = user.getLaatstePlanningId();
-        else planningId = user.getVorigePlanningId();
+        planningId = user.getLaatstePlanningId();
         Key planningKey = new KeyFactory.Builder(KIND_USER, user.getEmail())
                 .addChild(KIND_PLANNING, planningId)
                 .getKey();
@@ -154,8 +147,8 @@ public class DataUtils {
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity : pq.asIterable()) {
             StandUpUser user = makeUserFromEntity(entity);
-            user.setHuidigePlanning(getPlanning(user, true));
-            user.setVorigePlanning(getPlanning(user, false));
+            user.setHuidigePlanning(getPlanning(user));
+//            user.setVorigePlanning(getPlanning(user, false));
             users.add(user);
         }
         return users;
