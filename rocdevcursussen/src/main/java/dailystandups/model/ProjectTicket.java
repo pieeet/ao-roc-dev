@@ -12,10 +12,6 @@ public class ProjectTicket extends Ticket {
     private String projectNaam;
 
 
-    public ProjectTicket(String beschrijving) {
-        this.beschrijvingTicket = beschrijving;
-    }
-
     public ProjectTicket(long vakId, int aantalUren, String beschrijving, String project) {
         super(vakId, CODE_TICKET, aantalUren);
         this.beschrijvingTicket = beschrijving;
@@ -38,10 +34,6 @@ public class ProjectTicket extends Ticket {
 
     public String getProjectNaam() {
         return projectNaam;
-    }
-
-    public void setProjectNaam(String projectNaam) {
-        this.projectNaam = projectNaam;
     }
 
     @Override

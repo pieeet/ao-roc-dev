@@ -20,7 +20,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport"
-          content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+          content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="format-detection" content="telephone=no"/>
     <link
             href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto|Cabin:700|Lato'

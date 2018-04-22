@@ -36,7 +36,7 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (!isAdmin(user)) {
             resp.sendRedirect("/AO/planning");

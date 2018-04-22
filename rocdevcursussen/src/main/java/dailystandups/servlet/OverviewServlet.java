@@ -35,7 +35,7 @@ public class OverviewServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (UserServiceFactory.getUserService().getCurrentUser() == null) return;
         if (req.getParameter("cohort") != null) {
             int cohort = Integer.parseInt(req.getParameter("cohort"));
@@ -76,13 +76,4 @@ public class OverviewServlet extends HttpServlet {
         return sb.toString();
     }
 
-    private String maakNogDoenString(List<Ticket> tickets) {
-        StringBuilder sb = new StringBuilder("");
-        for (Ticket ticket : tickets) {
-            if (ticket.getIsAfgerond() < 1) {
-                sb.append(ticket.getTicketRegel()).append("<br><br>");
-            }
-        }
-        return sb.toString();
-    }
 }

@@ -4,25 +4,16 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.*;
 import dailystandups.util.DataUtils;
+import dailystandups.util.EmailUtils;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Properties;
-import java.util.logging.Logger;
 
 /**
  * Created by Piet de Vries on 09-03-18.
@@ -30,12 +21,11 @@ import java.util.logging.Logger;
  */
 public class DailyStandUpServlet extends HttpServlet {
 
-    private static final Logger log = Logger.getLogger(DailyStandUpServlet.class.getName());
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
+        // get tickets from "Vak" for selector
         if (req.getParameter("vak") != null) {
             if (req.getParameter("vak").equals("")) {
                 resp.getWriter().print("<p class=\"error\">Kies een vak</p>");
@@ -66,7 +56,7 @@ public class DailyStandUpServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
 
@@ -123,7 +113,7 @@ public class DailyStandUpServlet extends HttpServlet {
             DataUtils.saveUserAndPlanning(nieuwePlanning, true);
             resp.getWriter().print("ok");
             if (req.getParameter("stuur_email") != null) {
-                sendEmailHulpNodig(standUpUser, hulpvraag);
+                EmailUtils.sendEmailHulpNodig(standUpUser, hulpvraag);
             }
         }
     }
@@ -153,24 +143,6 @@ public class DailyStandUpServlet extends HttpServlet {
         html.append("</select>");
         return html.toString();
     }
-
-    private void sendEmailHulpNodig(StandUpUser user, String hulpvraag) {
-        try {
-            Properties props = new Properties();
-            Session session = Session.getDefaultInstance(props, null);
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress(
-                    "pdevries@roc-dev.com", "Weekly Stand-ups"));
-            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
-                    "admins"));
-            msg.setSubject(user.getNaamEsc() + " heeft hulp nodig");
-            msg.setText(user.getNaamEsc() + " heeft hulp nodig bij het volgende:\n" + hulpvraag);
-            Transport.send(msg);
-        } catch (MessagingException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
-
 
 }
 

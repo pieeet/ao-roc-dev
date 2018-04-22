@@ -30,7 +30,6 @@ public class DataUtils {
     private static final String PROPERTY_NAAM = "naam";
     private static final String PROPERTY_EMAIL = "email";
     private static final String PROPERTY_LATEST_PLANNING_ID = "laatste_planning";
-    private static final String PROPERTY_FORMER_PLANNING_ID = "vorige_planning";
     private static final String PROPERTY_DATE = "date";
     private static final String PROPERTY_BELEMMERINGEN = "belemmeringen";
     private static final String PROPERTY_AFGEROND = "afgerond";
@@ -44,8 +43,6 @@ public class DataUtils {
     private static final String PROPERTY_BESCHRIJVING = "beschrijving";
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
     private static final String PROPERTY_PLANNING = "planning";
-
-
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
@@ -63,7 +60,6 @@ public class DataUtils {
             userEntity.setProperty(PROPERTY_NAAM, naam);
             userEntity.setProperty(PROPERTY_EMAIL, standUpUser.getEmail());
             userEntity.setProperty(PROPERTY_LATEST_PLANNING_ID, planning.getId());
-//            if (vorigePlanningId > 0) userEntity.setProperty(PROPERTY_FORMER_PLANNING_ID, vorigePlanningId);
             datastore.put(userEntity);
 
             //save new tickets
@@ -148,7 +144,6 @@ public class DataUtils {
         for (Entity entity : pq.asIterable()) {
             StandUpUser user = makeUserFromEntity(entity);
             user.setHuidigePlanning(getPlanning(user));
-//            user.setVorigePlanning(getPlanning(user, false));
             users.add(user);
         }
         return users;
@@ -327,6 +322,4 @@ public class DataUtils {
         }
         return afgerondeTickets;
     }
-
-
 }

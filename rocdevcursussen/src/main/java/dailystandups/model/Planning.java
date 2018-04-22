@@ -29,7 +29,6 @@ public class Planning {
                     String belemmeringen) {
         this.user = user;
         this.entryDate = entryDate;
-        this.tickets = tickets;
         this.belemmeringen = belemmeringen;
     }
 
