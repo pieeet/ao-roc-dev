@@ -42,7 +42,6 @@ public class DataUtils {
     private static final String PROPERTY_DOCENT = "docent";
     private static final String PROPERTY_BESCHRIJVING = "beschrijving";
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
-    private static final String PROPERTY_PLANNING = "planning";
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
@@ -128,8 +127,6 @@ public class DataUtils {
         planning.setEntryDate((Date) entity.getProperty(PROPERTY_DATE));
         planning.setBelemmeringen((String) entity.getProperty(PROPERTY_BELEMMERINGEN));
         planning.setRedenNietAf((String) entity.getProperty(PROPERTY_REDEN_NIET_AF));
-        planning.setPlanning((String) entity.getProperty(PROPERTY_PLANNING));
-
         return planning;
     }
 

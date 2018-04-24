@@ -15,26 +15,8 @@ public class StandUpUser {
     private String groep;
     private String naam;
     private long laatstePlanningId;
-//    private long vorigePlanningId;
     private int cohort;
     private Planning huidigePlanning;
-//    private Planning vorigePlanning;
-
-//    public long getVorigePlanningId() {
-//        return vorigePlanningId;
-//    }
-
-//    public void setVorigePlanningId(long vorigePlanningId) {
-//        this.vorigePlanningId = vorigePlanningId;
-//    }
-
-//    public Planning getVorigePlanning() {
-//        return vorigePlanning;
-//    }
-
-//    public void setVorigePlanning(Planning vorigePlanning) {
-//        this.vorigePlanning = vorigePlanning;
-//    }
 
     public int getCohort() {
         return cohort;

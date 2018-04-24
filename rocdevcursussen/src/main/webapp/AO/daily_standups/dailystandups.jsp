@@ -92,17 +92,6 @@
                 <p>Je hebt nog geen tickets</p>
                 <%}%>
 
-                <%
-                    //oude versie planning
-                    if (planning.getPlanning() != null) {
-                %>
-
-                <h3>Gepland werk</h3>
-                <p><%=planning.getPlanningEsc()%></p>
-                <%
-                    }
-                %>
-
                 <%--evt belemmeringen--%>
                 <%
                     String belemmeringen = planning.getBelemmeringenEsc();
