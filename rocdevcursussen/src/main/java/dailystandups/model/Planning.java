@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by Piet de Vries on 09-03-18.
@@ -54,13 +55,12 @@ public class Planning {
     }
     public String getEntryDateFormat() {
         try {
-            Date datePlus = new Date(entryDate.getTime() + 1000 * 60 * 60);
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-            return sdf.format(datePlus);
+            sdf.setTimeZone(TimeZone.getTimeZone("Europe/Amsterdam"));
+            return sdf.format(entryDate);
         } catch (Exception e) {
             return "null";
         }
-
     }
 
     public Ticket[] getTickets() {
