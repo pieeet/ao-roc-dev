@@ -76,12 +76,15 @@
 
             if (user != null) {
                 pageContext.setAttribute("user", user);
+                String thisUrl = request.getRequestURI();
+                String logInUrl = userService.createLoginURL(thisUrl);
+                String logOutUrl = userService.createLogoutURL(logInUrl);
         %>
 
         <div class="col-md-3">
             <!-- gebruikersnaam en log uit -->
             <p class="loguit"><span id="username">${fn:escapeXml(user.nickname)}</span>:
-                <a href="http://ao.roc-dev.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://ao.roc-dev.com/Welkom.jsp%26service%3Dah">afmelden</a>
+                <a href="<%=logOutUrl%>">afmelden</a>
             </p>
         </div>
         <%
