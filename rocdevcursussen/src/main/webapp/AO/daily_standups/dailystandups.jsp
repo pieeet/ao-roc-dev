@@ -165,7 +165,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12" id="ticket_kiezer">
-
+                        <div
                     </div>
                 </div>
                 <div class="row">

@@ -33,7 +33,7 @@
 
         </div>
 
-        <div id="img_container" class="hidden">
+        <div class="loading_img_container hidden" id="loading_cohort">
             <img src="<c:url value="/images/ajax-loader.gif"/>">
         </div>
 
@@ -49,7 +49,7 @@
         function () {
             let cohortKiezer = $('#cohort_kiezer');
             cohortKiezer.on('change', function() {
-                let imgContainer = $('#img_container');
+                let imgContainer = $('#loading_cohort');
                 imgContainer.removeClass('hidden');
                 let planningsTabel = $("#plannings_tabel");
                 planningsTabel.html("");
@@ -82,11 +82,3 @@
     }
 %>
 
-<style>
-    div#img_container {
-        width: 64px;
-        height: 64px;
-        margin-left: auto;
-        margin-right:auto;
-    }
-</style>

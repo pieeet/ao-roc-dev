@@ -885,3 +885,10 @@ td.klik_user:hover {
 .hidden {
     display: none;
 }
+
+div.loading_img_container {
+    width: 64px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
