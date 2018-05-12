@@ -27,7 +27,6 @@
 %>
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
-
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h1>Planningsformulier</h1>
@@ -53,7 +52,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -70,11 +68,9 @@
             </div>
             <h2>Huidige planning</h2>
             <div class="bs-callout bs-callout-warning">
-
                 <%if (planning == null) { %>
                 <p>Je hebt nog geen planning</p>
                 <%} else { %>
-
                 <%--user heeft een planning--%>
                 <p>Datum ingevuld: <%= planning.getEntryDateFormat()%>
                 </p>
@@ -91,7 +87,6 @@
                 <%} else {%>
                 <p>Je hebt nog geen tickets</p>
                 <%}%>
-
                 <%--evt belemmeringen--%>
                 <%
                     String belemmeringen = planning.getBelemmeringenEsc();
@@ -118,7 +113,6 @@
                         </select>
                     </div>
                 </div>
-
             </div>
             <%if (hasTickets) {%>
             <label>Welke tickets heb je afgerond?</label><br>
@@ -157,6 +151,9 @@
                     </select>
                 </div>
             </div>
+            <div class="loading_img_container hidden" id="loading_tickets">
+                <img src="<c:url value="/images/ajax-loader.gif"/>">
+            </div>
             <div id="ticket_kiezer_wrapper" class="hidden">
                 <div class="row">
                     <div class="col-md-12">
@@ -165,7 +162,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12" id="ticket_kiezer">
-                        <div
+
                     </div>
                 </div>
                 <div class="row">
@@ -176,32 +173,21 @@
                     </div>
                 </div>
             </div>
-
             <div id="custom_ticket_maker" class="hidden">
-
-
                 <label for="naam_project_input">Naam project</label><br>
                 <input id="naam_project_input" class="custom_ticket_input" name="naam_project_input">
                 <p class="error hidden" id="error_project_input">Geef een naam</p>
-
-
                 <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
                 <input id="ticket_beschrijving_input" class="custom_ticket_input"
                        name="ticket_beschrijving_input">
                 <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
-
                 <label for="aantal_uren_input">Inschatting aantal uren</label><br>
                 <input type="number" id="aantal_uren_input" class="custom_ticket_input" name="aantal_uren_input">
                 <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
-
                 <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
                         id="btn_custom_ticket">Voeg toe
                 </button>
-
-
             </div>
-
-
             <div id="tickets" class="hidden">
                 <div class="bs-callout bs-callout-warning">
                     <h2>Tickets komende week</h2>
@@ -209,7 +195,6 @@
                     <h3>Tickets</h3>
                     <ul id="tickets_list"><%-- Hier komen de geselecteerd tickets --%></ul>
                 </div>
-
             </div>
             <h3>Heb je hulp nodig?</h3>
             <p>Geef hier aan of je problemen verwacht. Zijn er nog zaken die je niet begrijpt of nog niet hebt geoefend.
@@ -231,7 +216,6 @@
     </div>
 </div>
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
-
 <script type="text/javascript">
     $(document).ready(
         function () {
@@ -294,6 +278,11 @@
                         if (!(customTicketMaker.hasClass("hidden"))) {
                             customTicketMaker.addClass("hidden");
                         }
+                        if (!(ticketKiezerWrapper.hasClass("hidden"))) {
+                            ticketKiezerWrapper.addClass("hidden");
+                        }
+                        const loaderImg = $("#loading_tickets");
+                        loaderImg.removeClass("hidden");
                         let vakId = selectVak.val();
                         const url = "/AO/planning";
                         $.ajax({
@@ -302,6 +291,9 @@
                             data: {vak: vakId},
                             success: function (data) {
                                 $("#ticket_kiezer").html(data);
+                                if (!(loaderImg.hasClass("hidden"))) {
+                                    loaderImg.addClass("hidden");
+                                }
                                 ticketKiezerWrapper.removeClass('hidden');
                             }
                         });
@@ -327,6 +319,7 @@
                     }
                 }
             });
+
             function verhoogUren(uren) {
                 let uurSpan = $("#totaal_uren");
                 let totaalUren = Number(uurSpan.text());
@@ -340,14 +333,14 @@
                 let hasTickets = ticketsCheckbox.find(':checkbox').length > 0;
                 if (keuze === "Ja") {
                     ticketsCheckbox.find(':checkbox').prop('checked', true);
-                    ticketsCheckbox.find("input").each(function() {
+                    ticketsCheckbox.find("input").each(function () {
                         let ticketId = $(this).val();
                         setTicketWelGehaald(ticketId);
                     });
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 } else if (keuze === "Nee") {
                     ticketsCheckbox.find(':checkbox').prop('checked', false);
-                    ticketsCheckbox.find("input").each(function() {
+                    ticketsCheckbox.find("input").each(function () {
                         let ticketId = $(this).val();
                         setTicketNietGehaald(ticketId);
                     });
@@ -368,6 +361,7 @@
                 }
 
             });
+
             function setTicketNietGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -377,10 +371,11 @@
                         change_ticket_afgerond: ticketId,
                         mode: "set_niet_afgerond"
                     },
-                    success: function(data) {
+                    success: function (data) {
                     }
                 });
             }
+
             function setTicketWelGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -390,10 +385,11 @@
                         change_ticket_afgerond: ticketId,
                         mode: "set_afgerond"
                     },
-                    success: function(data) {
+                    success: function (data) {
                     }
                 });
             }
+
             function checkPlanningGehaald() {
                 let ticketsCheckbox = $('#tickets_checkbox');
                 let ticketCount = ticketsCheckbox.find('.ticket_checkbox').length;
@@ -407,6 +403,7 @@
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 }
             }
+
             $(document).on('click', '#btn_custom_ticket', function () {
                 let projectNaam = $("#naam_project_input").val();
                 if (projectNaam === "") {
@@ -484,6 +481,7 @@
     button#btn_custom_ticket {
         margin-top: 2em;
     }
+
     button#btn_select_ticket {
         margin-top: .5em;
     }
