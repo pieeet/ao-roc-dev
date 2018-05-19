@@ -220,6 +220,13 @@
     $(document).ready(
         function () {
             $('html, body').animate({scrollTop: 0}, 500);
+            // avoid submit on enter key
+            $(window).keydown(function(event){
+                if(13 === event.keyCode) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
             // configure your validation
             $("#planning_form").validate({
                 rules: {
