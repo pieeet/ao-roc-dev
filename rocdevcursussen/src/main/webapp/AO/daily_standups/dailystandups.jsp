@@ -427,7 +427,9 @@
                     $("#error_project_input").addClass("hidden");
                 }
                 let aantalUur = $("#aantal_uren_input").val();
+                console.log(aantalUur);
                 let aantalUurNumber = Math.ceil(aantalUur);
+                console.log(aantalUurNumber);
                 if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
                     $("#error_aantal_uren").removeClass('hidden');
                     return;
@@ -446,13 +448,13 @@
                         maak_project_ticket: "x",
                         project_naam: projectNaam,
                         beschrijving_ticket: ticketBeschrijving,
-                        aantal_uur: aantalUur,
+                        aantal_uur: aantalUurNumber,
                         vak_id: vakId
                     },
                     success: function (data) {
                         $("#tickets_list").append('<li data-ticket_id=' + data + '>' + projectNaam +
-                            ' - ' + ticketBeschrijving + ' - ' + aantalUur + ' punten</li>');
-                        verhoogUren(aantalUur);
+                            ' - ' + ticketBeschrijving + ' - ' + aantalUurNumber + ' punten</li>');
+                        verhoogUren(aantalUurNumber);
                         $("#tickets").removeClass('hidden');
                         $(".custom_ticket_input").val("");
 
