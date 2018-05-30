@@ -184,6 +184,20 @@ public class DataUtils {
         return vakken;
     }
 
+
+    public static ArrayList<Vak> getVakkenFromDocent(String docent) {
+        ArrayList<Vak> vakken = new ArrayList<>();
+        Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_DOCENT, Query.FilterOperator.EQUAL, docent);
+        Query q = new Query(KIND_VAK).setFilter(propertyFilter).addSort(PROPERTY_NAAM);
+        PreparedQuery pq = datastore.prepare(q);
+        for (Entity e : pq.asIterable()) {
+            long id = e.getKey().getId();
+            String naam = (String) e.getProperty(PROPERTY_NAAM);
+            vakken.add(new Vak(naam, docent, id));
+        }
+        return vakken;
+    }
+
     public static long voegTicketToe(Ticket ticket) {
         Entity entity = new Entity(KIND_TICKET);
         entity.setProperty(PROPERTY_VAK, ticket.getVakId());

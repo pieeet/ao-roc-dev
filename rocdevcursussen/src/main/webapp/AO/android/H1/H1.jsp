@@ -166,7 +166,7 @@ protected void onCreate(Bundle savedInstanceState) {
 			Hierna zie je in je instellingen {} Opties voor ontwikkelaars. Klik
 			hierop en activeer USB-foutopsporing. Koppel nu je telefoon aan je
 			computer en klik in studio op het Run app icoontje. Als het goed is
-			kun je nu je telefoon kiezen om je app te testen.
+			kun je nu je telefoon kiezen om je app te testen.</p>
 	</div>
 
 

@@ -70,6 +70,7 @@
             </div>
             <div class="form-group">
                 <label for="ticket_code_input">Maak code</label>
+                <p>Tickets worden alfabetisch op code gesorteerd.</p>
                 <input class="form-control required" id="ticket_code_input" name="ticket_code_input"
                        placeholder="code">
             </div>
@@ -88,6 +89,16 @@
                 }
             %>
         </form>
+
+
+
+
+
+
+
+
+
+
 
 
     </div>

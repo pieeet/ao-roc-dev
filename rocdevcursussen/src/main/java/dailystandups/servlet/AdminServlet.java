@@ -24,11 +24,12 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (!isAdmin(UserServiceFactory.getUserService().getCurrentUser())) {
+        User user = UserServiceFactory.getUserService().getCurrentUser();
+        if (!isAdmin(user)) {
             resp.sendRedirect("/AO/planning");
             return;
         }
-        ArrayList<Vak> vakken = DataUtils.getVakken();
+        ArrayList<Vak> vakken = DataUtils.getVakkenFromDocent(user.getEmail());
         req.setAttribute("vakken", vakken);
         RequestDispatcher disp = req.getRequestDispatcher("/AO/daily_standups/admin/admin.jsp");
         disp.forward(req, resp);
