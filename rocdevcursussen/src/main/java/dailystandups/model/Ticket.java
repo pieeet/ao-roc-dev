@@ -28,6 +28,7 @@ public class Ticket {
         this.isAfgerond = isAfgerond;
     }
 
+
     public long getVakId() {
         return vakId;
     }

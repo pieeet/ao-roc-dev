@@ -29,10 +29,17 @@ public class AdminServlet extends HttpServlet {
             resp.sendRedirect("/AO/planning");
             return;
         }
-        ArrayList<Vak> vakken = DataUtils.getVakkenFromDocent(user.getEmail());
-        req.setAttribute("vakken", vakken);
-        RequestDispatcher disp = req.getRequestDispatcher("/AO/daily_standups/admin/admin.jsp");
-        disp.forward(req, resp);
+
+        if (req.getParameter("vak") != null) {
+            long id = Long.parseLong(req.getParameter("vak"));
+            ArrayList<Ticket> tickets = (ArrayList<Ticket>) DataUtils.getTicketsFromVak(id);
+            resp.getWriter().print(maakTicketWijziger(tickets));
+        } else {
+            ArrayList<Vak> vakken = DataUtils.getVakkenFromDocent(user.getEmail());
+            req.setAttribute("vakken", vakken);
+            RequestDispatcher disp = req.getRequestDispatcher("/AO/daily_standups/admin/admin.jsp");
+            disp.forward(req, resp);
+        }
     }
 
     @Override
@@ -57,6 +64,30 @@ public class AdminServlet extends HttpServlet {
             DataUtils.voegTicketToe(ticket);
             resp.getWriter().print("ok");
         }
+        else if (req.getParameter("wijzig_vak") != null) {
+            String naamVak = req.getParameter("naam_vak");
+            long ticketId = Long.parseLong(req.getParameter("vak_id"));
+            DataUtils.updateVak(new Vak(naamVak, null, ticketId));
+            resp.getWriter().print("ok");
+        }
+        else if (req.getParameter("verwijder_vak") != null) {
+            long vakId = Long.parseLong(req.getParameter("vak_id"));
+            if (DataUtils.deleteVak(vakId)) resp.getWriter().print("ok");
+            else resp.getWriter().print("fail");
+        }
+        else if (req.getParameter("wijzig_ticket") != null) {
+            long ticketId = Long.parseLong(req.getParameter("ticket_id"));
+            String codeTicket = req.getParameter("code_ticket");
+            int aantalUren = Integer.parseInt(req.getParameter("aantal_uren"));
+            Ticket ticket = new Ticket(ticketId, 0, codeTicket, aantalUren, 0);
+            if (DataUtils.updateTicket(ticket)) resp.getWriter().print("ok");
+            else resp.getWriter().print("fail");
+        }
+        else if (req.getParameter("verwijder_ticket") != null) {
+            long ticketId = Long.parseLong(req.getParameter("ticket_id"));
+            if (DataUtils.deleteTicket(ticketId)) resp.getWriter().print("ok");
+            else resp.getWriter().print("fail");
+        }
     }
 
     static boolean isAdmin(User user) {
@@ -77,4 +108,20 @@ public class AdminServlet extends HttpServlet {
         }
         return isAdmin;
     }
+
+    private String maakTicketWijziger(ArrayList<Ticket> tickets) {
+        StringBuilder html = new StringBuilder();
+        for (Ticket ticket: tickets) {
+            html.append("<div class=\"ticket_wrapper\" data-ticket_id=\"").append(ticket.getId()).append("\">");
+            html.append("<label>code</label><br>");
+            html.append("<input value=\"").append(ticket.getCodeTicket()).append("\" class=\"input_code\"><br>");
+            html.append("<label>uren</label><br>");
+            html.append("<input value=\"").append(ticket.getAantalUren()).append("\" class=\"input_uren\"><br>");
+            html.append("<input type=\"submit\" value=\"wijzig\" class=\"wijzig_ticket_btn\">");
+            html.append("<input type=\"submit\" value=\"verwijder\" class=\"verwijder_ticket_btn\"><br>");
+            html.append("</div>");
+        }
+        return html.toString();
+    }
+
 }

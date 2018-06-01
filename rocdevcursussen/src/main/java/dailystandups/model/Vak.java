@@ -18,7 +18,7 @@ public class Vak {
         this.docent = docent;
     }
 
-    public Vak(String naam, String docent, long id) {
+    public Vak(String naam, @Nullable String docent, long id) {
         this(naam, docent);
         this.id = id;
     }

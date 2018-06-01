@@ -42,6 +42,7 @@ public class DataUtils {
     private static final String PROPERTY_DOCENT = "docent";
     private static final String PROPERTY_BESCHRIJVING = "beschrijving";
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
+    private static final String PROPERTY_IS_DELETED = "deleted";
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
@@ -172,28 +173,80 @@ public class DataUtils {
         datastore.put(entity);
     }
 
+    public static void updateVak(Vak vak) {
+        Key key = KeyFactory.createKey(KIND_VAK, vak.getId());
+        try {
+            Entity entity = datastore.get(key);
+            entity.setProperty(PROPERTY_NAAM, vak.getNaam());
+            if (vak.getDocent() != null) {
+                entity.setProperty(PROPERTY_DOCENT, vak.getDocent());
+            }
+            datastore.put(entity);
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean deleteVak(long vakId) {
+        Key key = KeyFactory.createKey(KIND_VAK, vakId);
+        return setEntityAsDeleted(key);
+    }
+
+    public static boolean updateTicket(Ticket ticket) {
+        Key key = KeyFactory.createKey(KIND_TICKET, ticket.getId());
+        try {
+            Entity entity = datastore.get(key);
+            entity.setProperty(PROPERTY_CODE, ticket.getCodeTicket());
+            entity.setProperty(PROPERTY_AANTAL_UREN, ticket.getAantalUren());
+            datastore.put(entity);
+            return true;
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean deleteTicket(long ticketId) {
+        Key key = KeyFactory.createKey(KIND_TICKET, ticketId);
+        return setEntityAsDeleted(key);
+    }
+
+    private static boolean setEntityAsDeleted(Key key) {
+        try {
+            Entity entity = datastore.get(key);
+            entity.setProperty(PROPERTY_IS_DELETED, new Date().getTime());
+            datastore.put(entity);
+            return true;
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static ArrayList<Vak> getVakken() {
         ArrayList<Vak> vakken = new ArrayList<>();
         Query q = new Query(KIND_VAK).addSort(PROPERTY_NAAM);
         PreparedQuery pq = datastore.prepare(q);
-        for (Entity e : pq.asIterable()) {
-            long id = e.getKey().getId();
-            String naam = (String) e.getProperty(PROPERTY_NAAM);
-            vakken.add(new Vak(naam, null, id));
-        }
-        return vakken;
+        return maakVakLijst(pq);
     }
 
 
     public static ArrayList<Vak> getVakkenFromDocent(String docent) {
-        ArrayList<Vak> vakken = new ArrayList<>();
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_DOCENT, Query.FilterOperator.EQUAL, docent);
         Query q = new Query(KIND_VAK).setFilter(propertyFilter).addSort(PROPERTY_NAAM);
         PreparedQuery pq = datastore.prepare(q);
+        return maakVakLijst(pq);
+    }
+
+    private static ArrayList<Vak> maakVakLijst(PreparedQuery pq) {
+        ArrayList<Vak> vakken = new ArrayList<>();
         for (Entity e : pq.asIterable()) {
             long id = e.getKey().getId();
             String naam = (String) e.getProperty(PROPERTY_NAAM);
-            vakken.add(new Vak(naam, docent, id));
+            // filter deleted vakken
+            if (e.getProperty(PROPERTY_IS_DELETED) == null ) {
+                vakken.add(new Vak(naam, null, id));
+            }
         }
         return vakken;
     }
@@ -211,8 +264,6 @@ public class DataUtils {
         return entity.getKey().getId();
     }
 
-
-
     public static List<Ticket> getTicketsFromVak(long id) {
         ArrayList<Ticket> tickets = new ArrayList<>();
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_VAK,
@@ -220,7 +271,10 @@ public class DataUtils {
         Query q = new Query(KIND_TICKET).setFilter(propertyFilter).addSort(PROPERTY_CODE);
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e : pq.asIterable()) {
-            tickets.add(makeTicketFromEntity(e, 0));
+            // filter op is deleted
+            if (e.getProperty(PROPERTY_IS_DELETED) == null) {
+                tickets.add(makeTicketFromEntity(e, 0));
+            }
         }
         return tickets;
     }

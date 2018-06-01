@@ -105,6 +105,10 @@
             </div>
         </div>
 
+        <div class="loading_img_container hidden" id="loading_tickets">
+            <img src="<c:url value="/images/ajax-loader.gif"/>">
+        </div>
+
         <div class="row hidden" id="beheer_vak">
             <div class="col-md-12">
                 <label for="wijzig_naam_vak">Wijzig/verwijder vak</label><br>
@@ -182,6 +186,7 @@
 
             const selectVak = $("#select_vak");
             selectVak.on('change', function () {
+                $("#loading_tickets").removeClass('hidden');
                 let naamVak = selectVak.find(':selected').data("naam_vak");
                 let vakId = selectVak.val();
                 if (naamVak !== "") {
@@ -198,10 +203,10 @@
                         success: function (data) {
                             const beheerTickets = $("#beheer_tickets");
                             beheerTickets.html(data);
+                            $("#loading_tickets").addClass('hidden');
                             beheerTickets.removeClass('hidden');
                         }
                     });
-
                 }
             });
 
@@ -248,11 +253,62 @@
                 }
             });
 
-            
+            $(document).on('click', ".wijzig_ticket_btn", function() {
+                const parent = $(this).parent();
+                const ticketId = parent.data("ticket_id");
+                // console.log(ticketId); tested
+                const codeTicket = parent.find(".input_code").val();
+                // console.log("code: " + codeTicket); tested
+                const urenTicketInput = parent.find(".input_uren");
+                const urenTicket = urenTicketInput.val();
+                if (!($.isNumeric(urenTicket))) {
+                    urenTicketInput.val("");
+                    urenTicketInput.attr("placeholder", "vul geheel getal in");
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/AO/planning/admin",
+                        data: {
+                            wijzig_ticket: "x",
+                            ticket_id: ticketId,
+                            code_ticket: codeTicket,
+                            aantal_uren: urenTicket
+                        },
+                        success: function(data) {
+                            if (data === "ok") {
+                                alert("Ticket wijzigen gelukt");
+                            } else {
+                                alert("Ticket wijzigen niet gelukt");
+                            }
+                        }
+                    });
+                }
+            });
 
-
-
-
+            $(document).on('click', ".verwijder_ticket_btn", function() {
+                const parent = $(this).parent();
+                const ticketId = parent.data("ticket_id");
+                const codeTicket = parent.find(".input_code").val();
+                const confirmed = confirm("Wil je " + codeTicket + " definitief verwijderen?");
+                if (confirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/AO/planning/admin",
+                        data: {
+                            verwijder_ticket: "x",
+                            ticket_id: ticketId
+                        },
+                        success: function(data) {
+                            if (data === "ok") {
+                                alert("Ticket verwijderen gelukt");
+                                parent.hide();
+                            } else {
+                                alert("Ticket verwijderen niet gelukt");
+                            }
+                        }
+                    });
+                }
+            });
 
             $('#tickets_maken').addClass('selected');
         });
@@ -262,3 +318,12 @@
 <%
     }
 %>
+
+<style>
+    .ticket_wrapper {
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 2px 5px #888888;
+        margin-top: 2em;
+    }
+</style>
