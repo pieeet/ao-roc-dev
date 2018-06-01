@@ -90,17 +90,36 @@
             %>
         </form>
 
+        <h2>Wijzig vak/ticket</h2>
+        <div class="row">
+            <div class="col-md-12">
 
+                <label for="select_vak">selecteer een vak</label><br>
+                <select id="select_vak">
+                    <option value="">Kies...</option>
+                    <%for (Vak vak : vakken) {%>
+                    <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
+                    </option>
+                    <%}%>
+                </select>
+            </div>
+        </div>
 
+        <div class="row hidden" id="beheer_vak">
+            <div class="col-md-12">
+                <label for="wijzig_naam_vak">Wijzig/verwijder vak</label><br>
+                <input id="wijzig_naam_vak" data-vak_id="">
+                <input type="submit" id="btn_wijzig_naam_vak" value="wijzig">
+                <input type="submit" id="btn_verwijder_vak" value="verwijder">
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-12 hidden" id="beheer_tickets">
 
+            </div>
 
-
-
-
-
-
-
+        </div>
     </div>
 </div>
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
@@ -160,6 +179,81 @@
                     return false; // override default submit
                 }
             });
+
+            const selectVak = $("#select_vak");
+            selectVak.on('change', function () {
+                let naamVak = selectVak.find(':selected').data("naam_vak");
+                let vakId = selectVak.val();
+                if (naamVak !== "") {
+                    $("#beheer_vak").removeClass('hidden');
+                    const wijzigVakInput = $("#wijzig_naam_vak");
+                    wijzigVakInput.val(naamVak);
+                    wijzigVakInput.data("vak_id", vakId);
+                    selectVak.val("");
+                    const url = "/AO/planning/admin";
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {vak: vakId},
+                        success: function (data) {
+                            const beheerTickets = $("#beheer_tickets");
+                            beheerTickets.html(data);
+                            beheerTickets.removeClass('hidden');
+                        }
+                    });
+
+                }
+            });
+
+            $(document).on("click", "#btn_wijzig_naam_vak", function () {
+                const wijzigNaamVak = $("#wijzig_naam_vak");
+                const naamVak = wijzigNaamVak.val();
+                const vakId = wijzigNaamVak.data("vak_id");
+                $.ajax({
+                    type: "POST",
+                    url: "/AO/planning/admin",
+                    data: {
+                        wijzig_vak: "x",
+                        naam_vak: naamVak,
+                        vak_id: vakId
+                    },
+                    success: function (data) {
+                        location.reload(true);
+                    }
+                });
+
+            });
+
+            $(document).on('click', "#btn_verwijder_vak", function () {
+                const wijzigNaamVak = $("#wijzig_naam_vak");
+                const naamVak = wijzigNaamVak.val();
+                const vakId = wijzigNaamVak.data("vak_id");
+                const confirmed = confirm("Wil je " + naamVak + " definitief verwijderen?");
+                if (confirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/AO/planning/admin",
+                        data: {
+                            vak_id: vakId,
+                            verwijder_vak: "x"
+                        },
+                        success: function (data) {
+                            if (data === "ok") {
+                                location.reload(true);
+                            } else {
+                                alert("Vak kon niet worden verwijderd");
+                            }
+                        }
+                    });
+                }
+            });
+
+            
+
+
+
+
+
             $('#tickets_maken').addClass('selected');
         });
 
