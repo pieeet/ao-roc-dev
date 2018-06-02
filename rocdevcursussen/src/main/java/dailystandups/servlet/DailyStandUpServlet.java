@@ -120,9 +120,9 @@ public class DailyStandUpServlet extends HttpServlet {
 
     private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets, String email) {
         long[] afgerondeTickets = DataUtils.getAfgerondeTicketsFromUser(email);
-        StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
-                "<option value=\"Kies\">Kies ticket...</option>");
-        for (Ticket ticket : tickets) {
+
+        ArrayList<Ticket> nietAfgerondeTickets = new ArrayList<>();
+        for (Ticket ticket: tickets) {
             boolean isAfgerond = false;
             for (long l: afgerondeTickets) {
                 if (ticket.getId() == l) {
@@ -130,6 +130,15 @@ public class DailyStandUpServlet extends HttpServlet {
                 }
             }
             if (!isAfgerond) {
+                nietAfgerondeTickets.add(ticket);
+            }
+        }
+        if (nietAfgerondeTickets.isEmpty()) {
+            return "<p>Je hebt alle tickets afgerond</p>";
+        } else {
+            StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
+                    "<option value=\"Kies\">Kies ticket...</option>");
+            for (Ticket ticket: nietAfgerondeTickets) {
                 html.append("<option value=\"").append(ticket.getCodeTicket())
                         .append("\" data-uren=\"").append(ticket.getAantalUren())
                         .append("\" data-code=\"").append(ticket.getCodeTicket())
@@ -139,10 +148,9 @@ public class DailyStandUpServlet extends HttpServlet {
                         .append(ticket.getVakId()).append("\">")
                         .append(ticket.getTicketRegel()).append("</option>");
             }
+            html.append("</select>");
+            return html.toString();
         }
-        html.append("</select>");
-        return html.toString();
     }
-
 }
 

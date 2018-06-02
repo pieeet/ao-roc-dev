@@ -302,6 +302,11 @@
                                     loaderImg.addClass("hidden");
                                 }
                                 ticketKiezerWrapper.removeClass('hidden');
+                                if (data.startsWith("<p>")) {
+                                    $("#btn_select_ticket").hide();
+                                } else {
+                                    $("#btn_select_ticket").show();
+                                }
                             }
                         });
                     }
@@ -317,10 +322,16 @@
                         let ticketCode = selectedItem.data("code");
                         let ticketId = selectedItem.data("ticket_id");
                         let urenTicket = selectedItem.data("uren");
-                        $("#tickets_list").append('<li data-ticket_id=' + ticketId + '>' + vak +
-                            ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
-                        verhoogUren(urenTicket);
-                        $("#tickets").removeClass('hidden');
+                        let tickets = $("#tickets_list li[data-ticket_id='" + ticketId + "']");
+                        if (tickets.length > 0) {
+                            alert("ticket is al geselecteerd");
+                        } else {
+                            $("#tickets_list").append('<li data-ticket_id=' + ticketId + '>' + vak +
+                                ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
+                            verhoogUren(urenTicket);
+                            $("#tickets").removeClass('hidden');
+
+                        }
                         selectedItem.hide();
                         ticketSelector.val("Kies");
                     }
@@ -427,9 +438,7 @@
                     $("#error_project_input").addClass("hidden");
                 }
                 let aantalUur = $("#aantal_uren_input").val();
-                console.log(aantalUur);
                 let aantalUurNumber = Math.ceil(aantalUur);
-                console.log(aantalUurNumber);
                 if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
                     $("#error_aantal_uren").removeClass('hidden');
                     return;

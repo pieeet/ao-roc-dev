@@ -60,7 +60,8 @@ public class AdminServlet extends HttpServlet {
         else if (req.getParameter("submit_ticket_btn") != null) {
             long vakId = Long.parseLong(req.getParameter("vak_kiezer"));
             String ticketCode = req.getParameter("ticket_code_input").trim();
-            int aantalUren = Integer.parseInt(req.getParameter("ticket_uren_input").trim());
+            float urenF = Float.parseFloat(req.getParameter("ticket_uren_input").replace(',', '.'));
+            int aantalUren = (int) Math.ceil(urenF);
             Ticket ticket = new Ticket(vakId, ticketCode, aantalUren);
             DataUtils.voegTicketToe(ticket);
             resp.getWriter().print("ok");
@@ -79,7 +80,8 @@ public class AdminServlet extends HttpServlet {
         else if (req.getParameter("wijzig_ticket") != null) {
             long ticketId = Long.parseLong(req.getParameter("ticket_id"));
             String codeTicket = req.getParameter("code_ticket");
-            int aantalUren = Integer.parseInt(req.getParameter("aantal_uren"));
+            float urenF = Float.parseFloat(req.getParameter("ticket_uren_input").replace(',', '.'));
+            int aantalUren = (int) Math.ceil(urenF);
             Ticket ticket = new Ticket(ticketId, 0, codeTicket, aantalUren, 0);
             if (DataUtils.updateTicket(ticket)) resp.getWriter().print("ok");
             else resp.getWriter().print("fail");
@@ -101,7 +103,7 @@ public class AdminServlet extends HttpServlet {
                 html.append("<label>code</label><br>");
                 html.append("<input class=\"form-control input_code\" value=\"").append(ticket.getCodeTicket()).append("\"><br>");
                 html.append("<label>uren</label><br>");
-                html.append("<input class=\"form-control input_uren\" value=\"").append(ticket.getAantalUren()).append("\"><br>");
+                html.append("<input type=\"number\" class=\"form-control input_uren\" value=\"").append(ticket.getAantalUren()).append("\"><br>");
                 html.append("<button type=\"submit\" class=\"btn btn-primary btn-danger wijzig_ticket_btn\">wijzig</button> ");
                 html.append("<button type=\"submit\" class=\"btn btn-primary btn-danger verwijder_ticket_btn\">verwijder</button>");
                 html.append("</div>");

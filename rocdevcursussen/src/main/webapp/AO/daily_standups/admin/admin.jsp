@@ -63,8 +63,8 @@
                        placeholder="code">
             </div>
             <div class="form-group">
-                <label for="ticket_uren_input">Aantal uren</label>
-                <input class="form-control required" id="ticket_uren_input" name="ticket_uren_input"
+                <label for="ticket_uren_input">Aantal uren (int) </label>
+                <input type="number" class="form-control required" id="ticket_uren_input" name="ticket_uren_input"
                        placeholder="Aantal uur">
             </div>
 
