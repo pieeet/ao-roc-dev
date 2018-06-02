@@ -2,6 +2,7 @@ package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.StandUpUser;
 import dailystandups.model.Ticket;
@@ -24,7 +25,7 @@ public class OverviewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         User user = UserServiceFactory.getUserService().getCurrentUser();
-        boolean isAdmin = AdminServlet.isAdmin(user);
+        boolean isAdmin = AuthUtils.isAdmin(user);
         if (!isAdmin) {
             resp.sendRedirect("/AO/planning");
             return;
@@ -69,7 +70,7 @@ public class OverviewServlet extends HttpServlet {
     }
 
     private String maakTicketString(List<Ticket> tickets) {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder();
         for (Ticket ticket : tickets) {
             sb.append(ticket.getTicketRegel()).append("<br><br>");
         }

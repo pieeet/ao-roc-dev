@@ -3,6 +3,7 @@ package dailystandups.servlet;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.Ticket;
+import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.Planning;
 
@@ -27,7 +28,7 @@ public class OverviewStudentServlet extends HttpServlet {
             throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        boolean isAdmin = AdminServlet.isAdmin(user);
+        boolean isAdmin = AuthUtils.isAdmin(user);
         if (req.getParameter("email") != null) {
             String email = req.getParameter("email");
             if (email.equals(user.getEmail()) || isAdmin) {

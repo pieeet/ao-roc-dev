@@ -3,6 +3,7 @@ package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.Ticket;
 import dailystandups.model.Vak;
@@ -25,7 +26,7 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
-        if (!isAdmin(user)) {
+        if (!AuthUtils.isAdmin(user)) {
             resp.sendRedirect("/AO/planning");
             return;
         }
@@ -46,7 +47,7 @@ public class AdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
-        if (!isAdmin(user)) {
+        if (!AuthUtils.isAdmin(user)) {
             resp.sendRedirect("/AO/planning");
             return;
         }
@@ -90,25 +91,6 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
-    static boolean isAdmin(User user) {
-        if (user == null) return false;
-        String[] administrators = {
-                "pdevries@roc-dev.com",
-                "janjaap@roc-dev.com",
-                "tvanbeuningen@roc-dev.com",
-                "edirkse@roc-dev.com",
-                "test@example.com"
-        };
-        boolean isAdmin = false;
-        for (String s: administrators) {
-            if (s.equals(user.getEmail())) {
-                isAdmin = true;
-                break;
-            }
-        }
-        return isAdmin;
-    }
-
     private String maakTicketWijziger(ArrayList<Ticket> tickets) {
         StringBuilder html = new StringBuilder();
         if (tickets.isEmpty()) {
@@ -125,7 +107,6 @@ public class AdminServlet extends HttpServlet {
                 html.append("</div>");
             }
         }
-
         return html.toString();
     }
 

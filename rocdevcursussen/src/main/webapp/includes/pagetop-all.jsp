@@ -47,6 +47,7 @@
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="dailystandups.util.AuthUtils" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -200,6 +201,18 @@
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-history"><a
                                         href="/AO/planning/studentplanningen?email=<%=user.getEmail()%>">Overzicht</a></li>
+
+                                <%
+                                    if (AuthUtils.isAdmin(user)) {
+                                %>
+
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-planning-admin"><a
+                                        href="/AO/planning/admin">Admin</a></li>
+                                <%
+                                    }
+                                %>
+
                                 <%
                                     }
                                 %>

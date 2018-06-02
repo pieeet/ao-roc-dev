@@ -116,7 +116,7 @@ public class DataUtils {
             Planning planning = makePlanningFromEntity(planningEntity);
             planning.setUser(user);
             List<Ticket> tickets = getTicketsFromPlanning(user.getEmail(), planning.getId());
-            planning.setTickets(tickets.toArray(new Ticket[tickets.size()]));
+            planning.setTickets(tickets.toArray(new Ticket[0]));
             return planning;
         } catch (EntityNotFoundException e) {
             return null;
@@ -226,7 +226,6 @@ public class DataUtils {
     }
 
     public static ArrayList<Vak> getVakken() {
-        ArrayList<Vak> vakken = new ArrayList<>();
         Query q = new Query(KIND_VAK).addSort(PROPERTY_NAAM);
         PreparedQuery pq = datastore.prepare(q);
         return maakVakLijst(pq);
