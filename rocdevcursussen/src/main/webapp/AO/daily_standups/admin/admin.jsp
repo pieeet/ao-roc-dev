@@ -188,6 +188,7 @@
                 const naamVak = selectVak.find(':selected').data("naam_vak");
                 const vakId = selectVak.val();
                 if (naamVak !== "") {
+                    $("#btn_wijzig_naam_vak").prop('disabled', true);
                     if (!(beheerWrapper.hasClass('hidden'))) {
                         beheerWrapper.addClass('hidden');
                     }

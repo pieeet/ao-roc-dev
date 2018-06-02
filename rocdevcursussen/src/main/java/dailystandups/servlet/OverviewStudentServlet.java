@@ -28,10 +28,9 @@ public class OverviewStudentServlet extends HttpServlet {
             throws ServletException, IOException {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (user == null) return;
-        boolean isAdmin = AuthUtils.isAdmin(user);
         if (req.getParameter("email") != null) {
             String email = req.getParameter("email");
-            if (email.equals(user.getEmail()) || isAdmin) {
+            if (email.equals(user.getEmail()) || AuthUtils.isAdmin(user)) {
                 ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
                 ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
                 req.setAttribute("planningen", plannings);
@@ -39,6 +38,8 @@ public class OverviewStudentServlet extends HttpServlet {
                 RequestDispatcher disp = req
                         .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");
                 disp.forward(req, resp);
+            } else {
+                resp.sendRedirect("/AO/planning");
             }
         }
     }
