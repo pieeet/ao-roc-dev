@@ -67,8 +67,8 @@ public class AdminServlet extends HttpServlet {
         else if (req.getParameter("wijzig_vak") != null) {
             String naamVak = req.getParameter("naam_vak");
             long ticketId = Long.parseLong(req.getParameter("vak_id"));
-            DataUtils.updateVak(new Vak(naamVak, null, ticketId));
-            resp.getWriter().print("ok");
+            if (DataUtils.updateVak(new Vak(naamVak, null, ticketId))) resp.getWriter().print("ok");
+            else resp.getWriter().print("fail");
         }
         else if (req.getParameter("verwijder_vak") != null) {
             long vakId = Long.parseLong(req.getParameter("vak_id"));
@@ -111,16 +111,21 @@ public class AdminServlet extends HttpServlet {
 
     private String maakTicketWijziger(ArrayList<Ticket> tickets) {
         StringBuilder html = new StringBuilder();
-        for (Ticket ticket: tickets) {
-            html.append("<div class=\"ticket_wrapper\" data-ticket_id=\"").append(ticket.getId()).append("\">");
-            html.append("<label>code</label><br>");
-            html.append("<input value=\"").append(ticket.getCodeTicket()).append("\" class=\"input_code\"><br>");
-            html.append("<label>uren</label><br>");
-            html.append("<input value=\"").append(ticket.getAantalUren()).append("\" class=\"input_uren\"><br>");
-            html.append("<input type=\"submit\" value=\"wijzig\" class=\"wijzig_ticket_btn\">");
-            html.append("<input type=\"submit\" value=\"verwijder\" class=\"verwijder_ticket_btn\"><br>");
-            html.append("</div>");
+        if (tickets.isEmpty()) {
+            html.append("<p>Dit vak heeft nog geen tickets</p>");
+        } else {
+            for (Ticket ticket: tickets) {
+                html.append("<div class=\"ticket_wrapper\" data-ticket_id=\"").append(ticket.getId()).append("\">");
+                html.append("<label>code</label><br>");
+                html.append("<input class=\"form-control input_code\" value=\"").append(ticket.getCodeTicket()).append("\"><br>");
+                html.append("<label>uren</label><br>");
+                html.append("<input class=\"form-control input_uren\" value=\"").append(ticket.getAantalUren()).append("\"><br>");
+                html.append("<button type=\"submit\" class=\"btn btn-primary btn-danger wijzig_ticket_btn\">wijzig</button> ");
+                html.append("<button type=\"submit\" class=\"btn btn-primary btn-danger verwijder_ticket_btn\">verwijder</button>");
+                html.append("</div>");
+            }
         }
+
         return html.toString();
     }
 

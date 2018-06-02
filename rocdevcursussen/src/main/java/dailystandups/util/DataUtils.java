@@ -173,7 +173,7 @@ public class DataUtils {
         datastore.put(entity);
     }
 
-    public static void updateVak(Vak vak) {
+    public static boolean updateVak(Vak vak) {
         Key key = KeyFactory.createKey(KIND_VAK, vak.getId());
         try {
             Entity entity = datastore.get(key);
@@ -182,8 +182,10 @@ public class DataUtils {
                 entity.setProperty(PROPERTY_DOCENT, vak.getDocent());
             }
             datastore.put(entity);
+            return true;
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

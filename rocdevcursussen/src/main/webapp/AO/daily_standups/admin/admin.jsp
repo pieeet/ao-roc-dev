@@ -7,21 +7,15 @@
   Time: 12:45
   To change this template use File | Settings | File Templates.
 --%>
-
-
 <%
     @SuppressWarnings("unchecked")
     ArrayList<Vak> vakken = (ArrayList<Vak>) request.getAttribute("vakken");
     if (vakken == null) {
         response.sendRedirect("/AO/planning/admin");
     } else {
-
 %>
-
-
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
-
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
     <div class="col-md-8">
         <h2>Voeg vak/project toe</h2>
@@ -39,21 +33,15 @@
                 </button>
             </div>
         </form>
-
-
         <h2>Voeg ticket toe</h2>
         <form role="form" id="voeg_ticket_toe_form">
-
-
             <%
                 if (vakken.isEmpty()) {
             %>
             <p>Nog geen vakken</p>
-
             <%
             } else {
             %>
-
             <div class="form-group">
                 <label for="vak_kiezer">Kies vak/project</label>
                 <select class="form-control required" id="vak_kiezer" name="vak_kiezer">
@@ -89,10 +77,16 @@
                 }
             %>
         </form>
-
-        <h2>Wijzig vak/ticket</h2>
+        <h2>Beheer vakken &amp; tickets</h2>
         <div class="row">
             <div class="col-md-12">
+                <%
+                    if (vakken.isEmpty()) {
+                %>
+                <p>Je hebt nog geen vakken.</p>
+                <%
+                    } else {
+                %>
 
                 <label for="select_vak">selecteer een vak</label><br>
                 <select id="select_vak">
@@ -102,28 +96,35 @@
                     </option>
                     <%}%>
                 </select>
+                <%
+                    }
+                %>
             </div>
         </div>
-
-        <div class="loading_img_container hidden" id="loading_tickets">
-            <img src="<c:url value="/images/ajax-loader.gif"/>">
-        </div>
-
-        <div class="row hidden" id="beheer_vak">
-            <div class="col-md-12">
-                <label for="wijzig_naam_vak">Wijzig/verwijder vak</label><br>
-                <input id="wijzig_naam_vak" data-vak_id="">
-                <input type="submit" id="btn_wijzig_naam_vak" value="wijzig">
-                <input type="submit" id="btn_verwijder_vak" value="verwijder">
-            </div>
-        </div>
-
         <div class="row">
-            <div class="col-md-12 hidden" id="beheer_tickets">
+            <div class="col-md-12">
+                <div class="loading_img_container hidden" id="loading_tickets">
+                    <img src="<c:url value="/images/ajax-loader.gif"/>">
+                </div>
+                <div class="beheer_vak_ticket_wrapper hidden">
+                    <div id="beheer_vak">
+                        <label for="wijzig_naam_vak">Wijzig/verwijder vak</label><br>
+                        <input class="form-control" id="wijzig_naam_vak" data-vak_id=""><br>
 
+                        <button type="submit" class="btn btn-primary btn-danger" id="btn_wijzig_naam_vak"
+                                value="wijzig">wijzig
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-danger" id="btn_verwijder_vak"
+                                value="verwijder">verwijder
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="beheer_tickets"></div>
+                    </div>
+                </div>
             </div>
-
         </div>
+
     </div>
 </div>
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
@@ -151,8 +152,6 @@
                     return false; // override default submit
                 }
             });
-
-
             $("#voeg_ticket_toe_form").validate({
                 rules: {
                     vak_kiezer: {required: true},
@@ -183,14 +182,17 @@
                     return false; // override default submit
                 }
             });
-
             const selectVak = $("#select_vak");
             selectVak.on('change', function () {
-                $("#loading_tickets").removeClass('hidden');
-                let naamVak = selectVak.find(':selected').data("naam_vak");
-                let vakId = selectVak.val();
+                const beheerWrapper = $(".beheer_vak_ticket_wrapper");
+                const naamVak = selectVak.find(':selected').data("naam_vak");
+                const vakId = selectVak.val();
                 if (naamVak !== "") {
-                    $("#beheer_vak").removeClass('hidden');
+                    if (!(beheerWrapper.hasClass('hidden'))) {
+                        beheerWrapper.addClass('hidden');
+                    }
+                    $("#loading_tickets").removeClass('hidden');
+                    // $("#beheer_vak").removeClass('hidden');
                     const wijzigVakInput = $("#wijzig_naam_vak");
                     wijzigVakInput.val(naamVak);
                     wijzigVakInput.data("vak_id", vakId);
@@ -204,12 +206,12 @@
                             const beheerTickets = $("#beheer_tickets");
                             beheerTickets.html(data);
                             $("#loading_tickets").addClass('hidden');
-                            beheerTickets.removeClass('hidden');
+                            // beheerTickets.removeClass('hidden');
+                            beheerWrapper.removeClass('hidden');
                         }
                     });
                 }
             });
-
             $(document).on("click", "#btn_wijzig_naam_vak", function () {
                 const wijzigNaamVak = $("#wijzig_naam_vak");
                 const naamVak = wijzigNaamVak.val();
@@ -223,12 +225,14 @@
                         vak_id: vakId
                     },
                     success: function (data) {
-                        location.reload(true);
+                        if (data === "ok") {
+                            alert("Naam is veranderd");
+                        } else {
+                            alert("Naam is niet veranderd. Probeer opnieuw of herlaad de pagina");
+                        }
                     }
                 });
-
             });
-
             $(document).on('click', "#btn_verwijder_vak", function () {
                 const wijzigNaamVak = $("#wijzig_naam_vak");
                 const naamVak = wijzigNaamVak.val();
@@ -246,19 +250,18 @@
                             if (data === "ok") {
                                 location.reload(true);
                             } else {
-                                alert("Vak kon niet worden verwijderd");
+                                alert("Vak kon niet worden verwijderd. Probeer opnieuw of herlaad de pagina");
                             }
                         }
                     });
                 }
             });
+            $(document).on('click', ".wijzig_ticket_btn", function () {
 
-            $(document).on('click', ".wijzig_ticket_btn", function() {
                 const parent = $(this).parent();
                 const ticketId = parent.data("ticket_id");
-                // console.log(ticketId); tested
                 const codeTicket = parent.find(".input_code").val();
-                // console.log("code: " + codeTicket); tested
+                console.log("code ticket: " + codeTicket);
                 const urenTicketInput = parent.find(".input_uren");
                 const urenTicket = urenTicketInput.val();
                 if (!($.isNumeric(urenTicket))) {
@@ -274,18 +277,17 @@
                             code_ticket: codeTicket,
                             aantal_uren: urenTicket
                         },
-                        success: function(data) {
+                        success: function (data) {
                             if (data === "ok") {
                                 alert("Ticket wijzigen gelukt");
                             } else {
-                                alert("Ticket wijzigen niet gelukt");
+                                alert("Ticket wijzigen niet gelukt. Probeer opnieuw of herlaad de pagina");
                             }
                         }
                     });
                 }
             });
-
-            $(document).on('click', ".verwijder_ticket_btn", function() {
+            $(document).on('click', ".verwijder_ticket_btn", function () {
                 const parent = $(this).parent();
                 const ticketId = parent.data("ticket_id");
                 const codeTicket = parent.find(".input_code").val();
@@ -298,32 +300,32 @@
                             verwijder_ticket: "x",
                             ticket_id: ticketId
                         },
-                        success: function(data) {
+                        success: function (data) {
                             if (data === "ok") {
                                 alert("Ticket verwijderen gelukt");
                                 parent.hide();
                             } else {
-                                alert("Ticket verwijderen niet gelukt");
+                                alert("Ticket verwijderen niet gelukt. Probeer opnieuw of herlaad de pagina");
                             }
                         }
                     });
                 }
             });
-
             $('#tickets_maken').addClass('selected');
         });
-
 </script>
-
 <%
     }
 %>
-
 <style>
     .ticket_wrapper {
         border: 1px solid;
         padding: 10px;
         box-shadow: 2px 5px #888888;
         margin-top: 2em;
+    }
+
+    select#select_vak {
+        margin-bottom: 2em;
     }
 </style>
