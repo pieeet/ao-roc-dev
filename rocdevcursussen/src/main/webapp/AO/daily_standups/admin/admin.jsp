@@ -112,7 +112,7 @@
                         <input class="form-control" id="wijzig_naam_vak" data-vak_id=""><br>
 
                         <button type="submit" class="btn btn-primary btn-danger" id="btn_wijzig_naam_vak"
-                                value="wijzig">wijzig
+                                value="wijzig" disabled>wijzig
                         </button>
                         <button type="submit" class="btn btn-primary btn-danger" id="btn_verwijder_vak"
                                 value="verwijder">verwijder
@@ -212,7 +212,11 @@
                     });
                 }
             });
+            $(document).on("input", "#wijzig_naam_vak", function () {
+                $("#btn_wijzig_naam_vak").removeAttr('disabled');
+            });
             $(document).on("click", "#btn_wijzig_naam_vak", function () {
+                $("#btn_wijzig_naam_vak").prop('disabled', true);
                 const wijzigNaamVak = $("#wijzig_naam_vak");
                 const naamVak = wijzigNaamVak.val();
                 const vakId = wijzigNaamVak.data("vak_id");
@@ -227,9 +231,11 @@
                     success: function (data) {
                         if (data === "ok") {
                             alert("Naam is veranderd");
+
                         } else {
                             alert("Naam is niet veranderd. Probeer opnieuw of herlaad de pagina");
                         }
+
                     }
                 });
             });
@@ -256,12 +262,18 @@
                     });
                 }
             });
-            $(document).on('click', ".wijzig_ticket_btn", function () {
-
+            $(document).on('input', ".input_code, .input_uren", function() {
                 const parent = $(this).parent();
+                const wijzigBtn = parent.find(".wijzig_ticket_btn");
+                wijzigBtn.removeAttr('disabled');
+            })
+
+
+            $(document).on('click', ".wijzig_ticket_btn", function () {
+                const parent = $(this).parent();
+                parent.find(".wijzig_ticket_btn").prop('disabled', true);
                 const ticketId = parent.data("ticket_id");
                 const codeTicket = parent.find(".input_code").val();
-                console.log("code ticket: " + codeTicket);
                 const urenTicketInput = parent.find(".input_uren");
                 const urenTicket = urenTicketInput.val();
                 if (!($.isNumeric(urenTicket))) {
