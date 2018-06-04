@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.appengine.api.users.UserServiceFactory;
 import jquery.yahtzee.DatastoreIO;
 import jquery.yahtzee.Yahtzee;
 
@@ -39,8 +40,13 @@ public class JQueryServlet extends HttpServlet {
         io = new DatastoreIO();
         //score button handler
         if (req.getParameter("submit_score_button") != null) {
-            String user = req.getUserPrincipal().toString();
+            String user = UserServiceFactory.getUserService().getCurrentUser().getEmail();
             int endindex = user.indexOf("@roc-dev.com");
+            if (endindex == -1) {
+                // on localhost
+                endindex = user.indexOf("@example.com");
+            }
+            System.out.println(endindex);
             String username = user.substring(0, endindex);
             try {
                 int score = Integer.parseInt(req.getParameter("score"));

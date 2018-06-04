@@ -119,8 +119,7 @@
             <div id="tickets_checkbox">
                 <%for (Ticket ticket : tickets) {%>
                 <input type="checkbox" class="ticket_checkbox" value="<%=ticket.getId()%>"
-                       title="<%=ticket.getCodeTicket()%>">
-                <%=ticket.getTicketRegel()%><br>
+                       title="<%=ticket.getCodeTicket()%>"> <%=ticket.getTicketRegel()%><br>
                 <%
                     }
                 %>
