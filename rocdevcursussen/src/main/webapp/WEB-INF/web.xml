@@ -699,6 +699,17 @@
     </servlet-mapping>
 
 
+    <!--Daily Mobile Web Specialist Nano-->
+    <servlet>
+        <servlet-name>MobileWebSpecialist</servlet-name>
+        <jsp-file>/AO/mobilewebspecialistnanodegree/01intro/intro.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MobileWebSpecialist</servlet-name>
+        <url-pattern>/AO/mobile-web-specialist/intro</url-pattern>
+    </servlet-mapping>
+
+
     <!--admin vakken en tickets toevoegen-->
     <servlet>
         <servlet-name>AdminPlanning</servlet-name>

@@ -334,22 +334,22 @@ var waarde = 25;
 
 				<div id="scores">
 					<div id="scores_links">
-						<button type="button" class="score_button" id="button_enen">enen</button>
-						<input type="text" class="score" value="" id="score_enen" disabled>
-						<button type="button" class="score_button" id="button_tweeen">twee&euml;n</button>
-						<input type="text" class="score" value="" id="score_tweeen"
+						<button type="button" class="score_button nOgen" data-ogen="1">enen</button>
+						<input type="text" class="score" value="" id="score_1" disabled>
+						<button type="button" class="score_button nOgen" data-ogen="2">twee&euml;n</button>
+						<input type="text" class="score" value="" id="score_2"
 							disabled>
-						<button type="button" class="score_button" id="button_drieen">drie&euml;n</button>
-						<input type="text" class="score" value="" id="score_drieen"
+						<button type="button" class="score_button nOgen" data-ogen="3">drie&euml;n</button>
+						<input type="text" class="score" value="" id="score_3"
 							disabled>
-						<button type="button" class="score_button" id="button_vieren">vieren</button>
-						<input type="text" class="score" value="" id="score_vieren"
+						<button type="button" class="score_button nOgen" data-ogen="4">vieren</button>
+						<input type="text" class="score" value="" id="score_4"
 							disabled>
-						<button type="button" class="score_button" id="button_vijven">vijven</button>
-						<input type="text" class="score" value="" id="score_vijven"
+						<button type="button" class="score_button nOgen" data-ogen="5">vijven</button>
+						<input type="text" class="score" value="" id="score_5"
 							disabled>
-						<button type="button" class="score_button" id="button_zessen">zessen</button>
-						<input type="text" class="score" value="" id="score_zessen"
+						<button type="button" class="score_button nOgen" data-ogen="6">zessen</button>
+						<input type="text" class="score" value="" id="score_6"
 							disabled> <label class="score_label" id="bonus_label">Bonus</label>
 						<input type="text" class="score" value="" id="score_bonus"
 							disabled><br>

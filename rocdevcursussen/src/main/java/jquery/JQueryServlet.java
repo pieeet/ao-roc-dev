@@ -69,8 +69,8 @@ public class JQueryServlet extends HttpServlet {
         if (scores.isEmpty()) {
             html = "<p id=\"yahtzee_leaderboard\">Er zijn nog geen scores</p>";
         } else {
-            html = "<table id=\"yahtzee_leaderboard\">";
-            html += "<tr><th>nr</th><th>speler</th><th>score</th><th>datum</th></tr>";
+            html = "<table class=\"table\" id=\"yahtzee_leaderboard\">";
+            html += "<tr><th>#</th><th>speler</th><th>score</th><th>datum</th></tr>";
             int teller = 1;
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             for (Yahtzee y : scores) {

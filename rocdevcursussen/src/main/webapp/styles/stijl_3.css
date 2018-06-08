@@ -327,7 +327,7 @@ div#yahtzee_scherm img#yahtzee_logo {
     margin: auto;
 }
 
-#yahtzee_leaderboard {
+#yahtzee_leaderboard th, #yahtzee_leaderboard tr {
     margin-left: auto;
     margin-right: auto;
     text-align: center;

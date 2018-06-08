@@ -151,6 +151,8 @@
                                 <%--href="/AO/gcpcoupons">GCP</a></li>--%>
                                 <%--<li class="menu-item menu-sub-item" id="menu-item-frienlyChat"><a--%>
                                 <%--href="/AO/friendly-chat">Firebase Code Lab</a></li>--%>
+                                <li class="menu-item menu-sub-item" id="menu-item-mobile-web-specialist"><a
+                                        href="/AO/mobile-web-specialist/intro">Mobile web specialist nanodegree</a></li>
                             </ul>
                         </li>
 

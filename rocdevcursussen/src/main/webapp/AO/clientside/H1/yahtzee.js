@@ -4,33 +4,33 @@
 
 $(document).ready(function () {
     //initialiseer benodigde globale variabelen
-    var aantalBeurten = 0;
-    var aantalWorpen = 0;
-    var bonuspunten = 0;
-    var bonus = 0;
-    var beurtscores = [0, 0, 0, 0, 0];
-    var totaalscore = 0;
-
+    let aantalBeurten = 0;
+    let aantalWorpen = 0;
+    let bonuspunten = 0;
+    let bonus = 0;
+    let beurtscores = [0, 0, 0, 0, 0];
+    let totaalscore = 0;
+    const gooiButton = $('#gooi_button');
     /********hulpmethoden****************/
 
     function resetBeurt() {
         aantalBeurten++;
         aantalWorpen = 0;
         beurtscores = [0, 0, 0, 0, 0];
-        for (var i = 0; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
             $("#dobbel_" + i).html("");
         }
-        $('#gooi_button').prop('disabled', false);
+        gooiButton.prop('disabled', false);
         if (aantalBeurten == 13) {
             $('#submit_score_button').prop('disabled', false);
-            $('#gooi_button').prop('disabled', true);
+            gooiButton.prop('disabled', true);
         }
 
     }
 
     //telt enen, tweeen etc bij elkaar op
     function telOp(n) {
-        var score = 0;
+        let score = 0;
         $.each(beurtscores, function (index, value) {
             if (value == n) {
                 score += value;
@@ -54,9 +54,9 @@ $(document).ready(function () {
      * n = aantal dat hetzelfde moet zijn (bijv. 4 voor carre)
      */
     function nDezelfde(n) {
-        var aantalDezelfde = 0;
-        var som = 0;
-        for (var startwaarde = 1; startwaarde <= 6; startwaarde++) {
+        let aantalDezelfde = 0;
+        let som = 0;
+        for (let startwaarde = 1; startwaarde <= 6; startwaarde++) {
             aantal = 0;
             $.each(beurtscores, function (index, value) {
                 if (value == startwaarde) {
@@ -77,7 +77,7 @@ $(document).ready(function () {
      * telt waardes in worp bij elkaar op
      */
     function somWorp() {
-        var som = 0;
+        let som = 0;
         $.each(beurtscores, function (index, value) {
             som += value;
         });
@@ -94,10 +94,10 @@ $(document).ready(function () {
         aantalWorpen++;
         $(this).prop('disabled', true)
         if (aantalWorpen <= 3) {
-            for (var i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
 
                 if (beurtscores[i] == 0) {
-                    var random = Math.floor((Math.random() * 6) + 1);
+                    let random = Math.floor((Math.random() * 6) + 1);
                     beurtscores[i] = random;
                     $("#dobbel_" + i).html("<img src=\"/AO/clientside/H1/dobbel" + beurtscores[i] +
                         ".jpg\" class=\"dobbelsteen\">");
@@ -116,77 +116,24 @@ $(document).ready(function () {
      */
     $(document).on('click', '.dobbelveld', function () {
         if (aantalWorpen < 3) {
-            var nr = $(this).data('nr');
+            let nr = $(this).data('nr');
             beurtscores[nr] = 0;
             $('#dobbel_' + nr).html("");
-            $('#gooi_button').prop('disabled', false);
+            gooiButton.prop('disabled', false);
         }
     });
-
-
-    /*
-     * score button enen
-     */
-    $(document).on('click', '#button_enen', function () {
-        var score = telOp(1);
-        $('#score_enen').val(score);
+    $(document).on('click', ".nOgen", function() {
+        const ogen = $(this).attr("data-ogen");
+        let score = telOp(Number(ogen));
+        $("#score_" + ogen).val(score);
         $(this).prop('disabled', true);
-
-    });
-
-    /*
-     * score button tweeen
-     */
-    $(document).on('click', '#button_tweeen', function () {
-        var score = telOp(2);
-        $('#score_tweeen').val(score);
-        $(this).prop('disabled', true);
-    });
-
-    /*
-     * score button drieen
-     */
-    $(document).on('click', '#button_drieen', function () {
-        var score = telOp(3);
-        $('#score_drieen').val(score);
-        $(this).prop('disabled', true);
-
-    });
-
-    /*
-     * score button vieren
-     */
-    $(document).on('click', '#button_vieren', function () {
-        var score = telOp(4);
-        $('#score_vieren').val(score);
-        $(this).prop('disabled', true);
-
-    });
-
-    /*
-     * score button vijven
-     */
-    $(document).on('click', '#button_vijven', function () {
-        var score = telOp(5);
-        $('#score_vijven').val(score);
-        $(this).prop('disabled', true);
-
-    });
-    /*
-     * score button zessen
-     */
-    $(document).on('click', '#button_zessen', function () {
-        var score = telOp(6);
-        $('#score_zessen').val(score);
-        $(this).prop('disabled', true);
-
     });
 
     /*
      * score button 3 dezelfde
      */
     $(document).on('click', '#button_3dezelfde', function () {
-        var score = nDezelfde(3);
+        let score = nDezelfde(3);
         $('#score_3dezelfde').val(score);
         totaalscore += score;
         $('#score_totaal').val(totaalscore);
@@ -198,7 +145,7 @@ $(document).ready(function () {
      * score button carre
      */
     $(document).on('click', '#button_carre', function () {
-        var score = nDezelfde(4);
+        let score = nDezelfde(4);
         $('#score_carre').val(score);
         totaalscore += score;
         $('#score_totaal').val(totaalscore);
@@ -210,11 +157,11 @@ $(document).ready(function () {
      * score button full house
      */
     $(document).on('click', '#button_full_house', function () {
-        var score = 0;
-        var drieDezelfde = false;
-        var tweeDezelfde = false;
-        for (var i = 1; i <= 6; i++) {
-            var aantal = 0;
+        let score = 0;
+        let drieDezelfde = false;
+        let tweeDezelfde = false;
+        for (let i = 1; i <= 6; i++) {
+            let aantal = 0;
             $.each(beurtscores, function (index, value) {
                 if (i == value) {
                     aantal++;
@@ -247,29 +194,29 @@ $(document).ready(function () {
      * score button kleine straat
      */
     $(document).on('click', '#button_kl_straat', function () {
-        var score = 0;
+        let score = 0;
         //3 mogelijke kleine straten
-        var straat_1 = [1, 2, 3, 4];
-        var straat_2 = [2, 3, 4, 5];
-        var straat_3 = [3, 4, 5, 6];
-        var eq_1 = true;
-        var eq_2 = true;
-        var eq_3 = true;
+        let straat_1 = [1, 2, 3, 4];
+        let straat_2 = [2, 3, 4, 5];
+        let straat_3 = [3, 4, 5, 6];
+        let eq_1 = true;
+        let eq_2 = true;
+        let eq_3 = true;
 
         $.each(straat_1, function (i, val) {
-            var v = $.inArray(val, beurtscores);
+            let v = $.inArray(val, beurtscores);
             if (v === -1) {
                 eq_1 = false;
             }
         });
         $.each(straat_2, function (i, val) {
-            var v = $.inArray(val, beurtscores);
+            let v = $.inArray(val, beurtscores);
             if (v === -1) {
                 eq_2 = false;
             }
         });
         $.each(straat_3, function (i, val) {
-            var v = $.inArray(val, beurtscores);
+            let v = $.inArray(val, beurtscores);
             if (v === -1) {
                 eq_3 = false;
             }
@@ -289,21 +236,21 @@ $(document).ready(function () {
      * score button grote straat
      */
     $(document).on('click', '#button_gr_straat', function () {
-        var straat = false;
-        var score = 0;
+        let straat = false;
+        let score = 0;
         //2 mogelijke grote straten
-        var straat_1 = [1, 2, 3, 4, 5];
-        var straat_2 = [2, 3, 4, 5, 6];
-        var eq_1 = true;
-        var eq_2 = true;
+        let straat_1 = [1, 2, 3, 4, 5];
+        let straat_2 = [2, 3, 4, 5, 6];
+        let eq_1 = true;
+        let eq_2 = true;
         $.each(straat_1, function (i, val) {
-            var v = $.inArray(val, beurtscores);
+            let v = $.inArray(val, beurtscores);
             if (v === -1) {
                 eq_1 = false;
             }
         });
         $.each(straat_2, function (i, val) {
-            var v = $.inArray(val, beurtscores);
+            let v = $.inArray(val, beurtscores);
             if (v === -1) {
                 eq_2 = false;
             }
@@ -322,8 +269,8 @@ $(document).ready(function () {
      * score button yahtzee
      */
     $(document).on('click', '#button_yahtzee', function () {
-        var score = 0;
-        var v = nDezelfde(5);
+        let score = 0;
+        let v = nDezelfde(5);
         if (v > 0) {
             score = 50;
         }
@@ -338,7 +285,7 @@ $(document).ready(function () {
      * score button chance
      */
     $(document).on('click', '#button_chance', function () {
-        var score = somWorp();
+        let score = somWorp();
         $('#score_chance').val(score);
         totaalscore += score;
         $('#score_totaal').val(totaalscore);
@@ -362,9 +309,9 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#submit_score_button', function () {
-        var user = $('#user_email').val();
-        var score = $('#score_totaal').val();
-        var url = "/AO/jquery/jquery1";
+        let user = $('#user_email').val();
+        let score = $('#score_totaal').val();
+        let url = "/AO/jquery/jquery1";
         $.ajax({
             type: "POST",
             url: url,
@@ -389,24 +336,24 @@ $(document).ready(function () {
         if (!preloadImages.list) {
             preloadImages.list = [];
         }
-        var list = preloadImages.list;
-        for (var i = 0; i < array.length; i++) {
-            var img = new Image();
+        let list = preloadImages.list;
+        for (let i = 0; i < array.length; i++) {
+            let img = new Image();
             img.onload = function () {
-                var index = list.indexOf(this);
+                let index = list.indexOf(this);
                 if (index !== -1) {
                     // remove image from the array once it's loaded
                     // for memory consumption reasons
                     list.splice(index, 1);
                 }
-            }
+            };
             list.push(img);
             img.src = array[i];
         }
     }
 
-    var imgArray = [];
-    for (var i = 1; i <= 6; i++) {
+    let imgArray = [];
+    for (let i = 1; i <= 6; i++) {
         imgArray.push("/AO/clientside/H1/dobbel" + i + ".jpg")
     }
 
