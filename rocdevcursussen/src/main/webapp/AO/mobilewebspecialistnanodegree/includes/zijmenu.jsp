@@ -3,17 +3,17 @@
     <div id="menu">
         <h3>Inhoud</h3>
         <ol class="list-group">
-            <li class="list-group-item"id="intro"><a href="">Introductie</a></li>
+            <li class="list-group-item"id="intro"><a href="<c:url value="/AO/mobile-web-specialist/intro"/>">Introductie</a></li>
             <li class="list-group-item">Pt.1 Accessible and responsive web apps
                 <ol class="list-group list-group-flush">
 
                     <li class="list-group-item subitem" id="nav_responsive_web_design"><a
-                            href="https://udacity.com/course/responsive-web-design-fundamentals--ud893">Responsive Web Design
-                        Fundamentals</a></li>
+                            <%--href="https://udacity.com/course/responsive-web-design-fundamentals--ud893"--%>
+                            href="<c:url value="/AO/mobile-web-specialist/responsive-web-design"/>">Responsive web design</a></li>
                     <li class="list-group-item" id="nav_responsive_images"><a
-                            href="https://udacity.com/course/responsive-images--ud882">Responsive images</a></li>
+                            href="<c:url value="/AO/mobile-web-specialist/responsive-images"/>">Responsive images</a></li>
                     <li class="list-group-item" id="nav_web_accessibility"><a
-                            href="https://udacity.com/course/web-accessibility--ud891">Web accessibility</a></li>
+                            href="<c:url value="/AO/mobile-web-specialist/web-accessibility"/>">Web accessibility</a></li>
                     <li class="list-group-item" id="nav_offline_webapps"><a
                             href="https://udacity.com/course/offline-web-applications--ud899">Offline web apps</a></li>
                 </ol>
@@ -31,7 +31,6 @@
             </li>
             <li class="list-group-item">Pt.3 Performant web apps
                 <ol class="list-group list-group-flush">
-
                     <li class="list-group-item subitem" id="nav_performant_web_apps"><a
                             href="https://eu.udacity.com/course/client-server-communication--ud897">Client server communication</a></li>
                     <li class="list-group-item" id="nav_requests_responses"><a
@@ -43,12 +42,11 @@
                 </ol>
             </li>
         </ol>
-
     </div>
 </div>
 
 <style>
-    li a {
+    li.list-group-item a {
         display: block;
     }
 </style>

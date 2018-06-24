@@ -709,6 +709,33 @@
         <url-pattern>/AO/mobile-web-specialist/intro</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ResponsiveWebDesign</servlet-name>
+        <jsp-file>/AO/mobilewebspecialistnanodegree/02respwebdesig/respwebdesign.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponsiveWebDesign</servlet-name>
+        <url-pattern>/AO/mobile-web-specialist/responsive-web-design</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResponsiveImages</servlet-name>
+        <jsp-file>/AO/mobilewebspecialistnanodegree/03respimages/respimages.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponsiveImages</servlet-name>
+        <url-pattern>/AO/mobile-web-specialist/responsive-images</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>WebAccessibility</servlet-name>
+        <jsp-file>/AO/mobilewebspecialistnanodegree/04webaccessibility/webaccessibility.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebAccessibility</servlet-name>
+        <url-pattern>/AO/mobile-web-specialist/web-accessibility</url-pattern>
+    </servlet-mapping>
+
+
 
     <!--admin vakken en tickets toevoegen-->
     <servlet>
