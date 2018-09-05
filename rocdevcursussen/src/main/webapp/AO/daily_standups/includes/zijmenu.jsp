@@ -1,11 +1,8 @@
-<div class="col-md-2">
+<div class="col-md-3">
     <!--Zijmenu -->
     <div id="menu">
         <h3>Admin</h3>
         <ol>
-            <!--
-            TODO make links in web.xml
-            -->
             <a href="/AO/planning/admin">
                 <li class="list-group-item" id="tickets_maken">Tickets maken</li>
             </a>
@@ -14,7 +11,6 @@
             </a>
 
         </ol>
-
 
         <%--<h3>Web Links</h3>--%>
         <%--<ul>--%>

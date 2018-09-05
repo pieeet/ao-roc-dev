@@ -85,6 +85,11 @@ public class StandUpUser {
                 case "MMVAO7B":
                     this.cohort = 2017;
                     break;
+                case "MMVAO8A":
+                case "MMVAO8B":
+                case "MMVAO8C":
+                    this.cohort = 2018;
+                    break;
                 default:
                     this.cohort = -1;
             }
