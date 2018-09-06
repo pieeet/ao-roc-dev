@@ -263,7 +263,8 @@ public class LoadAndPlay extends Applet {
                 kaarten verdeeld zijn, laat de computer dat door een geluid blijken.</p>
             <!-- <p>Probeer het eerst zelf. Kom je er niet uit dan kun je <a href="/AO/inleiding-java/deel-kaarten">hier</a> hulp
                         bij de uitwerking vinden.</p> -->
-            <p>Met de volgende methode kun je een random kaart uit je deck halen en deze kaart uit het deck verwijderen:</p>
+            <p>Met de volgende methode kun je een random kaart uit je deck halen en deze kaart uit het deck verwijderen.
+            Uitgangspunt is dat je een string-array genaamd &quot;deck&quot; met 52 kaarten hebt.</p>
 
             <pre class="code">
 private <span class="codeplus">String</span> deelKaart() {
