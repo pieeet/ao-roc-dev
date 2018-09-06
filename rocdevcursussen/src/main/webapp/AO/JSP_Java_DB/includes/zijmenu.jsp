@@ -20,9 +20,6 @@
 
 		<h3>Web Links</h3>
 		<ul>
-			<li class="list-group-item"><a
-				href="https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr2"
-				target="_blank">Eclipse</a></li>
 			<li class="list-group-item"><a href="https://developers.google.com/appengine/"
 				target="_blank">App Engine</a></li>
 			<li class="list-group-item"><a
