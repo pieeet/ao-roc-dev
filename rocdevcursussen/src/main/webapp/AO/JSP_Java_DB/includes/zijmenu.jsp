@@ -22,9 +22,6 @@
 		<ul>
 			<li class="list-group-item"><a href="https://developers.google.com/appengine/"
 				target="_blank">App Engine</a></li>
-			<li class="list-group-item"><a
-				href="https://drive.google.com/a/roc-dev.com/file/d/0B3XneerL-ZIcYXlIRWpub3Vqelk/edit?usp=sharing"
-				target="_blank">Opdrachten (doc)</a></li>
 
 		</ul>
 	</div>
