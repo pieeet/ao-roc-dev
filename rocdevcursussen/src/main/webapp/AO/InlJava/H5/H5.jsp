@@ -67,6 +67,61 @@
 				III is daarom ook een kolom prefixen opgenomen. Bij kleine
 				programma&#39;s kun je dat wel onthouden, maar bij grote
 				programma&#39;s niet.</p>
+
+			<h2>Primitieve data typen</h2>
+			<p>De bouwstenen van iedere programmeertaal bestaan uit zogenaamde primitieve datatypen.</p>
+			<table class="table table-striped">
+				<tr>
+					<th>Type</th>
+					<th>Aantal geheugencellen</th>
+					<th>Waardebereik</th>
+				<tr>
+					<td>boolean</td>
+					<td>1</td>
+					<td>true of false</td>
+				</tr>
+				<tr>
+					<td>byte</td>
+					<td>1</td>
+					<td>-128 tot en met +127</td>
+				</tr>
+				<tr>
+					<td>char</td>
+					<td>1</td>
+					<td>0 t/m 255</td>
+				</tr>
+				<tr>
+					<td>short</td>
+					<td>2</td>
+					<td>-32.768 tot en met 32.767</td>
+				</tr>
+				<tr>
+					<td>int</td>
+					<td>4</td>
+					<td>-2.147.483.648 tot en met 2.147.483.647</td>
+				</tr>
+				<tr>
+					<td>float</td>
+					<td>4</td>
+					<td>3.4<sup>e</sup> - 38 tot en met 3.4<sup>e</sup> + 38
+
+				</tr>
+				<tr>
+					<td>long</td>
+					<td>8</td>
+					<td>-9223372036854775808 tot en met 9223372036854775807</td>
+
+				</tr>
+				<tr>
+					<td>double</td>
+					<td>8</td>
+					<td>1.7<sup>e</sup> - 308 tot en met 1.7<sup>e</sup> + 308</td>
+				</tr>
+
+			</table>
+
+			<p>Als je in java een variabele maakt moet je aangeven wat voor datatype het is.</p>
+
 			<div class="opdrachten">
 
 				<h2>Opdracht 5.1</h2>

@@ -11,75 +11,33 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class AutoshopServlet extends HttpServlet {
-	final String MERK_PARAM = "merk";
-	final String MIN_PRIJS_PARAM = "minprijs";
-	final String MAX_PRIJS_PARAM = "maxprijs";
-	final String DEFAULT_MERK_PARAM = "alle";
-	final String REDIRECT_URL = "/AO/jsp/deel3";
+
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		
-		
-		if (req.getParameter(MERK_PARAM) == null) {
+			throws IOException {
+
+		final String PARAM_MERK = "merk";
+		final String PARAM_MIN_PRIJS = "minprijs";
+		final String PARAM_MAX_PRIJS = "maxprijs";
+		final String REDIRECT_URL = "/AO/jsp/deel3";
+
+		if (req.getParameter(PARAM_MERK) == null) {
 			resp.sendRedirect(REDIRECT_URL);
 		} else {
-			try {
-				ArrayList<Auto> lijst = new AutoLijst().getLijst();
-				String merk = DEFAULT_MERK_PARAM;
-				int minPrijs = 0;
-				int maxPrijs = Integer.MAX_VALUE;
-				if (req.getParameter(MERK_PARAM) != null
-						&& !req.getParameter(MERK_PARAM).equals("")) {
-					merk = req.getParameter(MERK_PARAM);
-				}
-				if (!req.getParameter(MIN_PRIJS_PARAM).equals("")) {
-					try {
-						minPrijs = Integer.parseInt(req
-								.getParameter(MIN_PRIJS_PARAM));
-					} catch (NumberFormatException | NullPointerException e) {
-					}
-				}
-				if (!req.getParameter(MAX_PRIJS_PARAM).equals("")) {
-					try {
-						maxPrijs = Integer.parseInt(req
-								.getParameter(MAX_PRIJS_PARAM));
-					} catch (NumberFormatException | NullPointerException e) {
-					}
-				}
-				PrintWriter out = resp.getWriter();
-				if (req.getParameter(MERK_PARAM) != null) {
-					if (merk.equals(DEFAULT_MERK_PARAM)) {
-						for (Auto auto : lijst) {
-							if (auto.getPrijs() > minPrijs
-									&& auto.getPrijs() < maxPrijs) {
-								out.println(maakAutoDiv(auto));
-							}
-						}
-					} else {
-						for (Auto auto : lijst) {
-							if (auto.getPrijs() > minPrijs
-									&& auto.getPrijs() < maxPrijs
-									&& auto.getMerk().equals(merk)) {
-								out.println(maakAutoDiv(auto));
-							}
-						}
-					}
-				}
-				out.close();
-			} catch (Exception e) {
-				resp.sendRedirect(REDIRECT_URL);
+			String merk = req.getParameter(PARAM_MERK);
+			String invoerMinPrijs = req.getParameter(PARAM_MIN_PRIJS);
+			String invoerMaxPrijs = req.getParameter(PARAM_MAX_PRIJS);
+			ArrayList<Auto> lijst = DataUtils.getAutosGefilterd(merk, invoerMinPrijs, invoerMaxPrijs);
+			PrintWriter out = resp.getWriter();
+			for (Auto auto: lijst) {
+				out.print(maakAutoDiv(auto));
 			}
+			out.close();
 		}
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		doGet(req, resp);
-	}
-
+	// maakt de html voor een auto-div om async naar client te sturen
 	private String maakAutoDiv(Auto auto) {
 		String div = "<div class=\"autokader\">\n";
 		div += "<img src=\"" + auto.getFoto() + "\" alt=\"" + auto.getMerk()

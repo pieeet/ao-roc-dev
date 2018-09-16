@@ -9,11 +9,8 @@
 			</li></a>
 			<a href="/AO/jsp/deel2"><li class="list-group-item" id="deel-2">Deel 2 <br> Formulieren
 			</li></a>
-			<li class="list-group-item" id="deel-3">Deel 3 <br><a href="/AO/jsp/deel3">Java klassen</a><br>
-				<a href="/AO/jsp/deel3#zelftoets">Toets 1e jaar</a></li>
-			<a href="/AO/jsp/sport"><li class="list-group-item" id="deel-4">Deel 4 <br> Databases
-			</li></a>
-			<a href="/AO/jsp/kalender"><li class="list-group-item" id="deel-5">Deel 5<br>MVC en Servlets
+            <a href="/AO/jsp/deel3"><li class="list-group-item" id="deel-3">Deel 3 <br>Java klassen</a></li>
+			<a href="/AO/jsp/sport"><li class="list-group-item" id="deel-4">Deel 4 <br> Servlets &amp; Datastore
 			</li></a>
 		</ul>
 

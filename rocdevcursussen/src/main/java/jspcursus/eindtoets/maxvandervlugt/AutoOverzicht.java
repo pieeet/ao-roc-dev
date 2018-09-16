@@ -90,7 +90,7 @@ public class AutoOverzicht {
  
    //}
     
-    //public ArrayList<Auto> getAutolijst() {
+    //public ArrayList<Auto> getsAutolijst() {
  
       //return autolijst;
  

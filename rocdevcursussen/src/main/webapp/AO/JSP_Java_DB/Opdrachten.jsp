@@ -29,13 +29,16 @@
 
         <img src="<c:url value="/AO/JSP_Java_DB/images/jsp.png"/>">
         <h3>Benodigde voorkennis</h3>
+        <p>Voor deelname aan deze cursus moet je Inleiding Java hebben afgerond. Enige kennis van HTML/CSS is ook wel
+        handig.</p>
 
         <h3>Ontwikkelomgeving</h3>
         <p>
             In deze cursus gebruiken we App Engine van het Google Cloud Platform om een project op te zetten waarin je
             je opdrachten online kunt zetten. Volg de <a
                 href="https://cloud.google.com/appengine/docs/standard/java/tools/maven"
-                target="_blank">instructies</a> van Google om het project op te zetten met behulp van Maven.
+                target="_blank">instructies</a> van Google om het project op te zetten met behulp van <a
+                href="https://maven.apache.org/" target="_blank">Maven</a>.
         </p>
         <p><a href="https://blog.jetbrains.com/idea/2008/03/opening-maven-projects-is-easy-as-pie/" target="_blank">
             Importeer</a> het Maven project in IntelliJ. Je kunt dit project gebruiken voor de opdrachten van deze

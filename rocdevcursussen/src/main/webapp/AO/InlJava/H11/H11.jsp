@@ -16,9 +16,7 @@
 				<li>hoe je lussen (loops) gebruikt</li>
 				<li>hoe je het <b>for-</b>,
 				</li>
-				<li>het <b>while-</b> &amp;
-				</li>
-				<li>het <b>do-while</b> statement kunt gebruiken
+				<li>het <b>while- statement kunt gebruiken</b> &amp;
 				</li>
 				<li>wat wordt bedoeld met het <b>&quot;nesten&quot;</b> van
 					lussen
@@ -137,45 +135,45 @@ public class For extends Applet {
 			evenals bij het for-statement tussen accolades.
 		</p>
 
-		<h3>Het do-while-statement</h3>
-		<p>Het onderstaande voorbeeld geeft precies dezelfde uitvoer als
-			de twee vorige voorbeelden.</p>
+		<%--<h3>Het do-while-statement</h3>--%>
+		<%--<p>Het onderstaande voorbeeld geeft precies dezelfde uitvoer als--%>
+			<%--de twee vorige voorbeelden.</p>--%>
 
-		<pre class="code">
-<span class="comment"> Voorbeeld 11.3</span>
+		<%--<pre class="code">--%>
+<%--<span class="comment"> Voorbeeld 11.3</span>--%>
 
-import java.awt.*;
-import java.applet.*;
+<%--import java.awt.*;--%>
+<%--import java.applet.*;--%>
 
 
-public class For extends Applet {
-	
-    public void init() {}
+<%--public class For extends Applet {--%>
+	<%----%>
+    <%--public void init() {}--%>
 
-    public void paint(Graphics g) {
-        int teller = 0;
-        int y = 0;
-		
-        <span class="codeplus">do {</span>
-            y += 20;
-            g.drawLine(50 , y, 300, y );
-            g.drawString(&quot;&quot; + teller, 305, y );
-            <span class="codeplus">teller++;</span>
-        <span class="codeplus">} while (teller &lt; 10);</span>
-    }
-}
-</pre>
-		<p>
-			Eerst wordt weer de teller op 0 gesteld. Op de volgende regel staat
-			nu niet <b>while</b>, maar <b>do</b>. De body van de lus staat
-			wederom tussen accolades. De teller wordt aan het einde van de lus
-			opgehoogd met 1 en vervolgens staat het while-statement met
-			daarachter de voorwaarde. Het verschil tussen een while-lus en een
-			do-while-lus is dat de laatste minimaal &eacute;&eacute;n keer wordt
-			doorlopen omdat controle van de voorwaarde achteraf plaatsvindt en
-			een while-lus minimaal nul keer wordt doorlopen omdat de voorwaarde
-			vooraf gecontroleerd wordt.
-		</p>
+    <%--public void paint(Graphics g) {--%>
+        <%--int teller = 0;--%>
+        <%--int y = 0;--%>
+		<%----%>
+        <%--<span class="codeplus">do {</span>--%>
+            <%--y += 20;--%>
+            <%--g.drawLine(50 , y, 300, y );--%>
+            <%--g.drawString(&quot;&quot; + teller, 305, y );--%>
+            <%--<span class="codeplus">teller++;</span>--%>
+        <%--<span class="codeplus">} while (teller &lt; 10);</span>--%>
+    <%--}--%>
+<%--}--%>
+<%--</pre>--%>
+		<%--<p>--%>
+			<%--Eerst wordt weer de teller op 0 gesteld. Op de volgende regel staat--%>
+			<%--nu niet <b>while</b>, maar <b>do</b>. De body van de lus staat--%>
+			<%--wederom tussen accolades. De teller wordt aan het einde van de lus--%>
+			<%--opgehoogd met 1 en vervolgens staat het while-statement met--%>
+			<%--daarachter de voorwaarde. Het verschil tussen een while-lus en een--%>
+			<%--do-while-lus is dat de laatste minimaal &eacute;&eacute;n keer wordt--%>
+			<%--doorlopen omdat controle van de voorwaarde achteraf plaatsvindt en--%>
+			<%--een while-lus minimaal nul keer wordt doorlopen omdat de voorwaarde--%>
+			<%--vooraf gecontroleerd wordt.--%>
+		<%--</p>--%>
 
 		<h3>Lussen in het algemeen</h3>
 		<p>Belangrijk is, dat de voorwaarde meteen ge&euml;valueerd wordt
@@ -209,23 +207,16 @@ public class For extends Applet {
 			(ctrl+shift+esc).</p>
 
 
-
-
-
-
-
 		<div class="opdrachten">
 
 			<h2>Vragen</h2>
 			<ol>
-				<li><p>Wat is het verschil tussen een while- en
-						do-while-lus?</p></li>
-				<li><p>Is de for-lus eigenlijk een do-while-lus of een
-						while-lus?</p></li>
+				<li><p>Wat is het verschil tussen een while- en een
+						for-lus?</p></li>
 				<li><p>Wat is het nesten van lussen?</p></li>
 				<li><p>Bekijk de volgende broncode</p> <pre class="code">
 int eind = 5;
-for(int x = 10;  x &lt; eind;  x++) {
+for(int i = 10;  i &lt; eind;  i++) {
      ....
      ....
 }
