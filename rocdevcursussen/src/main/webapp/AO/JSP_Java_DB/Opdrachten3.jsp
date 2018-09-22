@@ -101,8 +101,8 @@ public class Auto {
     private final String mType;
     private final int mPrijs;
     private final String mFotourl;
-    
-    
+
+    <span class="comment">// Constructor waarmee je een auto object maakt</span>
     public Auto(String merk, String type, int prijs, String fotourl) {
         this.mMerk = merk;
         this.mType = type;
@@ -189,7 +189,7 @@ public class DataUtils {
      * @return een lijst met alle unieke merken
      */</span>
     public static ArrayList<String> getMerken() {
-        ArrayList<String> merken = new ArrayList<>();
+        ArrayList&lt;String&gt; merken = new ArrayList<>();
         for (Auto auto: getAutolijst()) {
             String merk = auto.getMerk();
             if (!merken.contains(merk)) {
