@@ -159,7 +159,7 @@ public class DataUtils {
      * @return hard-coded list of cars
      *
      */</span>
-    public static ArrayList<Auto> getAutolijst() {
+    public static ArrayList&lt;Auto&gt; getAutolijst() {
         ArrayList<Auto> autolijst = new ArrayList<>();
         autolijst.add(new Auto(&quot;Ford&quot;, &quot;Fiesta&quot;, 23999, &quot;images/autos/fordfiesta.jpg&quot;));
         autolijst.add(new Auto(&quot;Ford&quot;, &quot;Focus&quot;, 18995, &quot;images/autos/fordfocus.jpg&quot;));

@@ -270,10 +270,11 @@ public class SportServlet extends <span class="codeplus">HttpServlet</span> {
 </pre>
 
         <p>Nu kun je het html formulier naar de servlet sturen als
-            gebruiker op de verzend knop klikt.</p>
+            gebruiker op de verzend knop klikt. Omdat we data naar de server sturen die moet worden bewaard gebruiken
+            we de methode &quot;post&quot;</p>
 
         <pre class="code">
-&lt;form <span class="codeplus">action=&quot;/sport&quot;</span> method=&quot;get&quot;&gt;
+&lt;form <span class="codeplus">action=&quot;/sport&quot;</span> method=&quot;post&quot;&gt;
     &lt;input type=&quot;text&quot; <span class="codeplus">name=&quot;roepnaam&quot;</span> placeholder=&quot;roepnaam&quot;&gt;(roepnaam)&lt;br&gt;
     &lt;input type=&quot;text&quot; <span class="codeplus">name=&quot;tussenvoegsels&quot;</span> placeholder=&quot;tussenvoegsels&quot;&gt;(tussenvoegsels)&lt;br&gt;
     &lt;input type=&quot;text&quot; <span class="codeplus">name=&quot;achternaam&quot;</span> placeholder=&quot;achternaam&quot;&gt;(achternaam)&lt;br&gt;
@@ -287,7 +288,7 @@ public class SportServlet extends <span class="codeplus">HttpServlet</span> {
             parameters op en maak je een lid aan.</p>
 
         <pre class="code">
-public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
     if (req.getParameter(<span class="codeplus">&quot;verzend_nieuw_lid_knop&quot;</span>) != null) {
         String roepnaam = req.getParameter(<span class="codeplus">&quot;roepnaam&quot;</span>);
@@ -316,17 +317,25 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp)
 public class DataUtils {
     private static DatastoreService <span
                 class="codeplus">datastore = DatastoreServiceFactory.getDatastoreService()</span>;
-    
+
+    <span class="comment">/*****CONSTANTEN*****/</span>
+    private static final String KIND_LID = &quot;Lid&quot;;
+    private static final String PROP_ROEPNAAM = &quot;roepnaam&quot;;
+    private static final String PROP_TUSSENVOEGSELS = &quot;tussenvoegsels&quot;;
+    private static final String PROP_ACHTERNAAM = &quot;achternaam&quot;;
+    private static final String PROP_EMAIL = &quot;email&quot;;
+    private static final String PROP_SPELERSCODE = &quot;spelerscode&quot;;
+
     <span class="comment">//methode om lid toe te voegen</span>
     public static void voegLidToe(Lid lid) {
         <span class="comment">//Maak een Entity mbv tabelnaam en unieke sleutel</span>
-        Entity ent = <span class="codeplus">new Entity(&quot;Lid&quot;, lid.getSpelerscode())</span>;
-        <span class="comment">//properties worden opgeslagen in de kolommen van de tabel
-        ent.<span class="codeplus">setProperty</span>(&quot;roepnaam&quot;, lid.getRoepnaam());
-        ent.setProperty(&quot;tussenvoegsels&quot;, lid.getTussenvoegsels());
-        ent.setProperty(&quot;achternaam&quot;, lid.getAchternaam());
-        ent.setProperty(&quot;email&quot;, lid.getEmail());
-        ent.setProperty(&quot;spelerscode&quot;, lid.getSpelerscode());
+        Entity ent = <span class="codeplus">new Entity(KIND_LID, lid.getSpelerscode())</span>;
+        <span class="comment">//properties worden opgeslagen in de kolommen van de tabel</span>
+        ent.<span class="codeplus">setProperty</span>(PROP_ROEPNAAM, lid.getRoepnaam());
+        ent.setProperty(PROP_TUSSENVOEGSELS, lid.getTussenvoegsels());
+        ent.setProperty(PROP_ACHTERNAAM, lid.getAchternaam());
+        ent.setProperty(PROP_EMAIL, lid.getEmail());
+        ent.setProperty(PROP_SPELERSCODE, lid.getSpelerscode());
         <span class="codeplus">datastore.put(ent)</span>;
     }
 }
@@ -336,7 +345,7 @@ public class DataUtils {
             terug geleid (zie code). Later gaan we dit veranderen.</p>
         <pre class="code">
 <span class="comment">/*  SportServlet.java */</span>
-public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
     if (req.getParameter(&quot;verzend_nieuw_lid_knop&quot;) != null) {
         String roepnaam = req.getParameter(&quot;roepnaam&quot;);
@@ -369,16 +378,16 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp)
         <pre class="code">
 <span class="comment">/*  DataUtils.java */</span>
 public static ArrayList&lt;Lid&gt; getAlleLeden() {
-    ArrayList&lt;Lid&gt; leden = new ArrayList&lt;Lid&gt;();
-    <span class="codeplus">Query q = new Query(&quot;Lid&quot;);</span>
+    ArrayList&lt;Lid&gt; leden = new ArrayList&lt;&gt;();
+    <span class="codeplus">Query q = new Query(KIND_LID);</span>
     <span class="codeplus">PreparedQuery resultaat = datastore.prepare(q);</span>
     for (Entity ent: resultaat.<span class="codeplus">asIterable()</span>) {
         Lid lid = new Lid();
-        lid.setRoepnaam( <span class="codeplus">(String) ent.getProperty(&quot;roepnaam&quot;)</span> );
-        lid.setTussenvoegsels( (String) ent.getProperty(&quot;tussenvoegsels&quot;) );
-        lid.setAchternaam( (String) ent.getProperty(&quot;achternaam&quot;) );
-        lid.setEmail( (String) ent.getProperty(&quot;email&quot;) );
-        lid.setSpelerscode( (String) ent.getProperty(&quot;spelerscode&quot;) );
+        lid.setRoepnaam( <span class="codeplus">(String) ent.getProperty(PROP_ROEPNAAM)</span> );
+        lid.setTussenvoegsels( (String) ent.getProperty(PROP_TUSSENVOEGSELS) );
+        lid.setAchternaam( (String) ent.getProperty(PROP_ACHTERNAAM) );
+        lid.setEmail( (String) ent.getProperty(PROP_EMAIL) );
+        lid.setSpelerscode( (String) ent.getProperty(PROP_SPELERSCODE) );
         leden.add(lid);
     }
     return leden;
@@ -387,32 +396,33 @@ public static ArrayList&lt;Lid&gt; getAlleLeden() {
         <p>In je servlet kun je de methode vervolgens aanroepen om de leden op te halen</p>
         <pre class="code">
 <span class="comment">/*  SportServlet.java */</span>
-public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-    if (req.getParameter(&quot;verzend_nieuw_lid_knop&quot;) != null) {
+        <span class="codeplus">ArrayList&lt;Lid&gt; leden = <span
+                class="jsp">DataUtils.getAlleLeden()</span>;</span>
+        <span class="codeplus">req.<span class="jsp">setAttribute(&quot;leden&quot;, leden</span>);</span>
+        <span class="codeplus">RequestDispatcher disp = req.getRequestDispatcher("/index.jsp");</span>
+        <span class="codeplus">disp.forward(req, resp);</span>
+
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        if (req.getParameter(&quot;verzend_nieuw_lid_knop&quot;) != null) {
         String roepnaam = req.getParameter(&quot;roepnaam&quot;);
         String tussenvoegsels = req.getParameter(&quot;tussenvoegsels&quot;);
         String achternaam = req.getParameter(&quot;achternaam&quot;);
         String email = req.getParameter(&quot;email&quot;);
         Lid lid = new Lid(roepnaam, tussenvoegsels, achternaam, email);
-        DataUtils.voegLidToe(lid);
-        <span class="codeplus">resp.sendRedirect(&quot;/sport&quot;);</span>
+        <span class="codeplus">DataUtils.voegLidToe(lid)</span>;
+        <span class="codeplus">resp.sendRedirect(&quot;/sport&quot;)</span>;
     }
-    else {
-    	<span class="codeplus">ArrayList&lt;Lid&gt; leden = <span
-                class="jsp">DataUtils.getAlleLeden()</span>;</span>
-    	<span class="codeplus">req.<span class="jsp">setAttribute(&quot;leden&quot;, leden</span>);</span>
-    	<span class="codeplus">RequestDispatcher disp = req.getRequestDispatcher("/index.jsp");</span>
-        <span class="codeplus">disp.forward(req, resp);</span>
-    }
-}
 </pre>
         <h3>Uitleg</h3>
         <p>
             Nadat de servlet het lid aan de datastore heeft toegevoegd, leidt hij
-            de gebruiker terug naar zichzelf, maar dit keer worden er geen
-            parameters meegestuurd zodat het if statement wordt overgeslagen en
-            hij dus in het else statement komt. Hier wordt de ArrayList met leden
+            de gebruiker terug naar zichzelf, waarbij dit keer de doGet metgode wordt getriggered.
+            Hier wordt de ArrayList met leden
             opgevraagd en dit object wordt als attribuut aan het request object gekoppeld met de
             methode <em>setAttribute()</em>.
         </p>
@@ -432,7 +442,7 @@ if (request.getAttribute(&quot;leden&quot;) == null) {
             class="jsp">(ArrayList&lt;Lid&gt;) request.getAttribute(&quot;leden&quot;</span>)</span>;
 %&gt;</span>
 
-&lt;form action=&quot;/sport&quot; method=&quot;get&quot;&gt;
+&lt;form action=&quot;/sport&quot; method=&quot;post&quot;&gt;
     &lt;input type=&quot;text&quot; name=&quot;roepnaam&quot; placeholder=&quot;roepnaam&quot;&gt;(roepnaam)&lt;br&gt;
     &lt;input type=&quot;text&quot; name=&quot;tussenvoegsels&quot; placeholder=&quot;tussenvoegsels&quot;&gt;(tussenvoegsels)&lt;br&gt;
     &lt;input type=&quot;text&quot; name=&quot;achternaam&quot; placeholder=&quot;achternaam&quot;&gt;(achternaam)&lt;br&gt;
@@ -469,18 +479,18 @@ if (request.getAttribute(&quot;leden&quot;) == null) {
 <span class="comment">/*  DataUtils.java */</span>
 public static Lid getLid(String spelerscode)  {
     Lid lid = null;
-    <span class="codeplus">Key k = KeyFactory.createKey("Lid", spelerscode)</span>;
+    <span class="codeplus">Key k = KeyFactory.createKey(KIND_LID, spelerscode)</span>;
     try {
         <span class="codeplus">Entity ent = datastore.get(k)</span>;
         <span class="comment">//in dit geval is er voor gekozen
         //om de attributen van het lid hun waarde te geven middels
         //set-methoden (setters)</span>
         lid = new Lid();
-        lid.setRoepnaam( <span class="codeplus">(String)</span> ent.getProperty(&quot;roepnaam&quot;) );
-        lid.setTussenvoegsels( (String) ent.getProperty(&quot;tussenvoegsels&quot;) );
-        lid.setAchternaam( (String) ent.getProperty(&quot;achternaam&quot;) );
-        lid.setEmail( (String) ent.getProperty(&quot;email&quot;) );
-        lid.setSpelerscode( (String) ent.getProperty(&quot;spelerscode&quot;) );
+        lid.setRoepnaam( <span class="codeplus">(String)</span> ent.getProperty(PROP_ROEPNAAM) );
+        lid.setTussenvoegsels( (String) ent.getProperty(PROP_TUSSENVOEGSELS) );
+        lid.setAchternaam( (String) ent.getProperty(PROP_ACHTERNAAM) );
+        lid.setEmail( (String) ent.getProperty(PROP_EMAIL) );
+        lid.setSpelerscode( (String) ent.getProperty(PROP_SPELERSCODE) );
     } catch (EntityNotFoundException e) {
         <span class="comment">// TODO Auto-generated catch block</span>
         e.printStackTrace();
@@ -514,10 +524,8 @@ public static Lid getLid(String spelerscode)  {
 <span class="comment">/*  SportServlet.java */</span>
 public void doGet(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
-    if (req.getParameter(&quot;verzend_nieuw_lid_knop&quot;) != null) {
-        ...
-    }
-    <span class="codeplus">else if (req.getParameter(&quot;haal_lid&quot;) != null) {</span>
+
+    <span class="codeplus">if (req.getParameter(&quot;haal_lid&quot;) != null) {</span>
         <span class="codeplus">String spelerscode = req.getParameter(&quot;spelerscode&quot;);</span>
         <span class="codeplus">Lid lid = <span class="jsp">DataUtils.getLid(spelerscode);</span></span>
         <span class="codeplus">req.setAttribute(&quot;lid&quot;, lid);</span>
@@ -525,7 +533,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp)
         <span class="codeplus">disp.forward(req, resp);</span>
     }
     else {
-    	...
+    	<span class="comment">//hier de eerder gemaakte code die een ArrayList meegeeft</span>
     }
 }
 </pre>
@@ -548,7 +556,7 @@ if (request.getAttribute(&quot;lid&quot;) == null) {
     <span class="codeplus"> Lid lid = (Lid) request.getAttribute(&quot;lid&quot;)</span>; 
 <span class="jsp">%&gt; </span>
     
-&lt;form action=&quot;/sport&quot;  method=&quot;get&quot;&gt;
+&lt;form action=&quot;/sport&quot;  method=&quot;post&quot;&gt;
     &lt;input type=&quot;text&quot; 
        name=&quot;roepnaam&quot; 
        <span class="codeplus">value=&quot;<span class="jsp">&lt;%=</span> lid.getRoepnaam() <span
@@ -587,7 +595,7 @@ if (request.getAttribute(&quot;lid&quot;) == null) {
         <pre class="code">
 <span class="comment">/*  DataUtils.java */</span>
 public void verwijderLid(String spelerscode) {
-    Key k = KeyFactory.createKey("Lid", spelerscode );
+    Key k = KeyFactory.createKey(KIND_LID, spelerscode );
     <span class="codeplus">datastore.delete(k)</span>;
 }
 
@@ -683,6 +691,9 @@ String geboortedatum = sdf.<span class="codeplus">format(date)</span>;
         </div>
 
         <h3>Resultaten filteren</h3>
+        <p>Leden van onze sportvereniging kunnen in meerdere teams spelen en teams bestaan uiteraard uit
+            meerdere leden. Dit betekent dat we een tussentabel nodig hebben:</p>
+        <img src="/AO/JSP_Java_DB/images/ERD_sportvereniging.png">
         <p>Om alleen entities met een bepaalde property te selecteren kun
             je (een) filter(s) maken en aan je query meegeven. Onze app moet een
             overzicht kunnen geven van spelers van een bepaald team en teams van
@@ -691,9 +702,10 @@ String geboortedatum = sdf.<span class="codeplus">format(date)</span>;
 
         <pre class="code">
 public static void setTeamspeler(Team team, Lid lid) {
-    Entity e = new Entity(&quot;Teamspeler&quot;, team.getTeamcode() + lid.getSpelerscode());
-    e.setProperty(&quot;teamcode&quot;, team.getTeamcode());
-    e.setProperty(&quot;spelerscode&quot;, lid.getSpelerscode());
+    <span class="comment">//TODO maak benodigde constanten</span>
+    Entity e = new Entity(KIND_TEAMSPELER, team.getTeamcode() + lid.getSpelerscode());
+    e.setProperty(PROP_TEAMCODE, team.getTeamcode());
+    e.setProperty(PROP_SPELERSCODE, lid.getSpelerscode());
     datastore.put(e);
 }
 </pre>
@@ -708,22 +720,22 @@ public static void setTeamspeler(Team team, Lid lid) {
 
         <pre class="code">
 public static ArrayList&lt;Lid&gt; getTeamspelers(Team team)  {
-    ArrayList&lt;Lid&gt; teamleden = new ArrayList&lt;Lid&gt;();
+    ArrayList&lt;Lid&gt; teamleden = new ArrayList&lt;&gt;();
     <span class="codeplus">Filter teamcodeFilter =  new FilterPredicate(</span>
-                       <span class="codeplus">"teamcode"</span>, <span
+                       <span class="codeplus">PROP_TEAMCODE</span>, <span
                 class="comment">//naam van property in datastore</span>
                        <span class="codeplus">FilterOperator.EQUAL,</span> <span
                 class="comment">//gelijk aan</span>
                        <span class="codeplus">team.getTeamcode())</span>; <span
                 class="comment">//attribuut van team</span>
                        
-    Query q = new Query("Teamspeler").<span class="codeplus">setFilter(teamcodeFilter)</span>;
+    Query q = new Query(KIND_TEAMSPELER).<span class="codeplus">setFilter(teamcodeFilter)</span>;
     PreparedQuery pq = datastore.prepare(q);
 		
     for (Entity result: pq.asIterable()) {
         Lid lid = null;
         try {
-            String spelerscode = (String) result.getProperty(&quot;spelerscode&quot;)
+            String spelerscode = (String) result.getProperty(PROP_SPELERSCODE)
             lid = this.getLid(spelerscode);
             teamleden.add(lid);
             
@@ -753,10 +765,10 @@ public static ArrayList&lt;Lid&gt; getTeamspelers(Team team)  {
 
         <pre class="code">
 public ArrayList&lt;Lid&gt; getLedenLijst() {
-    ArrayList&lt;Lid&gt; leden = new ArrayList&lt;Lid&gt;();
-    Query q = new Query("Lid")
-        <span class="codeplus">.addSort("achternaam", SortDirection.ASCENDING)</span>
-        .addSort("geboortedatum", SortDirection.<span class="codeplus">DESCENDING</span>);
+    ArrayList&lt;Lid&gt; leden = new ArrayList&lt;&gt;();
+    Query q = new Query(KIND_LID)
+        <span class="codeplus">.addSort(PROP_ACHTERNAAM, SortDirection.ASCENDING)</span>
+        .addSort(PROP_GEBOORTEDATUM, SortDirection.<span class="codeplus">DESCENDING</span>);
     PreparedQuery pq = datastore.prepare(q);
     <span class="comment">//zie eerdere code</span>
     ...
