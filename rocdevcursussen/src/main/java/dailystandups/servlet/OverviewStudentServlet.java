@@ -2,6 +2,7 @@ package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.model.StandUpUser;
 import dailystandups.model.Ticket;
 import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
@@ -33,6 +34,8 @@ public class OverviewStudentServlet extends HttpServlet {
             if (email.equals(user.getEmail()) || AuthUtils.isAdmin(user)) {
                 ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
                 ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
+                StandUpUser sup = DataUtils.getStandUpUser(email);
+                req.setAttribute("standupuser", sup);
                 req.setAttribute("planningen", plannings);
                 req.setAttribute("afgerondetickets", tickets);
                 RequestDispatcher disp = req

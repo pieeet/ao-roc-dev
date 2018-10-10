@@ -97,10 +97,10 @@ import java.text.DecimalFormat;
 
 public class Auto {
     <span class ="comment">// De attributen (eigenschappen) van een auto die we nodig hebben voor de app</span>
-    private final String mMerk;
-    private final String mType;
-    private final int mPrijs;
-    private final String mFotourl;
+    private String mMerk;
+    private String mType;
+    private int mPrijs;
+    private String mFotourl;
 
     <span class="comment">// Constructor waarmee je een auto object maakt</span>
     public Auto(String merk, String type, int prijs, String fotourl) {

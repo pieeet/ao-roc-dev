@@ -409,13 +409,14 @@ public static ArrayList&lt;Lid&gt; getAlleLeden() {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         if (req.getParameter(&quot;verzend_nieuw_lid_knop&quot;) != null) {
-        String roepnaam = req.getParameter(&quot;roepnaam&quot;);
-        String tussenvoegsels = req.getParameter(&quot;tussenvoegsels&quot;);
-        String achternaam = req.getParameter(&quot;achternaam&quot;);
-        String email = req.getParameter(&quot;email&quot;);
-        Lid lid = new Lid(roepnaam, tussenvoegsels, achternaam, email);
-        <span class="codeplus">DataUtils.voegLidToe(lid)</span>;
-        <span class="codeplus">resp.sendRedirect(&quot;/sport&quot;)</span>;
+            String roepnaam = req.getParameter(&quot;roepnaam&quot;);
+            String tussenvoegsels = req.getParameter(&quot;tussenvoegsels&quot;);
+            String achternaam = req.getParameter(&quot;achternaam&quot;);
+            String email = req.getParameter(&quot;email&quot;);
+            Lid lid = new Lid(roepnaam, tussenvoegsels, achternaam, email);
+            <span class="codeplus">DataUtils.voegLidToe(lid)</span>;
+            <span class="codeplus">resp.sendRedirect(&quot;/sport&quot;)</span>;
+        }
     }
 </pre>
         <h3>Uitleg</h3>

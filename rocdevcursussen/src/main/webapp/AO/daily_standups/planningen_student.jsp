@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dailystandups.model.Ticket" %>
-<%@ page import="dailystandups.model.Planning" %><%--
+<%@ page import="dailystandups.model.Planning" %>
+<%@ page import="dailystandups.model.StandUpUser" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 23-02-18
@@ -13,6 +14,7 @@
     ArrayList<Planning> planningen = (ArrayList<Planning>) request.getAttribute("planningen");
     @SuppressWarnings("unchecked")
     ArrayList<Ticket> afgerondeTickets = (ArrayList<Ticket>) request.getAttribute("afgerondetickets");
+    StandUpUser standUpUser = (StandUpUser) request.getAttribute("standupuser");
     if (planningen == null) {
         response.sendRedirect("/AO/planning");
     } else {
@@ -27,7 +29,7 @@
             <div class="bs-callout bs-callout-succes">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Afgeronde tickets</h2>
+                        <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%></h2>
                     </div>
                 </div>
                 <div class="row">
