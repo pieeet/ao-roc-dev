@@ -15,7 +15,7 @@
     @SuppressWarnings("unchecked")
     ArrayList<Ticket> afgerondeTickets = (ArrayList<Ticket>) request.getAttribute("afgerondetickets");
     StandUpUser standUpUser = (StandUpUser) request.getAttribute("standupuser");
-    if (planningen == null) {
+    if (planningen == null || standUpUser == null) {
         response.sendRedirect("/AO/planning");
     } else {
 %>
