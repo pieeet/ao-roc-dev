@@ -816,14 +816,6 @@
         <url-pattern>/elance</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>LetsEncryptServlet</servlet-name>
-        <servlet-class>letsencrypt.LetsEncryptServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LetsEncryptServlet</servlet-name>
-        <url-pattern>/.well-known/acme-challenge/MjVXmlPGdGIr0Sixg1Tsy7U2K7jl23iQkZAJPSO2Q0c</url-pattern>
-    </servlet-mapping>
 
 
 </web-app>

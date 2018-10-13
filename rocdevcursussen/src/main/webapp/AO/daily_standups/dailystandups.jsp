@@ -228,6 +228,22 @@
                     return false;
                 }
             });
+
+            // refresh after > 1 hour no focus
+            let blurStartTime = 0;
+            $(window).on('blur', function() {
+                blurStartTime = (new Date).getTime();
+            });
+            $(window).on('focus', function() {
+                if (blurStartTime > 0) {
+                    let timeElapsed = (new Date).getTime() - blurStartTime;
+                    blurStartTime = 0;
+                    if (timeElapsed > 1000 * 60 * 60 ) {
+                        location.reload(true);
+                    }
+                }
+            });
+
             // configure your validation
             $("#planning_form").validate({
                 rules: {
