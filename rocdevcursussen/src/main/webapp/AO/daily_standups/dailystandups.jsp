@@ -237,7 +237,6 @@
             $(window).on('focus', function() {
                 if (blurStartTime > 0) {
                     let timeElapsed = (new Date).getTime() - blurStartTime;
-                    blurStartTime = 0;
                     if (timeElapsed > 1000 * 60 * 60 ) {
                         location.reload(true);
                     }
