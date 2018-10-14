@@ -46,10 +46,7 @@
                             </style>
                             <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%><br>
                                 <button type="button" class="delete_ticket_afgerond btn btn-primary btn-warning btn-sm"
-                                        data-ticketid="<%=ticket.getId()%>"
-                                        data-user="<%=standUpUser.getEmail()%>">delete
-                                </button>
-                            </li>
+                                        data-ticketid="<%=ticket.getId()%>">delete</button></li>
 
                             <%
                                 }
@@ -130,9 +127,7 @@
     $(document).ready(function () {
         $(document).on('click', ".delete_ticket_afgerond", function () {
             let ticketId = $(this).data('ticketid');
-            let email = $(this).data('user');
-            // console.log(ticketId);
-            // console.log(email);
+            let email = "<%= standUpUser.getEmail()%>";
             $.ajax({
                 type: "POST",
                 url: "/AO/planning/studentplanningen",

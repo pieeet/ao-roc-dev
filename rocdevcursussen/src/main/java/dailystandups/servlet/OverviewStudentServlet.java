@@ -20,31 +20,29 @@ import java.util.Comparator;
 
 /**
  * Created by Piet de Vries on 23-02-18.
- *
  */
 public class OverviewStudentServlet extends HttpServlet {
+
+    private static final String PARAM_EMAIL = "email";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        User user = UserServiceFactory.getUserService().getCurrentUser();
-        if (user == null) return;
-        if (req.getParameter("email") != null) {
-            String email = req.getParameter("email");
-            if (email.equals(user.getEmail()) || AuthUtils.isAdmin(user)) {
-                ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
-                ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
-                StandUpUser sup = DataUtils.getStandUpUser(email);
-                req.setAttribute("standupuser", sup);
-                req.setAttribute("planningen", plannings);
-                req.setAttribute("afgerondetickets", tickets);
-                RequestDispatcher disp = req
-                        .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");
-                disp.forward(req, resp);
-            } else {
-                resp.sendRedirect("/AO/planning");
-            }
+        if (checkLegitUser(req)) {
+            String email = req.getParameter(PARAM_EMAIL);
+            ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
+            ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
+            StandUpUser sup = DataUtils.getStandUpUser(email);
+            req.setAttribute("standupuser", sup);
+            req.setAttribute("planningen", plannings);
+            req.setAttribute("afgerondetickets", tickets);
+            RequestDispatcher disp = req
+                    .getRequestDispatcher("/AO/daily_standups/planningen_student.jsp");
+            disp.forward(req, resp);
+        } else {
+            resp.sendRedirect("/AO/planning");
         }
+
     }
 
 
@@ -75,12 +73,20 @@ public class OverviewStudentServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("setticketnietafgerond") != null) {
-            String email = req.getParameter("email");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        if (checkLegitUser(req)) {
             long ticketId = Long.parseLong(req.getParameter("ticketid"));
-            DataUtils.setTicketAfgerond(ticketId, -1, email);
+            DataUtils.setTicketAfgerond(ticketId, -1, req.getParameter("email"));
             resp.getWriter().print("ok");
+        } else resp.getWriter().print("fail");
+    }
+
+    private boolean checkLegitUser(HttpServletRequest req) {
+        User user = UserServiceFactory.getUserService().getCurrentUser();
+        if (user != null && req.getParameter(PARAM_EMAIL) != null) {
+            String email = req.getParameter(PARAM_EMAIL);
+            return email.equals(user.getEmail()) || AuthUtils.isAdmin(user);
         }
+        return false;
     }
 }
