@@ -45,7 +45,7 @@
 
                             </style>
                             <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%><br>
-                                <button type="button" class="delete_ticket_afgerond btn btn-primary btn-warning"
+                                <button type="button" class="delete_ticket_afgerond btn btn-primary btn-warning btn-sm"
                                         data-ticketid="<%=ticket.getId()%>"
                                         data-user="<%=standUpUser.getEmail()%>">delete
                                 </button>
