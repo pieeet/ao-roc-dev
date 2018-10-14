@@ -232,7 +232,9 @@
             // refresh after > 1 hour no focus
             let blurStartTime = 0;
             $(window).on('blur', function() {
-                blurStartTime = (new Date).getTime();
+                if (blurStartTime === 0) {
+                    blurStartTime = (new Date).getTime();
+                }
             });
             $(window).on('focus', function() {
                 if (blurStartTime > 0) {
