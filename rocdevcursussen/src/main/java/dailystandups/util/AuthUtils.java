@@ -14,7 +14,7 @@ public class AuthUtils {
                 "janjaap@roc-dev.com",
                 "tvanbeuningen@roc-dev.com",
                 "edirkse@roc-dev.com",
-//                "test@example.com",
+                "test@example.com",
                 "jschmitz@roc-dev.com",
                 "flap@roc-dev.com",
                 "iwigger@roc-dev.com"

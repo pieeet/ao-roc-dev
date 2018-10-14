@@ -29,7 +29,8 @@
             <div class="bs-callout bs-callout-succes">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%></h2>
+                        <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%>
+                        </h2>
                     </div>
                 </div>
                 <div class="row">
@@ -40,7 +41,14 @@
                                 for (Ticket ticket : afgerondeTickets) {
                                     aantalPunten += ticket.getAantalUren();
                             %>
-                            <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%>
+                            <style>
+
+                            </style>
+                            <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%><br>
+                                <button type="button" class="delete_ticket_afgerond btn btn-primary btn-warning"
+                                        data-ticketid="<%=ticket.getId()%>"
+                                        data-user="<%=standUpUser.getEmail()%>">delete
+                                </button>
                             </li>
 
                             <%
@@ -112,7 +120,39 @@
         list-style: none;
         margin: 0;
     }
+
+    .delete_ticket_afgerond {
+        margin: .5em 0;
+    }
 </style>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', ".delete_ticket_afgerond", function () {
+            let ticketId = $(this).data('ticketid');
+            let email = $(this).data('user');
+            // console.log(ticketId);
+            // console.log(email);
+            $.ajax({
+                type: "POST",
+                url: "/AO/planning/studentplanningen",
+                data: {
+                    setticketnietafgerond: "true",
+                    ticketid: ticketId,
+                    email: email
+                },
+                success: function (data) {
+                    if (data === "ok") {
+                        location.reload(true);
+                    } else {
+                        alert("Er is iets mis gegaan. Herlaad pagina en probeer opnieuw.");
+                    }
+                }
+            });
+
+        });
+    });
+</script>
 
 
 <%

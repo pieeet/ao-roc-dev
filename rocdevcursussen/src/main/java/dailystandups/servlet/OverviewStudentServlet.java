@@ -73,4 +73,14 @@ public class OverviewStudentServlet extends HttpServlet {
         }
         return tickets;
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("setticketnietafgerond") != null) {
+            String email = req.getParameter("email");
+            long ticketId = Long.parseLong(req.getParameter("ticketid"));
+            DataUtils.setTicketAfgerond(ticketId, -1, email);
+            resp.getWriter().print("ok");
+        }
+    }
 }

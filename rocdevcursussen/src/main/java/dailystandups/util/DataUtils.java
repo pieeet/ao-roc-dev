@@ -345,6 +345,7 @@ public class DataUtils {
         }
     }
 
+    // een ticket kan in meerdere planningen voorkomen. Niet afgerond = -1
     public static void setTicketAfgerond(long ticketId, long date, String email) {
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
