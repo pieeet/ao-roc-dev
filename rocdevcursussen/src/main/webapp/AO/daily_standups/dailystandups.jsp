@@ -209,7 +209,7 @@
                 <input type="checkbox" name="stuur_email" value="Ja"> Stuur een email met je hulpvraag naar je docenten
             </div>
 
-            <button type="submit" class="btn btn-primary btn-danger btn-lg btn-block" name="submit_planning_btn"
+            <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
                     id="submit_planning_btn">Submit
             </button>
         </form>

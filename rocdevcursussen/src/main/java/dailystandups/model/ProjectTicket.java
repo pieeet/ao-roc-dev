@@ -1,5 +1,8 @@
 package dailystandups.model;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by Piet de Vries on 26-03-18.
  *
@@ -28,6 +31,7 @@ public class ProjectTicket extends Ticket {
         return beschrijvingTicket;
     }
 
+
     public void setBeschrijvingTicket(String beschrijvingTicket) {
         this.beschrijvingTicket = beschrijvingTicket;
     }
@@ -43,6 +47,7 @@ public class ProjectTicket extends Ticket {
 
     @Override
     public String getTicketRegel() {
-        return projectNaam + " - " + beschrijvingTicket + " - " + getAantalUren() + " punten";
+        return StringEscapeUtils.escapeHtml4(projectNaam) + " - " +
+                StringEscapeUtils.escapeHtml4(beschrijvingTicket) + " - " + getAantalUren() + " punten";
     }
 }
