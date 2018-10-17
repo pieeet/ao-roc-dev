@@ -26,13 +26,9 @@
     <%--<%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>--%>
     <div class="row">
         <div class="col-md-12">
+            <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%>
+            </h2>
             <div class="bs-callout bs-callout-succes">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%>
-                        </h2>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="no_bullet">
