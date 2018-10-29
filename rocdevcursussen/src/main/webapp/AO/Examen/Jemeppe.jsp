@@ -382,7 +382,7 @@
 		<div class="bijlage">
 			<h3>Bijlage 1</h3>
 			<div class="jemeppe_bijlage">
-				<img class="jemeppe_logo" src="images/jemepe_logo_trans.png">
+				<img class="jemeppe_logo" src="/AO/Examen/images/jemepe_logo_trans.png">
 				<h4>Factuur</h4>
 				<p>
 					Het kasteel Jemeppe<br> Oude Waterlandseweg 10<br> 1335
@@ -436,7 +436,7 @@
 		<div class="bijlage">
 			<h3>Bijlage 2</h3>
 			<div class="jemeppe_bijlage">
-				<img class="jemeppe_logo" src="images/jemepe_logo_trans.png">
+				<img class="jemeppe_logo" src="/AO/Examen/images/jemepe_logo_trans.png">
 				<h4>Overzicht reserveringen</h4>
 				<p>
 					Het kasteel Jemeppe<br> Oude Waterlandseweg 10<br> 1335
