@@ -591,8 +591,8 @@ finally {
 
 					}
 				%>
-				<input type="hidden" name="hoogste" value="<%=hoogste%>"> <input
-					type="hidden" name="laagste" value="<%=laagste%>">
+				<input type="hidden" name="hoogste" value="<%=hoogste%>">
+				<input type="hidden" name="laagste" value="<%=laagste%>">
 
 			</form>
 			<br>

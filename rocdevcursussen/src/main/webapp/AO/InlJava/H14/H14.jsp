@@ -199,7 +199,7 @@ public class Afbeelding extends Applet {
             <source src="/AO/InlJava/H14/images/applaus.wav" type="audio/wav">
             Your browser does not support the audio element.
         </audio><br>
-        <a href="/AO/InlJava/H14/images/scream1.wav" download="applaus.wav">Download applaus.wav</a>
+        <a href="/AO/InlJava/H14/images/applaus.wav" download="applaus.wav">Download applaus.wav</a>
         </div><br>
         <p>Het lijkt
             heel veel op de wijze waarop afbeeldingen ingelezen en getoond
@@ -271,16 +271,21 @@ private <span class="codeplus">String</span> deelKaart() {
     int random = new Random().nextInt(deck.length);
     String kaart = deck[random];
 
-    <span class="comment">//vervang de inhoud van deck</span>
+    <span class="comment">//vervang de inhoud van deck met een nieuwe lijst</span>
+    <span class="comment">//het nieuwe deck is 1 kaart kleiner dan het oude deck</span>
     String[] hulpLijst = new String[<span class="codeplus">deck.length - 1</span>];
+    <span class="comment">//om het nieuwe deck te vullen hebben we een index nodig</span>
     int hulpindex = 0;
+    <span class="comment">//kopieer alle kaarten naar hulplijst behalve de kaart die net gedeeld is</span>
     for (int i = 0; i &lt; deck.length; i++) {
         if (<span class="codeplus">i != random</span>) {
             hulpLijst[hulpindex] = deck[i];
             hulpindex++;
         }
     }
+    <span class="comment">//vervang nu deck met de nieuwe lijst</span>
     deck = hulpLijst;
+    <span class="comment">//de methode geeft de random kaart terug</span>
     <span class="codeplus">return kaart</span>;
 }
 </pre>

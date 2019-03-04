@@ -11,7 +11,7 @@
             <p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
                 je:</p>
             <ul>
-                <li>Met behulp van Maven een java App Engine project kunt maken</li>
+                <li>een java App Engine project kunt maken</li>
                 <li>het project in IntelliJ kunt importeren</li>
                 <li>weet hoe je java code schrijft tussen de jsp tags <span
                         class="jsp"><b>&lt;%</b></span> en <span class="jsp"><b>%&gt;</b></span></li>
@@ -36,13 +36,10 @@
         <p>
             In deze cursus gebruiken we App Engine van het Google Cloud Platform om een project op te zetten waarin je
             je opdrachten online kunt zetten. Volg de <a
-                href="https://cloud.google.com/appengine/docs/standard/java/tools/maven"
-                target="_blank">instructies</a> van Google om het project op te zetten met behulp van <a
-                href="https://maven.apache.org/" target="_blank">Maven</a>.
+                href="https://cloud.google.com/tools/intellij/docs/"
+                target="_blank">instructies</a> van Google om het project met behulp van IntelliJ op te
+            zetten.
         </p>
-        <p><a href="https://blog.jetbrains.com/idea/2008/03/opening-maven-projects-is-easy-as-pie/" target="_blank">
-            Importeer</a> het Maven project in IntelliJ. Je kunt dit project gebruiken voor de opdrachten van deze
-            cursus.</p>
 
         <div class="opdrachten">
             <h2>Opdracht 1</h2>
