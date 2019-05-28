@@ -43,6 +43,7 @@ public class DataUtils {
     private static final String PROPERTY_BESCHRIJVING = "beschrijving";
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
     private static final String PROPERTY_IS_DELETED = "deleted";
+    private static final String PROPERTY_IS_APPROVED = "approved";
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
@@ -260,6 +261,7 @@ public class DataUtils {
         if (ticket instanceof ProjectTicket) {
             entity.setProperty(PROPERTY_BESCHRIJVING, ((ProjectTicket) ticket).getBeschrijvingTicket());
             entity.setProperty(PROPERTY_NAAM_PROJECT, ((ProjectTicket) ticket).getProjectNaam());
+            entity.setProperty(PROPERTY_IS_APPROVED, ((ProjectTicket) ticket).getApproved());
         }
         datastore.put(entity);
         return entity.getKey().getId();
@@ -318,13 +320,18 @@ public class DataUtils {
         if (ticketEntity.getProperty(PROPERTY_NAAM_PROJECT) != null) {
             String project = (String) ticketEntity.getProperty(PROPERTY_NAAM_PROJECT);
             String beschrijving = (String) ticketEntity.getProperty(PROPERTY_BESCHRIJVING);
+            String approved = null;
+            if (ticketEntity.getProperty(PROPERTY_IS_APPROVED) != null) {
+                approved = (String) ticketEntity.getProperty(PROPERTY_IS_APPROVED);
+            }
             ticket = new ProjectTicket(
                     id,
                     vakId,
                     aantalUren,
                     afgerond,
                     beschrijving,
-                    project);
+                    project,
+                    approved);
         } else {
             ticket = new Ticket(id, vakId, code, aantalUren, afgerond);
         }

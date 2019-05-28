@@ -3,6 +3,8 @@ package dailystandups.model;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.annotation.Nullable;
+
 /**
  * Created by Piet de Vries on 26-03-18.
  *
@@ -13,15 +15,18 @@ public class ProjectTicket extends Ticket {
 
     private String beschrijvingTicket;
     private String projectNaam;
+    private String approved;
 
 
     public ProjectTicket(long vakId, int aantalUren, String beschrijving, String project) {
         super(vakId, CODE_TICKET, aantalUren);
         this.beschrijvingTicket = beschrijving;
         this.projectNaam = project;
+        this.approved = "pending";
     }
 
-    public ProjectTicket(long id, long vakId, int aantalUren, long isAfgerond, String beschrijving, String project) {
+    public ProjectTicket(long id, long vakId, int aantalUren, long isAfgerond, String beschrijving, String project,
+                         @Nullable String approved) {
         super(id, vakId, CODE_TICKET, aantalUren, isAfgerond);
         this.beschrijvingTicket = beschrijving;
         this.projectNaam = project;
@@ -38,6 +43,14 @@ public class ProjectTicket extends Ticket {
 
     public String getProjectNaam() {
         return projectNaam;
+    }
+
+    public String getApproved() {
+        return approved;
+    }
+
+    public void setApproved(String docent) {
+        this.approved = docent;
     }
 
     @Override
