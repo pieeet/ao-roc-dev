@@ -112,6 +112,7 @@ public class DailyStandUpServlet extends HttpServlet {
             String[] ticketIdStrings = paramTickets.split("__");
             long[] ticketIds = new long[ticketIdStrings.length];
             for (int i = 0; i < ticketIds.length; i++) {
+                //TODO check valid ticketId
                 ticketIds[i] = Long.parseLong(ticketIdStrings[i]);
             }
             nieuwePlanning.setTicketIds(ticketIds);
