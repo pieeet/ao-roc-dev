@@ -163,7 +163,6 @@ public class DataUtils {
             pv2.setTickets(tickets);
             planningen.add(pv2);
         }
-
         return planningen;
     }
 
@@ -212,6 +211,26 @@ public class DataUtils {
     public static boolean deleteTicket(long ticketId) {
         Key key = KeyFactory.createKey(KIND_TICKET, ticketId);
         return setEntityAsDeleted(key);
+    }
+
+    /**
+     *
+     * @param id the ticket id in datastore
+     * @param email the email of the admin that approves ticket
+     * @return the admin that first approved the ticket
+     */
+    public static String approveTicket(long id, String email) {
+        Key key = KeyFactory.createKey(KIND_TICKET, id);
+        try {
+            Entity entity = datastore.get(key);
+            if (entity.getProperty(PROPERTY_IS_APPROVED).equals("pending")) {
+                entity.setProperty(PROPERTY_IS_APPROVED, email);
+                datastore.put(entity);
+            }
+            return (String) entity.getProperty(PROPERTY_IS_APPROVED);
+        } catch (EntityNotFoundException e) {
+            return null;
+        }
     }
 
     private static boolean setEntityAsDeleted(Key key) {
@@ -354,6 +373,18 @@ public class DataUtils {
 
     // een ticket kan in meerdere planningen voorkomen. Niet afgerond = -1
     public static void setTicketAfgerond(long ticketId, long date, String email) {
+        // check if ticket is project ticket --> approved, if not return
+        Key k = KeyFactory.createKey(KIND_TICKET, ticketId);
+        try {
+            Entity ticketEntity = datastore.get(k);
+            Ticket ticket = makeTicketFromEntity(ticketEntity, 0);
+            if (ticket instanceof ProjectTicket) {
+                if (((ProjectTicket) ticket).getApproved().equals("pending")) return;
+            }
+        } catch (EntityNotFoundException e) {
+            return;
+        }
+
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
         Query.Filter ticketFilter = new Query.FilterPredicate(PROPERTY_TICKET_ID, Query.FilterOperator.EQUAL,

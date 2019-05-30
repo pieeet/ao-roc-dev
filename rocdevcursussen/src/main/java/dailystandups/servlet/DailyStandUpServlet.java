@@ -82,6 +82,7 @@ public class DailyStandUpServlet extends HttpServlet {
             long ticketId = Long.parseLong(req.getParameter("change_ticket_afgerond"));
             String mode = req.getParameter("mode");
             if (mode.equals("set_afgerond")) {
+
                 DataUtils.setTicketAfgerond(ticketId, new Date().getTime(), user.getEmail());
             } else {
                 DataUtils.setTicketAfgerond(ticketId, -1, user.getEmail());
@@ -112,7 +113,6 @@ public class DailyStandUpServlet extends HttpServlet {
             String[] ticketIdStrings = paramTickets.split("__");
             long[] ticketIds = new long[ticketIdStrings.length];
             for (int i = 0; i < ticketIds.length; i++) {
-                //TODO check valid ticketId
                 ticketIds[i] = Long.parseLong(ticketIdStrings[i]);
             }
             nieuwePlanning.setTicketIds(ticketIds);

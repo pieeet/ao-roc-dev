@@ -82,7 +82,17 @@
                     <%
                         for (Ticket ticket : tickets) {
                     %>
-                    <li><%=ticket.getTicketRegel()%>
+                    <li><%=ticket.getTicketRegel()%><br>
+
+                        <%
+                            if (ticket instanceof ProjectTicket) {
+                                if (((ProjectTicket) ticket).getApproved() != null &&
+                                        ((ProjectTicket) ticket).getApproved().equals("pending")) { %>
+                        <span class='error'>(nog niet goedgekeurd, vraag akkoord aan een docent)</span><br>
+                               <% }
+                            }
+                        %>
+
                     </li>
                     <%}%>
                 </ul>
@@ -185,6 +195,7 @@
                 <label for="aantal_uren_input">Inschatting aantal uren</label><br>
                 <input type="number" id="aantal_uren_input" class="custom_ticket_input" name="aantal_uren_input">
                 <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
+                <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
                 <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
                         id="btn_custom_ticket">Voeg toe
                 </button>

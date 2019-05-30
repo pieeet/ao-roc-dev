@@ -73,7 +73,30 @@
             $(document).on("click", ".klik_user", function() {
                 let email = $(this).data("email");
                 window.open("/AO/planning/studentplanningen?email=" + email);
-            })
+            });
+
+            // approve project ticket
+            $(document).on("click", ".approve-ticket", function() {
+                let $button = $(this);
+                $button.text('....');
+                $button.attr("disabled", true);
+                const ticketId = $button.data("ticketid");
+                const url = "/AO/planning/admin/planningoverzicht";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        ticketId: ticketId
+                    },
+                    success: function(data) {
+                        if (data !== "not good") {
+                            $button.text('approved');
+                        } else {
+                            alert("Er is iets mis gegaan. Ververs pagina en probeer opnieuw");
+                        }
+                    }
+                });
+            });
             $('#overzicht_planningen').addClass('selected');
         });
 

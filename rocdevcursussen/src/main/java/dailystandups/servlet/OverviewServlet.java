@@ -2,6 +2,7 @@ package dailystandups.servlet;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
+import dailystandups.model.ProjectTicket;
 import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.StandUpUser;
@@ -38,16 +39,29 @@ public class OverviewServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         if (UserServiceFactory.getUserService().getCurrentUser() == null) return;
-        if (req.getParameter("cohort") != null) {
-            int cohort = Integer.parseInt(req.getParameter("cohort"));
-            List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
-            resp.getWriter().print(maakTabel(users));
+        User user = UserServiceFactory.getUserService().getCurrentUser();
+        if (AuthUtils.isAdmin(user)) {
+            if (req.getParameter("cohort") != null) {
+                int cohort = Integer.parseInt(req.getParameter("cohort"));
+                List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
+                resp.getWriter().print(maakTabel(users));
+            } else if (req.getParameter("ticketId") != null) {
+                try {
+                    long ticketId = Long.parseLong(req.getParameter("ticketId"));
+                    // returns the first admin that approved the ticket
+                    String admin = DataUtils.approveTicket(ticketId, user.getEmail());
+                    if (admin != null) {
+                        resp.getWriter().print(admin);
+                        return;
+                    }
+                } catch (NumberFormatException ignored) {}
+                // something went wrong
+                resp.getWriter().print("not good");
+            }
         }
     }
 
-
     private String maakTabel(List<StandUpUser> users) {
-
         StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
                 "<tr>" +
                 "<th>Naam/tijd</th>" +
@@ -72,7 +86,17 @@ public class OverviewServlet extends HttpServlet {
     private String maakTicketString(List<Ticket> tickets) {
         StringBuilder sb = new StringBuilder();
         for (Ticket ticket : tickets) {
-            sb.append(ticket.getTicketRegel()).append("<br><br>");
+            sb.append(ticket.getTicketRegel()).append("<br>");
+            if (ticket instanceof ProjectTicket){
+                if (((ProjectTicket) ticket).getApproved().equals("pending")) {
+                    sb.append("<button type=\"button\" class=\"approve-ticket btn btn-primary btn-warning btn-sm\" data-ticketid = \"");
+                    sb.append(ticket.getId()).append("\">geef akkoord</button><br>");
+                }
+                if (((ProjectTicket) ticket).getApproved()!= null && !((ProjectTicket) ticket).getApproved().equals("pending")) {
+                    sb.append("<p>akkoord: ").append(((ProjectTicket) ticket).getApproved()).append("</p>");
+                }
+            }
+            sb.append("<br>");
         }
         return sb.toString();
     }

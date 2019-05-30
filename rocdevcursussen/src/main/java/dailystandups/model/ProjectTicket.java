@@ -30,12 +30,12 @@ public class ProjectTicket extends Ticket {
         super(id, vakId, CODE_TICKET, aantalUren, isAfgerond);
         this.beschrijvingTicket = beschrijving;
         this.projectNaam = project;
+        this.approved = approved;
     }
 
     public String getBeschrijvingTicket() {
         return beschrijvingTicket;
     }
-
 
     public void setBeschrijvingTicket(String beschrijvingTicket) {
         this.beschrijvingTicket = beschrijvingTicket;
