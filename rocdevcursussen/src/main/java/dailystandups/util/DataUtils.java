@@ -379,7 +379,8 @@ public class DataUtils {
             Entity ticketEntity = datastore.get(k);
             Ticket ticket = makeTicketFromEntity(ticketEntity, 0);
             if (ticket instanceof ProjectTicket) {
-                if (((ProjectTicket) ticket).getApproved().equals("pending")) return;
+                if (((ProjectTicket) ticket).getApproved()!= null &&
+                        ((ProjectTicket) ticket).getApproved().equals("pending")) return;
             }
         } catch (EntityNotFoundException e) {
             return;
