@@ -87,12 +87,11 @@ public class OverviewServlet extends HttpServlet {
         StringBuilder sb = new StringBuilder();
         for (Ticket ticket : tickets) {
             sb.append(ticket.getTicketRegel()).append("<br>");
-            if (ticket instanceof ProjectTicket){
-                if (((ProjectTicket) ticket).getApproved()!= null && ((ProjectTicket) ticket).getApproved().equals("pending")) {
+            if (ticket instanceof ProjectTicket && ((ProjectTicket) ticket).getApproved()!= null) {
+                if (((ProjectTicket) ticket).getApproved().equals("pending")) {
                     sb.append("<button type=\"button\" class=\"approve-ticket btn btn-primary btn-warning btn-sm\" data-ticketid = \"");
                     sb.append(ticket.getId()).append("\">geef akkoord</button><br>");
-                }
-                if (((ProjectTicket) ticket).getApproved()!= null && !((ProjectTicket) ticket).getApproved().equals("pending")) {
+                } else {
                     sb.append("<p>akkoord: ").append(((ProjectTicket) ticket).getApproved()).append("</p>");
                 }
             }
