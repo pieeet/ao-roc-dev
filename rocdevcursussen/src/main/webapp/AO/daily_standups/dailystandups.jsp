@@ -89,8 +89,74 @@
                                 if (((ProjectTicket) ticket).getApproved() != null &&
                                         ((ProjectTicket) ticket).getApproved().equals("pending")) { %>
                         <span class='error'>(nog niet goedgekeurd, vraag akkoord aan een docent)</span><br>
-                               <% }
-                            }
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn-modal btn btn-primary btn-success btn-sm" data-toggle="modal"
+                                data-target="#<%= ticket.getId() %>">
+                            Update ticket
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="<%= ticket.getId() %>" tabindex="-1" role="dialog"
+                             aria-labelledby="title-<%= ticket.getId() %>" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="title-<%= ticket.getId() %>">Update ticket</h2>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <label for="update_naam_project_input_<%= ticket.getId() %>">Naam
+                                                project</label><br>
+                                            <input id="update_naam_project_input_<%= ticket.getId() %>"
+                                                   class="form-group"
+                                                   name="update_naam_project_input"
+                                                   value="<%=((ProjectTicket) ticket).getProjectNaam()%>">
+                                            <p class="error hidden"
+                                               id="error_update_project_input_<%= ticket.getId() %>">Geef een
+                                                naam</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="update_ticket_beschrijving_input_<%= ticket.getId() %>">Ticket
+                                                omschrijving</label><br>
+                                            <input id="update_ticket_beschrijving_input_<%= ticket.getId() %>"
+                                                   class="form-group"
+                                                   name="update_ticket_beschrijving_input"
+                                                   value="<%=((ProjectTicket) ticket).getBeschrijvingTicket()%>">
+                                            <p class="error hidden"
+                                               id="error_update_omschrijving_ticket_<%= ticket.getId() %>">Geef
+                                                een beschrijving</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="update_aantal_uren_input_<%= ticket.getId() %>">Inschatting
+                                                aantal uren</label><br>
+                                            <input type="number" id="update_aantal_uren_input_<%= ticket.getId() %>"
+                                                   class="form-group"
+                                                   name="update_aantal_uren_input"
+                                                   value="<%=ticket.getAantalUren()%>">
+                                            <p class="error hidden"
+                                               id="error_update_aantal_uren_<%= ticket.getId() %>">Vul aantal uren
+                                                in</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close
+                                        </button>
+                                        <button type="button"
+                                                class="btn_update_ticket btn btn-primary"
+                                                data-ticketid="<%= ticket.getId() %>">Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <% }
+                        }
                         %>
 
                     </li>
@@ -233,8 +299,8 @@
         function () {
             $('html, body').animate({scrollTop: 0}, 500);
             // avoid submit on enter key
-            $(window).keydown(function(event){
-                if(13 === event.keyCode) {
+            $(window).keydown(function (event) {
+                if (13 === event.keyCode) {
                     event.preventDefault();
                     return false;
                 }
@@ -242,15 +308,15 @@
 
             // refresh after > 1 hour no focus
             let blurStartTime = 0;
-            $(window).on('blur', function() {
+            $(window).on('blur', function () {
                 if (blurStartTime === 0) {
                     blurStartTime = (new Date).getTime();
                 }
             });
-            $(window).on('focus', function() {
+            $(window).on('focus', function () {
                 if (blurStartTime > 0) {
                     let timeElapsed = (new Date).getTime() - blurStartTime;
-                    if (timeElapsed > 1000 * 60 * 60 ) {
+                    if (timeElapsed > 1000 * 60 * 60) {
                         location.reload(true);
                     }
                 }
@@ -531,6 +597,14 @@
 
     button#btn_select_ticket {
         margin-top: .5em;
+    }
+
+    .modal label {
+        margin-top: 0;
+    }
+
+    .modal input {
+        width: 100%;
     }
 
 </style>
