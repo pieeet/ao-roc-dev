@@ -7,7 +7,6 @@ import java.util.*;
 
 /**
  * Created by Piet de Vries on 15-02-18.
- *
  */
 public class DataUtils {
 
@@ -22,7 +21,7 @@ public class DataUtils {
     private static final String KIND_TICKET = "Ticket";
     private static final String KIND_PLANNING_TICKET = "Planning_Ticket";
 
-     /*
+    /*
      *****************COLUMN NAMES************************
      */
     private static final String PROPERTY_GROEP = "groep";
@@ -198,15 +197,15 @@ public class DataUtils {
         Key key = KeyFactory.createKey(KIND_TICKET, id);
         try {
             Entity entity = datastore.get(key);
-            // check of het wel een projectticket is
-            if (entity.getProperty(PROPERTY_NAAM_PROJECT) != null) {
+            // check of het wel een "nieuw" projectticket is en nog niet approved
+            if (entity.getProperty(PROPERTY_IS_APPROVED) != null &&
+                    entity.getProperty(PROPERTY_IS_APPROVED).equals("pending")) {
                 entity.setProperty(PROPERTY_NAAM_PROJECT, naamProject);
                 entity.setProperty(PROPERTY_BESCHRIJVING, beschrijving);
                 entity.setProperty(PROPERTY_AANTAL_UREN, aantalUur);
                 datastore.put(entity);
                 return true;
             } else return false;
-
         } catch (EntityNotFoundException e) {
             return false;
         }
@@ -233,8 +232,7 @@ public class DataUtils {
     }
 
     /**
-     *
-     * @param id the ticket id in datastore
+     * @param id    the ticket id in datastore
      * @param email the email of the admin that approves ticket
      * @return the admin that first approved the ticket
      */
@@ -284,7 +282,7 @@ public class DataUtils {
             long id = e.getKey().getId();
             String naam = (String) e.getProperty(PROPERTY_NAAM);
             // filter deleted vakken
-            if (e.getProperty(PROPERTY_IS_DELETED) == null ) {
+            if (e.getProperty(PROPERTY_IS_DELETED) == null) {
                 vakken.add(new Vak(naam, null, id));
             }
         }
@@ -398,7 +396,7 @@ public class DataUtils {
             Entity ticketEntity = datastore.get(k);
             Ticket ticket = makeTicketFromEntity(ticketEntity, 0);
             if (ticket instanceof ProjectTicket) {
-                if (((ProjectTicket) ticket).getApproved()!= null &&
+                if (((ProjectTicket) ticket).getApproved() != null &&
                         ((ProjectTicket) ticket).getApproved().equals("pending")) return;
             }
         } catch (EntityNotFoundException e) {
@@ -413,7 +411,7 @@ public class DataUtils {
         Query.Filter compositeFilter = Query.CompositeFilterOperator.and(emailFilter, ticketFilter);
         Query q = new Query(KIND_PLANNING_TICKET).setFilter(compositeFilter);
         PreparedQuery pq = datastore.prepare(q);
-        for (Entity e: pq.asIterable()) {
+        for (Entity e : pq.asIterable()) {
             e.setProperty(PROPERTY_AFGEROND, date);
             datastore.put(e);
         }
@@ -441,7 +439,7 @@ public class DataUtils {
         PreparedQuery pq = datastore.prepare(q);
         long[] afgerondeTickets = new long[pq.countEntities(FetchOptions.Builder.withDefaults())];
         int index = 0;
-        for (Entity e: pq.asIterable()) {
+        for (Entity e : pq.asIterable()) {
             afgerondeTickets[index] = (long) e.getProperty(PROPERTY_TICKET_ID);
             index++;
         }
