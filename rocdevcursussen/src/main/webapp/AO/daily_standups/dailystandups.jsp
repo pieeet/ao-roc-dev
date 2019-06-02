@@ -526,7 +526,7 @@
                     $("#error_omschrijving_ticket").removeClass('hidden');
                     return;
                 } else {
-                    $("#error_project_input").addClass("hidden");
+                    $("#error_omschrijving_ticket").addClass("hidden");
                 }
                 let aantalUur = $("#aantal_uren_input").val();
                 let aantalUurNumber = Math.ceil(aantalUur);
@@ -534,7 +534,7 @@
                     $("#error_aantal_uren").removeClass('hidden');
                     return;
                 } else {
-                    $("#error_project_input").addClass("hidden");
+                    $("#error_aantal_uren").addClass("hidden");
                 }
                 $("#custom_ticket_maker").find(".error").addClass('hidden');
                 const selectVak = $("#select_vak");
@@ -568,7 +568,7 @@
                 const ticketId = $button.data('ticketid');
                 // fetch naam project
                 const naamProject = $('#update_naam_project_input_' + ticketId).val();
-                const errProject = $('error_update_project_input_' + ticketId);
+                const errProject = $('#error_update_project_input_' + ticketId);
                 if (naamProject === "") {
                     errProject.removeClass('hidden');
                     return;
@@ -578,7 +578,7 @@
                 }
                 // fetch beschrijving
                 const beschrijving = $('#update_ticket_beschrijving_input_' + ticketId).val();
-                const errBeschrijving = $('error_update_omschrijving_ticket_' + ticketId);
+                const errBeschrijving = $('#error_update_omschrijving_ticket_' + ticketId);
                 if (beschrijving === "") {
                     errBeschrijving.removeClass('hidden');
                     return;
@@ -589,7 +589,7 @@
                 // fetch aantal uren
                 let aantalUren = $('#update_aantal_uren_input_' + ticketId).val();
                 let aantalUrenNr = Math.ceil(aantalUren);
-                const errAantalUren = $('error_update_aantal_uren_' + ticketId);
+                const errAantalUren = $('#error_update_aantal_uren_' + ticketId);
                 if (isNaN(aantalUrenNr) || aantalUrenNr === 0) {
                     errAantalUren.removeClass('hidden');
                     return;
