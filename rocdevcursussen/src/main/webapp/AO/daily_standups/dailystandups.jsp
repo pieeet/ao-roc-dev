@@ -112,8 +112,7 @@
                                                 project</label><br>
                                             <input id="update_naam_project_input_<%= ticket.getId() %>"
                                                    class="form-group"
-                                                   name="update_naam_project_input"
-                                                   value="<%=((ProjectTicket) ticket).getProjectNaam()%>">
+                                                   value="<%=((ProjectTicket) ticket).getProjectNaamEsc()%>">
                                             <p class="error hidden"
                                                id="error_update_project_input_<%= ticket.getId() %>">Geef een
                                                 naam</p>
@@ -123,8 +122,7 @@
                                                 omschrijving</label><br>
                                             <input id="update_ticket_beschrijving_input_<%= ticket.getId() %>"
                                                    class="form-group"
-                                                   name="update_ticket_beschrijving_input"
-                                                   value="<%=((ProjectTicket) ticket).getBeschrijvingTicket()%>">
+                                                   value="<%=((ProjectTicket) ticket).getBeschrijvingTicketEsc()%>">
                                             <p class="error hidden"
                                                id="error_update_omschrijving_ticket_<%= ticket.getId() %>">Geef
                                                 een beschrijving</p>
@@ -134,7 +132,6 @@
                                                 aantal uren</label><br>
                                             <input type="number" id="update_aantal_uren_input_<%= ticket.getId() %>"
                                                    class="form-group"
-                                                   name="update_aantal_uren_input"
                                                    value="<%=ticket.getAantalUren()%>">
                                             <p class="error hidden"
                                                id="error_update_aantal_uren_<%= ticket.getId() %>">Vul aantal uren
@@ -252,14 +249,13 @@
             </div>
             <div id="custom_ticket_maker" class="hidden">
                 <label for="naam_project_input">Naam project</label><br>
-                <input id="naam_project_input" class="custom_ticket_input" name="naam_project_input">
+                <input id="naam_project_input" class="custom_ticket_input">
                 <p class="error hidden" id="error_project_input">Geef een naam</p>
                 <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
-                <input id="ticket_beschrijving_input" class="custom_ticket_input"
-                       name="ticket_beschrijving_input">
+                <input id="ticket_beschrijving_input" class="custom_ticket_input">
                 <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
                 <label for="aantal_uren_input">Inschatting aantal uren</label><br>
-                <input type="number" id="aantal_uren_input" class="custom_ticket_input" name="aantal_uren_input">
+                <input type="number" id="aantal_uren_input" class="custom_ticket_input">
                 <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
                 <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
                 <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
@@ -562,6 +558,65 @@
                         $("#tickets").removeClass('hidden');
                         $(".custom_ticket_input").val("");
 
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn_update_ticket', function() {
+                const $button = $(this);
+                $button.attr('disabled', true);
+                const ticketId = $button.data('ticketid');
+                // fetch naam project
+                const naamProject = $('#update_naam_project_input_' + ticketId).val();
+                const errProject = $('error_update_project_input_' + ticketId);
+                if (naamProject === "") {
+                    errProject.removeClass('hidden');
+                    return;
+                } else {
+                    if (!errProject.hasClass('hidden'))
+                        errProject.addClass('hidden');
+                }
+                // fetch beschrijving
+                const beschrijving = $('#update_ticket_beschrijving_input_' + ticketId).val();
+                const errBeschrijving = $('error_update_omschrijving_ticket_' + ticketId);
+                if (beschrijving === "") {
+                    errBeschrijving.removeClass('hidden');
+                    return;
+                } else {
+                    if (!errBeschrijving.hasClass('hidden'))
+                        errBeschrijving.addClass('hidden');
+                }
+                // fetch aantal uren
+                let aantalUren = $('#update_aantal_uren_input_' + ticketId).val();
+                let aantalUrenNr = Math.ceil(aantalUren);
+                const errAantalUren = $('error_update_aantal_uren_' + ticketId);
+                if (isNaN(aantalUrenNr) || aantalUrenNr === 0) {
+                    errAantalUren.removeClass('hidden');
+                    return;
+                } else {
+                    if (!errAantalUren.hasClass('hidden')) {
+                        errAantalUren.addClass('hidden');
+                    }
+                }
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        updateProjectTicket: "x",
+                        ticketId: ticketId,
+                        projectNaam: naamProject,
+                        beschrijvingTicket: beschrijving,
+                        aantalUur: aantalUren
+                    },
+                    success: function (data) {
+                        if (data === 'ok') {
+                            setTimeout(function() {
+                                location.reload(true);
+                            }, 400);
+                        } else {
+                            alert("Er is iets mis gegaan");
+                        }
                     }
                 });
             });

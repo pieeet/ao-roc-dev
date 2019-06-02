@@ -37,6 +37,10 @@ public class ProjectTicket extends Ticket {
         return beschrijvingTicket;
     }
 
+    public String getBeschrijvingTicketEsc() {
+        return StringEscapeUtils.escapeHtml4(beschrijvingTicket);
+    }
+
     public void setBeschrijvingTicket(String beschrijvingTicket) {
         this.beschrijvingTicket = beschrijvingTicket;
     }
@@ -45,12 +49,12 @@ public class ProjectTicket extends Ticket {
         return projectNaam;
     }
 
-    public String getApproved() {
-        return approved;
+    public String getProjectNaamEsc() {
+        return StringEscapeUtils.escapeHtml4(projectNaam);
     }
 
-    public void setApproved(String docent) {
-        this.approved = docent;
+    public String getApproved() {
+        return approved;
     }
 
     @Override

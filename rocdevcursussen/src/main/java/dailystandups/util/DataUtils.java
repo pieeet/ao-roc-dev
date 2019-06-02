@@ -194,6 +194,25 @@ public class DataUtils {
         return setEntityAsDeleted(key);
     }
 
+    public static boolean updateProjectTicket(long id, String naamProject, String beschrijving, int aantalUur) {
+        Key key = KeyFactory.createKey(KIND_TICKET, id);
+        try {
+            Entity entity = datastore.get(key);
+            // check of het wel een projectticket is
+            if (entity.getProperty(PROPERTY_NAAM_PROJECT) != null) {
+                entity.setProperty(PROPERTY_NAAM_PROJECT, naamProject);
+                entity.setProperty(PROPERTY_BESCHRIJVING, beschrijving);
+                entity.setProperty(PROPERTY_AANTAL_UREN, aantalUur);
+                datastore.put(entity);
+                return true;
+            } else return false;
+
+        } catch (EntityNotFoundException e) {
+            return false;
+        }
+
+    }
+
     public static boolean updateTicket(Ticket ticket) {
         Key key = KeyFactory.createKey(KIND_TICKET, ticket.getId());
         try {

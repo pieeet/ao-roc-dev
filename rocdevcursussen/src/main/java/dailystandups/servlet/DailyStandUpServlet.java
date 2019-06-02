@@ -77,8 +77,27 @@ public class DailyStandUpServlet extends HttpServlet {
             long ticketId = DataUtils.voegTicketToe(ticket);
             resp.getWriter().print(ticketId);
 
-            // handle tickets afgerond
-        } else if (req.getParameter("change_ticket_afgerond") != null) {
+
+        }
+        // handle update projectticket
+        else if (req.getParameter("updateProjectTicket") != null) {
+            try {
+                long ticketId = Long.parseLong(req.getParameter("ticketId"));
+                String project = req.getParameter("projectNaam");
+                String beschrijving = req.getParameter("beschrijvingTicket");
+                int aantalUur = Integer.parseInt(req.getParameter("aantalUur"));
+                if (DataUtils.updateProjectTicket(ticketId, project, beschrijving, aantalUur)) {
+                    resp.getWriter().print("ok");
+                } else {
+                    resp.getWriter().print("not ok");
+                }
+            } catch (NumberFormatException e) {
+                resp.getWriter().print("not ok");
+            }
+        }
+
+        // handle tickets afgerond
+        else if (req.getParameter("change_ticket_afgerond") != null) {
             long ticketId = Long.parseLong(req.getParameter("change_ticket_afgerond"));
             String mode = req.getParameter("mode");
             if (mode.equals("set_afgerond")) {
