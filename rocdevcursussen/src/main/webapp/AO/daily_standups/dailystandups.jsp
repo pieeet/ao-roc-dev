@@ -152,6 +152,8 @@
                         </div>
 
 
+                        <% } else if (((ProjectTicket) ticket).getApproved() != null) { %>
+                        <p>Akkoord: <%=((ProjectTicket) ticket).getApproved()%></p>
                         <% }
                         }
                         %>

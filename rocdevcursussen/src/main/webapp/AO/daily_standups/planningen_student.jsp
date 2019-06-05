@@ -1,7 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dailystandups.model.Ticket" %>
 <%@ page import="dailystandups.model.Planning" %>
-<%@ page import="dailystandups.model.StandUpUser" %><%--
+<%@ page import="dailystandups.model.StandUpUser" %>
+<%@ page import="dailystandups.model.ProjectTicket" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 23-02-18
@@ -38,6 +39,16 @@
                                     aantalPunten += ticket.getAantalUren();
                             %>
                             <li class="custom_img list-group-item col-xs-6"><%=ticket.getTicketRegel()%><br>
+
+                                <%
+                                    if (ticket instanceof ProjectTicket && ((ProjectTicket) ticket).getApproved() != null) {
+                                %>
+                                <p>Akkoord: <%=((ProjectTicket) ticket).getApproved()%></p>
+
+                                <%
+                                    }
+                                %>
+
                                 <button type="button" class="delete_ticket_afgerond btn btn-primary btn-warning btn-sm"
                                         data-ticketid="<%=ticket.getId()%>">delete</button></li>
                             <%
