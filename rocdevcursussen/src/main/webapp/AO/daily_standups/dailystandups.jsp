@@ -143,7 +143,7 @@
                                                 data-dismiss="modal">Close
                                         </button>
                                         <button type="button"
-                                                class="btn_update_ticket btn btn-primary"
+                                                class="btn_update_ticket btn btn-primary btn-warning"
                                                 data-ticketid="<%= ticket.getId() %>">Update
                                         </button>
                                     </div>
