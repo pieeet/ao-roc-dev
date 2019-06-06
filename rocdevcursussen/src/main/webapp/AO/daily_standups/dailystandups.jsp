@@ -663,6 +663,12 @@
     .modal input {
         width: 100%;
     }
+    .btn-modal {
+        margin-top: .5em;
+    }
+    .modal-content {
+        background-color: #F9F9F9;
+    }
 
 </style>
 <%}%>
