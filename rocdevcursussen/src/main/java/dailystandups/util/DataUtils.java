@@ -193,16 +193,16 @@ public class DataUtils {
         return setEntityAsDeleted(key);
     }
 
-    public static boolean updateProjectTicket(long id, String naamProject, String beschrijving, int aantalUur) {
-        Key key = KeyFactory.createKey(KIND_TICKET, id);
+    public static boolean updateProjectTicket(ProjectTicket ticket) {
+        Key key = KeyFactory.createKey(KIND_TICKET, ticket.getId());
         try {
             Entity entity = datastore.get(key);
             // check of het wel een "nieuw" projectticket is en nog niet approved
             if (entity.getProperty(PROPERTY_IS_APPROVED) != null &&
                     entity.getProperty(PROPERTY_IS_APPROVED).equals("pending")) {
-                entity.setProperty(PROPERTY_NAAM_PROJECT, naamProject);
-                entity.setProperty(PROPERTY_BESCHRIJVING, beschrijving);
-                entity.setProperty(PROPERTY_AANTAL_UREN, aantalUur);
+                entity.setProperty(PROPERTY_NAAM_PROJECT, ticket.getProjectNaam());
+                entity.setProperty(PROPERTY_BESCHRIJVING, ticket.getBeschrijvingTicket());
+                entity.setProperty(PROPERTY_AANTAL_UREN, ticket.getAantalUren());
                 datastore.put(entity);
                 return true;
             } else return false;

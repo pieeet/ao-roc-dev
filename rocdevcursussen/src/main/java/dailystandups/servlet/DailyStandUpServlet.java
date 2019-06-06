@@ -82,11 +82,12 @@ public class DailyStandUpServlet extends HttpServlet {
         // handle update projectticket
         else if (req.getParameter("updateProjectTicket") != null) {
             try {
-                long ticketId = Long.parseLong(req.getParameter("ticketId"));
-                String project = req.getParameter("projectNaam");
-                String beschrijving = req.getParameter("beschrijvingTicket");
-                int aantalUur = Integer.parseInt(req.getParameter("aantalUur"));
-                if (DataUtils.updateProjectTicket(ticketId, project, beschrijving, aantalUur)) {
+                ProjectTicket ticket = new ProjectTicket();
+                ticket.setId(Long.parseLong(req.getParameter("ticketId")));
+                ticket.setProjectNaam(req.getParameter("projectNaam"));
+                ticket.setBeschrijvingTicket(req.getParameter("beschrijvingTicket"));
+                ticket.setAantalUren(Integer.parseInt(req.getParameter("aantalUur")));
+                if (DataUtils.updateProjectTicket(ticket)) {
                     resp.getWriter().print("ok");
                 } else {
                     resp.getWriter().print("not ok");
@@ -101,7 +102,6 @@ public class DailyStandUpServlet extends HttpServlet {
             long ticketId = Long.parseLong(req.getParameter("change_ticket_afgerond"));
             String mode = req.getParameter("mode");
             if (mode.equals("set_afgerond")) {
-
                 DataUtils.setTicketAfgerond(ticketId, new Date().getTime(), user.getEmail());
             } else {
                 DataUtils.setTicketAfgerond(ticketId, -1, user.getEmail());

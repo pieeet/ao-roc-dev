@@ -41,6 +41,10 @@ public class Ticket {
         return aantalUren;
     }
 
+    public void setAantalUren(int aantalUren) {
+        this.aantalUren = aantalUren;
+    }
+
     public long getIsAfgerond() {
         return isAfgerond;
     }

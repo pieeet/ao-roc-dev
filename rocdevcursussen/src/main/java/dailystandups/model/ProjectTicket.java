@@ -17,6 +17,8 @@ public class ProjectTicket extends Ticket {
     private String projectNaam;
     private String approved;
 
+    public ProjectTicket() {}
+
 
     public ProjectTicket(long vakId, int aantalUren, String beschrijving, String project) {
         super(vakId, CODE_TICKET, aantalUren);
@@ -51,6 +53,10 @@ public class ProjectTicket extends Ticket {
 
     public String getProjectNaamEsc() {
         return StringEscapeUtils.escapeHtml4(projectNaam);
+    }
+
+    public void setProjectNaam(String projectNaam) {
+        this.projectNaam = projectNaam;
     }
 
     public String getApproved() {
