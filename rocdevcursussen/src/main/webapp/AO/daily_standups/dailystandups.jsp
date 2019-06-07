@@ -573,16 +573,19 @@
                 const errProject = $('#error_update_project_input_' + ticketId);
                 if (naamProject === "") {
                     errProject.removeClass('hidden');
+                    $button.removeAttr("disabled");
                     return;
                 } else {
                     if (!errProject.hasClass('hidden'))
                         errProject.addClass('hidden');
+
                 }
                 // fetch beschrijving
                 const beschrijving = $('#update_ticket_beschrijving_input_' + ticketId).val();
                 const errBeschrijving = $('#error_update_omschrijving_ticket_' + ticketId);
                 if (beschrijving === "") {
                     errBeschrijving.removeClass('hidden');
+                    $button.removeAttr("disabled");
                     return;
                 } else {
                     if (!errBeschrijving.hasClass('hidden'))
@@ -592,8 +595,9 @@
                 let aantalUren = $('#update_aantal_uren_input_' + ticketId).val();
                 let aantalUrenNr = Math.ceil(aantalUren);
                 const errAantalUren = $('#error_update_aantal_uren_' + ticketId);
-                if (isNaN(aantalUrenNr) || aantalUrenNr === 0) {
+                if (isNaN(aantalUrenNr) || aantalUrenNr < 1) {
                     errAantalUren.removeClass('hidden');
+                    $button.removeAttr("disabled");
                     return;
                 } else {
                     if (!errAantalUren.hasClass('hidden')) {
@@ -609,7 +613,7 @@
                         ticketId: ticketId,
                         projectNaam: naamProject,
                         beschrijvingTicket: beschrijving,
-                        aantalUur: aantalUren
+                        aantalUur: aantalUrenNr
                     },
                     success: function (data) {
                         if (data === 'ok') {
@@ -618,6 +622,7 @@
                             }, 400);
                         } else {
                             alert("Er is iets mis gegaan");
+                            $button.removeAttr("disabled");
                         }
                     }
                 });
