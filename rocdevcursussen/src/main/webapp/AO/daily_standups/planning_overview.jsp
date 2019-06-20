@@ -30,8 +30,22 @@
             </div>
         </form>
 
-        <div class="table-responsive" id="plannings_tabel">
+        <div class="table-responsive hidden" id="plannings_tabel_wrapper">
+            <table id="plannings_tabel" class="table table-bordered table-condensed table-striped">
+                <thead>
+                <tr>
+                    <th>Naam/tijd</th>
+                    <th>Planning</th>
+                    <th>Hulp nodig</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
 
+                </tbody>
+
+
+
+            </table>
         </div>
 
         <div class="loading_img_container hidden" id="loading_cohort">
@@ -48,35 +62,68 @@
 <script type="text/javascript">
     $(document).ready(
         function () {
-            let cohortKiezer = $('#cohort_kiezer');
-            cohortKiezer.on('change', function() {
-                let imgContainer = $('#loading_cohort');
+            const cohortKiezer = $('#cohort_kiezer');
+            const imgContainer = $('#loading_cohort');
+            const tabelWrapper = $('#plannings_tabel_wrapper');
+            const planningsTabel = $('#plannings_tabel');
+            const tablebody = $('#tbody');
+            cohortKiezer.on('change', function () {
                 imgContainer.removeClass('hidden');
-                let planningsTabel = $("#plannings_tabel");
-                planningsTabel.html("");
-                let data = cohortKiezer.val();
-                if (data !== "kies") {
-                    const url = "/AO/planning/admin/planningoverzicht";
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: {cohort: data},
-                        success: function (data) {
-                            planningsTabel.html(data);
-                            imgContainer.addClass('hidden');
-                            cohortKiezer.val("kies");
-
-                        }
-                    });
+                if (!tabelWrapper.hasClass('hidden')) {
+                    tabelWrapper.addClass('hidden');
+                }
+                tablebody.html("");
+                let cohort = cohortKiezer.val();
+                let cursor = 'init';
+                if (cohort !== "kies") {
+                    getTableRows(cohort, cursor);
                 }
             });
-            $(document).on("click", ".klik_user", function() {
+
+            function getTableRows(cohort, cursor) {
+                const url = "/AO/planning/admin/planningoverzicht";
+
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        cohort: cohort,
+                        cursor: cursor
+                    },
+                    success: function (data) {
+                        const json = $.parseJSON(data);
+                        console.log(data);
+                        const tableRows = json['rows'];
+                        console.log("tablerows: " + tableRows);
+                        const cursor = json['cursor'];
+                        console.log("cursor: " + cursor);
+                        if (tabelWrapper.hasClass('hidden')) {
+                            tabelWrapper.removeClass('hidden');
+                        }
+                        $('#tbody').append(tableRows);
+                        // planningsTabel.find('tbody').append(tableRows);
+
+                        cohortKiezer.val("kies");
+                        if (cursor !== "null") {
+                            getTableRows(cohort, cursor);
+                        } else {
+                            if (!imgContainer.hasClass('hidden')) {
+                                imgContainer.addClass('hidden');
+                            }
+                        }
+                    }
+                });
+            }
+
+
+            $(document).on("click", ".klik_user", function () {
                 let email = $(this).data("email");
                 window.open("/AO/planning/studentplanningen?email=" + email);
             });
 
             // approve project ticket
-            $(document).on("click", ".approve-ticket", function() {
+            $(document).on("click", ".approve-ticket", function () {
                 let $button = $(this);
                 $button.text('....');
                 $button.attr("disabled", true);
@@ -88,7 +135,7 @@
                     data: {
                         ticketId: ticketId
                     },
-                    success: function(data) {
+                    success: function (data) {
                         if (data !== "not good") {
                             $button.text('approved');
                         } else {

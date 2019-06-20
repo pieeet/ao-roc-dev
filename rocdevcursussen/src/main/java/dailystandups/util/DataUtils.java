@@ -131,7 +131,13 @@ public class DataUtils {
         return planning;
     }
 
-    public static List<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort) {
+    public static UsersWithPlanningResult<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort, String startCursorString) {
+        final int PAGE_SIZE = 10;
+        FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
+
+        if (startCursorString != null && !startCursorString.equals("")) {
+            fetchOptions.startCursor(Cursor.fromWebSafeString(startCursorString));    // Where we left off
+        }
         ArrayList<StandUpUser> users = new ArrayList<>();
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_COHORT,
                 Query.FilterOperator.EQUAL, cohort);
@@ -139,12 +145,19 @@ public class DataUtils {
         Query q = new Query(KIND_USER).addSort(PROPERTY_NAAM,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
-        for (Entity entity : pq.asIterable()) {
+        QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
+        for (Entity entity : results) {
             StandUpUser user = makeUserFromEntity(entity);
             user.setHuidigePlanning(getPlanning(user));
             users.add(user);
         }
-        return users;
+        Cursor cursor = results.getCursor();
+        if (cursor != null && results.size() == PAGE_SIZE) {
+            String cursorString = cursor.toWebSafeString();
+            return new UsersWithPlanningResult<>(users, cursorString);
+        } else {
+            return new UsersWithPlanningResult<>(users);
+        }
     }
 
     public static ArrayList<Planning> getPlanningenFromUser(String email) {

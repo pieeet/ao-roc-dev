@@ -3,10 +3,13 @@ package dailystandups.servlet;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.ProjectTicket;
+import dailystandups.model.UsersWithPlanningResult;
 import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.StandUpUser;
 import dailystandups.model.Ticket;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,8 +47,29 @@ public class OverviewServlet extends HttpServlet {
         if (AuthUtils.isAdmin(user)) {
             if (req.getParameter("cohort") != null) {
                 int cohort = Integer.parseInt(req.getParameter("cohort"));
-                List<StandUpUser> users = DataUtils.getUsersFromCohortWithLatestPlanning(cohort);
-                resp.getWriter().print(maakTabel(users));
+
+                String cursorStart = req.getParameter("cursor");
+                System.out.println(cursorStart);
+                if (cursorStart.equals("init")) cursorStart = null;
+
+                UsersWithPlanningResult<StandUpUser> result = DataUtils
+                        .getUsersFromCohortWithLatestPlanning(cohort, cursorStart);
+                ArrayList<StandUpUser> users = (ArrayList<StandUpUser>) result.result;
+                String cursorNew = "null";
+                if (result.cursor != null) cursorNew = result.cursor;
+                String rows = maakTabelRows(users);
+                JSONObject jso = new JSONObject();
+                try {
+                    jso.put("rows", rows);
+                    jso.put("cursor", cursorNew);
+                    resp.getWriter().print(jso.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    resp.getWriter().print("error");
+                }
+
+
+
             } else if (req.getParameter("ticketId") != null) {
                 try {
                     long ticketId = Long.parseLong(req.getParameter("ticketId"));
@@ -61,14 +86,8 @@ public class OverviewServlet extends HttpServlet {
         }
     }
 
-    private String maakTabel(List<StandUpUser> users) {
-        StringBuilder html = new StringBuilder("<table class=\"table table-bordered table-condensed table-striped\">" +
-                "<tr>" +
-                "<th>Naam/tijd</th>" +
-                "<th>Planning</th>" +
-                "<th>Hulp nodig</th>" +
-                "</tr>");
-
+    private String maakTabelRows(List<StandUpUser> users) {
+        StringBuilder html = new StringBuilder();
         for (StandUpUser user : users) {
             List<Ticket> ticketsLaatstePlanning = DataUtils.getTicketsFromPlanning(user.getEmail(),
                     user.getLaatstePlanningId());
@@ -79,7 +98,6 @@ public class OverviewServlet extends HttpServlet {
                     .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
                     .append("</tr>");
         }
-        html.append("</table>");
         return html.toString();
     }
 
