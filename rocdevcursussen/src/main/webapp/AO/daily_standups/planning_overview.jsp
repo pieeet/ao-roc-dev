@@ -82,8 +82,6 @@
 
             function getTableRows(cohort, cursor) {
                 const url = "/AO/planning/admin/planningoverzicht";
-
-
                 $.ajax({
                     type: "POST",
                     url: url,
@@ -93,11 +91,8 @@
                     },
                     success: function (data) {
                         const json = $.parseJSON(data);
-                        console.log(data);
                         const tableRows = json['rows'];
-                        console.log("tablerows: " + tableRows);
                         const cursor = json['cursor'];
-                        console.log("cursor: " + cursor);
                         if (tabelWrapper.hasClass('hidden')) {
                             tabelWrapper.removeClass('hidden');
                         }
@@ -115,8 +110,6 @@
                     }
                 });
             }
-
-
             $(document).on("click", ".klik_user", function () {
                 let email = $(this).data("email");
                 window.open("/AO/planning/studentplanningen?email=" + email);

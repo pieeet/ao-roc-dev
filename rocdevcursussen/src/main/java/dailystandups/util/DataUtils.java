@@ -134,7 +134,6 @@ public class DataUtils {
     public static UsersWithPlanningResult<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort, String startCursorString) {
         final int PAGE_SIZE = 10;
         FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
-
         if (startCursorString != null && !startCursorString.equals("")) {
             fetchOptions.startCursor(Cursor.fromWebSafeString(startCursorString));    // Where we left off
         }

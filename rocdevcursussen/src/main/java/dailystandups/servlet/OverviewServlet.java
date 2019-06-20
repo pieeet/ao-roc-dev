@@ -28,7 +28,6 @@ public class OverviewServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         User user = UserServiceFactory.getUserService().getCurrentUser();
         boolean isAdmin = AuthUtils.isAdmin(user);
         if (!isAdmin) {
@@ -47,11 +46,8 @@ public class OverviewServlet extends HttpServlet {
         if (AuthUtils.isAdmin(user)) {
             if (req.getParameter("cohort") != null) {
                 int cohort = Integer.parseInt(req.getParameter("cohort"));
-
                 String cursorStart = req.getParameter("cursor");
-                System.out.println(cursorStart);
                 if (cursorStart.equals("init")) cursorStart = null;
-
                 UsersWithPlanningResult<StandUpUser> result = DataUtils
                         .getUsersFromCohortWithLatestPlanning(cohort, cursorStart);
                 ArrayList<StandUpUser> users = (ArrayList<StandUpUser>) result.result;
@@ -67,9 +63,6 @@ public class OverviewServlet extends HttpServlet {
                     e.printStackTrace();
                     resp.getWriter().print("error");
                 }
-
-
-
             } else if (req.getParameter("ticketId") != null) {
                 try {
                     long ticketId = Long.parseLong(req.getParameter("ticketId"));
