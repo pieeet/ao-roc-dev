@@ -12,18 +12,13 @@ import javax.annotation.Nullable;
 public class StandUpUser {
 
     private String email;
-    private String groep;
+    private Groep groep;
     private String naam;
     private long laatstePlanningId;
-    private int cohort;
     private Planning huidigePlanning;
 
     public int getCohort() {
-        return cohort;
-    }
-
-    public void setCohort(int cohort) {
-        this.cohort = cohort;
+        return groep.getCohort();
     }
 
     public long getLaatstePlanningId() {
@@ -39,7 +34,6 @@ public class StandUpUser {
     }
 
     public void setLaatstePlanningId(long laatstePlanningId) {
-
         this.laatstePlanningId = laatstePlanningId;
     }
 
@@ -52,10 +46,10 @@ public class StandUpUser {
     }
 
     public String getGroep() {
-        return groep;
+        return groep.getNaam();
     }
     public String getGroepEsc() {
-        return StringEscapeUtils.escapeHtml4(groep);
+        return StringEscapeUtils.escapeHtml4(groep.getNaam());
     }
 
     public String getNaam() {
@@ -69,31 +63,9 @@ public class StandUpUser {
         this.naam = naam;
     }
 
-    public StandUpUser(@Nonnull String email, String naam, @Nullable String groep) {
+    public StandUpUser(@Nonnull String email, String naam, @Nullable Groep groep) {
         this.email = email;
         this.groep = groep;
-        if (groep != null) {
-            switch (groep) {
-                case "MMVAO5A":
-                    this.cohort = 2015;
-                    break;
-                case "MMVAO6A":
-                case "MMVAO6C":
-                    this.cohort = 2016;
-                    break;
-                case "MMVAO7A":
-                case "MMVAO7B":
-                    this.cohort = 2017;
-                    break;
-                case "MMVAO8A":
-                case "MMVAO8B":
-                case "MMVAO8C":
-                    this.cohort = 2018;
-                    break;
-                default:
-                    this.cohort = -1;
-            }
-        }
         this.naam = naam;
     }
 }

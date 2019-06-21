@@ -123,8 +123,17 @@ public class DailyStandUpServlet extends HttpServlet {
                 // user wordt pas bewaard bij nieuwe planning (isNew = false
                 DataUtils.saveUserAndPlanning(laatstePlanning, false);
             }
+            String groepString = req.getParameter("groep_kiezer");
+            Groep groep = null;
+            for (Groep g: Groep.values()) {
+                if (g.getNaam().equals(groepString)) {
+                    groep = g;
+                    break;
+                }
+            }
+
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
-                    req.getParameter("groep_kiezer"));
+                    groep);
             String hulpvraag = req.getParameter("hulp_nodig");
             Planning nieuwePlanning = new Planning(standUpUser, currentDate, hulpvraag);
             //remove underscores at beginning of string

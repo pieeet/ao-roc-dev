@@ -97,7 +97,14 @@ public class DataUtils {
     private static StandUpUser makeUserFromEntity(Entity userEntity) {
         String email = (String) userEntity.getProperty(PROPERTY_EMAIL);
         String naam = (String) userEntity.getProperty(PROPERTY_NAAM);
-        String groep = (String) userEntity.getProperty(PROPERTY_GROEP);
+        String groepString = (String) userEntity.getProperty(PROPERTY_GROEP);
+        Groep groep = null;
+        for (Groep g: Groep.values()) {
+            if (g.getNaam().equals(groepString)) {
+                groep = g;
+                break;
+            }
+        }
         StandUpUser user = new StandUpUser(email, naam, groep);
         user.setLaatstePlanningId((long) userEntity.getProperty(PROPERTY_LATEST_PLANNING_ID));
         return user;
@@ -131,15 +138,24 @@ public class DataUtils {
         return planning;
     }
 
-    public static UsersWithPlanningResult<StandUpUser> getUsersFromCohortWithLatestPlanning(int cohort, String startCursorString) {
+    public static UsersWithPlanningResult<StandUpUser> getUsersWithLatestPlanning(
+            int cohort, String groep, String startCursorString) {
         final int PAGE_SIZE = 10;
         FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
         if (startCursorString != null && !startCursorString.equals("")) {
             fetchOptions.startCursor(Cursor.fromWebSafeString(startCursorString));    // Where we left off
         }
         ArrayList<StandUpUser> users = new ArrayList<>();
-        Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_COHORT,
-                Query.FilterOperator.EQUAL, cohort);
+        Query.Filter propertyFilter = null;
+        if (cohort > 0) {
+            propertyFilter = new Query.FilterPredicate(PROPERTY_COHORT,
+                    Query.FilterOperator.EQUAL, cohort);
+        } else if (groep != null) {
+            propertyFilter = new Query.FilterPredicate(PROPERTY_GROEP,
+                    Query.FilterOperator.EQUAL, groep);
+        }
+
+
 
         Query q = new Query(KIND_USER).addSort(PROPERTY_NAAM,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
@@ -158,6 +174,8 @@ public class DataUtils {
             return new UsersWithPlanningResult<>(users);
         }
     }
+
+
 
     public static ArrayList<Planning> getPlanningenFromUser(String email) {
         ArrayList<Planning> planningen = new ArrayList<>();

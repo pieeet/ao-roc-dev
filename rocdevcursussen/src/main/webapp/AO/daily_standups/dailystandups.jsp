@@ -43,13 +43,13 @@
                             <%} else {%>
                             <option value="">Kiezen...</option>
                             <%}%>
-                            <option value="MMVAO6A">MMVAO6A</option>
-                            <option value="MMVAO6C">MMVAO6C</option>
-                            <option value="MMVAO7A">MMVAO7A</option>
-                            <option value="MMVAO7B">MMVAO7B</option>
-                            <option value="MMVAO8A">MMVAO8A</option>
-                            <option value="MMVAO8B">MMVAO8B</option>
-                            <option value="MMVAO8C">MMVAO8C</option>
+                            <%
+                                for (Groep groep: Groep.values()) {
+                            %>
+                            <option value="<%=groep.getNaam()%>"><%=groep.getNaam()%></option>
+                            <%
+                                }
+                            %>
                         </select>
                     </div>
                 </div>

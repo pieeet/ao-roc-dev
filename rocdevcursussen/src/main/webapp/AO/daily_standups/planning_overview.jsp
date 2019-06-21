@@ -1,4 +1,4 @@
-<%--
+<%@ page import="dailystandups.model.Groep" %><%--
   Created by IntelliJ IDEA.
   User: piet
   Date: 19-02-18
@@ -17,7 +17,7 @@
 <div class="container">
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
     <div class="col-md-8">
-        <form role="form" id="planning_overview_form">
+        <form role="form">
             <div class="form-group">
                 <label for="cohort_kiezer">Cohort:</label>
                 <select class="form-control" id="cohort_kiezer" name="cohort_kiezer">
@@ -26,6 +26,21 @@
                     <option value="2016">2016</option>
                     <option value="2017">2017</option>
                     <option value="2018">2018</option>
+                </select>
+            </div>
+        </form>
+        <form role="form">
+            <div class="form-group">
+                <label for="groep_kiezer">Groep:</label>
+                <select class="form-control" id="groep_kiezer" name="cohort_kiezer">
+                    <option value="kies">Kiezen...</option>
+                    <%
+                        for (Groep g: Groep.values()) {
+                    %>
+                    <option value="<%= g.getNaam()%>"><%= g.getNaam()%></option>
+                    <%
+                        }
+                    %>
                 </select>
             </div>
         </form>
@@ -63,32 +78,55 @@
     $(document).ready(
         function () {
             const cohortKiezer = $('#cohort_kiezer');
+            const groepKiezer = $('#groep_kiezer');
             const imgContainer = $('#loading_cohort');
             const tabelWrapper = $('#plannings_tabel_wrapper');
-            const planningsTabel = $('#plannings_tabel');
             const tablebody = $('#tbody');
+
             cohortKiezer.on('change', function () {
+                madeChoice();
+                let cohort = cohortKiezer.val();
+                let cursor = 'init';
+                if (cohort !== "kies") {
+                    getTableRows(cohort, null, cursor);
+                }
+            });
+
+            groepKiezer.on('change', function() {
+                madeChoice();
+                let groep = groepKiezer.val();
+                let cursor = 'init';
+                if (groep !== "kies") {
+                    getTableRows(null, groep, cursor);
+                }
+            });
+
+            function madeChoice() {
                 imgContainer.removeClass('hidden');
                 if (!tabelWrapper.hasClass('hidden')) {
                     tabelWrapper.addClass('hidden');
                 }
                 tablebody.html("");
-                let cohort = cohortKiezer.val();
-                let cursor = 'init';
-                if (cohort !== "kies") {
-                    getTableRows(cohort, cursor);
-                }
-            });
+            }
 
-            function getTableRows(cohort, cursor) {
+            function getTableRows(cohort, groep, cursor) {
                 const url = "/AO/planning/admin/planningoverzicht";
+                let data = null;
+                if (cohort) {
+                    data = {
+                        cohort: cohort,
+                        cursor: cursor
+                    };
+                } else if (groep) {
+                    data = {
+                        groep: groep,
+                        cursor: cursor
+                    };
+                }
                 $.ajax({
                     type: "POST",
                     url: url,
-                    data: {
-                        cohort: cohort,
-                        cursor: cursor
-                    },
+                    data: data,
                     success: function (data) {
                         const json = $.parseJSON(data);
                         const tableRows = json['rows'];
@@ -97,11 +135,10 @@
                             tabelWrapper.removeClass('hidden');
                         }
                         $('#tbody').append(tableRows);
-                        // planningsTabel.find('tbody').append(tableRows);
-
                         cohortKiezer.val("kies");
+                        groepKiezer.val("kies");
                         if (cursor !== "null") {
-                            getTableRows(cohort, cursor);
+                            getTableRows(cohort, groep, cursor);
                         } else {
                             if (!imgContainer.hasClass('hidden')) {
                                 imgContainer.addClass('hidden');

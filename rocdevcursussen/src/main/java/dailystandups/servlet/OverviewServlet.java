@@ -44,12 +44,19 @@ public class OverviewServlet extends HttpServlet {
         if (UserServiceFactory.getUserService().getCurrentUser() == null) return;
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (AuthUtils.isAdmin(user)) {
-            if (req.getParameter("cohort") != null) {
-                int cohort = Integer.parseInt(req.getParameter("cohort"));
+            if (req.getParameter("cohort") != null || req.getParameter("groep") != null) {
                 String cursorStart = req.getParameter("cursor");
                 if (cursorStart.equals("init")) cursorStart = null;
-                UsersWithPlanningResult<StandUpUser> result = DataUtils
-                        .getUsersFromCohortWithLatestPlanning(cohort, cursorStart);
+                UsersWithPlanningResult<StandUpUser> result;
+                if (req.getParameter("cohort") != null) {
+                    int cohort = Integer.parseInt(req.getParameter("cohort"));
+                    result = DataUtils
+                            .getUsersWithLatestPlanning(cohort, null, cursorStart);
+                } else {
+                    String groep = req.getParameter("groep");
+                    result = DataUtils
+                            .getUsersWithLatestPlanning(0, groep, cursorStart);
+                }
                 ArrayList<StandUpUser> users = (ArrayList<StandUpUser>) result.result;
                 String cursorNew = "null";
                 if (result.cursor != null) cursorNew = result.cursor;

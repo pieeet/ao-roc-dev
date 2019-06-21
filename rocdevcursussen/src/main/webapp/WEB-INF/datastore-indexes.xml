@@ -26,4 +26,10 @@
         <property name="code" direction="asc"/>
     </datastore-index>
 
+    <datastore-index kind="StandUpUser" ancestor="false" source="manual">
+        <property name="groep" direction="asc"/>
+        <property name="naam" direction="asc"/>
+    </datastore-index>
+
+
 </datastore-indexes>
