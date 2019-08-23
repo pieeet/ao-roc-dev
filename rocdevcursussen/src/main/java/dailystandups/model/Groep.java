@@ -44,6 +44,21 @@ public enum Groep {
             "MMVAO8C",
             2018,
             "AO"
+    ),
+    MMVAO9A(
+            "MMVAO9A",
+            2019,
+            "AO"
+    ),
+    MMVAO9B(
+            "MMVAO9B",
+            2019,
+            "AO"
+    ),
+    MMVAO9C(
+            "MMVAO9C",
+            2019,
+            "AO"
     );
 
 

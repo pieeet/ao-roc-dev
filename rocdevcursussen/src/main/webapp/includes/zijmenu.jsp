@@ -11,7 +11,7 @@
     <div id="menu">
         <h3>Cursussen</h3>
         <ul>
-            <li class="list-group-item"><a href="<c:url value="/AO/inleiding-java/h1"/>">Inleiding Java</a></li>
+            <li class="list-group-item"><a href="<c:url value="/inleiding-java/h0"/>">Inleiding Java</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/BlueJ/intro"/>">BlueJ</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/greenfoot/greenfoot"/>">Greenfoot</a></li>
             <li class="list-group-item"><a href="<c:url value="/AO/jsp/deel1"/>">JSP/Databases</a></li>

@@ -170,14 +170,16 @@ c = a + b;
                     </li>
                     <li>Zorg er voor dat java vanuit iedere directory te benaderen
                         is. Dit doe je door de JAVA_HOME variabele aan de PATH variabele
-                        toe te voegen. Check in je omgevingsvariabelen of er een variable
-                        met de naam PATH (met hoofdletters) bestaat, zo niet maak een
+                        toe te voegen. Zoek in je omgevingsvariabelen naar een variabele
+                        met de naam PATH bestaat, zo niet maak een
                         nieuwe variable aan. Open het invoerscherm door op de variabele te
                         dubbelklikken. Voeg nu de lokatie van java toe met:
                         %JAVA_HOME%\bin. Als er al waardes in PATH stonden kun je het voor
                         of achter de bestaande waardes invoegen. Let wel op dat je dan een
                         scheiding tussen de waardes aan moet brengen met een puntkomma
-                        (;).
+                        (;). In <a
+                                href="https://warwick.ac.uk/fac/sci/dcs/people/research/csrcbc/teaching/howto/javapath/"
+                                target="_blank">dit artikel</a> wordt het wat uitgebreider uitgelegd met illustraties.
                     </li>
                     <li>Als je later een andere jdk wilt installeren, dan kun je
                         volstaan met het aanpassen van de JAVA_HOME variabele.

@@ -3,6 +3,7 @@
         <div id="menu">
           <h3>Inhoud</h3>
           <ol>
+			  <a href="/inleiding-java/h0"><li class="list-group-item" id="ij-h0">Introductie</li></a>
 			  <a href="/AO/inleiding-java/h1"><li class="list-group-item" id="ij-h1">1&nbsp;Ontwikkel&#8203;omgeving</li></a>
 			  <a href="/AO/inleiding-java/h2"><li class="list-group-item" id="ij-h2">2 Applets</li></a>
 			  <a href="/AO/inleiding-java/h3"><li class="list-group-item" id="ij-h3">3 Theorie</li></a>

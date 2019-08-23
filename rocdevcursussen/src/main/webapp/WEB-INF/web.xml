@@ -17,6 +17,16 @@
 
     <!--Inleiding Java-->
     <servlet>
+        <servlet-name>InleidingJava0</servlet-name>
+        <jsp-file>/AO/InlJava/H0/H0.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InleidingJava0</servlet-name>
+        <url-pattern>/inleiding-java/h0</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>InleidingJava1</servlet-name>
         <jsp-file>/AO/InlJava/H1/H1.jsp</jsp-file>
     </servlet>

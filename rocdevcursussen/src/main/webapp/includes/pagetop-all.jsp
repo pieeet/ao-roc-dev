@@ -126,7 +126,7 @@
                             <ul class="dropdown-menu">
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-inleiding-java"><a
-                                        href="/AO/inleiding-java/h1">Inleiding Java</a></li>
+                                        href="/inleiding-java/h0">Inleiding Java</a></li>
                                 <li class="menu-item menu-sub-item" id="menu-item-greenfoot"><a
                                         href="/AO/greenfoot/greenfoot">Greenfoot</a></li>
                                 <li class="menu-item menu-sub-item" id="menu-item-bluej"><a
