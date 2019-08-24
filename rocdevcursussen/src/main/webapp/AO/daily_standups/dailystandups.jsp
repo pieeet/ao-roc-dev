@@ -7,6 +7,8 @@
 --%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dailystandups.model.*" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.Collections" %>
 
 <%
     if (request.getAttribute("fromservlet") == null) {
@@ -44,7 +46,9 @@
                             <option value="">Kiezen...</option>
                             <%}%>
                             <%
-                                for (Groep groep: Groep.values()) {
+                                Groep[] groepen =  Groep.values();
+                                Collections.reverse(Arrays.asList(groepen));
+                                for (Groep groep: groepen) {
                             %>
                             <option value="<%=groep.getNaam()%>"><%=groep.getNaam()%></option>
                             <%

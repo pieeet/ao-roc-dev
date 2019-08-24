@@ -31,7 +31,7 @@
 		<ul>
 			<li class="list-group-item"><a href="https://drive.google.com/open?id=0B3XneerL-ZIcUnVoUVd0alR2N2s&authuser=0" target="_blank">Werkboek (pdf)</a></li>
 			<li class="list-group-item"><a href="http://docs.oracle.com/javase/7/docs/api/" target="_blank">Java API</a></li>
-			<li class="list-group-item"><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java JDK</a></li>
+			<li class="list-group-item"><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Java JDK</a></li>
 			<li class="list-group-item"><a href="http://nl.wikipedia.org/wiki/Java_(programmeertaal)" target="_blank">Java Wikipedia</a></li>
 		</ul>
         </div>

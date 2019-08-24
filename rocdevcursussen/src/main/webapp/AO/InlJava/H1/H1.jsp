@@ -352,7 +352,7 @@ System.out.println(&quot;Hallo roc-dev!&quot;);
                     bestanden en bestandstypen die
                     niet gesynchroniseerd moeten worden. Op GitHub vind je veel
                     voorgedefinieerde .gitignore bestanden die je kunt gebruiken. Je README bestand is een
-                    beschrijvingTicket van je project. Nadat
+                    beschrijving van je project. Nadat
                     je op GitHub een lege repo hebt aangemaakt kun je hem clonen naar
                     je computer. In de lege map kun je nu een project aanmaken of een
                     bestaand project kopi&euml;ren.
