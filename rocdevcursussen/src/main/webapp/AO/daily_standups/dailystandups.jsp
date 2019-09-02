@@ -214,7 +214,8 @@
             </div>
             <%}%>
             <h2>Planning komende week</h2>
-            <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen.</p>
+            <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
+                voor de AO vakken, dus exclusief de generieke vakken.</p>
             <div class="row">
                 <div class="col-md-12">
                     <label for="select_vak">Kies vak/project</label><br>
