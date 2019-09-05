@@ -31,5 +31,12 @@
         <property name="naam" direction="asc"/>
     </datastore-index>
 
+    <datastore-index kind="StandUpUser" ancestor="false" source="manual">
+        <property name="cohort" direction="asc"/>
+        <property name="laatste_planning" direction="asc"/>
+    </datastore-index>
+
+
+
 
 </datastore-indexes>

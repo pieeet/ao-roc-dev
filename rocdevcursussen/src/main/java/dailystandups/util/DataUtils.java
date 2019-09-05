@@ -157,7 +157,7 @@ public class DataUtils {
 
 
 
-        Query q = new Query(KIND_USER).addSort(PROPERTY_NAAM,
+        Query q = new Query(KIND_USER).addSort(PROPERTY_LATEST_PLANNING_ID,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
         QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
@@ -166,6 +166,8 @@ public class DataUtils {
             user.setHuidigePlanning(getPlanning(user));
             users.add(user);
         }
+
+
         Cursor cursor = results.getCursor();
         if (cursor != null && results.size() == PAGE_SIZE) {
             String cursorString = cursor.toWebSafeString();
