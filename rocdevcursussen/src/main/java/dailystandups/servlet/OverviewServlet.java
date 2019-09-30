@@ -45,17 +45,21 @@ public class OverviewServlet extends HttpServlet {
         User user = UserServiceFactory.getUserService().getCurrentUser();
         if (AuthUtils.isAdmin(user)) {
             if (req.getParameter("cohort") != null || req.getParameter("groep") != null) {
+                String sort = req.getParameter("sort");
+                boolean getSorted = sort.equals("true");
                 String cursorStart = req.getParameter("cursor");
                 if (cursorStart.equals("init")) cursorStart = null;
                 UsersWithPlanningResult<StandUpUser> result;
                 if (req.getParameter("cohort") != null) {
                     int cohort = Integer.parseInt(req.getParameter("cohort"));
+
+
                     result = DataUtils
-                            .getUsersWithLatestPlanning(cohort, null, cursorStart);
+                            .getUsersWithLatestPlanning(cohort, null, cursorStart, getSorted);
                 } else {
                     String groep = req.getParameter("groep");
                     result = DataUtils
-                            .getUsersWithLatestPlanning(0, groep, cursorStart);
+                            .getUsersWithLatestPlanning(0, groep, cursorStart, getSorted);
                 }
                 ArrayList<StandUpUser> users = (ArrayList<StandUpUser>) result.result;
                 String cursorNew = "null";

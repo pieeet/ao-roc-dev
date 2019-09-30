@@ -139,7 +139,7 @@ public class DataUtils {
     }
 
     public static UsersWithPlanningResult<StandUpUser> getUsersWithLatestPlanning(
-            int cohort, String groep, String startCursorString) {
+            int cohort, String groep, String startCursorString, boolean getSortedOnDate) {
         final int PAGE_SIZE = 10;
         FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
         if (startCursorString != null && !startCursorString.equals("")) {
@@ -154,10 +154,14 @@ public class DataUtils {
             propertyFilter = new Query.FilterPredicate(PROPERTY_GROEP,
                     Query.FilterOperator.EQUAL, groep);
         }
+        String sortOrder = PROPERTY_NAAM;
+        if (getSortedOnDate) {
+            sortOrder = PROPERTY_LATEST_PLANNING_ID;
+        }
 
 
 
-        Query q = new Query(KIND_USER).addSort(PROPERTY_LATEST_PLANNING_ID,
+        Query q = new Query(KIND_USER).addSort(sortOrder,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
         QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);

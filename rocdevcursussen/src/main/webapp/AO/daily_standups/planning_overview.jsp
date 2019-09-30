@@ -19,6 +19,10 @@
     <div class="col-md-8">
         <form role="form">
             <div class="form-group">
+                <label for="sort-oldest-planning">Sorteer op datum planning ingevuld (oudste eerst)</label>
+                <input type="checkbox" name="sort-oldest-planning" id="sort-oldest-planning" value="sort">
+            </div>
+            <div class="form-group">
                 <label for="cohort_kiezer">Cohort:</label>
                 <select class="form-control" id="cohort_kiezer" name="cohort_kiezer">
                     <option value="kies">Kiezen...</option>
@@ -113,15 +117,18 @@
             function getTableRows(cohort, groep, cursor) {
                 const url = "/AO/planning/admin/planningoverzicht";
                 let data = null;
+                let sort = $("#sort-oldest-planning").prop('checked');
                 if (cohort) {
                     data = {
                         cohort: cohort,
-                        cursor: cursor
+                        cursor: cursor,
+                        sort: sort // true or false
                     };
                 } else if (groep) {
                     data = {
                         groep: groep,
-                        cursor: cursor
+                        cursor: cursor,
+                        sort: sort // true or false
                     };
                 }
                 $.ajax({
