@@ -1,5 +1,6 @@
 package dailystandups.servlet;
 
+import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.*;
@@ -151,8 +152,43 @@ public class DailyStandUpServlet extends HttpServlet {
             if (req.getParameter("stuur_email") != null) {
                 EmailUtils.sendEmailHulpNodig(standUpUser, hulpvraag);
             }
+
+//            [START] Tickets toevoegen aan bestaande planning
+        } else if (req.getParameter("addTicket") != null) {
+            long planningId = Long.parseLong(req.getParameter("planningId"));
+            long ticketId = Long.parseLong(req.getParameter("ticketId"));
+            boolean hasTicket = false;
+            try {
+                Planning planning = DataUtils.getPlanning(user.getEmail());
+                for (Ticket ticket: planning.getTickets()) {
+                    if (ticket.getId() == ticketId) {
+                        resp.getWriter().print("Ticket zit al in je planning");
+                        return;
+                    }
+                }
+            } catch (EntityNotFoundException e) {
+                e.printStackTrace();
+            }
+            boolean isToegevoegd = DataUtils.voegTicketAanPlanningToe(user.getEmail(), planningId, ticketId);
+            if (isToegevoegd) {
+                resp.getWriter().print("ok");
+            }
+        } else if (req.getParameter("addProjectTicket") != null) {
+            String projectnaam = req.getParameter("project_naam");
+            String beschrijvingTicket = req.getParameter("beschrijving_ticket");
+            int aantalUur = Integer.parseInt(req.getParameter("aantal_uur"));
+            long vakId = Long.parseLong(req.getParameter("vak_id"));
+            ProjectTicket projectTicket = new ProjectTicket(vakId, aantalUur, beschrijvingTicket, projectnaam);
+            long ticketId = DataUtils.voegTicketToe(projectTicket);
+            long planningId = Long.parseLong(req.getParameter("planningId"));
+            boolean isToegevoegd = DataUtils.voegTicketAanPlanningToe(user.getEmail(), planningId, ticketId);
+            if (isToegevoegd) {
+                resp.getWriter().print("ok");
+            }
         }
     }
+//            [END] Tickets toevoegen aan bestaande planning
+
 
     private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets, String email) {
         long[] afgerondeTickets = DataUtils.getAfgerondeTicketsFromUser(email);

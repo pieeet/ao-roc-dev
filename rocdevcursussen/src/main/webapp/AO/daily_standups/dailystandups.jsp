@@ -46,11 +46,12 @@
                             <option value="">Kiezen...</option>
                             <%}%>
                             <%
-                                Groep[] groepen =  Groep.values();
+                                Groep[] groepen = Groep.values();
                                 Collections.reverse(Arrays.asList(groepen));
-                                for (Groep groep: groepen) {
+                                for (Groep groep : groepen) {
                             %>
-                            <option value="<%=groep.getNaam()%>"><%=groep.getNaam()%></option>
+                            <option value="<%=groep.getNaam()%>"><%=groep.getNaam()%>
+                            </option>
                             <%
                                 }
                             %>
@@ -157,7 +158,8 @@
 
 
                         <% } else if (((ProjectTicket) ticket).getApproved() != null) { %>
-                        <p>Akkoord: <%=((ProjectTicket) ticket).getApproved()%></p>
+                        <p>Akkoord: <%=((ProjectTicket) ticket).getApproved()%>
+                        </p>
                         <% }
                         }
                         %>
@@ -165,133 +167,197 @@
                     </li>
                     <%}%>
                 </ul>
+                <br>
+                <button type="button"
+                        class="btn btn-primary btn-sm btn-warning" id="btn_add_tickets"
+                        data-planning_id="<%= planning.getId() %>">Voeg ticket aan planning toe
+                </button>
+
                 <%} else {%>
                 <p>Je hebt nog geen tickets</p>
                 <%}%>
-                <%--evt belemmeringen--%>
-                <%
-                    String belemmeringen = planning.getBelemmeringenEsc();
-                    if (belemmeringen != null && !belemmeringen.equals("")) {
-                %>
-                <h3>Belemmeringen</h3>
-                <p><%=planning.getBelemmeringenEsc()%>
-                </p>
-                <%}%>
-                <%}%>
             </div>
-            <%if (planning != null) {%>
-            <p>Geef aan of je je aan je eigen planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
-                juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
-                volgende keer wel te laten lukken?</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="planning_gehaald">Heb je je planning gehaald?</label>
-                        <select class="form-control required" id="planning_gehaald" name="planning_gehaald">
-                            <option value="">Kiezen</option>
-                            <option value="Ja">Ja</option>
-                            <option value="Nee">Nee</option>
+
+
+            <div id="add_tickets_ticket_kiezer_wrapper" class="hidden">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <label for="add_ticket_select_vak">Kies vak</label>
+                        <select id="add_ticket_select_vak" class="ignore">
+                            <option value="">Kies...</option>
+                            <%for (Vak vak : vakken) {%>
+                            <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
+                            </option>
+                            <%}%>
                         </select>
                     </div>
                 </div>
-            </div>
-            <%if (hasTickets) {%>
-            <label>Welke tickets heb je afgerond?</label><br>
-            <div id="tickets_checkbox">
-                <%for (Ticket ticket : tickets) {%>
-                <input type="checkbox" class="ticket_checkbox" value="<%=ticket.getId()%>"
-                       title="<%=ticket.getCodeTicket()%>"> <%=ticket.getTicketRegel()%><br>
-                <%
-                    }
-                %>
-            </div>
-            <%
-                } // end indien tickets
-            %>
-            <div class="form-group hidden" id="waarom_niet_gelukt_wrapper">
-                <label for="waarom_niet_gelukt">Indien niet gehaald: waarom is het niet gelukt?</label>
-                <textarea class="form-control required" id="waarom_niet_gelukt" name="waarom_niet_gelukt"></textarea>
-            </div>
-            <%}%>
-            <h2>Planning komende week</h2>
-            <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
-                voor de AO vakken, dus exclusief de generieke vakken.</p>
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="select_vak">Kies vak/project</label><br>
+                <div class="loading_img_container hidden" id="add_ticket_loading_tickets">
+                    <img src="<c:url value="/images/ajax-loader.gif"/>">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <select id="select_vak" class="ignore">
-                        <option value="">Kies...</option>
-                        <%for (Vak vak : vakken) {%>
-                        <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
-                        </option>
-                        <%}%>
-                    </select>
-                </div>
-            </div>
-            <div class="loading_img_container hidden" id="loading_tickets">
-                <img src="<c:url value="/images/ajax-loader.gif"/>">
-            </div>
-            <div id="ticket_kiezer_wrapper" class="hidden">
-                <div class="row">
-                    <div class="col-md-12">
-                        <label>Kies ticket</label>
+                <div id="add_ticket_ticket_kiezer_wrapper" class="hidden">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Kies ticket</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12" id="ticket_kiezer">
+                    <div class="row">
+                        <div class="col-md-12" id="add_ticket_ticket_kiezer">
 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary btn-success btn-sm btn-block hidden"
+                                    id="add_ticket_btn_select_ticket">Voeg toe
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div id="add_ticket_custom_ticket_maker" class="custom_ticket_maker hidden">
+                    <label for="add_ticket_naam_project_input">Naam project</label><br>
+                    <input id="add_ticket_naam_project_input" class="custom_ticket_input">
+                    <p class="error hidden" id="add_ticket_error_project_input">Geef een naam</p>
+                    <label for="add_ticket_ticket_beschrijving_input">Ticket omschrijving</label><br>
+                    <input id="add_ticket_ticket_beschrijving_input" class="custom_ticket_input">
+                    <p class="error hidden" id="add_ticket_error_omschrijving_ticket">Geef een
+                        beschrijvingTicket</p>
+                    <label for="add_ticket_aantal_uren_input">Inschatting aantal uren</label><br>
+                    <input type="number" id="add_ticket_aantal_uren_input" class="custom_ticket_input">
+                    <p class="error hidden" id="add_ticket_error_aantal_uren">Vul aantal uren in</p>
+                    <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
+                    <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
+                            id="add_ticket_btn_custom_ticket">Voeg toe
+                    </button>
+                </div>
+
+
+            </div>
+
+
+            <div id="planning-form_wrapper">
+                <p>Geef aan of je je aan je eigen planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
+                    juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
+                    volgende keer wel te laten lukken?</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="planning_gehaald">Heb je je planning gehaald?</label>
+                            <select class="form-control required" id="planning_gehaald" name="planning_gehaald">
+                                <option value="">Kiezen</option>
+                                <option value="Ja">Ja</option>
+                                <option value="Nee">Nee</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <%if (hasTickets) {%>
+                <label>Welke tickets heb je afgerond?</label><br>
+                <div id="tickets_checkbox">
+                    <%for (Ticket ticket : tickets) {%>
+                    <input type="checkbox" class="ticket_checkbox" value="<%=ticket.getId()%>"
+                           title="<%=ticket.getCodeTicket()%>"> <%=ticket.getTicketRegel()%><br>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
+                    } // end indien tickets
+                %>
+                <div class="form-group hidden" id="waarom_niet_gelukt_wrapper">
+                    <label for="waarom_niet_gelukt">Indien niet gehaald: waarom is het niet gelukt?</label>
+                    <textarea class="form-control required" id="waarom_niet_gelukt"
+                              name="waarom_niet_gelukt"></textarea>
+                </div>
+                <%}%>
+                <h2>Planning komende week</h2>
+                <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
+                    voor de AO vakken, dus exclusief de generieke vakken.</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="select_vak">Kies vak/project</label><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
-                                id="btn_select_ticket">Voeg toe
-                        </button>
+                        <select id="select_vak" class="ignore">
+                            <option value="">Kies...</option>
+                            <%for (Vak vak : vakken) {%>
+                            <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
+                            </option>
+                            <%}%>
+                        </select>
                     </div>
                 </div>
-            </div>
-            <div id="custom_ticket_maker" class="hidden">
-                <label for="naam_project_input">Naam project</label><br>
-                <input id="naam_project_input" class="custom_ticket_input">
-                <p class="error hidden" id="error_project_input">Geef een naam</p>
-                <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
-                <input id="ticket_beschrijving_input" class="custom_ticket_input">
-                <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
-                <label for="aantal_uren_input">Inschatting aantal uren</label><br>
-                <input type="number" id="aantal_uren_input" class="custom_ticket_input">
-                <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
-                <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
-                <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
-                        id="btn_custom_ticket">Voeg toe
+                <div class="loading_img_container hidden" id="loading_tickets">
+                    <img src="<c:url value="/images/ajax-loader.gif"/>">
+                </div>
+                <div id="ticket_kiezer_wrapper" class="hidden">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Kies ticket</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="ticket_kiezer">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
+                                    id="btn_select_ticket">Voeg toe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="custom_ticket_maker" class="hidden custom_ticket_maker">
+                    <label for="naam_project_input">Naam project</label><br>
+                    <input id="naam_project_input" class="custom_ticket_input">
+                    <p class="error hidden" id="error_project_input">Geef een naam</p>
+                    <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
+                    <input id="ticket_beschrijving_input" class="custom_ticket_input">
+                    <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
+                    <label for="aantal_uren_input">Inschatting aantal uren</label><br>
+                    <input type="number" id="aantal_uren_input" class="custom_ticket_input">
+                    <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
+                    <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
+                    <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
+                            id="btn_custom_ticket">Voeg toe
+                    </button>
+                </div>
+                <div id="tickets" class="hidden">
+                    <div class="bs-callout bs-callout-warning">
+                        <h2>Tickets komende week</h2>
+                        <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
+                        <h3>Tickets</h3>
+                        <ul id="tickets_list"><%-- Hier komen de geselecteerd tickets --%></ul>
+                    </div>
+                </div>
+                <h3>Heb je hulp nodig?</h3>
+                <p>Geef hier aan of je problemen verwacht. Zijn er nog zaken die je niet begrijpt of nog niet hebt
+                    geoefend.
+                    Heb je hulp nodig van een docent? Met andere woorden: Geef aan of er zaken zijn waar je hulp bij
+                    nodig
+                    hebt.</p>
+                <div class="form-group">
+                    <label for="hulp_nodig">Waar heb je hulp bij nodig? </label>
+                    <textarea class="form-control" id="hulp_nodig" name="hulp_nodig"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="stuur_email" value="Ja"> Stuur een email met je hulpvraag naar je
+                    docenten
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
+                        id="submit_planning_btn">Submit
                 </button>
             </div>
-            <div id="tickets" class="hidden">
-                <div class="bs-callout bs-callout-warning">
-                    <h2>Tickets komende week</h2>
-                    <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
-                    <h3>Tickets</h3>
-                    <ul id="tickets_list"><%-- Hier komen de geselecteerd tickets --%></ul>
-                </div>
-            </div>
-            <h3>Heb je hulp nodig?</h3>
-            <p>Geef hier aan of je problemen verwacht. Zijn er nog zaken die je niet begrijpt of nog niet hebt geoefend.
-                Heb je hulp nodig van een docent? Met andere woorden: Geef aan of er zaken zijn waar je hulp bij nodig
-                hebt.</p>
-            <div class="form-group">
-                <label for="hulp_nodig">Waar heb je hulp bij nodig? </label>
-                <textarea class="form-control" id="hulp_nodig" name="hulp_nodig"></textarea>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" name="stuur_email" value="Ja"> Stuur een email met je hulpvraag naar je docenten
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
-                    id="submit_planning_btn">Submit
-            </button>
         </form>
         <div class="verzend-info"></div>
     </div>
@@ -436,6 +502,143 @@
                 }
             });
 
+
+            // [Start] Add ticket functionality
+            let current_planning_id = -1;
+            // add ticket to existing planning
+            $("#btn_add_tickets").click(function () {
+                current_planning_id = $(this).data('planning_id');
+                $("div#add_tickets_ticket_kiezer_wrapper").removeClass('hidden');
+                $("div#planning-form_wrapper").addClass('hidden');
+            });
+
+            $(document).on('change', '#ticket_selector', function () {
+                const value = this.value;
+                if (value !== "Kies") {
+                    $('#add_ticket_btn_select_ticket').removeClass('hidden');
+                }
+            });
+
+            $("#add_ticket_select_vak").on('change', function () {
+                const selectVak = $("#add_ticket_select_vak");
+                const ticketKiezerWrapper = $("#add_ticket_ticket_kiezer_wrapper");
+                const customTicketMaker = $("#add_ticket_custom_ticket_maker");
+                let vakNaam = selectVak.find(':selected').data("naam_vak");
+                if (vakNaam === "Project") {
+                    customTicketMaker.removeClass("hidden");
+                    if (!ticketKiezerWrapper.hasClass("hidden")) {
+                        ticketKiezerWrapper.addClass("hidden");
+                    }
+                } else {
+                    if (!(customTicketMaker.hasClass("hidden"))) {
+                        customTicketMaker.addClass("hidden");
+                    }
+                    if (!(ticketKiezerWrapper.hasClass("hidden"))) {
+                        ticketKiezerWrapper.addClass("hidden");
+                    }
+                    const loaderImg = $("#add_ticket_loading_tickets");
+                    loaderImg.removeClass("hidden");
+                    let vakId = selectVak.val();
+                    const url = "/AO/planning";
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        data: {vak: vakId},
+                        success: function (data) {
+                            $("#add_ticket_ticket_kiezer").html(data);
+                            if (!(loaderImg.hasClass("hidden"))) {
+                                loaderImg.addClass("hidden");
+                            }
+                            ticketKiezerWrapper.removeClass('hidden');
+                            if (data.startsWith("<p>")) {
+                                $("#btn_select_ticket").hide();
+                            } else {
+                                $("#btn_select_ticket").show();
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(document).on('click', '#add_ticket_btn_select_ticket', function () {
+                const ticketId = $("#add_ticket_ticket_kiezer").find(':selected').data('ticket_id');
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        addTicket: true,
+                        ticketId: ticketId,
+                        planningId: current_planning_id
+                    },
+                    success: function (data) {
+                        if (data === 'ok') {
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 400);
+                        } else {
+                            alert(data);
+                        }
+                    }
+                });
+
+            });
+
+
+            $(document).on('click', '#add_ticket_btn_custom_ticket', function () {
+                let projectNaam = $("#add_ticket_naam_project_input").val();
+                if (projectNaam === "") {
+                    $("#add_ticket_error_project_input").removeClass("hidden");
+                    return;
+                } else {
+                    $("#add_ticket_error_project_input").addClass("hidden");
+                }
+                let ticketBeschrijving = $("#add_ticket_ticket_beschrijving_input").val();
+                if (ticketBeschrijving === "") {
+                    $("#add_ticket_error_omschrijving_ticket").removeClass('hidden');
+                    return;
+                } else {
+                    $("#add_ticket_error_omschrijving_ticket").addClass("hidden");
+                }
+                let aantalUur = $("#add_ticket_aantal_uren_input").val();
+                let aantalUurNumber = Math.ceil(aantalUur);
+                if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
+                    $("#add_ticket_error_aantal_uren").removeClass('hidden');
+                    return;
+                } else {
+                    $("#add_ticket_error_aantal_uren").addClass("hidden");
+                }
+                $("#add_ticket_custom_ticket_maker").find(".error").addClass('hidden');
+                const selectVak = $("#add_ticket_select_vak");
+                let vakId = selectVak.val();
+                let vak = selectVak.find(":selected").text();
+                const url = "/AO/planning";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        addProjectTicket: "x",
+                        project_naam: projectNaam,
+                        beschrijving_ticket: ticketBeschrijving,
+                        aantal_uur: aantalUurNumber,
+                        vak_id: vakId,
+                        planningId: current_planning_id
+                    },
+                    success: function (data) {
+
+                        if (data === 'ok') {
+                            setTimeout(function () {
+                                location.reload(true);
+                            }, 400);
+                        } else {
+                            alert(data);
+                        }
+
+                    }
+                });
+            });
+
+
             function verhoogUren(uren) {
                 let uurSpan = $("#totaal_uren");
                 let totaalUren = Number(uurSpan.text());
@@ -502,6 +705,7 @@
                         mode: "set_afgerond"
                     },
                     success: function (data) {
+
                     }
                 });
             }
@@ -569,7 +773,7 @@
                 });
             });
 
-            $(document).on('click', '.btn_update_ticket', function() {
+            $(document).on('click', '.btn_update_ticket', function () {
                 const $button = $(this);
                 $button.attr('disabled', true);
                 const ticketId = $button.data('ticketid');
@@ -622,7 +826,7 @@
                     },
                     success: function (data) {
                         if (data === 'ok') {
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 location.reload(true);
                             }, 400);
                         } else {
@@ -632,7 +836,8 @@
                     }
                 });
             });
-        });
+        })
+    ;
 </script>
 <style>
     #btn_select_ticket {
@@ -654,7 +859,7 @@
         font-weight: bold;
     }
 
-    div#custom_ticket_maker input {
+    div.custom_ticket_maker input {
         width: 100%;
     }
 
@@ -673,9 +878,11 @@
     .modal input {
         width: 100%;
     }
+
     .btn-modal {
         margin-top: .5em;
     }
+
     .modal-content {
         background-color: #F9F9F9;
     }

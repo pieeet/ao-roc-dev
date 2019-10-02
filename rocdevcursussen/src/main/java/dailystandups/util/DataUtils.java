@@ -481,4 +481,14 @@ public class DataUtils {
         }
         return afgerondeTickets;
     }
+
+    public static boolean voegTicketAanPlanningToe(String email, long planningId, long ticketId) {
+        Entity entity = new Entity(KIND_PLANNING_TICKET);
+        entity.setProperty(PROPERTY_EMAIL, email);
+        entity.setProperty(PROPERTY_PLANNING_ID, planningId);
+        entity.setProperty(PROPERTY_TICKET_ID, ticketId);
+        entity.setProperty(PROPERTY_AFGEROND, -1);
+        datastore.put(entity);
+        return true;
+    }
 }
