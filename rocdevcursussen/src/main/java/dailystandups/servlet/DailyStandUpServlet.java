@@ -218,7 +218,8 @@ public class DailyStandUpServlet extends HttpServlet {
                         .append("\" data-vak_naam=\"").append(ticket.getVak().getNaam())
                         .append("\" data-vak=\"")
                         .append(ticket.getVakId()).append("\">")
-                        .append(ticket.getTicketRegel()).append("</option>");
+                        .append(ticket.getCodeTicket()).append(" - ").append(ticket.getAantalUren()).append(" pnt.")
+                        .append("</option>");
             }
             html.append("</select>");
             return html.toString();

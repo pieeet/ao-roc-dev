@@ -182,8 +182,7 @@
             <div id="add_tickets_ticket_kiezer_wrapper" class="hidden">
                 <div class="row">
                     <div class="col-md-12">
-
-
+                        <h2>Voeg ticket aan huidige planning toe</h2>
                         <label for="add_ticket_select_vak">Kies vak</label>
                         <select id="add_ticket_select_vak" class="ignore">
                             <option value="">Kies...</option>
@@ -241,7 +240,8 @@
 
 
             <div id="planning-form_wrapper">
-                <p>Geef aan of je je aan je eigen planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
+                <h2>Planning afgelopen week</h2>
+                <p>Geef aan of je je aan je planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
                     juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
                     volgende keer wel te laten lukken?</p>
                 <div class="row">
@@ -509,7 +509,7 @@
             $("#btn_add_tickets").click(function () {
                 current_planning_id = $(this).data('planning_id');
                 $("div#add_tickets_ticket_kiezer_wrapper").removeClass('hidden');
-                $("div#planning-form_wrapper").addClass('hidden');
+                // $("div#planning-form_wrapper").addClass('hidden');
             });
 
             $(document).on('change', '#ticket_selector', function () {

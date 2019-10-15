@@ -348,11 +348,14 @@ public class EersteMethode extends Applet {
 			<p>Maak een applet in Java met een methode om een driehoek te
 				tekenen. De declaratie van de methode ziet er als volgt uit:</p>
 			<pre class="code">
-void tekenDriehoek( Graphics g, int x1, int y1, int x2, int y2, int x3, int y3);
+void tekenDriehoek( Graphics g, int x1, int y1, int x2, int y2, int x3, int y3) {
+    <span class="comment">// teken een driehoek m.b.v. de meegegeven data (parameters)</span>
+}
 </pre>
 			<p>De methode roep je aan vanuit paint(). De argumenten x1, y1 en
 				x2, y2 en x3, y3 zijn de co&ouml;rdinaten van de hoekpunten van de
-				driehoek.</p>
+				driehoek. De methode vraagt om een object van het type Graphics. Deze kun je doorgeven vanuit de
+				methode paint().</p>
 
 			<h2>Opdracht 13.2</h2>
 			<p>Schrijf een applet in Java waarin in een methode een muur van
