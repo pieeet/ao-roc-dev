@@ -146,6 +146,7 @@
                 <configuration>
                     <project>rocdevcursussen</project>
                     <version>1</version>
+                    <stage.enableJarClasses>true</stage.enableJarClasses>
                 </configuration>
             </plugin>
 
