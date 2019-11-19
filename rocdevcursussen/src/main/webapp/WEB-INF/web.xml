@@ -764,11 +764,21 @@
         <servlet-name>FriendlyChat</servlet-name>
         <jsp-file>/FireBase/FriendlyChat/index.jsp</jsp-file>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>FriendlyChat</servlet-name>
         <url-pattern>/AO/friendly-chat</url-pattern>
     </servlet-mapping>
+
+    <!--form test-->
+    <servlet>
+        <servlet-name>FormTest</servlet-name>
+        <servlet-class>formtest.FormTestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormTest</servlet-name>
+        <url-pattern>/formtest</url-pattern>
+    </servlet-mapping>
+
 
     <!-- inlog-only area -->
     <security-constraint>
