@@ -38,6 +38,11 @@
 				Java beginselen mee te leren. Verder worden ze niet veel meer
 				gebruikt.
 			</p>
+			<p>Sinds versie 2019.3 moet je een plug-in installeren om Applets te kunnen runnen. Op een Windows
+				machine ga je naar file -> settings. Op mac naar IntelliJ IDEA -> preferences. Ga naar pug-ins en
+				zoek in Market Place naar &quot;Java Applets Support&quot;. Nadat
+				je de plug-in hebt geinstalleerd en je IntelliJ opnieuw hebt opgestart zou je Applets moeten kunnen
+				runnen.</p>
 			<img src="<c:url value="/AO/InlJava/H2/images/ScreenShot_2_003.jpg"/>"
 				alt="screenshot Applet" width="600">
 			<p>Maak de volgende klasse in je code editor en voer het
