@@ -149,7 +149,9 @@ public class Afbeelding extends Applet {
     private <span class="codeplus">URL</span> pad;
 	
     public void init() {
-        pad = <span class="codeplus">Afbeelding.class.getResource(&quot;/resources/&quot;)</span>
+        <span class="comment">/* uitgangspunt is dat de package &quot;resources&quot;
+                in dezelfde package zit als de java klasse*/</span>
+        pad = <span class="codeplus">Afbeelding.class.getResource(&quot;./resources/&quot;)</span>
         afbeelding = <span class="codeplus">getImage(pad, &quot;Afbeelding.gif&quot;);</span>		
     }
 
@@ -218,7 +220,9 @@ public class LoadAndPlay extends Applet {
 	
     public void init() {
 
-        pad = <span class="codeplus">LoadAndPlay.class.getResource(&quot;/resources/&quot;)</span>
+        <span class="comment">/* uitgangspunt is dat de package &quot;resources&quot;
+                in dezelfde package zit als de java klasse*/</span>
+        pad = <span class="codeplus">LoadAndPlay.class.getResource(&quot;./resources/&quot;)</span>
         sound = <span class="codeplus">getAudioClip(pad, &quot;scream.wav&quot;);</span>
         		
     }

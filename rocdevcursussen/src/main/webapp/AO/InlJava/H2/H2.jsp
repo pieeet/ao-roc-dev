@@ -38,8 +38,9 @@
 				Java beginselen mee te leren. Verder worden ze niet veel meer
 				gebruikt.
 			</p>
-			<p>Sinds versie 2019.3 moet je een plug-in installeren om Applets te kunnen runnen. Op een Windows
-				machine ga je naar file -> settings. Op mac naar IntelliJ IDEA -> preferences. Ga naar pug-ins en
+			<p>Sinds IntelliJ versie 2019.3 moet je een plug-in installeren om Applets in een Applet viewer
+				te kunnen runnen. Op een Windows
+				machine ga je naar file -> settings. Op mac naar IntelliJ IDEA -> preferences. Ga naar plug-ins en
 				zoek in Market Place naar &quot;Java Applets Support&quot;. Nadat
 				je de plug-in hebt geinstalleerd en je IntelliJ opnieuw hebt opgestart zou je Applets moeten kunnen
 				runnen.</p>
