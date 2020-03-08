@@ -224,8 +224,12 @@ public class SportServlet extends HttpServlet {
                     .getServingUrl(ServingUrlOptions
                             .Builder
                             .withBlobKey(blobkey)
+                            .secureUrl(true)
                             .imageSize(32)
                             .crop(true));
+        }
+        if (fotoUrl.startsWith("http://")) {
+            fotoUrl = fotoUrl.replace("http://", "https://");
         }
         return fotoUrl;
     }

@@ -1,14 +1,5 @@
 package jspcursus.sport;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
@@ -16,10 +7,17 @@ import com.google.appengine.api.images.Image;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
-
 import jspcursus.sport.vereniging.Administratie;
 import jspcursus.sport.vereniging.Lid;
 import jspcursus.sport.vereniging.Team;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class HtmlFactoryServlet extends HttpServlet {
@@ -433,7 +431,12 @@ public class HtmlFactoryServlet extends HttpServlet {
             fotoUrl = imagesService
                     .getServingUrl(ServingUrlOptions
                             .Builder
-                            .withBlobKey(blobkey));
+                            .withBlobKey(blobkey)
+                            .secureUrl(true));
+            if (fotoUrl.startsWith("http://")) {
+                fotoUrl = fotoUrl.replace("http://", "https://");
+            }
+
             BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
             byte[] imgData = blobstoreService.fetchData(blobkey, 0, BlobstoreService.MAX_BLOB_FETCH_SIZE - 1);
             Image img = ImagesServiceFactory.makeImage(imgData);
