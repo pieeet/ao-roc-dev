@@ -20,6 +20,8 @@ public class DataUtils {
     private static final String KIND_VAK = "Vak";
     private static final String KIND_TICKET = "Ticket";
     private static final String KIND_PLANNING_TICKET = "Planning_Ticket";
+    private static final String KIND_HULPVRAAG = "Hulpvraag";
+
 
     /*
      *****************COLUMN NAMES************************
@@ -43,6 +45,9 @@ public class DataUtils {
     private static final String PROPERTY_NAAM_PROJECT = "projectnaam";
     private static final String PROPERTY_IS_DELETED = "deleted";
     private static final String PROPERTY_IS_APPROVED = "approved";
+    private static final String PROPERTY_HULPVRAAG = "hulpvraag";
+    private static final String PROPERTY_AFGEHANDELD = "afgehandeld";
+
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
 
@@ -99,7 +104,7 @@ public class DataUtils {
         String naam = (String) userEntity.getProperty(PROPERTY_NAAM);
         String groepString = (String) userEntity.getProperty(PROPERTY_GROEP);
         Groep groep = null;
-        for (Groep g: Groep.values()) {
+        for (Groep g : Groep.values()) {
             if (g.getNaam().equals(groepString)) {
                 groep = g;
                 break;
@@ -160,7 +165,6 @@ public class DataUtils {
         }
 
 
-
         Query q = new Query(KIND_USER).addSort(sortOrder,
                 Query.SortDirection.ASCENDING).setFilter(propertyFilter);
         PreparedQuery pq = datastore.prepare(q);
@@ -180,7 +184,6 @@ public class DataUtils {
             return new UsersWithPlanningResult<>(users);
         }
     }
-
 
 
     public static ArrayList<Planning> getPlanningenFromUser(String email) {
@@ -491,4 +494,56 @@ public class DataUtils {
         datastore.put(entity);
         return true;
     }
+
+    public static void voegHulpvraagToe(Hulpvraag hulpvraag) {
+        Entity entity;
+        if (hulpvraag.getId() < 1) {
+            entity = new Entity(KIND_HULPVRAAG);
+        } else {
+            Key key = KeyFactory.createKey(KIND_HULPVRAAG, hulpvraag.getId());
+            entity = new Entity(KIND_HULPVRAAG, key);
+        }
+
+        entity.setProperty(PROPERTY_EMAIL, hulpvraag.getEmailUser());
+        entity.setProperty(PROPERTY_VAK, hulpvraag.getVak());
+        entity.setProperty(PROPERTY_DATE, hulpvraag.getEntryDate().getTime());
+        entity.setProperty(PROPERTY_HULPVRAAG, hulpvraag.getHulpvraag());
+        entity.setProperty(PROPERTY_AFGEHANDELD, hulpvraag.getAfgehandeld() != null ?
+                hulpvraag.getAfgehandeld().getTime() : -1);
+        entity.setProperty(PROPERTY_DOCENT, hulpvraag.getDocent() != null ? hulpvraag.getDocent() : "");
+        datastore.put(entity);
+    }
+
+    public static ArrayList<Hulpvraag> getOpenHulpvragen() {
+        ArrayList<Hulpvraag> hulpvragen = new ArrayList<>();
+        Query.Filter isOpenFilter = new Query.FilterPredicate(PROPERTY_AFGEHANDELD, Query.FilterOperator.LESS_THAN,
+                1);
+        Query q = new Query(KIND_HULPVRAAG)
+                .setFilter(isOpenFilter)
+                .addSort(PROPERTY_AFGEHANDELD)
+                .addSort(PROPERTY_DATE,
+                        Query.SortDirection.ASCENDING);
+        PreparedQuery pq = datastore.prepare(q);
+        for (Entity entity : pq.asIterable()) {
+            long id = entity.getKey().getId();
+            String email = (String) entity.getProperty(PROPERTY_EMAIL);
+            String vak = (String) entity.getProperty(PROPERTY_VAK);
+            String vraag = (String) entity.getProperty(PROPERTY_HULPVRAAG);
+            long date = (long) entity.getProperty(PROPERTY_DATE);
+            String docent = null;
+            long afgehandeld = 0;
+            Hulpvraag hulpvraag = new Hulpvraag(id, email, vak, vraag, new Date(date), docent, new Date(afgehandeld));
+            hulpvragen.add(hulpvraag);
+        }
+        return hulpvragen;
+    }
+
+    public static void deleteHulpvraag(long id, String docent) throws EntityNotFoundException {
+        Key key = KeyFactory.createKey(KIND_HULPVRAAG, id);
+        Entity entity = datastore.get(key);
+        entity.setProperty(PROPERTY_AFGEHANDELD, new Date().getTime());
+        entity.setProperty(PROPERTY_DOCENT, docent);
+        datastore.put(entity);
+    }
 }
+

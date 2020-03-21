@@ -23,7 +23,8 @@ public class AuthUtils {
                 "rkorswagen@roc-dev.com",
                 "avideva@roc-dev.com",
                 "cspier@roc-dev.com",
-                "mvangelder@roc-dev.com"
+                "mvangelder@roc-dev.com",
+                "lverbaas@roc-dev.com"
         };
         boolean isAdmin = false;
         for (String s: administrators) {

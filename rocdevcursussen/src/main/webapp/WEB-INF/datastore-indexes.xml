@@ -41,6 +41,12 @@
         <property name="laatste_planning" direction="asc"/>
     </datastore-index>
 
+    <datastore-index kind="Hulpvraag" ancestor="false" source="manual">
+        <property name="afgehandeld" direction="asc"/>
+        <property name="date" direction="asc"/>
+    </datastore-index>
+
+
 
 
 

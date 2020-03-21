@@ -135,7 +135,11 @@ public class DailyStandUpServlet extends HttpServlet {
 
             StandUpUser standUpUser = new StandUpUser(user.getEmail(), req.getParameter("naam_input"),
                     groep);
-            String hulpvraag = req.getParameter("hulp_nodig");
+            //hulpvraag disabled vanaf 21-03-2020
+            String hulpvraag = "";
+            if (req.getParameter("hulp_nodig") != null) {
+                hulpvraag = req.getParameter("hulp_nodig");
+            }
             Planning nieuwePlanning = new Planning(standUpUser, currentDate, hulpvraag);
             //remove underscores at beginning of string
             String paramTickets = req.getParameter("ticketIds").substring(2);

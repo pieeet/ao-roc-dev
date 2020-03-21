@@ -197,6 +197,9 @@
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-form"><a
                                         href="/AO/planning">Formulier</a></li>
+                                <li class="menu-item menu-sub-item"
+                                    id="menu-item-hulpvragen"><a
+                                        href="/AO/planning/hulpvraag">Hulpvragen</a></li>
                                 <%
                                     if (user != null) {
                                 %>

@@ -892,3 +892,16 @@ div.loading_img_container {
     margin-left: auto;
     margin-right: auto;
 }
+
+.navbar-bottom {
+    margin-bottom: 0;
+    background-color: #F9F9F9;
+}
+table.table-responsive {
+    table-layout: fixed;
+}
+.table-responsive td {
+    max-width: 700px;
+    word-wrap:break-word;
+    white-space: normal !important;
+}

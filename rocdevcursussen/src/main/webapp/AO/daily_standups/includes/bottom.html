@@ -6,8 +6,9 @@
 
         </div>
     </div>
-
 </div>
+
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
@@ -19,14 +20,26 @@
 <script>
 
 
-    $(document).ready (function () {
-//        $("li#menu-item-mobile").addClass("active");
-//        $("li#menu-item-android-nano-beginners").addClass("active");
-        $("h1#page-title-heading").text("Weekly Stand-ups");
-        $("li#menu-item-planning").addClass("active")
-        $('#to-top').click(function(){
-            $('html, body').animate({scrollTop:0}, 500);
-        });
-
-    }); //einde ready event;
+$(document).ready(function () {
+    $("h1#page-title-heading").text("Weekly Stand-ups");
+    $("li#menu-item-planning").addClass("active");
+    $('#to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 500);
+    });
+    // refresh after > 1 hour no focus
+    let blurStartTime = 0;
+    $(window).on('blur', function () {
+        if (blurStartTime === 0) {
+            blurStartTime = (new Date).getTime();
+        }
+    });
+    $(window).on('focus', function () {
+        if (blurStartTime > 0) {
+            let timeElapsed = (new Date).getTime() - blurStartTime;
+            if (timeElapsed > 1000 * 60 * 60) {
+                location.reload();
+            }
+        }
+    });
+});
 </script>

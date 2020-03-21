@@ -87,7 +87,7 @@
             	aria-haspopup="true" aria-expanded="false">WebApps <span class="caret"></span></a>
             	<ul class="dropdown-menu">
             		 <li><a href="/AO/JSP_Java_DB/Opdrachten.jsp">JSP</a></li>
-            		 <li><a href="/AO/PHP/php.jsp">PHP</a></li>
+            		 <li><a href="/AO/PHP/php01.jsp">PHP</a></li>
             		 <li><a href="/jquery">JQuery</a></li>
             	</ul>
 			</li>

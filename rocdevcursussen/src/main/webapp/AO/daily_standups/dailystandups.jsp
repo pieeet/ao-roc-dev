@@ -77,6 +77,8 @@
             <div class="bs-callout bs-callout-warning">
                 <%if (planning == null) { %>
                 <p>Je hebt nog geen planning</p>
+<%--        sluit div bs-callout--%>
+            <%out.print("</div>");%>
                 <%} else { %>
                 <%--user heeft een planning--%>
                 <p>Datum ingevuld: <%= planning.getEntryDateFormat()%>
@@ -374,7 +376,6 @@
                     return false;
                 }
             });
-
             // refresh after > 1 hour no focus
             let blurStartTime = 0;
             $(window).on('blur', function () {
@@ -390,7 +391,6 @@
                     }
                 }
             });
-
             // configure your validation
             $("#planning_form").validate({
                 rules: {
@@ -494,15 +494,12 @@
                                 ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
                             verhoogUren(urenTicket);
                             $("#tickets").removeClass('hidden');
-
                         }
                         selectedItem.hide();
                         ticketSelector.val("Kies");
                     }
                 }
             });
-
-
             // [Start] Add ticket functionality
             let current_planning_id = -1;
             // add ticket to existing planning
@@ -511,14 +508,12 @@
                 $("div#add_tickets_ticket_kiezer_wrapper").removeClass('hidden');
                 // $("div#planning-form_wrapper").addClass('hidden');
             });
-
             $(document).on('change', '#ticket_selector', function () {
                 const value = this.value;
                 if (value !== "Kies") {
                     $('#add_ticket_btn_select_ticket').removeClass('hidden');
                 }
             });
-
             $("#add_ticket_select_vak").on('change', function () {
                 const selectVak = $("#add_ticket_select_vak");
                 const ticketKiezerWrapper = $("#add_ticket_ticket_kiezer_wrapper");
@@ -559,7 +554,6 @@
                     });
                 }
             });
-
             $(document).on('click', '#add_ticket_btn_select_ticket', function () {
                 const ticketId = $("#add_ticket_ticket_kiezer").find(':selected').data('ticket_id');
                 const url = "/AO/planning";
@@ -581,10 +575,7 @@
                         }
                     }
                 });
-
             });
-
-
             $(document).on('click', '#add_ticket_btn_custom_ticket', function () {
                 let projectNaam = $("#add_ticket_naam_project_input").val();
                 if (projectNaam === "") {
@@ -625,7 +616,6 @@
                         planningId: current_planning_id
                     },
                     success: function (data) {
-
                         if (data === 'ok') {
                             setTimeout(function () {
                                 location.reload(true);
@@ -633,19 +623,15 @@
                         } else {
                             alert(data);
                         }
-
                     }
                 });
             });
-
-
             function verhoogUren(uren) {
                 let uurSpan = $("#totaal_uren");
                 let totaalUren = Number(uurSpan.text());
                 totaalUren += Number(uren);
                 uurSpan.text(totaalUren);
             }
-
             $('#planning_gehaald').on('change', function () {
                 let keuze = this.value;
                 let ticketsCheckbox = $('#tickets_checkbox');
@@ -678,9 +664,7 @@
                 } else {
                     setTicketNietGehaald(ticketId);
                 }
-
             });
-
             function setTicketNietGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -694,7 +678,6 @@
                     }
                 });
             }
-
             function setTicketWelGehaald(ticketId) {
                 const url = "/AO/planning";
                 $.ajax({
@@ -705,11 +688,9 @@
                         mode: "set_afgerond"
                     },
                     success: function (data) {
-
                     }
                 });
             }
-
             function checkPlanningGehaald() {
                 let ticketsCheckbox = $('#tickets_checkbox');
                 let ticketCount = ticketsCheckbox.find('.ticket_checkbox').length;
@@ -723,7 +704,6 @@
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 }
             }
-
             $(document).on('click', '#btn_custom_ticket', function () {
                 let projectNaam = $("#naam_project_input").val();
                 if (projectNaam === "") {
@@ -768,11 +748,9 @@
                         verhoogUren(aantalUurNumber);
                         $("#tickets").removeClass('hidden');
                         $(".custom_ticket_input").val("");
-
                     }
                 });
             });
-
             $(document).on('click', '.btn_update_ticket', function () {
                 const $button = $(this);
                 $button.attr('disabled', true);
@@ -787,7 +765,6 @@
                 } else {
                     if (!errProject.hasClass('hidden'))
                         errProject.addClass('hidden');
-
                 }
                 // fetch beschrijving
                 const beschrijving = $('#update_ticket_beschrijving_input_' + ticketId).val();
@@ -844,48 +821,37 @@
         width: 8em;
         margin-top: -.3em;
     }
-
     #submit_planning_btn {
         margin-top: 2em;
         margin-bottom: 2em;
     }
-
     select {
         margin-bottom: .5em;
     }
-
     label {
         margin-top: 1em;
         font-weight: bold;
     }
-
     div.custom_ticket_maker input {
         width: 100%;
     }
-
     button#btn_custom_ticket {
         margin-top: 2em;
     }
-
     button#btn_select_ticket {
         margin-top: .5em;
     }
-
     .modal label {
         margin-top: 0;
     }
-
     .modal input {
         width: 100%;
     }
-
     .btn-modal {
         margin-top: .5em;
     }
-
     .modal-content {
         background-color: #F9F9F9;
     }
-
 </style>
 <%}%>

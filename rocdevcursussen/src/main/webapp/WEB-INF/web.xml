@@ -575,11 +575,20 @@
     <!-- PHP -->
     <servlet>
         <servlet-name>PHP1</servlet-name>
-        <jsp-file>/AO/PHP/php.jsp</jsp-file>
+        <jsp-file>/AO/PHP/php01.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>PHP1</servlet-name>
         <url-pattern>/AO/php/php1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PHP2</servlet-name>
+        <jsp-file>/AO/PHP/php02.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PHP2</servlet-name>
+        <url-pattern>/AO/php/php2</url-pattern>
     </servlet-mapping>
 
 
@@ -706,6 +715,16 @@
     <servlet-mapping>
         <servlet-name>PlanningenStudent</servlet-name>
         <url-pattern>/AO/planning/studentplanningen</url-pattern>
+    </servlet-mapping>
+
+    <!--    hulpvraag servlet-->
+    <servlet>
+        <servlet-name>Hulpvraag</servlet-name>
+        <servlet-class>dailystandups.servlet.HulpvraagServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hulpvraag</servlet-name>
+        <url-pattern>/AO/planning/hulpvraag</url-pattern>
     </servlet-mapping>
 
 

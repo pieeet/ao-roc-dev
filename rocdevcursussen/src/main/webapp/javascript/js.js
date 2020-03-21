@@ -7,10 +7,10 @@
 
 
 function toon(element) {
-    if (document.getElementById(element).style.display != "block") {
+    if (document.getElementById(element).style.display !== "block") {
         document.getElementById(element).style.display = "block";
     }
-    else if (document.getElementById(element).style.display = "block") {
+    else if (document.getElementById(element).style.display === "block") {
         verberg(element);
     }
 }
