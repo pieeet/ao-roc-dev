@@ -440,7 +440,7 @@
                     const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
                     const customTicketMaker = $("#custom_ticket_maker");
                     let vakNaam = selectVak.find(':selected').data("naam_vak");
-                    if (vakNaam === "Project") {
+                    if (vakNaam === "Project/Overig") {
                         customTicketMaker.removeClass("hidden");
                         if (!ticketKiezerWrapper.hasClass("hidden")) {
                             ticketKiezerWrapper.addClass("hidden");
@@ -519,7 +519,7 @@
                 const ticketKiezerWrapper = $("#add_ticket_ticket_kiezer_wrapper");
                 const customTicketMaker = $("#add_ticket_custom_ticket_maker");
                 let vakNaam = selectVak.find(':selected').data("naam_vak");
-                if (vakNaam === "Project") {
+                if (vakNaam === "Project/Overig") {
                     customTicketMaker.removeClass("hidden");
                     if (!ticketKiezerWrapper.hasClass("hidden")) {
                         ticketKiezerWrapper.addClass("hidden");
