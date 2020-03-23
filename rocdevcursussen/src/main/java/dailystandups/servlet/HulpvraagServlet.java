@@ -45,7 +45,7 @@ public class HulpvraagServlet extends HttpServlet {
             Date date = new Date();
             Hulpvraag hv = new Hulpvraag(0, user.getEmail(), vak, hulpvraag, date, null, null);
             DataUtils.voegHulpvraagToe(hv);
-            EmailUtils.sendEmailHulpvraag(user, hulpvraag);
+            EmailUtils.sendEmailHulpvraag(user, hv);
             resp.getWriter().print("ok");
         }
         else if (req.getParameter("delete_hulpvraag") != null) {

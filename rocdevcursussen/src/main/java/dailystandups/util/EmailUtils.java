@@ -1,6 +1,7 @@
 package dailystandups.util;
 
 import com.google.appengine.api.users.User;
+import dailystandups.model.Hulpvraag;
 import dailystandups.model.StandUpUser;
 
 import javax.mail.Message;
@@ -34,7 +35,7 @@ public class EmailUtils {
         }
     }
 
-    public static void sendEmailHulpvraag(User user, String hulpvraag) {
+    public static void sendEmailHulpvraag(User user, Hulpvraag hulpvraag) {
         try {
             Properties props = new Properties();
             Session session = Session.getDefaultInstance(props, null);
@@ -45,7 +46,8 @@ public class EmailUtils {
                     "admins"));
             msg.setSubject(user.getEmail() + " heeft een hulpvraag ingediend");
 
-            msg.setText(user.getEmail() + " heeft hulp nodig bij het volgende:\n\n" + hulpvraag + "\n\n" +
+            msg.setText(user.getEmail() + " heeft hulp nodig bij het volgende:\n\n" + "vak: " + hulpvraag.getVak() +
+                    "\n\n" + hulpvraag.getHulpvraag() + "\n\n" +
                     "Zie https://ao.roc-dev.com/AO/planning/hulpvraag");
             Transport.send(msg);
         } catch (MessagingException | UnsupportedEncodingException e) {
