@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h2>Maak hulp-Ticket</h2>
+            <h2>Maak Hulp-Ticket</h2>
             <p>Soms zijn er zoveel vragen dat er een soort file ontstaat. Om dit een beetje in goede banen te leiden
             kun je een ticket maken, Tickets worden zoveel mogelijk op volgorde behandeld op basis van &quot;first
             come first serve&quot;. Als je nog even moet wachten blijf dan zelf proberen om je probleem op te lossen.
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="vak_kiezer">Vak</label>
                         <select class="form-control required" id="vak_kiezer" name="vak_kiezer">
-                            <option value="2" selected>Kies...</option>
+                            <option value="0" selected>Kies...</option>
                             <%
                                 for (Vak vak : vakken) {
                             %>
@@ -67,8 +67,6 @@
             </form>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-10">
@@ -122,7 +120,8 @@
     </div>
 
 
-    <br><br><br><br><br><br><br>
+
+    <br><br><br><br><br>
     <%@ include file="/AO/daily_standups/includes/bottom.html" %>
 
     <script type="text/javascript">
