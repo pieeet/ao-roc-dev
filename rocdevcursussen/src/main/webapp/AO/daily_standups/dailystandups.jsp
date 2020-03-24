@@ -32,7 +32,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h1>Planningsformulier</h1>
-        <p>In dit formulier geef je aan wat je afgelopen week hebt gedaan en wat je de komende week wilt gaan doen.</p>
+        <p>In dit formulier geef je aan wat je afgelopen dag hebt gedaan en wat je de komende dag wilt gaan doen.</p>
         <form role="form" id="planning_form">
             <div class="row">
                 <div class="col-md-6">
@@ -242,8 +242,8 @@
 
 
             <div id="planning-form_wrapper">
-                <h2>Planning afgelopen week</h2>
-                <p>Geef aan of je je aan je planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
+                <h2>Planning afgelopen dag</h2>
+                <p>Geef aan of je je aan je planning hebt kunnen houden. Probeer te bedenken waarom dat deze dag
                     juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
                     volgende keer wel te laten lukken?</p>
                 <div class="row">
@@ -277,7 +277,7 @@
                               name="waarom_niet_gelukt"></textarea>
                 </div>
                 <%}%>
-                <h2>Planning komende week</h2>
+                <h2>Planning komende dag</h2>
                 <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
                     voor de AO vakken, dus exclusief de generieke vakken.</p>
                 <div class="row">
@@ -335,7 +335,7 @@
                 </div>
                 <div id="tickets" class="hidden">
                     <div class="bs-callout bs-callout-warning">
-                        <h2>Tickets komende week</h2>
+                        <h2>Tickets komende dag</h2>
                         <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
                         <h3>Tickets</h3>
                         <ul id="tickets_list"><%-- Hier komen de geselecteerd tickets --%></ul>
