@@ -47,6 +47,7 @@ public class DataUtils {
     private static final String PROPERTY_IS_APPROVED = "approved";
     private static final String PROPERTY_HULPVRAAG = "hulpvraag";
     private static final String PROPERTY_AFGEHANDELD = "afgehandeld";
+    private static final String PROPERTY_STATUS = "status";
 
 
     public static void saveUserAndPlanning(Planning planning, boolean isNew) {
@@ -64,6 +65,7 @@ public class DataUtils {
             naam = eersteLetter + naam.substring(1);
             userEntity.setProperty(PROPERTY_NAAM, naam);
             userEntity.setProperty(PROPERTY_EMAIL, standUpUser.getEmail());
+            userEntity.setProperty(PROPERTY_STATUS, standUpUser.getStatus());
             userEntity.setProperty(PROPERTY_LATEST_PLANNING_ID, planning.getId());
             datastore.put(userEntity);
 
@@ -103,6 +105,11 @@ public class DataUtils {
         String email = (String) userEntity.getProperty(PROPERTY_EMAIL);
         String naam = (String) userEntity.getProperty(PROPERTY_NAAM);
         String groepString = (String) userEntity.getProperty(PROPERTY_GROEP);
+        int status = StandUpUser.STATUS_ACTIEF;
+        if (userEntity.getProperty(PROPERTY_STATUS) != null) {
+            status = (int) (long) userEntity.getProperty(PROPERTY_STATUS);
+        }
+
         Groep groep = null;
         for (Groep g : Groep.values()) {
             if (g.getNaam().equals(groepString)) {
@@ -110,7 +117,7 @@ public class DataUtils {
                 break;
             }
         }
-        StandUpUser user = new StandUpUser(email, naam, groep);
+        StandUpUser user = new StandUpUser(email, naam, groep, status);
         user.setLaatstePlanningId((long) userEntity.getProperty(PROPERTY_LATEST_PLANNING_ID));
         return user;
     }
@@ -151,22 +158,25 @@ public class DataUtils {
             fetchOptions.startCursor(Cursor.fromWebSafeString(startCursorString));    // Where we left off
         }
         ArrayList<StandUpUser> users = new ArrayList<>();
-        Query.Filter propertyFilter = null;
+        Query.Filter groepFilter = null;
         if (cohort > 0) {
-            propertyFilter = new Query.FilterPredicate(PROPERTY_COHORT,
+            groepFilter = new Query.FilterPredicate(PROPERTY_COHORT,
                     Query.FilterOperator.EQUAL, cohort);
         } else if (groep != null) {
-            propertyFilter = new Query.FilterPredicate(PROPERTY_GROEP,
+            groepFilter = new Query.FilterPredicate(PROPERTY_GROEP,
                     Query.FilterOperator.EQUAL, groep);
         }
+        Query.Filter statusFilter = new Query.FilterPredicate(PROPERTY_STATUS, Query.FilterOperator.EQUAL,
+                StandUpUser.STATUS_ACTIEF);
+        Query.CompositeFilter compositeFilter = Query.CompositeFilterOperator.and(groepFilter, statusFilter);
+
         String sortOrder = PROPERTY_NAAM;
         if (getSortedOnDate) {
             sortOrder = PROPERTY_LATEST_PLANNING_ID;
         }
 
-
         Query q = new Query(KIND_USER).addSort(sortOrder,
-                Query.SortDirection.ASCENDING).setFilter(propertyFilter);
+                Query.SortDirection.ASCENDING).setFilter(compositeFilter);
         PreparedQuery pq = datastore.prepare(q);
         QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
         for (Entity entity : results) {
@@ -544,6 +554,20 @@ public class DataUtils {
         entity.setProperty(PROPERTY_AFGEHANDELD, new Date().getTime());
         entity.setProperty(PROPERTY_DOCENT, docent);
         datastore.put(entity);
+    }
+
+    public static void updateUser(StandUpUser user) {
+        Key key = KeyFactory.createKey(KIND_USER, user.getEmail());
+        try {
+            Entity entity = datastore.get(key);
+            entity.setProperty(PROPERTY_NAAM, user.getNaam());
+            entity.setProperty(PROPERTY_GROEP, user.getGroep());
+            entity.setProperty(PROPERTY_COHORT, user.getCohort());
+            entity.setProperty(PROPERTY_STATUS, user.getStatus());
+            datastore.put(entity);
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 

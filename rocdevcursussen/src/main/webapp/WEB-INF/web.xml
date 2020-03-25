@@ -717,6 +717,17 @@
         <url-pattern>/AO/planning/studentplanningen</url-pattern>
     </servlet-mapping>
 
+
+ <!--    wijzig gegevens student-->
+    <servlet>
+        <servlet-name>DataStudent</servlet-name>
+        <servlet-class>dailystandups.servlet.DataStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataStudent</servlet-name>
+        <url-pattern>/AO/planning/admin/datastudent</url-pattern>
+    </servlet-mapping>
+
     <!--    hulpvraag servlet-->
     <servlet>
         <servlet-name>Hulpvraag</servlet-name>

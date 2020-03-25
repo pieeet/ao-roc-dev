@@ -9,6 +9,9 @@
             <a href="/AO/planning/admin/planningoverzicht">
                 <li class="list-group-item" id="overzicht_planningen">Overzicht planningen</li>
             </a>
+            <a href="/AO/planning/admin/datastudent">
+                <li class="list-group-item" id="data_student">Beheer student</li>
+            </a>
 
         </ol>
 

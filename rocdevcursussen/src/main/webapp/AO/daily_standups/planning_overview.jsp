@@ -157,7 +157,7 @@
             }
             $(document).on("click", ".klik_user", function () {
                 let email = $(this).data("email");
-                window.open("/AO/planning/studentplanningen?email=" + email);
+                window.open("/AO/planning/admin/datastudent?email=" + email);
             });
 
             // approve project ticket

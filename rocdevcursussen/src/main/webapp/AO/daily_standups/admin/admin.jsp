@@ -267,7 +267,7 @@
                 const parent = $(this).parent();
                 const wijzigBtn = parent.find(".wijzig_ticket_btn");
                 wijzigBtn.removeAttr('disabled');
-            })
+            });
 
 
             $(document).on('click', ".wijzig_ticket_btn", function () {

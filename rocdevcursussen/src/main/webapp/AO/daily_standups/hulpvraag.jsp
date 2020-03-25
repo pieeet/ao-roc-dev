@@ -22,10 +22,12 @@
         <div class="col-md-8">
             <h2>Maak Hulp-Ticket</h2>
             <p>Soms zijn er zoveel vragen dat er een soort file ontstaat. Om dit een beetje in goede banen te leiden
-            kun je een ticket maken, Tickets worden zoveel mogelijk op volgorde behandeld op basis van &quot;first
-            come first serve&quot;. Als je nog even moet wachten blijf dan zelf proberen om je probleem op te lossen.
-            Probeer te googlen, vraag je medestudenten etc. Problemen oplossen is &eacute;&eacute;n van de belangrijkste
-            kwaliteiten van een software developer.</p>
+                kun je een ticket maken, Tickets worden zoveel mogelijk op volgorde behandeld op basis van &quot;first
+                come first serve&quot;. Als je nog even moet wachten blijf dan zelf proberen om je probleem op te
+                lossen.
+                Probeer te googlen, vraag je medestudenten etc. Problemen oplossen is &eacute;&eacute;n van de
+                belangrijkste
+                kwaliteiten van een software developer.</p>
 
             <form role="form" id="hulpvraag-form">
                 <div class="col-md-6">
@@ -99,7 +101,8 @@
                         %>
                         <td>
                             <button type="button" class="btn btn-primary btn-warning btn-delete"
-                            data-id="<%= hulpvraag.getId()%>">delete</button>
+                                    data-id="<%= hulpvraag.getId()%>">delete
+                            </button>
                         </td>
 
                         <%
@@ -118,8 +121,7 @@
 
         </div>
     </div>
-
-
+</div>
 
     <br><br><br><br><br>
     <%@ include file="/AO/daily_standups/includes/bottom.html" %>
@@ -164,7 +166,7 @@
                     });
                 }
             });
-            $(".btn-delete").click(function() {
+            $(".btn-delete").click(function () {
                 let btn = $(this);
                 btn.attr("disabled", true);
                 btn.text("...");
@@ -177,8 +179,8 @@
                         id: id
                     },
                     success: function (data) {
-                        if (data ==='ok') {
-                            setTimeout(function() {
+                        if (data === 'ok') {
+                            setTimeout(function () {
                                 location.reload();
                             }, 400);
                         } else {
