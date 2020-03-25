@@ -16,68 +16,84 @@
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
     <%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>
-    <div class="col-md-8">
-        <form role="form">
-            <div class="form-group">
-                <label for="sort-oldest-planning">Sorteer op datum planning ingevuld (oudste eerst)</label>
-                <input type="checkbox" name="sort-oldest-planning" id="sort-oldest-planning" value="sort">
-            </div>
-            <div class="form-group">
-                <label for="cohort_kiezer">Cohort:</label>
-                <select class="form-control" id="cohort_kiezer" name="cohort_kiezer">
-                    <option value="kies">Kiezen...</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                </select>
-            </div>
-        </form>
-        <form role="form">
-            <div class="form-group">
-                <label for="groep_kiezer">Groep:</label>
-                <select class="form-control" id="groep_kiezer" name="cohort_kiezer">
-                    <option value="kies">Kiezen...</option>
-                    <%
-                        for (Groep g: Groep.values()) {
-                    %>
-                    <option value="<%= g.getNaam()%>"><%= g.getNaam()%></option>
-                    <%
-                        }
-                    %>
-                </select>
-            </div>
-        </form>
+    <div class="row">
+        <div class="col-md-6">
+            <form role="form">
 
-        <div class="table-responsive hidden" id="plannings_tabel_wrapper">
-            <table id="plannings_tabel" class="table table-bordered table-condensed table-striped">
-                <thead>
-                <tr>
-                    <th>Naam/tijd</th>
-                    <th>Planning</th>
-                    <th>Hulp nodig</th>
-                </tr>
-                </thead>
-                <tbody id="tbody">
+                <div class="form-group">
+                    <label for="sort-kiezer">Sorteer</label>
+                    <select class="form-control" id="sort-kiezer" name="sort-kiezer">
+                        <option value="">Alfabebetisch op naam student</option>
+                        <option value="sort-asc">Oudste eerst</option>
+                        <option value="sort-desc">Jongste eerst</option>
+                    </select>
 
-                </tbody>
+                </div>
+                <p>Kies &oacute;f Cohort &oacute;f Groep om de selectie te starten.</p>
+                <div class="form-group">
+                    <label for="cohort_kiezer">Cohort:</label>
+                    <select class="form-control" id="cohort_kiezer" name="cohort_kiezer">
+                        <option value="kies">Kiezen...</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </div>
+            </form>
+            <form role="form">
+                <div class="form-group">
+                    <label for="groep_kiezer">Groep:</label>
+                    <select class="form-control" id="groep_kiezer" name="cohort_kiezer">
+                        <option value="kies">Kiezen...</option>
+                        <%
+                            for (Groep g : Groep.values()) {
+                        %>
+                        <option value="<%= g.getNaam()%>"><%= g.getNaam()%>
+                        </option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </div>
+            </form>
 
-
-
-            </table>
-        </div>
-
-        <div class="loading_img_container hidden" id="loading_cohort">
-            <img src="<c:url value="/images/ajax-loader.gif"/>">
         </div>
 
     </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="table-responsive hidden" id="plannings_tabel_wrapper">
+                <table id="plannings_tabel" class="table table-bordered table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>Naam/tijd</th>
+                        <th>Planning</th>
+                        <th>Hulp nodig</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
+
+    <div class="loading_img_container hidden" id="loading_cohort">
+        <img src="<c:url value="/images/ajax-loader.gif"/>">
+    </div>
 
 </div>
 
+
+
+
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
+
+
 
 <script type="text/javascript">
     $(document).ready(
@@ -97,7 +113,7 @@
                 }
             });
 
-            groepKiezer.on('change', function() {
+            groepKiezer.on('change', function () {
                 madeChoice();
                 let groep = groepKiezer.val();
                 let cursor = 'init';
@@ -117,7 +133,7 @@
             function getTableRows(cohort, groep, cursor) {
                 const url = "/AO/planning/admin/planningoverzicht";
                 let data = null;
-                let sort = $("#sort-oldest-planning").prop('checked');
+                let sort = $("#sort-kiezer").val();
                 if (cohort) {
                     data = {
                         cohort: cohort,
@@ -155,6 +171,7 @@
                     }
                 });
             }
+
             $(document).on("click", ".klik_user", function () {
                 let email = $(this).data("email");
                 window.open("/AO/planning/admin/datastudent?email=" + email);

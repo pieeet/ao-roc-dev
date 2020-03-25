@@ -46,20 +46,20 @@ public class OverviewServlet extends HttpServlet {
         if (AuthUtils.isAdmin(user)) {
             if (req.getParameter("cohort") != null || req.getParameter("groep") != null) {
                 String sort = req.getParameter("sort");
-                boolean getSorted = sort.equals("true");
+
+                boolean getSorted = sort.equals("sort-asc") || sort.equals("sort-desc");
+                boolean ascending = sort.equals("sort-asc");
                 String cursorStart = req.getParameter("cursor");
                 if (cursorStart.equals("init")) cursorStart = null;
                 UsersWithPlanningResult<StandUpUser> result;
                 if (req.getParameter("cohort") != null) {
                     int cohort = Integer.parseInt(req.getParameter("cohort"));
-
-
                     result = DataUtils
-                            .getUsersWithLatestPlanning(cohort, null, cursorStart, getSorted);
+                            .getUsersWithLatestPlanning(cohort, null, cursorStart, getSorted, ascending);
                 } else {
                     String groep = req.getParameter("groep");
                     result = DataUtils
-                            .getUsersWithLatestPlanning(0, groep, cursorStart, getSorted);
+                            .getUsersWithLatestPlanning(0, groep, cursorStart, getSorted, ascending);
                 }
                 ArrayList<StandUpUser> users = (ArrayList<StandUpUser>) result.result;
                 String cursorNew = "null";

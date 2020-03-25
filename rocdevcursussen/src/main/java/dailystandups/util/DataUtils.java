@@ -151,7 +151,7 @@ public class DataUtils {
     }
 
     public static UsersWithPlanningResult<StandUpUser> getUsersWithLatestPlanning(
-            int cohort, String groep, String startCursorString, boolean getSortedOnDate) {
+            int cohort, String groep, String startCursorString, boolean getSortedOnDate, boolean ascending) {
         final int PAGE_SIZE = 10;
         FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
         if (startCursorString != null && !startCursorString.equals("")) {
@@ -171,12 +171,15 @@ public class DataUtils {
         Query.CompositeFilter compositeFilter = Query.CompositeFilterOperator.and(groepFilter, statusFilter);
 
         String sortOrder = PROPERTY_NAAM;
+        Query.SortDirection direction = Query.SortDirection.ASCENDING;
         if (getSortedOnDate) {
             sortOrder = PROPERTY_LATEST_PLANNING_ID;
+            if (!ascending) {
+                direction = Query.SortDirection.DESCENDING;
+            }
         }
-
         Query q = new Query(KIND_USER).addSort(sortOrder,
-                Query.SortDirection.ASCENDING).setFilter(compositeFilter);
+                direction).setFilter(compositeFilter);
         PreparedQuery pq = datastore.prepare(q);
         QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
         for (Entity entity : results) {

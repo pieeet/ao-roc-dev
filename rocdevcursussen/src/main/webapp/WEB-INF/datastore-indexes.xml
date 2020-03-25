@@ -69,5 +69,18 @@
         <property name="laatste_planning" direction="asc"/>
     </datastore-index>
 
+    <datastore-index kind="StandUpUser" ancestor="false" source="manual">
+        <property name="cohort" direction="asc"/>
+        <property name="status" direction="asc"/>
+        <property name="laatste_planning" direction="desc"/>
+    </datastore-index>
+    <datastore-index kind="StandUpUser" ancestor="false" source="manual">
+        <property name="groep" direction="asc"/>
+        <property name="status" direction="asc"/>
+        <property name="laatste_planning" direction="desc"/>
+    </datastore-index>
+
+
+
 
 </datastore-indexes>
