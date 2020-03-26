@@ -143,6 +143,10 @@
                             <ul class="dropdown-menu">
                                 <li class="menu-item menu-sub-item" id="menu-item-jsp"><a
                                         href="/AO/jsp/deel1">JSP</a></li>
+
+<%--                                PHP under construction--%>
+<%--                                <li class="menu-item menu-sub-item" id="menu-item-php"><a--%>
+<%--                                        href="/AO/php/php1">PHP</a></li>--%>
                                 <%--<li class="menu-item menu-sub-item" id="menu-item-php"><a--%>
                                         <%--href="/AO/php/php1">PHP</a></li>--%>
                                 <li class="menu-item menu-sub-item" id="menu-item-jquery"><a

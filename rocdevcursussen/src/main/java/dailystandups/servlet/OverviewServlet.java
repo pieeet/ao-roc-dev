@@ -99,7 +99,7 @@ public class OverviewServlet extends HttpServlet {
                     .append(user.getNaamEsc())
                     .append("<br>").append(user.getHuidigePlanning().getEntryDateFormat()).append("</td>")
                     .append("<td>").append(maakTicketString(ticketsLaatstePlanning)).append("</td>")
-                    .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
+//                    .append("<td>").append(user.getHuidigePlanning().getBelemmeringenEsc()).append("</td>")
                     .append("</tr>");
         }
         return html.toString();

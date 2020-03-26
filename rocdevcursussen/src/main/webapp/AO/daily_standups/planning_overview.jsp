@@ -71,7 +71,7 @@
                     <tr>
                         <th>Naam/tijd</th>
                         <th>Planning</th>
-                        <th>Hulp nodig</th>
+<%--                        <th>Hulp nodig</th>--%>
                     </tr>
                     </thead>
                     <tbody id="tbody">

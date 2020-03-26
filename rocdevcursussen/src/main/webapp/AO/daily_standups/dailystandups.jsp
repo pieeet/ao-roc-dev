@@ -342,19 +342,15 @@
                     </div>
                 </div>
                 <h3>Heb je hulp nodig?</h3>
-                <p>Geef hier aan of je problemen verwacht. Zijn er nog zaken die je niet begrijpt of nog niet hebt
-                    geoefend.
-                    Heb je hulp nodig van een docent? Met andere woorden: Geef aan of er zaken zijn waar je hulp bij
-                    nodig
-                    hebt.</p>
-                <div class="form-group">
-                    <label for="hulp_nodig">Waar heb je hulp bij nodig? </label>
-                    <textarea class="form-control" id="hulp_nodig" name="hulp_nodig"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="stuur_email" value="Ja"> Stuur een email met je hulpvraag naar je
-                    docenten
-                </div>
+                <p>Als je ergens niet uit komt kun je terecht op <a href="/AO/planning/hulpvraag">hulpvraag</a>.</p>
+<%--                <div class="form-group">--%>
+<%--                    <label for="hulp_nodig">Waar heb je hulp bij nodig? </label>--%>
+<%--                    <textarea class="form-control" id="hulp_nodig" name="hulp_nodig"></textarea>--%>
+<%--                </div>--%>
+<%--                <div class="form-group">--%>
+<%--                    <input type="checkbox" name="stuur_email" value="Ja"> Stuur een email met je hulpvraag naar je--%>
+<%--                    docenten--%>
+<%--                </div>--%>
 
                 <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
                         id="submit_planning_btn">Submit

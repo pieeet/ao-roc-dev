@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +46,13 @@
 <body>
 
 
+
+
+
+
+
+
+
 <!--Titelbalk pagina -->
 <div id="header">
     <div class="container">
@@ -60,9 +77,10 @@
         <div class="col-md-3">
             <!-- gebruikersnaam en log uit -->
             <p class="loguit"><span id="username">pdevries</span>:
-                <a href="https://ao.roc-dev.com/_ah/logout?continue=https://accounts.google.com/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://google.com/url%25253Fsa%25253DD%252526q%25253Dhttps://accounts.google.com/a/roc-dev.com/ServiceLogin%2525253Fservice%2525253Dah%25252526passive%2525253Dtrue%25252526continue%2525253Dhttps://appengine.google.com/_ah/conflogin%252525253Fcontinue%252525253Dhttps://ao.roc-dev.com/AO/daily_standups/dailystandups.jsp%252526ust%25253D1584881363889413%252526usg%25253DAFQjCNG2xsZLhBftS-j31mVJGNti6Pbx2g%26service%3Dah">afmelden</a>
+                <a href="https://ao.roc-dev.com/_ah/logout?continue=https://accounts.google.com/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://google.com/url%25253Fsa%25253DD%252526q%25253Dhttps://accounts.google.com/a/roc-dev.com/ServiceLogin%2525253Fservice%2525253Dah%25252526passive%2525253Dtrue%25252526continue%2525253Dhttps://appengine.google.com/_ah/conflogin%252525253Fcontinue%252525253Dhttps://ao.roc-dev.com/AO/daily_standups/hulpvraag.jsp%252526ust%25253D1585316092165373%252526usg%25253DAFQjCNH3UrIsJCIoOpOxhQcXfuxGchJQCg%26service%3Dah">afmelden</a>
             </p>
         </div>
+
 
 
     </div>
@@ -117,8 +135,14 @@
                                         href="/AO/jsp/deel1">JSP</a></li>
 
 
+
+
+
+
                                 <li class="menu-item menu-sub-item" id="menu-item-jquery"><a
                                         href="/AO/jquery/jquery1">JQuery</a></li>
+
+
 
 
                                 <li class="menu-item menu-sub-item" id="menu-item-mobile-web-specialist"><a
@@ -150,6 +174,8 @@
                                         target="_blank">Android certification by Google</a></li>
 
 
+
+
                             </ul>
                         </li>
                         <li class="menu-item" id="menu-item-examen"><a
@@ -171,13 +197,14 @@
 
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-history"><a
-                                        href="/AO/planning/studentplanningen?email=pdevries@roc-dev.com">Overzicht</a>
-                                </li>
+                                        href="/AO/planning/studentplanningen?email=pdevries@roc-dev.com">Overzicht</a></li>
+
 
 
                                 <li class="menu-item menu-sub-item"
                                     id="menu-item-planning-admin"><a
                                         href="/AO/planning/admin">Admin</a></li>
+
 
 
                             </ul>
@@ -194,564 +221,188 @@
 </div>
 
 <div class="container">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <h1>Planningsformulier</h1>
-        <p>In dit formulier geef je aan wat je afgelopen week hebt gedaan en wat je de komende week wilt gaan doen.</p>
-        <form role="form" id="planning_form">
-            <div class="row">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Maak Hulp-Ticket</h2>
+            <p>Soms zijn er zoveel vragen dat er een soort file ontstaat. Om dit een beetje in goede banen te leiden
+                kun je een ticket maken, Tickets worden zoveel mogelijk op volgorde behandeld op basis van &quot;first
+                come first serve&quot;. Als je nog even moet wachten blijf dan zelf proberen om je probleem op te
+                lossen.
+                Probeer te googlen, vraag je medestudenten etc. Problemen oplossen is &eacute;&eacute;n van de
+                belangrijkste
+                kwaliteiten van een software developer.</p>
+
+            <form role="form" id="hulpvraag-form">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="groep_kiezer">Groep</label>
-                        <select class="form-control required" id="groep_kiezer" name="groep_kiezer">
+                        <label for="vak_kiezer">Vak</label>
+                        <select class="form-control required" id="vak_kiezer" name="vak_kiezer">
+                            <option value="0" selected>Kies...</option>
 
-                            <option value="MMVAO5A">MMVAO5A
+                            <option value="Android Basics 01 - User Interface">Android Basics 01 - User Interface
                             </option>
 
-
-                            <option value="MMVAO9D">MMVAO9D
+                            <option value="Android Basics 02 - User Input">Android Basics 02 - User Input
                             </option>
 
-                            <option value="MMVAO9C">MMVAO9C
+                            <option value="Android Basics 03 - Multi Screen Apps">Android Basics 03 - Multi Screen Apps
                             </option>
 
-                            <option value="MMVAO9B">MMVAO9B
+                            <option value="Android Basics 04 - Networking">Android Basics 04 - Networking
                             </option>
 
-                            <option value="MMVAO9A">MMVAO9A
+                            <option value="Android Basics 05 - Data Storage">Android Basics 05 - Data Storage
                             </option>
 
-                            <option value="MMVAO8C">MMVAO8C
+                            <option value="BPV">BPV
                             </option>
 
-                            <option value="MMVAO8B">MMVAO8B
+                            <option value="Bootstrap">Bootstrap
                             </option>
 
-                            <option value="MMVAO8A">MMVAO8A
+                            <option value="Database Normaliseren lj 1">Database Normaliseren lj 1
                             </option>
 
-                            <option value="MMVAO7B">MMVAO7B
+                            <option value="Database SQL lj 1">Database SQL lj 1
                             </option>
 
-                            <option value="MMVAO7A">MMVAO7A
+                            <option value="Engels eerste jaar B1">Engels eerste jaar B1
                             </option>
 
-                            <option value="MMVAO6C">MMVAO6C
+                            <option value="Engels eerste jaar B2">Engels eerste jaar B2
                             </option>
 
-                            <option value="MMVAO6A">MMVAO6A
+                            <option value="Engels tweede jaar ">Engels tweede jaar
                             </option>
 
-                            <option value="MMVAO5A">MMVAO5A
+                            <option value="Examentraining">Examentraining
                             </option>
+
+                            <option value="Greenfoot">Greenfoot
+                            </option>
+
+                            <option value="HTML5">HTML5
+                            </option>
+
+                            <option value="Inleiding Java">Inleiding Java
+                            </option>
+
+                            <option value="Inleiding Java bijspijkercursus">Inleiding Java bijspijkercursus
+                            </option>
+
+                            <option value="JQuery">JQuery
+                            </option>
+
+                            <option value="JSP & Databases">JSP & Databases
+                            </option>
+
+                            <option value="Javascript">Javascript
+                            </option>
+
+                            <option value="Keuzedeel digitale vaardigheden">Keuzedeel digitale vaardigheden
+                            </option>
+
+                            <option value="Keuzedeel veilig programmeren">Keuzedeel veilig programmeren
+                            </option>
+
+                            <option value="Keuzedeel verdieping software">Keuzedeel verdieping software
+                            </option>
+
+                            <option value="Loopbaan en  Burgerschap">Loopbaan en  Burgerschap
+                            </option>
+
+                            <option value="Nederlands eerste jaar 3F ">Nederlands eerste jaar 3F
+                            </option>
+
+                            <option value="Nederlands tweede jaar 3F">Nederlands tweede jaar 3F
+                            </option>
+
+                            <option value="PHP">PHP
+                            </option>
+
+                            <option value="PHP & MySQL: Nieuwsbrief Webapp">PHP & MySQL: Nieuwsbrief Webapp
+                            </option>
+
+                            <option value="PHP (Object Georiënteerd)">PHP (Object Georiënteerd)
+                            </option>
+
+                            <option value="Project/Overig">Project/Overig
+                            </option>
+
+                            <option value="Raspberry Pi">Raspberry Pi
+                            </option>
+
+                            <option value="Rekenen 2F">Rekenen 2F
+                            </option>
+
+                            <option value="Rekenen 3F">Rekenen 3F
+                            </option>
+
+                            <option value="SVG">SVG
+                            </option>
+
+                            <option value="Smart Industry - Lego Education V3 Basis">Smart Industry - Lego Education V3 Basis
+                            </option>
+
+                            <option value="Voorbereiding examen">Voorbereiding examen
+                            </option>
+
+                            <option value="nigel">nigel
+                            </option>
+
 
                         </select>
+                        <p class="error" id="vak-warning" hidden>Kies een vak</p>
+                        <small class="form-text text-muted">Als het niet om een specifiek vak gaat kies je
+                            Project/Overig.</small>
+
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="naam_input">Naam</label>
-
-                        <input class="form-control required" id="naam_input" name="naam_input"
-                               value="Piet de Vries">
-
-                    </div>
-                </div>
-            </div>
-            <h2>Huidige planning</h2>
-            <div class="bs-callout bs-callout-warning">
-
-
-                <p>Datum ingevuld: 21-03-2020 12:52
-                </p>
-                <h3>Tickets</h3>
-
-                <ul>
-
-                    <li>Database Normaliseren lj 1 - DBNO001 - 4 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO005 - 2 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO010 - 2 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO015 - 3 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO020 - 3 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO025 - 3 punten<br>
-
-
-                    </li>
-
-                    <li>Database Normaliseren lj 1 - DBNO030 - 3 punten<br>
-
-
-                    </li>
-
-                </ul>
-                <br>
-                <button type="button"
-                        class="btn btn-primary btn-sm btn-warning" id="btn_add_tickets"
-                        data-planning_id="1584791529241">Voeg ticket aan planning toe
-                </button>
-
-
-            </div>
-
-
-            <div id="add_tickets_ticket_kiezer_wrapper" class="hidden">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Voeg ticket aan huidige planning toe</h2>
-                        <label for="add_ticket_select_vak">Kies vak</label>
-                        <select id="add_ticket_select_vak" class="ignore">
-                            <option value="">Kies...</option>
-
-                            <option value="5757334940811264" data-naam_vak="Android Basics 01 - User Interface">Android
-                                Basics 01 - User Interface
-                            </option>
-
-                            <option value="5154321532452864" data-naam_vak="Android Basics 02 - User Input">Android
-                                Basics 02 - User Input
-                            </option>
-
-                            <option value="5089836356599808" data-naam_vak="Android Basics 03 - Multi Screen Apps">
-                                Android Basics 03 - Multi Screen Apps
-                            </option>
-
-                            <option value="4875722304782336" data-naam_vak="Android Basics 04 - Networking">Android
-                                Basics 04 - Networking
-                            </option>
-
-                            <option value="5093108584808448" data-naam_vak="Android Basics 05 - Data Storage">Android
-                                Basics 05 - Data Storage
-                            </option>
-
-                            <option value="5720605454237696" data-naam_vak="BPV">BPV
-                            </option>
-
-                            <option value="5183105597964288" data-naam_vak="Bootstrap">Bootstrap
-                            </option>
-
-                            <option value="5752754626625536" data-naam_vak="Database Normaliseren lj 1">Database
-                                Normaliseren lj 1
-                            </option>
-
-                            <option value="5176769984331776" data-naam_vak="Database SQL lj 1">Database SQL lj 1
-                            </option>
-
-                            <option value="5682835167903744" data-naam_vak="Engels eerste jaar B1">Engels eerste jaar B1
-                            </option>
-
-                            <option value="5635178915430400" data-naam_vak="Engels eerste jaar B2">Engels eerste jaar B2
-                            </option>
-
-                            <option value="5207162372489216" data-naam_vak="Engels tweede jaar ">Engels tweede jaar
-                            </option>
-
-                            <option value="5684453372329984" data-naam_vak="Examentraining">Examentraining
-                            </option>
-
-                            <option value="5687539843203072" data-naam_vak="Greenfoot">Greenfoot
-                            </option>
-
-                            <option value="5676073085829120" data-naam_vak="HTML5">HTML5
-                            </option>
-
-                            <option value="5629499534213120" data-naam_vak="Inleiding Java">Inleiding Java
-                            </option>
-
-                            <option value="5758041588760576" data-naam_vak="Inleiding Java bijspijkercursus">Inleiding
-                                Java bijspijkercursus
-                            </option>
-
-                            <option value="5759180434571264" data-naam_vak="JQuery">JQuery
-                            </option>
-
-                            <option value="5716064197410816" data-naam_vak="JSP & Databases">JSP & Databases
-                            </option>
-
-                            <option value="5746055551385600" data-naam_vak="Javascript">Javascript
-                            </option>
-
-                            <option value="5756596743307264" data-naam_vak="Keuzedeel digitale vaardigheden">Keuzedeel
-                                digitale vaardigheden
-                            </option>
-
-                            <option value="5670205581688832" data-naam_vak="Loopbaan en  Burgerschap">Loopbaan en
-                                Burgerschap
-                            </option>
-
-                            <option value="5644804507566080" data-naam_vak="Nederlands eerste jaar 3F ">Nederlands
-                                eerste jaar 3F
-                            </option>
-
-                            <option value="5666557241851904" data-naam_vak="Nederlands tweede jaar 3F">Nederlands tweede
-                                jaar 3F
-                            </option>
-
-                            <option value="5692462144159744" data-naam_vak="PHP">PHP
-                            </option>
-
-                            <option value="5146308859920384" data-naam_vak="PHP & MySQL: Nieuwsbrief Webapp">PHP &
-                                MySQL: Nieuwsbrief Webapp
-                            </option>
-
-                            <option value="5732988239216640" data-naam_vak="PHP (Object Georiënteerd)">PHP (Object
-                                Georiënteerd)
-                            </option>
-
-                            <option value="5762637883244544" data-naam_vak="Project/Overig">Project/Overig
-                            </option>
-
-                            <option value="5076324926357504" data-naam_vak="Raspberry Pi">Raspberry Pi
-                            </option>
-
-                            <option value="5665214393483264" data-naam_vak="Rekenen 2F">Rekenen 2F
-                            </option>
-
-                            <option value="5676469221064704" data-naam_vak="Rekenen 3F">Rekenen 3F
-                            </option>
-
-                            <option value="5673953041317888" data-naam_vak="SVG">SVG
-                            </option>
-
-                            <option value="5081412810047488" data-naam_vak="Smart Industry - Lego Education V3 Basis">
-                                Smart Industry - Lego Education V3 Basis
-                            </option>
-
-                            <option value="5192474800685056" data-naam_vak="Veilig programmeren">Veilig programmeren
-                            </option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="loading_img_container hidden" id="add_ticket_loading_tickets">
-                    <img src="/images/ajax-loader.gif;jsessionid=ll6sw3a571uf13v86rm1pxpcf">
-                </div>
-                <div id="add_ticket_ticket_kiezer_wrapper" class="hidden">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Kies ticket</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="add_ticket_ticket_kiezer">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary btn-success btn-sm btn-block hidden"
-                                    id="add_ticket_btn_select_ticket">Voeg toe
-                            </button>
-                        </div>
+                        <label for="hulpvraag">Beschrijf je hulpvraag</label>
+                        <textarea class="form-control required" id="hulpvraag"
+                                  name="hulpvraag"></textarea>
+                        <p class="error" id="vraag-warning" hidden>Formuleer je vraag</p>
+                        <small class="form-text text-muted">Wees zo specifiek mogelijk. Dus welk hoofdstuk, welke
+                            opdracht
+                            etc.</small>
                     </div>
 
-
-                </div>
-
-                <div id="add_ticket_custom_ticket_maker" class="custom_ticket_maker hidden">
-                    <label for="add_ticket_naam_project_input">Naam project</label><br>
-                    <input id="add_ticket_naam_project_input" class="custom_ticket_input">
-                    <p class="error hidden" id="add_ticket_error_project_input">Geef een naam</p>
-                    <label for="add_ticket_ticket_beschrijving_input">Ticket omschrijving</label><br>
-                    <input id="add_ticket_ticket_beschrijving_input" class="custom_ticket_input">
-                    <p class="error hidden" id="add_ticket_error_omschrijving_ticket">Geef een
-                        beschrijvingTicket</p>
-                    <label for="add_ticket_aantal_uren_input">Inschatting aantal uren</label><br>
-                    <input type="number" id="add_ticket_aantal_uren_input" class="custom_ticket_input">
-                    <p class="error hidden" id="add_ticket_error_aantal_uren">Vul aantal uren in</p>
-                    <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
-                    <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
-                            id="add_ticket_btn_custom_ticket">Voeg toe
+                    <button type="button" class="btn btn-primary btn-success btn-lg btn-block"
+                            name="submit_hulpvraag_btn"
+                            id="submit_hulpvraag_btn">Submit
                     </button>
+
                 </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <h2>Openstaande tickets</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Email Student</th>
+                        <th>Vak</th>
+                        <th>Hulpvraag</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
+                    </tbody>
 
+                </table>
             </div>
 
-
-            <div id="planning-form_wrapper">
-                <h2>Planning afgelopen week</h2>
-                <p>Geef aan of je je aan je planning hebt kunnen houden. Probeer te bedenken waarom dat deze week
-                    juist wel of juist niet is gelukt. Als het niet is gelukt, hoe kwam dat dan en wat ga je doen om het
-                    volgende keer wel te laten lukken?</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="planning_gehaald">Heb je je planning gehaald?</label>
-                            <select class="form-control required" id="planning_gehaald" name="planning_gehaald">
-                                <option value="">Kiezen</option>
-                                <option value="Ja">Ja</option>
-                                <option value="Nee">Nee</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <label>Welke tickets heb je afgerond?</label><br>
-                <div id="tickets_checkbox">
-
-                    <input type="checkbox" class="ticket_checkbox" value="5187840530972672"
-                           title="DBNO001"> Database Normaliseren lj 1 - DBNO001 - 4 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="5676830073815040"
-                           title="DBNO005"> Database Normaliseren lj 1 - DBNO005 - 2 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="5638830484881408"
-                           title="DBNO010"> Database Normaliseren lj 1 - DBNO010 - 2 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="5124589889781760"
-                           title="DBNO015"> Database Normaliseren lj 1 - DBNO015 - 3 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="5132209967071232"
-                           title="DBNO020"> Database Normaliseren lj 1 - DBNO020 - 3 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="6230858037985280"
-                           title="DBNO025"> Database Normaliseren lj 1 - DBNO025 - 3 punten<br>
-
-                    <input type="checkbox" class="ticket_checkbox" value="6223930792607744"
-                           title="DBNO030"> Database Normaliseren lj 1 - DBNO030 - 3 punten<br>
-
-                </div>
-
-                <div class="form-group hidden" id="waarom_niet_gelukt_wrapper">
-                    <label for="waarom_niet_gelukt">Indien niet gehaald: waarom is het niet gelukt?</label>
-                    <textarea class="form-control required" id="waarom_niet_gelukt"
-                              name="waarom_niet_gelukt"></textarea>
-                </div>
-
-                <h2>Planning komende week</h2>
-                <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
-                    voor de AO vakken, dus exclusief de generieke vakken.</p>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label for="select_vak">Kies vak/project</label><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <select id="select_vak" class="ignore">
-                                <option value="">Kies...</option>
-
-                                <option value="5757334940811264"
-                                        data-naam_vak="Android Basics 01 - User Interface">Android Basics 01 - User
-                                    Interface
-                                </option>
-
-                                <option value="5154321532452864"
-                                        data-naam_vak="Android Basics 02 - User Input">Android Basics 02 - User Input
-                                </option>
-
-                                <option value="5089836356599808"
-                                        data-naam_vak="Android Basics 03 - Multi Screen Apps">Android Basics 03 - Multi
-                                    Screen Apps
-                                </option>
-
-                                <option value="4875722304782336"
-                                        data-naam_vak="Android Basics 04 - Networking">Android Basics 04 - Networking
-                                </option>
-
-                                <option value="5093108584808448"
-                                        data-naam_vak="Android Basics 05 - Data Storage">Android Basics 05 - Data
-                                    Storage
-                                </option>
-
-                                <option value="5720605454237696"
-                                        data-naam_vak="BPV">BPV
-                                </option>
-
-                                <option value="5183105597964288"
-                                        data-naam_vak="Bootstrap">Bootstrap
-                                </option>
-
-                                <option value="5752754626625536"
-                                        data-naam_vak="Database Normaliseren lj 1">Database Normaliseren lj 1
-                                </option>
-
-                                <option value="5176769984331776"
-                                        data-naam_vak="Database SQL lj 1">Database SQL lj 1
-                                </option>
-
-                                <option value="5682835167903744"
-                                        data-naam_vak="Engels eerste jaar B1">Engels eerste jaar B1
-                                </option>
-
-                                <option value="5635178915430400"
-                                        data-naam_vak="Engels eerste jaar B2">Engels eerste jaar B2
-                                </option>
-
-                                <option value="5207162372489216"
-                                        data-naam_vak="Engels tweede jaar ">Engels tweede jaar
-                                </option>
-
-                                <option value="5684453372329984"
-                                        data-naam_vak="Examentraining">Examentraining
-                                </option>
-
-                                <option value="5687539843203072"
-                                        data-naam_vak="Greenfoot">Greenfoot
-                                </option>
-
-                                <option value="5676073085829120"
-                                        data-naam_vak="HTML5">HTML5
-                                </option>
-
-                                <option value="5629499534213120"
-                                        data-naam_vak="Inleiding Java">Inleiding Java
-                                </option>
-
-                                <option value="5758041588760576"
-                                        data-naam_vak="Inleiding Java bijspijkercursus">Inleiding Java bijspijkercursus
-                                </option>
-
-                                <option value="5759180434571264"
-                                        data-naam_vak="JQuery">JQuery
-                                </option>
-
-                                <option value="5716064197410816"
-                                        data-naam_vak="JSP & Databases">JSP & Databases
-                                </option>
-
-                                <option value="5746055551385600"
-                                        data-naam_vak="Javascript">Javascript
-                                </option>
-
-                                <option value="5756596743307264"
-                                        data-naam_vak="Keuzedeel digitale vaardigheden">Keuzedeel digitale vaardigheden
-                                </option>
-
-                                <option value="5670205581688832"
-                                        data-naam_vak="Loopbaan en  Burgerschap">Loopbaan en Burgerschap
-                                </option>
-
-                                <option value="5644804507566080"
-                                        data-naam_vak="Nederlands eerste jaar 3F ">Nederlands eerste jaar 3F
-                                </option>
-
-                                <option value="5666557241851904"
-                                        data-naam_vak="Nederlands tweede jaar 3F">Nederlands tweede jaar 3F
-                                </option>
-
-                                <option value="5692462144159744"
-                                        data-naam_vak="PHP">PHP
-                                </option>
-
-                                <option value="5146308859920384"
-                                        data-naam_vak="PHP & MySQL: Nieuwsbrief Webapp">PHP & MySQL: Nieuwsbrief Webapp
-                                </option>
-
-                                <option value="5732988239216640"
-                                        data-naam_vak="PHP (Object Georiënteerd)">PHP (Object Georiënteerd)
-                                </option>
-
-                                <option value="5762637883244544"
-                                        data-naam_vak="Project/Overig">Project/Overig
-                                </option>
-
-                                <option value="5076324926357504"
-                                        data-naam_vak="Raspberry Pi">Raspberry Pi
-                                </option>
-
-                                <option value="5665214393483264"
-                                        data-naam_vak="Rekenen 2F">Rekenen 2F
-                                </option>
-
-                                <option value="5676469221064704"
-                                        data-naam_vak="Rekenen 3F">Rekenen 3F
-                                </option>
-
-                                <option value="5673953041317888"
-                                        data-naam_vak="SVG">SVG
-                                </option>
-
-                                <option value="5081412810047488"
-                                        data-naam_vak="Smart Industry - Lego Education V3 Basis">Smart Industry - Lego
-                                    Education V3 Basis
-                                </option>
-
-                                <option value="5192474800685056"
-                                        data-naam_vak="Veilig programmeren">Veilig programmeren
-                                </option>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="loading_img_container hidden" id="loading_tickets">
-                    <img src="/images/ajax-loader.gif;jsessionid=ll6sw3a571uf13v86rm1pxpcf">
-                </div>
-                <div id="ticket_kiezer_wrapper" class="hidden">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Kies ticket</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="ticket_kiezer">
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
-                                    id="btn_select_ticket">Voeg toe
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div id="custom_ticket_maker" class="hidden custom_ticket_maker">
-                    <label for="naam_project_input">Naam project</label><br>
-                    <input id="naam_project_input" class="custom_ticket_input">
-                    <p class="error hidden" id="error_project_input">Geef een naam</p>
-                    <label for="ticket_beschrijving_input">Ticket omschrijving</label><br>
-                    <input id="ticket_beschrijving_input" class="custom_ticket_input">
-                    <p class="error hidden" id="error_omschrijving_ticket">Geef een beschrijvingTicket</p>
-                    <label for="aantal_uren_input">Inschatting aantal uren</label><br>
-                    <input type="number" id="aantal_uren_input" class="custom_ticket_input">
-                    <p class="error hidden" id="error_aantal_uren">Vul aantal uren in</p>
-                    <p class="error">Vraag nadat je de ticket hebt ingediend een docent om akkoord te geven!</p>
-                    <button type="button" class="btn btn-primary btn-success btn-sm btn-block"
-                            id="btn_custom_ticket">Voeg toe
-                    </button>
-                </div>
-                <div id="tickets" class="hidden">
-                    <div class="bs-callout bs-callout-warning">
-                        <h2>Tickets komende week</h2>
-                        <p>Totaal punten geselecteerde tickets: <span id="totaal_uren">0</span></p>
-                        <h3>Tickets</h3>
-                        <ul id="tickets_list"></ul>
-                    </div>
-                </div>
-
-
-                <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
-                        id="submit_planning_btn">Submit
-                </button>
-            </div>
-        </form>
-        <div class="verzend-info"></div>
+        </div>
     </div>
 </div>
+
+<br><br><br><br><br>
 <div class="footer">
     <div class="container">
 
@@ -797,529 +448,69 @@
         });
     });
 </script>
+
 <script type="text/javascript">
-    $(document).ready(
-        function () {
-            $('html, body').animate({scrollTop: 0}, 500);
-            // avoid submit on enter key
-            $(window).keydown(function (event) {
-                if (13 === event.keyCode) {
-                    event.preventDefault();
-                    return false;
-                }
-            });
+    $(document).ready(function () {
+        const url = "/AO/planning/hulpvraag";
+        $("h1#page-title-heading").text("Hulp-Tickets");
+        let submit_btn = $("#submit_hulpvraag_btn");
+        submit_btn.click(function () {
+            submit_btn.attr("disabled", true);
+            submit_btn.text("...");
+            let vak = $("#vak_kiezer").val();
+            let vraag = $("#hulpvraag").val();
 
-            // refresh after > 1 hour no focus
-            let blurStartTime = 0;
-            $(window).on('blur', function () {
-                if (blurStartTime === 0) {
-                    blurStartTime = (new Date).getTime();
-                }
-            });
-            $(window).on('focus', function () {
-                if (blurStartTime > 0) {
-                    let timeElapsed = (new Date).getTime() - blurStartTime;
-                    if (timeElapsed > 1000 * 60 * 60) {
-                        location.reload(true);
-                    }
-                }
-            });
-
-            // configure your validation
-            $("#planning_form").validate({
-                rules: {
-                    groep_kiezer: {required: true},
-                    naam_input: {required: true},
-                    planning_gehaald: {required: true},
-                    waarom_niet_gelukt: {required: true}
-                },
-                messages: {
-                    groep_kiezer: {required: "Selecteer een groep"},
-                    naam_input: {required: "Vul je naam in"},
-                    planning_gehaald: {required: "Maak een keuze"},
-                    waarom_niet_gelukt: {required: "Geef een reden"}
-                },
-                submitHandler: function (form) {
-                    const url = "/AO/planning";
-                    let submitBtn = $("#submit_planning_btn");
-                    submitBtn.attr('disabled', 'disabled');
-                    let formData = $(form).serialize();
-                    let tickets = "";
-                    $("ul#tickets_list li").each(function () {
-                        tickets += '__' + $(this).data('ticket_id');
-                    });
-                    if (tickets === "") {
-                        alert("Kies minimaal een ticket");
-                        submitBtn.removeAttr('disabled');
-                    } else {
-                        formData += '&ticketIds=' + tickets;
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: formData,
-                            success: function (data) {
-                                location.reload(true);
-                            }
-                        });
-                    }
-                    return false; // override default submit
-                }
-            });
-            $("#select_vak").on('change', function () {
-                const selectVak = $("#select_vak");
-                if ($("#planning_gehaald").find(":selected").text() === "Kiezen") {
-                    selectVak.val("");
-                    alert("Geef eerst aan of je je planning hebt gehaald");
-                } else {
-                    const ticketKiezerWrapper = $("#ticket_kiezer_wrapper");
-                    const customTicketMaker = $("#custom_ticket_maker");
-                    let vakNaam = selectVak.find(':selected').data("naam_vak");
-                    if (vakNaam === "Project") {
-                        customTicketMaker.removeClass("hidden");
-                        if (!ticketKiezerWrapper.hasClass("hidden")) {
-                            ticketKiezerWrapper.addClass("hidden");
-                        }
-                    } else {
-                        if (!(customTicketMaker.hasClass("hidden"))) {
-                            customTicketMaker.addClass("hidden");
-                        }
-                        if (!(ticketKiezerWrapper.hasClass("hidden"))) {
-                            ticketKiezerWrapper.addClass("hidden");
-                        }
-                        const loaderImg = $("#loading_tickets");
-                        loaderImg.removeClass("hidden");
-                        let vakId = selectVak.val();
-                        const url = "/AO/planning";
-                        $.ajax({
-                            type: "GET",
-                            url: url,
-                            data: {vak: vakId},
-                            success: function (data) {
-                                $("#ticket_kiezer").html(data);
-                                if (!(loaderImg.hasClass("hidden"))) {
-                                    loaderImg.addClass("hidden");
-                                }
-                                ticketKiezerWrapper.removeClass('hidden');
-                                if (data.startsWith("<p>")) {
-                                    $("#btn_select_ticket").hide();
-                                } else {
-                                    $("#btn_select_ticket").show();
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-            // on function necessary for dynamically generated elements
-            $(document).on('click', '#btn_select_ticket', function () {
-                let ticketSelector = $("#ticket_selector");
-                let selectedItem = ticketSelector.find(':selected');
-                if (!(selectedItem.val() === "Kies")) {
-                    let vak = selectedItem.data("vak_naam");
-                    if (vak !== null) {
-                        let ticketCode = selectedItem.data("code");
-                        let ticketId = selectedItem.data("ticket_id");
-                        let urenTicket = selectedItem.data("uren");
-                        let tickets = $("#tickets_list li[data-ticket_id='" + ticketId + "']");
-                        if (tickets.length > 0) {
-                            alert("ticket is al geselecteerd");
-                        } else {
-                            $("#tickets_list").append('<li data-ticket_id=' + ticketId + '>' + vak +
-                                ' ' + ticketCode + ' ' + urenTicket + ' punten</li>');
-                            verhoogUren(urenTicket);
-                            $("#tickets").removeClass('hidden');
-
-                        }
-                        selectedItem.hide();
-                        ticketSelector.val("Kies");
-                    }
-                }
-            });
-
-
-            // [Start] Add ticket functionality
-            let current_planning_id = -1;
-            // add ticket to existing planning
-            $("#btn_add_tickets").click(function () {
-                current_planning_id = $(this).data('planning_id');
-                $("div#add_tickets_ticket_kiezer_wrapper").removeClass('hidden');
-                // $("div#planning-form_wrapper").addClass('hidden');
-            });
-
-            $(document).on('change', '#ticket_selector', function () {
-                const value = this.value;
-                if (value !== "Kies") {
-                    $('#add_ticket_btn_select_ticket').removeClass('hidden');
-                }
-            });
-
-            $("#add_ticket_select_vak").on('change', function () {
-                const selectVak = $("#add_ticket_select_vak");
-                const ticketKiezerWrapper = $("#add_ticket_ticket_kiezer_wrapper");
-                const customTicketMaker = $("#add_ticket_custom_ticket_maker");
-                let vakNaam = selectVak.find(':selected').data("naam_vak");
-                if (vakNaam === "Project") {
-                    customTicketMaker.removeClass("hidden");
-                    if (!ticketKiezerWrapper.hasClass("hidden")) {
-                        ticketKiezerWrapper.addClass("hidden");
-                    }
-                } else {
-                    if (!(customTicketMaker.hasClass("hidden"))) {
-                        customTicketMaker.addClass("hidden");
-                    }
-                    if (!(ticketKiezerWrapper.hasClass("hidden"))) {
-                        ticketKiezerWrapper.addClass("hidden");
-                    }
-                    const loaderImg = $("#add_ticket_loading_tickets");
-                    loaderImg.removeClass("hidden");
-                    let vakId = selectVak.val();
-                    const url = "/AO/planning";
-                    $.ajax({
-                        type: "GET",
-                        url: url,
-                        data: {vak: vakId},
-                        success: function (data) {
-                            $("#add_ticket_ticket_kiezer").html(data);
-                            if (!(loaderImg.hasClass("hidden"))) {
-                                loaderImg.addClass("hidden");
-                            }
-                            ticketKiezerWrapper.removeClass('hidden');
-                            if (data.startsWith("<p>")) {
-                                $("#btn_select_ticket").hide();
-                            } else {
-                                $("#btn_select_ticket").show();
-                            }
-                        }
-                    });
-                }
-            });
-
-            $(document).on('click', '#add_ticket_btn_select_ticket', function () {
-                const ticketId = $("#add_ticket_ticket_kiezer").find(':selected').data('ticket_id');
-                const url = "/AO/planning";
+            if (vak === "0") {
+                $("#vak-warning").removeAttr("hidden");
+                submit_btn.attr("disabled", false);
+                submit_btn.text("Submit");
+            } else if (vraag.length < 4) {
+                $("#vraag-warning").removeAttr("hidden");
+                submit_btn.attr("disabled", false);
+                submit_btn.text("Submit");
+            } else {
                 $.ajax({
                     type: "POST",
                     url: url,
                     data: {
-                        addTicket: true,
-                        ticketId: ticketId,
-                        planningId: current_planning_id
+                        vak: vak,
+                        vraag: vraag,
+                        submit_hulpvraag: ""
                     },
                     success: function (data) {
                         if (data === 'ok') {
                             setTimeout(function () {
-                                location.reload(true);
+                                location.reload();
                             }, 400);
                         } else {
                             alert(data);
                         }
                     }
                 });
-
-            });
-
-
-            $(document).on('click', '#add_ticket_btn_custom_ticket', function () {
-                let projectNaam = $("#add_ticket_naam_project_input").val();
-                if (projectNaam === "") {
-                    $("#add_ticket_error_project_input").removeClass("hidden");
-                    return;
-                } else {
-                    $("#add_ticket_error_project_input").addClass("hidden");
-                }
-                let ticketBeschrijving = $("#add_ticket_ticket_beschrijving_input").val();
-                if (ticketBeschrijving === "") {
-                    $("#add_ticket_error_omschrijving_ticket").removeClass('hidden');
-                    return;
-                } else {
-                    $("#add_ticket_error_omschrijving_ticket").addClass("hidden");
-                }
-                let aantalUur = $("#add_ticket_aantal_uren_input").val();
-                let aantalUurNumber = Math.ceil(aantalUur);
-                if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
-                    $("#add_ticket_error_aantal_uren").removeClass('hidden');
-                    return;
-                } else {
-                    $("#add_ticket_error_aantal_uren").addClass("hidden");
-                }
-                $("#add_ticket_custom_ticket_maker").find(".error").addClass('hidden');
-                const selectVak = $("#add_ticket_select_vak");
-                let vakId = selectVak.val();
-                let vak = selectVak.find(":selected").text();
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        addProjectTicket: "x",
-                        project_naam: projectNaam,
-                        beschrijving_ticket: ticketBeschrijving,
-                        aantal_uur: aantalUurNumber,
-                        vak_id: vakId,
-                        planningId: current_planning_id
-                    },
-                    success: function (data) {
-
-                        if (data === 'ok') {
-                            setTimeout(function () {
-                                location.reload(true);
-                            }, 400);
-                        } else {
-                            alert(data);
-                        }
-
-                    }
-                });
-            });
-
-
-            function verhoogUren(uren) {
-                let uurSpan = $("#totaal_uren");
-                let totaalUren = Number(uurSpan.text());
-                totaalUren += Number(uren);
-                uurSpan.text(totaalUren);
             }
-
-            $('#planning_gehaald').on('change', function () {
-                let keuze = this.value;
-                let ticketsCheckbox = $('#tickets_checkbox');
-                let hasTickets = ticketsCheckbox.find(':checkbox').length > 0;
-                if (keuze === "Ja") {
-                    ticketsCheckbox.find(':checkbox').prop('checked', true);
-                    ticketsCheckbox.find("input").each(function () {
-                        let ticketId = $(this).val();
-                        setTicketWelGehaald(ticketId);
-                    });
-                    $('#waarom_niet_gelukt_wrapper').addClass('hidden');
-                } else if (keuze === "Nee") {
-                    ticketsCheckbox.find(':checkbox').prop('checked', false);
-                    ticketsCheckbox.find("input").each(function () {
-                        let ticketId = $(this).val();
-                        setTicketNietGehaald(ticketId);
-                    });
-                    $('#waarom_niet_gelukt_wrapper').removeClass('hidden');
-                }
-                if (hasTickets) {
-                    checkPlanningGehaald();
+        });
+        $(".btn-delete").click(function () {
+            let btn = $(this);
+            btn.attr("disabled", true);
+            btn.text("...");
+            const id = btn.data('id');
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    delete_hulpvraag: "",
+                    id: id
+                },
+                success: function (data) {
+                    if (data === 'ok') {
+                        setTimeout(function () {
+                            location.reload();
+                        }, 400);
+                    } else {
+                        alert(data);
+                    }
                 }
             });
-            $('.ticket_checkbox').on('change', function () {
-                checkPlanningGehaald();
-                let ticketId = $(this).val();
-                const url = "/AO/planning";
-                if (this.checked) {
-                    setTicketWelGehaald(ticketId);
-                } else {
-                    setTicketNietGehaald(ticketId);
-                }
-
-            });
-
-            function setTicketNietGehaald(ticketId) {
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        change_ticket_afgerond: ticketId,
-                        mode: "set_niet_afgerond"
-                    },
-                    success: function (data) {
-                    }
-                });
-            }
-
-            function setTicketWelGehaald(ticketId) {
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        change_ticket_afgerond: ticketId,
-                        mode: "set_afgerond"
-                    },
-                    success: function (data) {
-
-                    }
-                });
-            }
-
-            function checkPlanningGehaald() {
-                let ticketsCheckbox = $('#tickets_checkbox');
-                let ticketCount = ticketsCheckbox.find('.ticket_checkbox').length;
-                // let ticketCount = ticketsCheckbox.children().length / 2; //break also counts
-                let checkedBoxes = ticketsCheckbox.find('input:checked').length;
-                if (checkedBoxes < ticketCount) {
-                    $('#planning_gehaald').val("Nee");
-                    $('#waarom_niet_gelukt_wrapper').removeClass('hidden');
-                } else {
-                    $('#planning_gehaald').val("Ja");
-                    $('#waarom_niet_gelukt_wrapper').addClass('hidden');
-                }
-            }
-
-            $(document).on('click', '#btn_custom_ticket', function () {
-                let projectNaam = $("#naam_project_input").val();
-                if (projectNaam === "") {
-                    $("#error_project_input").removeClass("hidden");
-                    return;
-                } else {
-                    $("#error_project_input").addClass("hidden");
-                }
-                let ticketBeschrijving = $("#ticket_beschrijving_input").val();
-                if (ticketBeschrijving === "") {
-                    $("#error_omschrijving_ticket").removeClass('hidden');
-                    return;
-                } else {
-                    $("#error_omschrijving_ticket").addClass("hidden");
-                }
-                let aantalUur = $("#aantal_uren_input").val();
-                let aantalUurNumber = Math.ceil(aantalUur);
-                if (isNaN(aantalUurNumber) || aantalUurNumber === 0) {
-                    $("#error_aantal_uren").removeClass('hidden');
-                    return;
-                } else {
-                    $("#error_aantal_uren").addClass("hidden");
-                }
-                $("#custom_ticket_maker").find(".error").addClass('hidden');
-                const selectVak = $("#select_vak");
-                let vakId = selectVak.val();
-                let vak = selectVak.find(":selected").text();
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        maak_project_ticket: "x",
-                        project_naam: projectNaam,
-                        beschrijving_ticket: ticketBeschrijving,
-                        aantal_uur: aantalUurNumber,
-                        vak_id: vakId
-                    },
-                    success: function (data) {
-                        $("#tickets_list").append('<li data-ticket_id=' + data + '>' + projectNaam +
-                            ' - ' + ticketBeschrijving + ' - ' + aantalUurNumber + ' punten</li>');
-                        verhoogUren(aantalUurNumber);
-                        $("#tickets").removeClass('hidden');
-                        $(".custom_ticket_input").val("");
-
-                    }
-                });
-            });
-
-            $(document).on('click', '.btn_update_ticket', function () {
-                const $button = $(this);
-                $button.attr('disabled', true);
-                const ticketId = $button.data('ticketid');
-                // fetch naam project
-                const naamProject = $('#update_naam_project_input_' + ticketId).val();
-                const errProject = $('#error_update_project_input_' + ticketId);
-                if (naamProject === "") {
-                    errProject.removeClass('hidden');
-                    $button.removeAttr("disabled");
-                    return;
-                } else {
-                    if (!errProject.hasClass('hidden'))
-                        errProject.addClass('hidden');
-
-                }
-                // fetch beschrijving
-                const beschrijving = $('#update_ticket_beschrijving_input_' + ticketId).val();
-                const errBeschrijving = $('#error_update_omschrijving_ticket_' + ticketId);
-                if (beschrijving === "") {
-                    errBeschrijving.removeClass('hidden');
-                    $button.removeAttr("disabled");
-                    return;
-                } else {
-                    if (!errBeschrijving.hasClass('hidden'))
-                        errBeschrijving.addClass('hidden');
-                }
-                // fetch aantal uren
-                let aantalUren = $('#update_aantal_uren_input_' + ticketId).val();
-                let aantalUrenNr = Math.ceil(aantalUren);
-                const errAantalUren = $('#error_update_aantal_uren_' + ticketId);
-                if (isNaN(aantalUrenNr) || aantalUrenNr < 1) {
-                    errAantalUren.removeClass('hidden');
-                    $button.removeAttr("disabled");
-                    return;
-                } else {
-                    if (!errAantalUren.hasClass('hidden')) {
-                        errAantalUren.addClass('hidden');
-                    }
-                }
-                const url = "/AO/planning";
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: {
-                        updateProjectTicket: "x",
-                        ticketId: ticketId,
-                        projectNaam: naamProject,
-                        beschrijvingTicket: beschrijving,
-                        aantalUur: aantalUrenNr
-                    },
-                    success: function (data) {
-                        if (data === 'ok') {
-                            setTimeout(function () {
-                                location.reload(true);
-                            }, 400);
-                        } else {
-                            alert("Er is iets mis gegaan");
-                            $button.removeAttr("disabled");
-                        }
-                    }
-                });
-            });
-        })
-    ;
+        });
+    });
 </script>
-<style>
-    #btn_select_ticket {
-        width: 8em;
-        margin-top: -.3em;
-    }
-
-    #submit_planning_btn {
-        margin-top: 2em;
-        margin-bottom: 2em;
-    }
-
-    select {
-        margin-bottom: .5em;
-    }
-
-    label {
-        margin-top: 1em;
-        font-weight: bold;
-    }
-
-    div.custom_ticket_maker input {
-        width: 100%;
-    }
-
-    button#btn_custom_ticket {
-        margin-top: 2em;
-    }
-
-    button#btn_select_ticket {
-        margin-top: .5em;
-    }
-
-    .modal label {
-        margin-top: 0;
-    }
-
-    .modal input {
-        width: 100%;
-    }
-
-    .btn-modal {
-        margin-top: .5em;
-    }
-
-    .modal-content {
-        background-color: #F9F9F9;
-    }
-
-</style>
-
