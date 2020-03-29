@@ -1,4 +1,4 @@
-package dailystandups.model;
+package dailystandups.result;
 
 import java.util.List;
 

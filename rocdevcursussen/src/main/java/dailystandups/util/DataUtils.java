@@ -2,6 +2,8 @@ package dailystandups.util;
 
 import com.google.appengine.api.datastore.*;
 import dailystandups.model.*;
+import dailystandups.result.PlanningsFromUserResult;
+import dailystandups.result.UsersWithPlanningResult;
 
 import java.util.*;
 
@@ -199,14 +201,21 @@ public class DataUtils {
     }
 
 
-    public static ArrayList<Planning> getPlanningenFromUser(String email) {
+    public static PlanningsFromUserResult<Planning> getPlanningenFromUser(String email, String startCursorString) {
+        final int PAGE_SIZE = 100;
+        FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGE_SIZE);
+        if (startCursorString != null && !startCursorString.equals("")) {
+            fetchOptions.startCursor(Cursor.fromWebSafeString(startCursorString));    // Where we left off
+        }
         ArrayList<Planning> planningen = new ArrayList<>();
         Key ancestorKey = KeyFactory.createKey(KIND_USER, email);
         Query q = new Query(KIND_PLANNING)
                 .setAncestor(ancestorKey)
                 .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
         PreparedQuery pq = datastore.prepare(q);
-        for (Entity entity : pq.asIterable()) {
+        QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
+
+        for (Entity entity : results) {
             Planning pv2 = makePlanningFromEntity(entity);
             List<Ticket> ticketsList = getTicketsFromPlanning(email, pv2.getId());
             Ticket[] tickets = new Ticket[ticketsList.size()];
@@ -214,7 +223,15 @@ public class DataUtils {
             pv2.setTickets(tickets);
             planningen.add(pv2);
         }
-        return planningen;
+
+        Cursor cursor = results.getCursor();
+
+        if (cursor != null && results.size() == PAGE_SIZE) {
+            String cursorString = cursor.toWebSafeString();
+            return new PlanningsFromUserResult<>(planningen, cursorString);
+        } else {
+            return new PlanningsFromUserResult<>(planningen);
+        }
     }
 
     public static void voegVakToe(Vak vak) {

@@ -3,7 +3,7 @@ package dailystandups.servlet;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.ProjectTicket;
-import dailystandups.model.UsersWithPlanningResult;
+import dailystandups.result.UsersWithPlanningResult;
 import dailystandups.util.AuthUtils;
 import dailystandups.util.DataUtils;
 import dailystandups.model.StandUpUser;

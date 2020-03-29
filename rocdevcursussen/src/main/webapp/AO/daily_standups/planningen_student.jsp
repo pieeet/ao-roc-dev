@@ -16,6 +16,7 @@
     @SuppressWarnings("unchecked")
     ArrayList<Ticket> afgerondeTickets = (ArrayList<Ticket>) request.getAttribute("afgerondetickets");
     StandUpUser standUpUser = (StandUpUser) request.getAttribute("standupuser");
+    String cursor = (String) request.getAttribute("cursor");
     if (planningen == null || standUpUser == null) {
         response.sendRedirect("/AO/planning");
     } else {
@@ -27,6 +28,8 @@
     <%--<%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>--%>
     <div class="row">
         <div class="col-md-12">
+<%--            TODO delete for production--%>
+            <p>Cursor: <%= cursor %></p>
             <h2>Afgeronde tickets <%=standUpUser.getNaamEsc()%>
             </h2>
             <div class="bs-callout bs-callout-succes">
@@ -70,6 +73,8 @@
         <div class="col-md-12">
             <div class="table-responsive" id="plannings_tabel">
                 <table class="table table-bordered table-condensed">
+                    <thead>
+
                     <tr>
                         <th>Datum/tijd</th>
                         <th>Tickets</th>
@@ -77,6 +82,8 @@
                         <th>Hulp nodig</th>
                         <th>Reden niet af</th>
                     </tr>
+                    </thead>
+                    <tbody id="table-body">
                     <%
                         for (Planning p : planningen) {
                             Ticket[] tickets = p.getTickets();
@@ -106,7 +113,21 @@
                     <%
                         }
                     %>
+                    </tbody>
+
+
                 </table>
+
+                <%
+                    if (cursor != null) {
+                %>
+
+                <button type="button" class="btn btn-primary btn-success" id="get-more-plannings"
+                        data-cursor="<%= cursor %>">Ouder</button>
+                <%
+                    }
+                %>
+
             </div>
         </div>
     </div>
