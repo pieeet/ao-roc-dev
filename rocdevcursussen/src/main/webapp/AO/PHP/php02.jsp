@@ -16,7 +16,7 @@
             <p>Na het bestuderen van dit hoofdstuk wordt van je verwacht dat
                 je:</p>
             <ul>
-                <li>verschillende data-typen kent zoals integer, string, boolean, array, associative array etc.</li>
+                <li>verschillende data-typen kent zoals integer, string, boolean, floating point (decimaal) etc.</li>
                 <li>weet wat autotyping is</li>
                 <li>weet hoe je variabelen kunt concateneren</li>
                 <li>kunt werken met verschillende operators zoals +, -, &lowast;, en modulus (%)</li>
@@ -68,7 +68,30 @@ echo $zin . $aantal_1 + $aantal_2;</pre>
 <span class="comment">//PHP converteert de uitkomst van de berekening naar een string.</span>
 echo $zin . ($aantal_1 + $aantal_2);</pre>
         <p>Dit laat zien dat PHP wel degelijk onderscheid maakt in data-typen.</p>
+        <h3>Rekenkundige operatoren</h3>
+        <p>Uiteraard kun je in php berekeningen uitvoeren. Hiervoor worden de gebruikelijke operatoren gebruikt. Voor een
+            overzicht zie de cursus <a href="/AO/inleiding-java/h6#rekenkundige-bewerkingen">inleiding java</a> </p>
+
+        <pre class="code">
+<span class="comment">// voorbeeld simpele rekensom</span>
+$getal1 = 5;
+$getal2 = 7;
+$product = $getal1 * $getal2; <span class="comment">// 35</span>
+echo "Het product = " . $product;
+<span class="comment">// voorbeeld unaire operator</span>
+$product /= $getal2;
+echo "Het product = " . $product; <span class="comment">// 5</span></pre>
+
+
     </div>
+
+
 </div>
 <%@ include file="/AO/PHP/includes/bottom.html" %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('li#php-02').addClass('selected');
+    })
+</script>
 </html>

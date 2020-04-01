@@ -99,5 +99,11 @@ display_errors = On
     </div>
 </div>
 <%@ include file="/AO/PHP/includes/bottom.html" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('li#php-01').addClass('selected');
+    })
+</script>
 </html>
 

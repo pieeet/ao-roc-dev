@@ -128,7 +128,7 @@ g.drawString(&quot;De uitkomst is: &quot; + <span class="codeplus">uitkomst</spa
 		<pre class="code">
 g.drawString(<span class="codeplus">&quot;&quot; + uitkomst</span>, 20, 20);
 </pre>
-		<h3>Rekenkundige bewerkingen</h3>
+		<h3 id="rekenkundige-bewerkingen">Rekenkundige bewerkingen</h3>
 			<table class="table table-bordered">
 				<tr>
 					<th>Operator</th>
