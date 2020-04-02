@@ -18,30 +18,16 @@ import java.util.Properties;
  */
 public class EmailUtils {
 
-    public static void sendEmailHulpNodig(StandUpUser user, String hulpvraag) {
-        try {
-            Properties props = new Properties();
-            Session session = Session.getDefaultInstance(props, null);
-            Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress(
-                    "pdevries@roc-dev.com", "Weekly Stand-ups"));
-            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
-                    "admins"));
-            msg.setSubject(user.getNaamEsc() + " heeft hulp nodig");
-            msg.setText(user.getNaamEsc() + " heeft hulp nodig bij het volgende:\n" + hulpvraag);
-            Transport.send(msg);
-        } catch (MessagingException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void sendEmailHulpvraag(User user, Hulpvraag hulpvraag) {
         try {
+            InternetAddress[] replyTos = {new InternetAddress(user.getEmail(), user.getEmail())};
             Properties props = new Properties();
             Session session = Session.getDefaultInstance(props, null);
             Message msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress(
                     "pdevries@roc-dev.com", "ROC-DEV"));
+            msg.setReplyTo(replyTos);
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     "admins"));
             msg.setSubject(user.getEmail() + " heeft een hulpvraag ingediend");

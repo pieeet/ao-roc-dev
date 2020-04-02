@@ -153,9 +153,6 @@ public class DailyStandUpServlet extends HttpServlet {
             //user wordt hier wél bewaard (isNew = true)
             DataUtils.saveUserAndPlanning(nieuwePlanning, true);
             resp.getWriter().print("ok");
-            if (req.getParameter("stuur_email") != null) {
-                EmailUtils.sendEmailHulpNodig(standUpUser, hulpvraag);
-            }
 
 //            [START] Tickets toevoegen aan bestaande planning
         } else if (req.getParameter("addTicket") != null) {
