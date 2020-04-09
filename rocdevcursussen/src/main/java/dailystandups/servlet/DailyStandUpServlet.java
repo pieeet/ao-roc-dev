@@ -177,7 +177,11 @@ public class DailyStandUpServlet extends HttpServlet {
         } else if (req.getParameter("addProjectTicket") != null) {
             String projectnaam = req.getParameter("project_naam");
             String beschrijvingTicket = req.getParameter("beschrijving_ticket");
-            int aantalUur = Integer.parseInt(req.getParameter("aantal_uur"));
+            int aantalUur = 0;
+            try {
+                aantalUur = Integer.parseInt(req.getParameter("aantal_uur"));
+            } catch (NumberFormatException ignored){}
+
             long vakId = Long.parseLong(req.getParameter("vak_id"));
             ProjectTicket projectTicket = new ProjectTicket(vakId, aantalUur, beschrijvingTicket, projectnaam);
             long ticketId = DataUtils.voegTicketToe(projectTicket);
@@ -200,6 +204,7 @@ public class DailyStandUpServlet extends HttpServlet {
             for (long l: afgerondeTickets) {
                 if (ticket.getId() == l) {
                     isAfgerond = true;
+                    break;
                 }
             }
             if (!isAfgerond) {
