@@ -28,6 +28,8 @@
                 Probeer te googlen, vraag je medestudenten etc. Problemen oplossen is &eacute;&eacute;n van de
                 belangrijkste
                 kwaliteiten van een software developer.</p>
+            <p><span class="error">Check geregeld je email nadat je een hulpvraag hebt ingediend!</span> Als je ticket niet langer
+            in de lijst voorkomt heeft een docent je een reactie gestuurd.</p>
 
             <form role="form" id="hulpvraag-form">
                 <div class="col-md-6">
