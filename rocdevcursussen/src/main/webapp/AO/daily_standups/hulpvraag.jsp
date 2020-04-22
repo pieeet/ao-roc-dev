@@ -158,9 +158,11 @@
                         },
                         success: function (data) {
                             if (data === 'ok') {
-                                setTimeout(function () {
+                                if (confirm("Je hulpvraag is verzonden. Houd je roc-dev mail in de gaten!!!")) {
                                     location.reload();
-                                }, 400);
+                                } else {
+                                    location.reload();
+                                }
                             } else {
                                 alert(data);
                             }
