@@ -28,6 +28,8 @@
         ArrayList<Vak> vakken = (ArrayList<Vak>) request.getAttribute("vakken");
 %>
 <%@ include file="/includes/pagetop-all.jsp" %>
+<div id="links" class="scale">Klik Submit</div>
+<div id="rechts" class="scale">Klik Submit</div>
 <div class="container">
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -848,6 +850,100 @@
     }
     .modal-content {
         background-color: #F9F9F9;
+    }
+    
+    @keyframes Spinner {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .scale {
+      animation: Scale 4s;
+      animation-iteration-count: infinite;
+    }
+
+    .spin {
+      animation: Spinner 2s;
+      animation-iteration-count: infinite;
+    }
+
+    #links {
+      display: none;
+      float: left;
+      margin-top: 650px;
+      margin-left: 5%;
+      border: 1px solid black;
+      padding: 25px;
+      font-size: 15px;
+      border-radius: 15px;
+      background-color: green;
+      color: white;
+    }
+
+    #rechts {
+      display: none;
+      float: right;
+      border: 1px solid black;
+      margin-top: 650px;
+      margin-right: 5%;
+      padding: 25px;
+      font-size: 15px;
+      border-radius: 15px;
+      background-color: green;
+      color: white;
+    }
+
+    @media all and (min-width: 1011px) {
+      #links {
+        display: block;
+      }
+      #rechts {
+        display: block;
+      }
+
+      @keyframes Scale {
+        from {
+          transform: scale(1);
+          background-color: red;
+        }
+        50% {
+          transform: scale(1.2);
+          background-color: orange;
+        }
+        to {
+          transform: scale(1);
+          background-color: green;
+        }
+      }
+    }
+
+    @media all and (min-width: 1511px) {
+      #links {
+        margin-left: 10%;
+      }
+
+      #rechts {
+        margin-right: 10%;
+      }
+
+      @keyframes Scale {
+        from {
+          transform: scale(1);
+          background-color: red;
+        }
+        50% {
+          transform: scale(2.5);
+          background-color: orange;
+        }
+        to {
+          transform: scale(1);
+          background-color: green;
+        }
+      }
     }
 </style>
 <%}%>
