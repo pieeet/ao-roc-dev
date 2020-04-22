@@ -354,7 +354,7 @@
 <%--                    docenten--%>
 <%--                </div>--%>
 
-                <button type="submit" class="btn btn-primary btn-success btn-lg btn-block" name="submit_planning_btn"
+                <button type="submit" class="btn btn-primary btn-success btn-lg btn-block spin" name="submit_planning_btn"
                         id="submit_planning_btn">Submit
                 </button>
             </div>
