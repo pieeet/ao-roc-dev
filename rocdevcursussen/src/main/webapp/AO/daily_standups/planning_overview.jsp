@@ -11,6 +11,7 @@
         response.sendRedirect("/AO/planningoverview");
 
     } else {
+        final int OUDSTE_GROEP = 2017;
 %>
 
 <%@ include file="/includes/pagetop-all.jsp" %>
@@ -34,11 +35,12 @@
                     <label for="cohort_kiezer">Cohort:</label>
                     <select class="form-control" id="cohort_kiezer" name="cohort_kiezer">
                         <option value="kies">Kiezen...</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
+                        <%--                        <option value="2015">2015</option>--%>
+                        <%--                        <option value="2016">2016</option>--%>
                         <option value="2017">2017</option>
                         <option value="2018">2018</option>
                         <option value="2019">2019</option>
+                        <option value="2020">2020</option>
                     </select>
                 </div>
             </form>
@@ -49,10 +51,12 @@
                         <option value="kies">Kiezen...</option>
                         <%
                             for (Groep g : Groep.values()) {
+                                if (g.getCohort() >= OUDSTE_GROEP) {
                         %>
                         <option value="<%= g.getNaam()%>"><%= g.getNaam()%>
                         </option>
                         <%
+                                }
                             }
                         %>
                     </select>
@@ -71,7 +75,7 @@
                     <tr>
                         <th>Naam/tijd</th>
                         <th>Planning</th>
-<%--                        <th>Hulp nodig</th>--%>
+                        <%--                        <th>Hulp nodig</th>--%>
                     </tr>
                     </thead>
                     <tbody id="tbody">
@@ -89,10 +93,7 @@
 </div>
 
 
-
-
 <%@ include file="/AO/daily_standups/includes/bottom.html" %>
-
 
 
 <script type="text/javascript">

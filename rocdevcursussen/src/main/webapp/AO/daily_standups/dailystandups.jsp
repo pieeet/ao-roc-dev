@@ -14,6 +14,9 @@
     if (request.getAttribute("fromservlet") == null) {
         response.sendRedirect("/AO/planning");
     } else {
+
+        final int OUDSTE_GROEP = 2017;
+
         Planning planning = (Planning) request.getAttribute("planning");
         StandUpUser standUpUser = (StandUpUser) request.getAttribute("standupuser");
         Ticket[] tickets = null;
@@ -49,10 +52,13 @@
                                 Groep[] groepen = Groep.values();
                                 Collections.reverse(Arrays.asList(groepen));
                                 for (Groep groep : groepen) {
+
+                                    if (groep.getCohort() >= OUDSTE_GROEP) {
                             %>
                             <option value="<%=groep.getNaam()%>"><%=groep.getNaam()%>
                             </option>
                             <%
+                                    }
                                 }
                             %>
                         </select>
