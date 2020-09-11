@@ -12,19 +12,19 @@ public class AuthUtils {
         String[] administrators = {
                 "pdevries@roc-dev.com",
                 "janjaap@roc-dev.com",
-                "tvanbeuningen@roc-dev.com",
-                "edirkse@roc-dev.com",
                 "test@example.com",
                 "jschmitz@roc-dev.com",
                 "flap@roc-dev.com",
                 "iwigger@roc-dev.com",
-                "hsnoep@roc-dev.com",
                 "gkramer@roc-dev.com",
                 "rkorswagen@roc-dev.com",
                 "avideva@roc-dev.com",
                 "cspier@roc-dev.com",
                 "mvangelder@roc-dev.com",
-                "lverbaas@roc-dev.com"
+                "mwijnands@roc-dev.com",
+                "rdorr@roc-dev.com",
+                "joosterink@roc-dev.com"
+
         };
         boolean isAdmin = false;
         for (String s: administrators) {
