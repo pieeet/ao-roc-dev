@@ -867,5 +867,16 @@
     </servlet-mapping>
 
 
+<!--    API-->
+    <servlet>
+        <servlet-name>API</servlet-name>
+        <servlet-class>dailystandups.servlet.Api</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>API</servlet-name>
+        <url-pattern>/api</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

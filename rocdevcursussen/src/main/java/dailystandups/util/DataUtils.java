@@ -1,8 +1,14 @@
 package dailystandups.util;
 
 import com.google.appengine.api.datastore.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import dailystandups.model.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -572,5 +578,39 @@ public class DataUtils {
             e.printStackTrace();
         }
     }
+
+
+    // API
+
+    public static JSONObject getPlanningenFromCohort(int cohort) throws JSONException {
+        JSONObject jso = new JSONObject();
+
+        Query.Filter cohortFilter = new Query.FilterPredicate(PROPERTY_COHORT, Query.FilterOperator.EQUAL,
+                cohort);
+        Query q = new Query(KIND_USER).setFilter(cohortFilter).setKeysOnly();
+        PreparedQuery pq = datastore.prepare(q);
+        for (Entity entity : pq.asIterable()) {
+            JSONObject jsouser = new JSONObject();
+            Key key = entity.getKey();
+            String email = key.getName();
+
+
+            Key ancestorKey = KeyFactory.createKey(KIND_USER, email);
+            Query q2 = new Query(KIND_PLANNING)
+                    .setAncestor(ancestorKey)
+                    .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
+            PreparedQuery pq2 = datastore.prepare(q2);
+            JSONArray planningdata = new JSONArray();
+            for (Entity ent : pq2.asIterable()) {
+                Planning pv2 = makePlanningFromEntity(ent);
+                planningdata.put(pv2.getEntryDate().toString());
+            }
+            jsouser.put("email", email);
+            jsouser.put("planningdata", planningdata);
+            jso.put(email, jsouser);
+        }
+        return jso;
+    }
+
 }
 

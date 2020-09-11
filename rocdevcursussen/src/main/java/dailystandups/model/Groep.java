@@ -62,7 +62,20 @@ public enum Groep {
     ),
     MMVAO9D("MMVAO9D",
             2019,
-            "AO");
+            "AO"
+    ),
+    MMVAO0A("MMVAO0A",
+            2020,
+            "AO"
+            ),
+    MMVAO0B("MMVAO0B",
+            2020,
+            "AO"
+    ),
+    MMVAO0C("MMVAO0C",
+            2020,
+            "AO"
+    );
 
 
     private String naam;
