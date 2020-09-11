@@ -587,7 +587,11 @@ public class DataUtils {
 
         Query.Filter cohortFilter = new Query.FilterPredicate(PROPERTY_COHORT, Query.FilterOperator.EQUAL,
                 cohort);
-        Query q = new Query(KIND_USER).setFilter(cohortFilter).setKeysOnly();
+        Query.Filter statusFilter = new Query.FilterPredicate(PROPERTY_STATUS, Query.FilterOperator.EQUAL,
+                StandUpUser.STATUS_ACTIEF);
+        Query.CompositeFilter compositeFilter = Query.CompositeFilterOperator.and(cohortFilter, statusFilter);
+
+        Query q = new Query(KIND_USER).setFilter(compositeFilter).setKeysOnly();
         PreparedQuery pq = datastore.prepare(q);
         for (Entity entity : pq.asIterable()) {
             JSONObject jsouser = new JSONObject();
