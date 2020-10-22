@@ -214,7 +214,7 @@ public class DailyStandUpServlet extends HttpServlet {
         if (nietAfgerondeTickets.isEmpty()) {
             return "<p>Je hebt alle tickets afgerond</p>";
         } else {
-            StringBuilder html = new StringBuilder("<select id=\"ticket_selector\" class=\"ignore\">" +
+            StringBuilder html = new StringBuilder("<select class=\"form-control\" id=\"ticket_selector\" class=\"ignore\">" +
                     "<option value=\"Kies\">Kies ticket...</option>");
             for (Ticket ticket: nietAfgerondeTickets) {
                 html.append("<option value=\"").append(ticket.getCodeTicket())

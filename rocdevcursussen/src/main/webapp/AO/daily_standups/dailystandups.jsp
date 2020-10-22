@@ -287,19 +287,24 @@
                 <p>Voeg tickets toe. Voor een goed studieresultaat moet je ongeveer gemiddeld 25 punten per week halen
                     voor de AO vakken, dus exclusief de generieke vakken.</p>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label for="select_vak">Kies vak/project</label><br>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <select id="select_vak" class="ignore">
-                            <option value="">Kies...</option>
-                            <%for (Vak vak : vakken) {%>
-                            <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
-                            </option>
-                            <%}%>
-                        </select>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <select class="form-control" id="select_vak" class="ignore">
+                                <option value="">Kies...</option>
+                                <%for (Vak vak : vakken) {%>
+                                <option value="<%= vak.getId() %>" data-naam_vak="<%=vak.getNaam()%>"><%= vak.getNaam() %>
+                                </option>
+                                <%}%>
+                            </select>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="loading_img_container hidden" id="loading_tickets">
@@ -312,9 +317,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12" id="ticket_kiezer">
+                        <div class="form-group">
+                            <div class="col-md-12" id="ticket_kiezer">
 
+                            </div>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-12">
