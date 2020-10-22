@@ -74,7 +74,7 @@
                         <th>Datum/tijd</th>
                         <th>Tickets</th>
                         <th>Nog te doen</th>
-                        <th>Hulp nodig</th>
+<%--                        <th>Hulp nodig</th>--%>
                         <th>Reden niet af</th>
                     </tr>
                     <%
@@ -98,8 +98,8 @@
                         </td>
                         <td><%=ticketsNietAf.toString()%>
                         </td>
-                        <td><%=p.getBelemmeringenEsc()%>
-                        </td>
+<%--                        <td><%=p.getBelemmeringenEsc()%>--%>
+<%--                        </td>--%>
                         <td><%=p.getRedenNietAfEsc()%>
                         </td>
                     </tr>
