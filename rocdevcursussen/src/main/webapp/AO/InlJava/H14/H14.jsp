@@ -150,8 +150,8 @@ public class Afbeelding extends Applet {
 	
     public void init() {
         <span class="comment">/* uitgangspunt is dat de package &quot;resources&quot;
-                in dezelfde package zit als de java klasse*/</span>
-        pad = <span class="codeplus">Afbeelding.class.getResource(&quot;./resources/&quot;)</span>
+                in src map zit. De naam Afbeelding verwijst naar de naam van de klasse */</span>
+        pad = <span class="codeplus">Afbeelding.class.getResource(&quot;/resources/&quot;)</span>
         afbeelding = <span class="codeplus">getImage(pad, &quot;Afbeelding.gif&quot;);</span>		
     }
 
@@ -221,8 +221,8 @@ public class LoadAndPlay extends Applet {
     public void init() {
 
         <span class="comment">/* uitgangspunt is dat de package &quot;resources&quot;
-                in dezelfde package zit als de java klasse*/</span>
-        pad = <span class="codeplus">LoadAndPlay.class.getResource(&quot;./resources/&quot;)</span>
+                in de src map zit */</span>
+        pad = <span class="codeplus">LoadAndPlay.class.getResource(&quot;/resources/&quot;)</span>
         sound = <span class="codeplus">getAudioClip(pad, &quot;scream.wav&quot;);</span>
         		
     }
