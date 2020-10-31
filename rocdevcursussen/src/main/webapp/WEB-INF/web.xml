@@ -878,5 +878,17 @@
     </servlet-mapping>
 
 
+<!--    Open dag-->
+
+    <servlet>
+        <servlet-name>OpenDag</servlet-name>
+        <servlet-class>mvsite.opendag.OpenDagServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenDag</servlet-name>
+        <url-pattern>/opendag</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
