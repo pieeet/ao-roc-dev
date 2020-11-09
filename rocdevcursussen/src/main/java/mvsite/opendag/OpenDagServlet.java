@@ -59,11 +59,11 @@ public class OpenDagServlet extends HttpServlet {
             startTime = null;
         }
         Date now = new Date();
-        if (startTime.getTime() - now.getTime() > 1000 * 60 * 15) {
-            resp.getWriter().print("Bedankt voor je inschrijving. De webinar start: " +
-                    startTimes[sessieindex] + " Zorg dat je een Google account hebt om in te kunnen loggen.");
-        } else if (now.getTime() - startTime.getTime()  > 1000 * 60 * 20) {
-            resp.getWriter().print("De sessie is al beëindigd");
+//        if (startTime.getTime() - now.getTime() > 1000 * 60 * 15) {
+//            resp.getWriter().print("Bedankt voor je inschrijving. De webinar start: " +
+//                    startTimes[sessieindex] + " Zorg dat je een Google account hebt om in te kunnen loggen.");
+        if (now.getTime() - startTime.getTime()  > 1000 * 60 * 60) {
+            resp.getWriter().print("De sessie is al beëindigd. Kies indien mogelijk een latere sessie.");
         } else {
             resp.getWriter().print("ok");
         }

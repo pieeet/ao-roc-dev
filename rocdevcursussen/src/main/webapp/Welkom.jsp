@@ -24,7 +24,7 @@
             <label for="input-email">email</label><br>
             <input class="form-control" type="email" id="input-email">
             <p id="email-warning" class="error" hidden> Vul een geldig email adres in</p>
-            <h2>Schrijf je in voor een sessie</h2>
+            <h2>Ga naar een sessie</h2>
             <p>Om aan een Google Meet sessie deel te kunnen nemen heb je een Google account nodig. Google Meet sessies
             werken niet in Internet Explorer.</p>
             <div class="col-md-3 btnholder">
