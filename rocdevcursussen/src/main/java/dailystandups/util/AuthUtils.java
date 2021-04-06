@@ -23,7 +23,9 @@ public class AuthUtils {
                 "mvangelder@roc-dev.com",
                 "mwijnands@roc-dev.com",
                 "rdorr@roc-dev.com",
-                "joosterink@roc-dev.com"
+                "joosterink@roc-dev.com",
+                "takram@roc-dev.com",
+                "lpeelen@roc-dev.com"
 
         };
         boolean isAdmin = false;

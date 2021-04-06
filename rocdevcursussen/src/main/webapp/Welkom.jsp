@@ -4,53 +4,79 @@
         div.btnholder {
             margin-bottom: 15px;
         }
+
     </style>
 
     <div class="row">
         <div class="col-md-8">
             <h1>Open dag 7 november 2020</h1>
-            <p>Op zaterdag 7 november organiseren we een open dag. Helaas kunnen we aankomende
-                studenten en hun ouders niet op onze lokatie in Almere Buiten ontvangen. Daarom
-                gaan we de open dag met behulp van Google Meet organiseren. De docenten van de opleiding
-                gaan zich voorstellen en er wordt een presentatie over de opleiding gegeven. Uiteraard
-                kun je vragen stellen via de microfoon van je computer of telefoon of via de chat functie.</p>
-            <p>De Google Meet sessies zijn gepland om 10:00 11:00 12:00 en 13:00 uur. Onderstaande knoppen
-                leiden je naar de bijeenkomsten.</p>
-            <p>Om je op de hoogte te kunnen houden van nieuws en ontwikkelingen vragen we je om hieronder
-                je email adres in te vullen. Nadat je je email hebt ingevuld en een sessie hebt gekozen
-                ben je ingeschreven. Op de dag zelf kun je naar de
-                sessie gaan door op &eacute;&eacute;n van de sessie knoppen te klikken.</p>
+            <p>Zaterdag 7 november 2020 hebben we een online open dag gehouden. Hier vind je de opgenomen
+            presentatie en de gebruikte slides</p>
 
-            <label for="input-email">email</label><br>
-            <input class="form-control" type="email" id="input-email">
-            <p id="email-warning" class="error" hidden> Vul een geldig email adres in</p>
-            <h2>Ga naar een sessie</h2>
-            <p>Om aan een Google Meet sessie deel te kunnen nemen heb je een Google account nodig. Google Meet sessies
-            werken niet in Internet Explorer.</p>
-            <div class="col-md-3 btnholder">
-                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"
-                        data-sessie="1" data-opleiding="SD"
-                        data-url="https://meet.google.com/cxa-xctn-msc">10:00 uur
-                </button>
+            <h2>De presentatie</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/aBLKvtG6scY"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
-            <div class="col-md-3 btnholder">
-                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"
-                        data-sessie="2" data-opleiding="SD"
-                        data-url="https://meet.google.com/fgd-riqr-jje">11:00 uur
-                </button>
+
+            <h2>De gebruikte slides</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR0zZ7K_Dq72XE6SINgZ8nY21YogR2Wl7w6OPwt5p9fNsEIXxeHaVaNAbW43qUxRRoGFYj_XoqW678t/embed?start=false&loop=false&delayms=3000"
+                        frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true"
+                        webkitallowfullscreen="true"></iframe>
             </div>
-            <div class="col-md-3 btnholder">
-                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"
-                        data-sessie="3" data-opleiding="SD"
-                        data-url="https://meet.google.com/veb-htse-qrd">12:00 uur
-                </button>
-            </div>
-            <div class="col-md-3 btnholder">
-                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"
-                        data-sessie="4" data-opleiding="SD"
-                        data-url="https://meet.google.com/ofo-oprv-ccn">13:00 uur
-                </button>
-            </div>
+
+
+
+
+
+
+
+
+
+<%--            <p>Op zaterdag 7 november organiseren we een open dag. Helaas kunnen we aankomende--%>
+<%--                studenten en hun ouders niet op onze lokatie in Almere Buiten ontvangen. Daarom--%>
+<%--                gaan we de open dag met behulp van Google Meet organiseren. De docenten van de opleiding--%>
+<%--                gaan zich voorstellen en er wordt een presentatie over de opleiding gegeven. Uiteraard--%>
+<%--                kun je vragen stellen via de microfoon van je computer of telefoon of via de chat functie.</p>--%>
+<%--            <p>De Google Meet sessies zijn gepland om 10:00 11:00 12:00 en 13:00 uur. Onderstaande knoppen--%>
+<%--                leiden je naar de bijeenkomsten.</p>--%>
+<%--            <p>Om je op de hoogte te kunnen houden van nieuws en ontwikkelingen vragen we je om hieronder--%>
+<%--                je email adres in te vullen. Nadat je je email hebt ingevuld en een sessie hebt gekozen--%>
+<%--                ben je ingeschreven. Op de dag zelf kun je naar de--%>
+<%--                sessie gaan door op &eacute;&eacute;n van de sessie knoppen te klikken.</p>--%>
+
+<%--            <label for="input-email">email</label><br>--%>
+<%--            <input class="form-control" type="email" id="input-email">--%>
+<%--            <p id="email-warning" class="error" hidden> Vul een geldig email adres in</p>--%>
+<%--            <h2>Ga naar een sessie</h2>--%>
+<%--            <p>Om aan een Google Meet sessie deel te kunnen nemen heb je een Google account nodig. Google Meet sessies--%>
+<%--            werken niet in Internet Explorer.</p>--%>
+<%--            <div class="col-md-3 btnholder">--%>
+<%--                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"--%>
+<%--                        data-sessie="1" data-opleiding="SD"--%>
+<%--                        data-url="https://meet.google.com/cxa-xctn-msc">10:00 uur--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--            <div class="col-md-3 btnholder">--%>
+<%--                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"--%>
+<%--                        data-sessie="2" data-opleiding="SD"--%>
+<%--                        data-url="https://meet.google.com/fgd-riqr-jje">11:00 uur--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--            <div class="col-md-3 btnholder">--%>
+<%--                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"--%>
+<%--                        data-sessie="3" data-opleiding="SD"--%>
+<%--                        data-url="https://meet.google.com/veb-htse-qrd">12:00 uur--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--            <div class="col-md-3 btnholder">--%>
+<%--                <button type="button" class="btn btn-primary btn-sm btn-success sessionbtn"--%>
+<%--                        data-sessie="4" data-opleiding="SD"--%>
+<%--                        data-url="https://meet.google.com/ofo-oprv-ccn">13:00 uur--%>
+<%--                </button>--%>
+<%--            </div>--%>
 
         </div>
     </div>

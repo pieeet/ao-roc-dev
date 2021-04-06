@@ -1,14 +1,11 @@
 package dailystandups.util;
 
 import com.google.appengine.api.datastore.*;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import dailystandups.model.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -128,7 +125,6 @@ public class DataUtils {
         return user;
     }
 
-
     private static Planning getPlanning(StandUpUser user) {
         long planningId;
         planningId = user.getLaatstePlanningId();
@@ -204,15 +200,16 @@ public class DataUtils {
         }
     }
 
-
     public static ArrayList<Planning> getPlanningenFromUser(String email) {
         ArrayList<Planning> planningen = new ArrayList<>();
         Key ancestorKey = KeyFactory.createKey(KIND_USER, email);
+        FetchOptions fetchOptions = FetchOptions.Builder.withLimit(15);
         Query q = new Query(KIND_PLANNING)
                 .setAncestor(ancestorKey)
                 .addSort(PROPERTY_DATE, Query.SortDirection.DESCENDING);
         PreparedQuery pq = datastore.prepare(q);
-        for (Entity entity : pq.asIterable()) {
+        QueryResultList<Entity> results = pq.asQueryResultList(fetchOptions);
+        for (Entity entity : results) {
             Planning pv2 = makePlanningFromEntity(entity);
             List<Ticket> ticketsList = getTicketsFromPlanning(email, pv2.getId());
             Ticket[] tickets = new Ticket[ticketsList.size()];
@@ -325,7 +322,6 @@ public class DataUtils {
         PreparedQuery pq = datastore.prepare(q);
         return maakVakLijst(pq);
     }
-
 
     public static ArrayList<Vak> getVakkenFromDocent(String docent) {
         Query.Filter propertyFilter = new Query.FilterPredicate(PROPERTY_DOCENT, Query.FilterOperator.EQUAL, docent);
@@ -486,7 +482,23 @@ public class DataUtils {
         return makeUserFromEntity(entity);
     }
 
-    public static long[] getAfgerondeTicketsFromUser(String email) {
+    public static ArrayList<Ticket> getAfgerondeTicketsFromUser(String email) {
+        ArrayList<Ticket> afgerondeTickets = new ArrayList<>();
+        long[] ticketIds = getAfgerondeTicketIdsFromUser(email);
+        for (long id: ticketIds) {
+            Key ticketKey = KeyFactory.createKey(KIND_TICKET, id);
+            try {
+                Entity ticketEntity = datastore.get(ticketKey);
+                // wanneer afgerond hier niet aan de orde
+                afgerondeTickets.add(makeTicketFromEntity(ticketEntity, 0));
+            } catch (EntityNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return afgerondeTickets;
+    }
+
+    public static long[] getAfgerondeTicketIdsFromUser(String email) {
         Query.Filter emailFilter = new Query.FilterPredicate(PROPERTY_EMAIL, Query.FilterOperator.EQUAL,
                 email);
         Query.Filter afgerondFilter = new Query.FilterPredicate(PROPERTY_AFGEROND, Query.FilterOperator.GREATER_THAN,

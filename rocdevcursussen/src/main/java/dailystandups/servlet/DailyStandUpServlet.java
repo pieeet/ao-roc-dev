@@ -5,7 +5,6 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserServiceFactory;
 import dailystandups.model.*;
 import dailystandups.util.DataUtils;
-import dailystandups.util.EmailUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -196,7 +195,7 @@ public class DailyStandUpServlet extends HttpServlet {
 
 
     private String makeHtmlSelectorFromTickets(ArrayList<Ticket> tickets, String email) {
-        long[] afgerondeTickets = DataUtils.getAfgerondeTicketsFromUser(email);
+        long[] afgerondeTickets = DataUtils.getAfgerondeTicketIdsFromUser(email);
 
         ArrayList<Ticket> nietAfgerondeTickets = new ArrayList<>();
         for (Ticket ticket: tickets) {

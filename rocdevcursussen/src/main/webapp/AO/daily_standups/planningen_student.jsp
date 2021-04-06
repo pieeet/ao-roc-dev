@@ -24,6 +24,21 @@
 
 <%@ include file="/includes/pagetop-all.jsp" %>
 <div class="container">
+
+    <%
+        if (afgerondeTickets == null) {
+    %>
+    <p>afgeronde tickets = null</p>
+    <%
+        } else if (afgerondeTickets.isEmpty()) {
+    %>
+    <p>afgeronde tickets is leeg</p>
+    <%
+        }
+    %>
+
+
+
     <%--<%@ include file="/AO/daily_standups/includes/zijmenu.jsp" %>--%>
     <div class="row">
         <div class="col-md-12">

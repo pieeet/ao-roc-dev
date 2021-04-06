@@ -75,7 +75,13 @@ public enum Groep {
     MMVAO0C("MMVAO0C",
             2020,
             "AO"
-    );
+    ),
+    MMVAO0D(
+            "MMVAO0D",
+            2020,
+            "AO"
+    )
+    ;
 
 
     private String naam;

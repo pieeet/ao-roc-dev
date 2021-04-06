@@ -31,7 +31,7 @@ public class OverviewStudentServlet extends HttpServlet {
         if (checkLegitUser(req)) {
             String email = req.getParameter(PARAM_EMAIL);
             ArrayList<Planning> plannings = DataUtils.getPlanningenFromUser(email);
-            ArrayList<Ticket> tickets = getAfgerondeTickets(plannings);
+            ArrayList<Ticket> tickets = DataUtils.getAfgerondeTicketsFromUser(email);
             StandUpUser sup = DataUtils.getStandUpUser(email);
             req.setAttribute("standupuser", sup);
             req.setAttribute("planningen", plannings);
@@ -46,6 +46,7 @@ public class OverviewStudentServlet extends HttpServlet {
     }
 
 
+    // afgeronde tickets worden nu uit Datastore gehaald
     private ArrayList<Ticket> getAfgerondeTickets(ArrayList<Planning> plannings) {
         ArrayList<Ticket> tickets = new ArrayList<>();
         for (Planning planning : plannings) {
