@@ -80,7 +80,23 @@ public enum Groep {
             "MMVAO0D",
             2020,
             "AO"
-    )
+    ),
+    MMVAO1A(
+            "MMVAO1A",
+            2021,
+            "AO"
+    ),
+    MMVAO1B(
+            "MMVAO1B",
+            2021,
+            "AO"
+    ),
+    MMVAO1C("MMVAO1C",
+            2021,
+            "AO"),
+    MMVAO1D("MMVAO1D",
+            2021,
+            "AO")
     ;
 
 
