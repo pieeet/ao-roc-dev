@@ -171,7 +171,7 @@
                         <button type="button"
                                 class="btn_verleng_ticket btn btn-primary btn-warning"
                                 data-ticketid="<%= ticket.getId() %>">Verleng ticket</button>
-                        
+
                         <% }
                         }
                         %>
