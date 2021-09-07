@@ -168,9 +168,19 @@
                         <% } else if (((ProjectTicket) ticket).getApproved() != null) { %>
                         <p>Akkoord: <%=((ProjectTicket) ticket).getApproved()%>
                         </p>
+
+
+
+
+
                         <button type="button"
-                                class="btn_verleng_ticket btn btn-primary btn-warning"
-                                data-ticketid="<%= ticket.getId() %>">Verleng ticket</button>
+                                class="btn-verleng-ticket btn btn-primary btn-warning"
+                                data-ticketid="<%= ticket.getId() %>"
+                                data-projectnaam="<%=((ProjectTicket) ticket).getProjectNaamEsc()%>"
+                                data-ticketomschrijving="<%=((ProjectTicket) ticket).getBeschrijvingTicketEsc()%>"
+                                data-aantal-uren="<%=ticket.getAantalUren()%>"
+
+                        >Verleng ticket</button>
 
                         <% }
                         }
@@ -709,6 +719,10 @@
                     $('#waarom_niet_gelukt_wrapper').addClass('hidden');
                 }
             }
+
+
+            // submit a custom ticket
+
             $(document).on('click', '#btn_custom_ticket', function () {
                 let projectNaam = $("#naam_project_input").val();
                 if (projectNaam === "") {
@@ -756,6 +770,20 @@
                     }
                 });
             });
+            
+            $(document).on('click', '.btn-verleng-ticket', function() {
+                const btn = $(this);
+                const id = btn.data('ticketid');
+                const proj = btn.data('projectnaam');
+                const omschrijving = btn.data('ticketomschrijving');
+                const aantalUur = btn.data('aantal-uren');
+                $("#tickets_list").append('<li data-ticket_id=' + id + '>' + proj +
+                    ' - ' + omschrijving + ' - ' + aantalUur + ' punten</li>');
+                verhoogUren(aantalUur);
+                $("#tickets").removeClass('hidden');
+                btn.prop('disabled', true);
+            });
+
             $(document).on('click', '.btn_update_ticket', function () {
                 const $button = $(this);
                 $button.attr('disabled', true);
