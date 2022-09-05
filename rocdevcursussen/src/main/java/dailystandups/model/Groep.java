@@ -97,8 +97,28 @@ public enum Groep {
 
     MMVAO1D("MMVAO1D",
             2021,
-            "AO")
-    ;
+            "AO"),
+    MMVSDO2A(
+            "MMVSDO2A",
+            2022,
+            "AO"),
+    MMVSDO2B(
+            "MMVSDO2B",
+            2022,
+            "AO"),
+    MMVSDO2C(
+            "MMVSDO2C",
+            2022,
+            "AO"),
+    MMVSDO2D(
+            "MMVSDO2D",
+            2022,
+            "AO");
+
+
+
+
+
 
 
     private String naam;

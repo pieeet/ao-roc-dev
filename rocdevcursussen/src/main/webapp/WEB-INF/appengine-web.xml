@@ -9,4 +9,11 @@
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
+    <automatic-scaling>
+        <max-instances>1</max-instances>
+    </automatic-scaling>
+
+
+
+
 </appengine-web-app>
